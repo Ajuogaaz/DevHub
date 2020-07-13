@@ -16,6 +16,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.devhub.Utils.Constants.GITHUB_URI;
+
 public class ValidateActivity extends AppCompatActivity {
 
     ActivityValidateBinding binding;
@@ -35,6 +37,7 @@ public class ValidateActivity extends AppCompatActivity {
         });
     }
 
+    //This is the method that calls and redirects github logins
     private void initiateGithubLogin() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URI +
                 "?client_id=" + CLIENT_ID + "&scope=repo&redirect_uri=" + REDIRECT_URI)
