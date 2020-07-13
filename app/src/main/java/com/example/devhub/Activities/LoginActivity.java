@@ -32,9 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        if(ParseUser.getCurrentUser() != null) {
-            goToMainActivity();
-        }
+        //if(ParseUser.getCurrentUser() != null) {
+          //  goToMainActivity();
+        //}
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
