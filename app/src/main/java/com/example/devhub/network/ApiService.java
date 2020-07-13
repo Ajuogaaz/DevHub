@@ -56,5 +56,14 @@ public class ApiService {
         return userRepos;
     }
 
+    public static ApiClient getApiClient() {
+        return getRetrofit().create(ApiClient.class);
+    }
+
+    public static ApiClient getApiUserRepos() {
+        return getUserRepos().create(ApiClient.class);
+    }
+
+
 
 }
