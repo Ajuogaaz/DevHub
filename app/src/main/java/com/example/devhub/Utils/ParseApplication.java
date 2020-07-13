@@ -25,4 +25,4 @@ public class ParseApplication extends Application {
                 .server("https://linusgram.herokuapp.com/parse/").build());
 
     }
-}}
+}
