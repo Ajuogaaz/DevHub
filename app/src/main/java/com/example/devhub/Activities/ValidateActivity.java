@@ -74,7 +74,7 @@ public class ValidateActivity extends AppCompatActivity {
                     AccessToken accessToken = response.body();
                     showHomePage(accessToken);
                 } else {
-                    Toast.makeText(ValidateActivity.this, "Request denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ValidateActivity.this, R.string.RequestDenied, Toast.LENGTH_SHORT).show();
                 }
             }
 
