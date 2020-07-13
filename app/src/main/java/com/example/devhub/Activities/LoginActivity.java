@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.devhub.Models.User;
-import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityLoginBinding;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -88,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
     private void goToMainActivity() {
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
