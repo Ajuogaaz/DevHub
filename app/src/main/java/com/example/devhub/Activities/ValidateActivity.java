@@ -80,7 +80,7 @@ public class ValidateActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AccessToken> call, Throwable t) {
-                Toast.makeText(ValidateActivity.this, "Check your connection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ValidateActivity.this, R.string.connectionFailure, Toast.LENGTH_SHORT).show();
             }
         });
     }
