@@ -9,7 +9,7 @@ import com.parse.ParseUser;
 @ParseClassName("User")
 public class User extends ParseUser {
 
-    public static final String KEY_NAME = "username";
+    //public static final String KEY_NAME = "username";
     public static final String KEY_AUTH = "authData";
     public static final String KEY_PROFILE_PIC = "profilePic";
 
