@@ -23,19 +23,12 @@ public class Followers extends ParseObject {
     }
 
     public User getFollowingUser(){
-        return (User)getParseUser(KEY_USER);
+        return (User)getParseUser(KEY_FOLLOWING_USER);
     }
     public void setFollowingUser(User user){
-        put (KEY_USER, user);
+        put (KEY_FOLLOWING_USER, user);
     }
 
-
-    public ParseUser getUser(){
-        return getParseUser(KEY_USER);
-    }
-    public void setUser(ParseUser user){
-        put (KEY_USER, user);
-    }
 
     public String getTime(){
 
