@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.devhub.Utils.Constants.CLIENT_ID;
+import static com.example.devhub.Utils.Constants.CLIENT_SECRET;
 import static com.example.devhub.Utils.Constants.GITHUB_URI;
 import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 
