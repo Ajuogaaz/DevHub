@@ -5,6 +5,9 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @ParseClassName("Comments")
 public class Comments extends ParseObject {
 
@@ -32,6 +35,18 @@ public class Comments extends ParseObject {
     }
     public void setUser(ParseUser user){
         put (KEY_USER, user);
+    }
+
+    public String getTime(){
+
+        Date date = getCreatedAt();
+
+        SimpleDateFormat format = new SimpleDateFormat("E MM dd yyyy hh:mm");
+
+        String currDate = format.format(date);
+
+        return currDate;
+
     }
 
 }
