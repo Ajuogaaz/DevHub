@@ -2,7 +2,6 @@ package com.example.devhub.Models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
