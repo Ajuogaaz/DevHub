@@ -17,16 +17,14 @@ import retrofit2.Response;
 
 public class ValidateActivity extends AppCompatActivity {
 
-    private Button btnLogin;
+    ActivityValidateBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
 
-        ActivityValidateBinding binding = ActivityValidateBinding.inflate(getLayoutInflater());
-
-        initViews();
+        binding = ActivityValidateBinding.inflate(getLayoutInflater());
 
         btnLogin.setOnClickListener(v -> initiateGithubLogin());
     }
