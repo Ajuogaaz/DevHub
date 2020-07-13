@@ -3,7 +3,9 @@ package com.example.devhub.Utils;
 import android.app.Application;
 
 import com.example.devhub.Models.Comments;
+import com.example.devhub.Models.Followers;
 import com.parse.Parse;
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.example.devhub.Models.Post;
 
@@ -16,6 +18,7 @@ public class ParseApplication extends Application {
         ///Register your parse models
         ParseObject.registerSubclass(Post.class);
         ParseObject.registerSubclass(Comments.class);
+        ParseObject.registerSubclass(Followers.class);
 
 
         // set applicationId, and server server based on the values in the Heroku settings.
