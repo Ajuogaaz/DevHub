@@ -33,7 +33,4 @@ public class Comments extends ParseObject {
         put (KEY_USER, user);
     }
 
-
-
-
 }
