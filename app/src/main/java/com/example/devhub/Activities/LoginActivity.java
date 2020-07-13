@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            goToMainActivity();
+                            goToValidateActivity();
                         }else{
                             Toast.makeText(LoginActivity.this, "User Already exists", Toast.LENGTH_SHORT).show();
                         }
@@ -80,12 +80,22 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                goToMainActivity();
+                //goToMainActivity();
+                goToValidateActivity();
 
             }
         });
 
     }
+
+    private void goToValidateActivity() {
+
+        Intent intent = new Intent(LoginActivity.this, ValidateActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     private void goToMainActivity() {
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
