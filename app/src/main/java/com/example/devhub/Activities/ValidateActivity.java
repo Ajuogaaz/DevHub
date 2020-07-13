@@ -18,6 +18,7 @@ import retrofit2.Response;
 
 import static com.example.devhub.Utils.Constants.CLIENT_ID;
 import static com.example.devhub.Utils.Constants.GITHUB_URI;
+import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 
 public class ValidateActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class ValidateActivity extends AppCompatActivity {
     }
 
     //This is the method that calls and redirects github logins
+    //We use the variables saved in constants
     private void initiateGithubLogin() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URI +
                 "?client_id=" + CLIENT_ID + "&scope=repo&redirect_uri=" + REDIRECT_URI)
