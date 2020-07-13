@@ -1,10 +1,40 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-</resources>
+    <style name="LoginButton" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/instagram_blue</item>
+        <item name="android:background">@drawable/buttontemplate</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="signButton" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/Green</item>
+        <item name="android:background">@drawable/buttonsigntemplate</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="logintextstyle" >
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:hint">@string/usernameHint</item>
+        <item name="android:textColorHint">@color/Black</item>
+        <item name="android:background">@drawable/logintextdrawable</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <dimen name="WidthOfwidgets">25dp</dimen>
+
+
+</resources>>
