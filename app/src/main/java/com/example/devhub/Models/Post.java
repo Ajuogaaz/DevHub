@@ -11,14 +11,18 @@ import com.parse.ParseUser;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+//Adding the class tag
 @ParseClassName("Post")
 public class Post extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY__IMAGE = "postImage";
+    public static final String KEY_IMAGE = "postImage";
     public static final String KEY_USER = "postingUser";
     public static final String KEY_CREATED_AT = "createdAt";
 
+
+    //Making getter and setter methods
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
     }
@@ -27,10 +31,10 @@ public class Post extends ParseObject {
     }
 
     public ParseFile getImage(){
-        return getParseFile(KEY__IMAGE);
+        return getParseFile(KEY_IMAGE);
     }
     public void setImage(ParseFile parseFile){
-        put (KEY__IMAGE, parseFile);
+        put (KEY_IMAGE, parseFile);
     }
 
     public ParseUser getUser(){
