@@ -1,4 +1,4 @@
 package com.example.devhub.Models;
 
-public class Post {
+public class Post extends{
 }
