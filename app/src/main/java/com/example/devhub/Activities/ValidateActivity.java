@@ -16,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.devhub.Utils.Constants.CLIENT_ID;
 import static com.example.devhub.Utils.Constants.GITHUB_URI;
 
 public class ValidateActivity extends AppCompatActivity {
