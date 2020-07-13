@@ -12,7 +12,6 @@ public class Followers extends ParseObject {
 
     public static final String KEY_USER = "subjectUser";
     public static final String KEY_FOLLOWING_USER = "followingUser";
-    public static final String KEY_CREATED_AT = "createdAt";
 
 
     public User getSubjectUser(){
