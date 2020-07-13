@@ -13,4 +13,6 @@
     <string name="password">Create password</string>
     <string name="login">LOGIN</string>
     <string name="signup">SIGNUP</string>
+    <string name="login_with_github">GITHUB</string>
+    <string name="github_auth">Click on the Button below to Authenticate with Github</string>
 </resources>
