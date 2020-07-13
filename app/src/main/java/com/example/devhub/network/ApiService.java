@@ -1,5 +1,7 @@
 package com.example.devhub.network;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -30,6 +32,28 @@ public class ApiService {
     }
 
     private static OkHttpClient logging(HttpLoggingInterceptor logging) {
+        return new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor(logging)
+                .build();
+
+    }
+
+    private static Retrofit getUserRepos() {
+        if (userRepos == null) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            sOkHttpClient = logging(logging);
+            userRepos = new Retrofit.Builder()
+                    .baseUrl(BASE_URL_REPOS)
+                    .client(sOkHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return userRepos;
     }
 
 
