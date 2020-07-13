@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i(TAG, "Onclick dignIn");
 
-                User user = (User) new ParseUser();
+                ParseUser user =  new ParseUser();
 
                 user.setUsername(binding.etUsername.getText().toString());
                 user.setPassword(binding.etPassword.getText().toString());
