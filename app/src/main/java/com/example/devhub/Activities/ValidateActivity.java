@@ -48,6 +48,7 @@ public class ValidateActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //We use retrofit to deal with the response of the data from the passed intent
     @Override
     protected void onResume() {
         super.onResume();
