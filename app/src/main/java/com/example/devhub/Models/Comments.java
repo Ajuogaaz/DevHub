@@ -1,10 +1,11 @@
 package com.example.devhub.Models;
 
+import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-
+@ParseClassName("Comments")
 public class Comments extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
