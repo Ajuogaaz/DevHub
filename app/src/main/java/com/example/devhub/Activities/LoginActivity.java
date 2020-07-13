@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.devhub.Models.User;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityLoginBinding;
 import com.parse.LogInCallback;
@@ -50,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i(TAG, "Onclick dignIn");
 
-                ParseUser user = new ParseUser();
+                User user = (User) new ParseUser();
 
                 user.setUsername(binding.etUsername.getText().toString());
                 user.setPassword(binding.etPassword.getText().toString());
