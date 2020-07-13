@@ -1,10 +1,11 @@
 package com.example.devhub.Models;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@ParseClassName("Likes")
 public class Likes extends ParseObject {
 
     public static final String KEY_USER = "likingUser";
