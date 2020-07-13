@@ -37,10 +37,10 @@ public class Post extends ParseObject {
         put (KEY_IMAGE, parseFile);
     }
 
-    public User getUser(){
-        return (User) getParseUser(KEY_USER);
+    public ParseUser getUser(){
+        return getParseUser(KEY_USER);
     }
-    public void setUser(User user){
+    public void setUser(ParseUser user){
         put (KEY_USER, user);
     }
 
