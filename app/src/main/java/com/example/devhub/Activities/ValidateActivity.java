@@ -74,19 +74,19 @@ public class ValidateActivity extends AppCompatActivity {
                     AccessToken accessToken = response.body();
                     showHomePage(accessToken);
                 } else {
-                    Toast.makeText(MainActivity.this, "Request denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ValidateActivity.this, "Request denied", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<AccessToken> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Check your connection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ValidateActivity.this, "Check your connection", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void showHomePage(AccessToken accessToken) {
-        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent = new Intent(ValidateActivity.this, MainActivity.class);
         intent.putExtra("accessToken", accessToken);
         startActivity(intent);
     }
