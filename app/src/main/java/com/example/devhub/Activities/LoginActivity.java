@@ -80,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                goToMainActivity();
-                //goToValidateActivity();
+                //goToMainActivity();
+                goToValidateActivity();
 
             }
         });

@@ -26,16 +26,18 @@ import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 
 public class ValidateActivity extends AppCompatActivity {
 
-    ActivityValidateBinding binding;
+   Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
 
-        binding = ActivityValidateBinding.inflate(getLayoutInflater());
+        btn = findViewById(R.id.btn_Login);
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+        //binding = ActivityValidateBinding.inflate(getLayoutInflater());
+
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initiateGithubLogin();
