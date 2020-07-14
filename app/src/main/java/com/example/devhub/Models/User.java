@@ -7,8 +7,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
-@ParseClassName("User")
-public class User extends ParseUser {
+public class User {
 
     //public static final String KEY_NAME = "username";
   /*  public static final String KEY_AUTH = "authData";

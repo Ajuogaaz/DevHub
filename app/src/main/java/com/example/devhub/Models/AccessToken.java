@@ -1,4 +1,4 @@
-package com.example.devhub.Utils;
+package com.example.devhub.Models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

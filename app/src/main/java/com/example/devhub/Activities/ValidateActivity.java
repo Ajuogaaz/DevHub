@@ -1,6 +1,5 @@
 package com.example.devhub.Activities;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,10 +11,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.devhub.R;
-import com.example.devhub.Utils.AccessToken;
-import com.example.devhub.databinding.ActivityValidateBinding;
+import com.example.devhub.Models.AccessToken;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
+import com.parse.ParseUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +35,13 @@ public class ValidateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
 
+        ParseUser user = ParseUser.getCurrentUser();
+
+        if(user == null){
+            toLoginActivity();
+        }
+
+
         btn = findViewById(R.id.btn_Login);
 
         //binding = ActivityValidateBinding.inflate(getLayoutInflater());
@@ -46,6 +52,10 @@ public class ValidateActivity extends AppCompatActivity {
                 initiateGithubLogin();
             }
         });
+    }
+
+    private void toLoginActivity() {
+        startActivity(new Intent(ValidateActivity.this, LoginActivity.class));
     }
 
     //This is the method that calls and redirects github logins
