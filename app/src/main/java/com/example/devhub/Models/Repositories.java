@@ -20,7 +20,7 @@ public class Repositories implements Parcelable {
     public static final Creator<Repositories> CREATOR = new Creator<Repositories>() {
         @Override
         public Repositories createFromParcel(Parcel in) {
-            return new Repositories(in);
+                return new Repositories(in);
         }
 
         @Override
