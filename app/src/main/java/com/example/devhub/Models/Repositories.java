@@ -39,6 +39,16 @@ public class Repositories implements Parcelable {
 
         parcel.writeString(name);
         parcel.writeString(fullName);
-
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+
+
 }
