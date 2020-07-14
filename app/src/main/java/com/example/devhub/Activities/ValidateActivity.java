@@ -1,5 +1,6 @@
 package com.example.devhub.Activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -93,4 +94,13 @@ public class ValidateActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Uri uri = getIntent().getData();
+        if (uri != null && uri.toString().startsWith(REDIRECT_URI)) {
+            String code = uri.getQueryParameter("code");
+            retroBuilder(code);
+        }
+    }
 }
