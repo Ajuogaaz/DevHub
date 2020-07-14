@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 public class ValidateActivity extends AppCompatActivity {
 
    Button btn;
+    private static final String TAG = "ValidateActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +61,14 @@ public class ValidateActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume: ONRESUMECALLED");
         Uri uri = getIntent().getData();
         if (uri != null && uri.toString().startsWith(REDIRECT_URI)) {
             String code = uri.getQueryParameter("code");
             retroBuilder(code);
         }
     }
+
 
     private void retroBuilder(String code) {
         ApiClient apiClient = ApiService.getApiClient();
@@ -94,13 +98,4 @@ public class ValidateActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = getIntent().getData();
-        if (uri != null && uri.toString().startsWith(REDIRECT_URI)) {
-            String code = uri.getQueryParameter("code");
-            retroBuilder(code);
-        }
-    }
 }
