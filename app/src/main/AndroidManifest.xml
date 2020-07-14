@@ -28,9 +28,11 @@
                     android:host="callback"
                     android:scheme="edtrum" />
             </intent-filter>
+
         </activity>
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.LoginActivity">
+
         </activity>
     </application>
 

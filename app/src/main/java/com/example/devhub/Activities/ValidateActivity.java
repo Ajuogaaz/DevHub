@@ -34,29 +34,27 @@ public class ValidateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
-
+        //ParseUser.logOut();
         ParseUser user = ParseUser.getCurrentUser();
+
 
         if(user == null){
             toLoginActivity();
+        }
+        else{
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         }
 
 
         btn = findViewById(R.id.btn_Login);
 
-        //binding = ActivityValidateBinding.inflate(getLayoutInflater());
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initiateGithubLogin();
-            }
-        });
+        btn.setOnClickListener(view -> initiateGithubLogin());
     }
 
     private void toLoginActivity() {
-        startActivity(new Intent(ValidateActivity.this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
     }
+
 
     //This is the method that calls and redirects github logins
     //We use the variables saved in constants

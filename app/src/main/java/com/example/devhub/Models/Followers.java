@@ -2,6 +2,7 @@ package com.example.devhub.Models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,17 +14,17 @@ public class Followers extends ParseObject {
     public static final String KEY_FOLLOWING_USER = "followingUser";
 
 
-    public User getSubjectUser(){
-        return (User)getParseUser(KEY_USER);
+    public ParseUser getSubjectUser(){
+        return getParseUser(KEY_USER);
     }
-    public void setSubjectUser(User user){
+    public void setSubjectUser(ParseUser user){
         put (KEY_USER, user);
     }
 
-    public User getFollowingUser(){
-        return (User)getParseUser(KEY_FOLLOWING_USER);
+    public ParseUser getFollowingUser(){
+        return getParseUser(KEY_FOLLOWING_USER);
     }
-    public void setFollowingUser(User user){
+    public void setFollowingUser(ParseUser user){
         put (KEY_FOLLOWING_USER, user);
     }
 

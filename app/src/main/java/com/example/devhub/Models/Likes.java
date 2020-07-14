@@ -2,6 +2,7 @@ package com.example.devhub.Models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,10 +14,10 @@ public class Likes extends ParseObject {
     public static final String KEY_RELATED_POST = "relatedPost";
 
 
-    public User getUser(){
-        return (User)getParseUser(KEY_USER);
+    public ParseUser getUser(){
+        return getParseUser(KEY_USER);
     }
-    public void setUser(User user){
+    public void setUser(ParseUser user){
         put (KEY_USER, user);
     }
 

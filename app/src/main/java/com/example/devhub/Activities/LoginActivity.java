@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 //goToMainActivity();
                 goToValidateActivity();
+                //cd42332af24c8b381a2cf6452d87c807c0899d02
 
             }
         });
