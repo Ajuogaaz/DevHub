@@ -2,6 +2,11 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/instagram_home_filled_24"
+        android:title="@string/Timeline"
+        app:showAsAction="always" />
 
 
 </menu>
