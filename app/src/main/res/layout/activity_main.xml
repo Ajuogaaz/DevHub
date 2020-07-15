@@ -42,6 +42,7 @@
         android:layout_marginStart="0dp"
         android:contentDescription="IgLogo"
         app:srcCompat="@drawable/toolbarinstagram" />
+    </com.google.android.material.appbar.MaterialToolbar>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
