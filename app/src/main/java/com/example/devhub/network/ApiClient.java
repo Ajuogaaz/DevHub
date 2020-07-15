@@ -29,5 +29,4 @@ public interface ApiClient {
 
     @GET("users/{user}/repos")
     Call<List<Repositories>> getUserRepos(@Path("user") String user);
-
 }
