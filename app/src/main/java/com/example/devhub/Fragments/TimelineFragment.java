@@ -45,9 +45,6 @@ public class TimelineFragment extends Fragment {
 
 
 
-
-
-
     public TimelineFragment() {
         // Required empty public constructor
     }
@@ -175,7 +172,6 @@ public class TimelineFragment extends Fragment {
                 if (e != null){
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
-
                 }
                 for(Post post: posts){
                     Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
@@ -183,6 +179,7 @@ public class TimelineFragment extends Fragment {
                 if(page == 0) {
                     adapter.clear();
                 }
+
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
             }
