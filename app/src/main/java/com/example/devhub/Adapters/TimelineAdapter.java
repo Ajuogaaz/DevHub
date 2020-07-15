@@ -78,6 +78,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private TextView tvNumberofLikes;
         private ImageView profilePic;
         private ImageView likeIcon;
+        private TextView tvTopic;
 
 
 
@@ -91,6 +92,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
             profilePic = itemView.findViewById(R.id.ivProfileImage);
             likeIcon = itemView.findViewById(R.id.ivLike);
+            tvTopic = itemView.findViewById(R.id.tvTitle);
 
 
 
@@ -103,6 +105,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvUserNameDescription.setText(post.getUser().getUsername());
             tvDate.setText(post.getTime());
             tvNumberofLikes.setText("200");
+            tvTopic.setText(post.getTopic());
 
             profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
 
