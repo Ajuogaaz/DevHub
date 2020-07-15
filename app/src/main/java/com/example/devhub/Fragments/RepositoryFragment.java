@@ -17,8 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.RepositoryAdapter;
 import com.example.devhub.Adapters.TimelineAdapter;
+import com.example.devhub.Models.AccessToken;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
@@ -29,6 +31,14 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RepositoryFragment extends Fragment {
 
@@ -125,24 +135,120 @@ public class RepositoryFragment extends Fragment {
     }
 
     protected void queryRepos(final int page) {
-        Post.query(page, DISPLAY_LIMIT, specifiedUser, new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
-                }
-                for(Post post: posts){
-                    Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
-                }
-                if(page == 0) {
-                    adapter.clear();
+
+    }
+
+
+    private void getUserInfo(AccessToken accessToken) {
+        if (accessToken != null) {
+            String token = accessToken.getAccessToken();
+
+            OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
+            okHttpClient.addInterceptor(chain -> {
+                Request request = chain.request();
+                Request.Builder newRequest = request.newBuilder().header(
+                        "Authorization",
+                        "token " + token);
+                return chain.proceed(newRequest.build());
+            }).build();
+
+            Retrofit.Builder builder = new Retrofit.Builder()
+                    .baseUrl(AUTH_URL)
+                    .client(okHttpClient.build())
+                    .addConverterFactory(GsonConverterFactory.create());
+
+            Retrofit retrofit = builder.build();
+            ApiClient apiClient = retrofit.create(ApiClient.class);
+            apiClient.getUserDetails().enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        User user = response.body();
+                        showUserInfo(user);
+                    } else {
+                        Toast.makeText(
+                                HomeActivity.this,
+                                "Please try again",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
                 }
 
-                allPosts.addAll(posts);
-                adapter.notifyDataSetChanged();
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Toast.makeText(
+                            HomeActivity.this,
+                            "Check your connection",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            });
+        }
+    }
+
+    private void showUserInfo(User user) {
+        name.setText(user.getName());
+        email.setText(user.getEmail());
+        repos.setText(String.valueOf(user.getRepos()));
+        username.setText(user.getUsername());
+
+        Glide.with(this).load(user.getAvatar()).into(avatar);
+
+        getUserRepositories(user.getUsername());
+    }
+
+    private void getUserRepositories(String username) {
+        reposLoader.setVisibility(View.VISIBLE);
+        ApiClient apiClient = ApiService.getApiUserRepos();
+        apiClient.getUserRepos(username).enqueue(new Callback<List<UserRepo>>() {
+            @Override
+            public void onResponse(Call<List<UserRepo>> call, Response<List<UserRepo>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    reposLoader.setVisibility(View.GONE);
+                    List<UserRepo> userRepos = response.body();
+                    loadRepositories(userRepos);
+                } else {
+                    reposLoader.setVisibility(View.GONE);
+                    Toast.makeText(
+                            HomeActivity.this,
+                            "Something went wrong while fetching repositories",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserRepo>> call, Throwable t) {
+                reposLoader.setVisibility(View.GONE);
+                Toast.makeText(
+                        HomeActivity.this,
+                        "Unable to fetch repositories",
+                        Toast.LENGTH_SHORT
+                ).show();
             }
         });
+    }
+
+    private void loadRepositories(List<UserRepo> userRepos) {
+        if (userRepos.size() > 0){
+            List<UserRepo> userRepoList = new ArrayList<>();
+            userRepoList.clear();
+            userRepoList.addAll(userRepos);
+
+            //Set up recycler view
+            reposRecycler.setLayoutManager(new LinearLayoutManager(this));
+            reposRecycler.setHasFixedSize(true);
+
+            repoAdapter.setData(userRepoList);
+            reposRecycler.setAdapter(repoAdapter);
+        } else {
+            Toast.makeText(this, "No repositories found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void repoItemClick(UserRepo userRepo) {
+        Toast.makeText(this, "clicked " + userRepo.getName(), Toast.LENGTH_SHORT).show();
     }
 
 
