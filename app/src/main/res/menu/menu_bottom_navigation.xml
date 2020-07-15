@@ -8,5 +8,11 @@
         android:title="@string/Timeline"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/instagram_new_post_filled_24"
+        android:title="Notifications"
+        app:showAsAction="always" />
+
 
 </menu>

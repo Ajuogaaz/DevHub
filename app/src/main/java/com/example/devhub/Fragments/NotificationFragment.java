@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.devhub.R;
 
 
-public class NotificationsFragment extends Fragment {
+public class NotificationFragment extends Fragment {
 
 
 }
