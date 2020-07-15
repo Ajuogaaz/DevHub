@@ -85,7 +85,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                queryPost(0);
+                queryRepos(0);
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -98,14 +98,14 @@ public class RepositoryFragment extends Fragment {
 
 
 
-        queryPost(0);
+        queryRepos(0);
 
 
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        queryPost(1);
+        queryRepos(1);
     }
 
 
@@ -124,7 +124,7 @@ public class RepositoryFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_timeline, container, false);
     }
 
-    protected void queryPost(final int page) {
+    protected void queryRepos(final int page) {
         Post.query(page, DISPLAY_LIMIT, specifiedUser, new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
