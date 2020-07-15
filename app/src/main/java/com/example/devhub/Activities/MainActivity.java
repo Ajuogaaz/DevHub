@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
                         binding.toolbar.setVisibility(View.GONE);
                         fragment = RepositoryFragment;
                         break;
-                    case R.id.action_profile:
+                    case R.id.action_timeline:
                     default:
                         Toast.makeText(MainActivity.this, "Profile",
                                 Toast.LENGTH_SHORT).show();
                         binding.toolbar.setVisibility(View.GONE);
-                        fragment = profileFragment;
+                        fragment = TimelineFragment;
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
