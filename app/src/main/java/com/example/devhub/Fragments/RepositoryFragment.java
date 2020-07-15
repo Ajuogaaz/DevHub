@@ -221,7 +221,7 @@ public class RepositoryFragment extends Fragment {
             public void onFailure(Call<List<Repositories>> call, Throwable t) {
                 reposLoader.setVisibility(View.GONE);
                 Toast.makeText(
-                        HomeActivity.this,
+                        getContext(),
                         "Unable to fetch repositories",
                         Toast.LENGTH_SHORT
                 ).show();
