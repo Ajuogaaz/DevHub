@@ -42,6 +42,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.devhub.Utils.Constants.AUTH_URL;
+
 public class RepositoryFragment extends Fragment {
 
     private RecyclerView rvPost;
