@@ -4,27 +4,35 @@
 
     <item
         android:id="@+id/action_timeline"
-        android:icon="@drawable/instagram_home_filled_24"
+        android:icon="@android:drawable/ic_lock_lock"
         android:title="@string/Timeline"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_notifications"
-        android:icon="@drawable/instagram_new_post_filled_24"
+        android:icon="@android:drawable/ic_popup_reminder"
         android:title="@string/Notification"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_chat"
-        android:icon="@drawable/instagram_new_post_filled_24"
+        android:icon="@android:drawable/ic_menu_send"
         android:title="@string/chat"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_repository"
-        android:icon="@drawable/instagram_new_post_filled_24"
+        android:icon="@android:drawable/ic_menu_myplaces"
         android:title="@string/repository"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search"
+        app:showAsAction="always" />
+
+
 
 
 
