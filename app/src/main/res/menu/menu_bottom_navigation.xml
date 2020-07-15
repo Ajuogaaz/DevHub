@@ -32,10 +32,4 @@
         android:title="@string/search"
         app:showAsAction="always" />
 
-
-
-
-
-
-
 </menu>
