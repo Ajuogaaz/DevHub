@@ -30,6 +30,7 @@ import com.example.devhub.Models.User;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.network.ApiClient;
+import com.example.devhub.network.ApiService;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -113,8 +114,6 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
-
 
 
         queryRepos(0);
