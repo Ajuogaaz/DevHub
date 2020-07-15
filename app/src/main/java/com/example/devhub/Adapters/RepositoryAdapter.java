@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,7 +22,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
     private Context context;
     onClickListener clickListener;
 
-    public interface onClickListener{
+    public interface onClickListener {
         void onItemClicked(int position);
     }
 
@@ -46,14 +47,14 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Repositories repo = repos.get(position)
+        Repositories repo = repos.get(position);
 
         holder.bind(repo);
     }
 
     @Override
     public int getItemCount() {
-        return  repos.size();
+        return repos.size();
     }
 
     /*public void setData(List<UserRepo> userRepos){
@@ -66,7 +67,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         TextView repoName, repoFullName;
         CardView repoItem;
 
-        ViewHolder(@NonNull View itemView, ItemInteraction itemInteraction) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             repoName = itemView.findViewById(R.id.repo_name);
@@ -81,15 +82,12 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
             repoFullName.setText(repo.getFullName());
             repoName.setText(repo.getName());
 
+            repoItem.setOnClickListener(view -> {
+                Toast.makeText(context, "A repo is clicked", Toast.LENGTH_SHORT).show();
+                clickListener.onItemClicked(getAdapterPosition());
 
-
-
+            });
 
         }
-
-    }
-
-    public interface ItemInteraction {
-        void repoItemClick(UserRepo userRepo);
     }
 }
