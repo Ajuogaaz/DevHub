@@ -184,7 +184,7 @@ public class RepositoryFragment extends Fragment {
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     Toast.makeText(
-                            HomeActivity.this,
+                            getContext(),
                             "Check your connection",
                             Toast.LENGTH_SHORT
                     ).show();
