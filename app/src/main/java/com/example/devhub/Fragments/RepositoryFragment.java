@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -55,8 +56,7 @@ public class RepositoryFragment extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
-
-
+    private ProgressBar reposLoader;
 
     public RepositoryFragment() {
         // Required empty public constructor
@@ -146,6 +146,9 @@ public class RepositoryFragment extends Fragment {
     }
 
 
+
+
+    //This method to be moved to the profile activity
     private void getUserInfo(AccessToken accessToken) {
         if (accessToken != null) {
             String token = accessToken.getAccessToken();
@@ -171,7 +174,6 @@ public class RepositoryFragment extends Fragment {
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
-                        showUserInfo(user);
                     } else {
                         Toast.makeText(
                                 getContext(),
@@ -193,16 +195,6 @@ public class RepositoryFragment extends Fragment {
         }
     }
 
-    private void showUserInfo(User user) {
-        name.setText(user.getName());
-        email.setText(user.getEmail());
-        repos.setText(String.valueOf(user.getRepos()));
-        username.setText(user.getUsername());
-
-        Glide.with(this).load(user.getAvatar()).into(avatar);
-
-        getUserRepositories(user.getUsername());
-    }
 
     private void getUserRepositories(String username) {
         reposLoader.setVisibility(View.VISIBLE);
