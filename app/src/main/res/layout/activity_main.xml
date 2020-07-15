@@ -32,17 +32,15 @@
             android:layout_marginStart="0dp"
             android:contentDescription="Camera"
             android:padding="0dp"
-            app:srcCompat="@drawable/cameraaa"
             tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/igLogo"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:padding="0dp"
-        android:layout_marginStart="0dp"
-        android:contentDescription="IgLogo"
-        app:srcCompat="@drawable/toolbarinstagram" />
+        <ImageView
+            android:id="@+id/igLogo"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="0dp"
+            android:contentDescription="IgLogo"
+            android:padding="0dp" />
     </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
