@@ -36,7 +36,7 @@ public class TimelineFragment extends Fragment {
 
     private static final int DISPLAY_LIMIT = 20;
     private RecyclerView rvPost;
-    public static final String TAG = "HomeFragment";
+    public static final String TAG = "TimelineFragment";
     protected TimelineAdapter adapter;
     protected List<Post> allPosts;
     private SwipeRefreshLayout swipeContainer;
