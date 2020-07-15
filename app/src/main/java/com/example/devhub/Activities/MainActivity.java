@@ -25,6 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
+    public static AccessToken accessToken;
 
 
     @Override
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        AccessToken accessToken = intent.getParcelableExtra("accessToken");
+        accessToken = intent.getParcelableExtra("accessToken");
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

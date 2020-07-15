@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Activities.MainActivity;
 import com.example.devhub.Adapters.RepositoryAdapter;
 import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.AccessToken;
@@ -71,7 +72,7 @@ public class RepositoryFragment extends Fragment {
 
         };
 
-
+        getUserInfo(MainActivity.accessToken);
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
