@@ -11,8 +11,15 @@
     <item
         android:id="@+id/action_notifications"
         android:icon="@drawable/instagram_new_post_filled_24"
-        android:title="Notifications"
+        android:title="@string/Notification"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_chat"
+        android:icon="@drawable/instagram_new_post_filled_24"
+        android:title="@string/chat"
+        app:showAsAction="always" />
+
 
 
 </menu>
