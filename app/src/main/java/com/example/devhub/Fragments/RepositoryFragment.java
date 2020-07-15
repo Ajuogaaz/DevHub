@@ -200,17 +200,17 @@ public class RepositoryFragment extends Fragment {
     private void getUserRepositories(String username) {
         reposLoader.setVisibility(View.VISIBLE);
         ApiClient apiClient = ApiService.getApiUserRepos();
-        apiClient.getUserRepos(username).enqueue(new Callback<List<UserRepo>>() {
+        apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
             @Override
-            public void onResponse(Call<List<UserRepo>> call, Response<List<UserRepo>> response) {
+            public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     reposLoader.setVisibility(View.GONE);
-                    List<UserRepo> userRepos = response.body();
-                    loadRepositories(userRepos);
+                    List<Repositories> repositories = response.body();
+                    loadRepositories(repositories);
                 } else {
                     reposLoader.setVisibility(View.GONE);
                     Toast.makeText(
-                            HomeActivity.this,
+                            getContext(),
                             "Something went wrong while fetching repositories",
                             Toast.LENGTH_SHORT
                     ).show();
