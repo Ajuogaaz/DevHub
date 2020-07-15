@@ -22,4 +22,5 @@
     <string name="Timeline">Timeline</string>
     <string name="Notification">Notification</string>
     <string name="chat">Chat</string>
+    <string name="repository">Repository</string>
 </resources>

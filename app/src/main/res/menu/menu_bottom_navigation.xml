@@ -20,6 +20,14 @@
         android:title="@string/chat"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_repository"
+        android:icon="@drawable/instagram_new_post_filled_24"
+        android:title="@string/repository"
+        app:showAsAction="always" />
+
+
+
 
 
 </menu>
