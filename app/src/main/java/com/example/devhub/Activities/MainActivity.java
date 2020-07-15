@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
+import com.example.devhub.Fragments.ChatFragment;
+import com.example.devhub.Fragments.NotificationFragment;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
