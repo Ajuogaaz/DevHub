@@ -174,7 +174,7 @@ public class RepositoryFragment extends Fragment {
                         showUserInfo(user);
                     } else {
                         Toast.makeText(
-                                HomeActivity.this,
+                                getContext(),
                                 "Please try again",
                                 Toast.LENGTH_SHORT
                         ).show();
