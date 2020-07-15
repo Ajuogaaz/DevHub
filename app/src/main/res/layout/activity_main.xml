@@ -45,5 +45,11 @@
     </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
