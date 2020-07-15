@@ -229,20 +229,14 @@ public class RepositoryFragment extends Fragment {
         });
     }
 
-    private void loadRepositories(List<UserRepo> userRepos) {
-        if (userRepos.size() > 0){
-            List<UserRepo> userRepoList = new ArrayList<>();
-            userRepoList.clear();
-            userRepoList.addAll(userRepos);
+    private void loadRepositories(List<Repositories> repositories) {
+        if (repositories.size() > 0){
+            allRepos = new ArrayList<>();
+            allRepos.clear();
+            allRepos.addAll(repositories);
 
-            //Set up recycler view
-            reposRecycler.setLayoutManager(new LinearLayoutManager(this));
-            reposRecycler.setHasFixedSize(true);
-
-            repoAdapter.setData(userRepoList);
-            reposRecycler.setAdapter(repoAdapter);
         } else {
-            Toast.makeText(this, "No repositories found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
         }
     }
 
