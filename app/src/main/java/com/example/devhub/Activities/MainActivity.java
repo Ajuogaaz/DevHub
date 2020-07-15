@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
+import com.example.devhub.Fragments.TimelineFragment;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityMainBinding;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         final Fragment NotificationFragment = new NotificationFragment();
         final Fragment RepositoryFragment = new RepositoryFragment();
         final Fragment Searchfragment = new SearchFragment();
+        final Fragment TimelineFragment = new TimelineFragment();
 
 
 
