@@ -105,7 +105,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                queryRepos(0);
+                getUserInfo(MainActivity.accessToken);
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -116,14 +116,12 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-        queryRepos(0);
-
 
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        queryRepos(1);
+        getUserInfo(MainActivity.accessToken);
     }
 
 
@@ -142,14 +140,6 @@ public class RepositoryFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_timeline, container, false);
     }
 
-    protected void queryRepos(final int page) {
-
-    }
-
-
-
-
-    //This method to be moved to the profile activity
     private void getUserInfo(AccessToken accessToken) {
         if (accessToken != null) {
             String token = accessToken.getAccessToken();
