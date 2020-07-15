@@ -60,22 +60,28 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_notifications:
                         Toast.makeText(MainActivity.this, "notifications",
                                 Toast.LENGTH_SHORT).show();
-                        binding.toolbar.setVisibility(View.GONE);
+                        //binding.toolbar.setVisibility(View.GONE);
                         fragment = NotificationFragment;
                         break;
 
                     case R.id.action_repository:
-                        Toast.makeText(MainActivity.this, "Compose",
+                        Toast.makeText(MainActivity.this, "Repository",
                                 Toast.LENGTH_SHORT).show();
-                        binding.toolbar.setVisibility(View.GONE);
+                        //binding.toolbar.setVisibility(View.GONE);
                         fragment = RepositoryFragment;
                         break;
                     case R.id.action_timeline:
                     default:
-                        Toast.makeText(MainActivity.this, "Profile",
+                        Toast.makeText(MainActivity.this, "Timeline",
                                 Toast.LENGTH_SHORT).show();
-                        binding.toolbar.setVisibility(View.GONE);
+                        //binding.toolbar.setVisibility(View.GONE);
                         fragment = TimelineFragment;
+                        break;
+                    case R.id.action_search:
+                        Toast.makeText(MainActivity.this, "Search",
+                                Toast.LENGTH_SHORT).show();
+                        //binding.toolbar.setVisibility(View.GONE);
+                        fragment = Searchfragment;
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
