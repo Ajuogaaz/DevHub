@@ -25,6 +25,7 @@ import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.AccessToken;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
+import com.example.devhub.Models.User;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.network.ApiClient;
