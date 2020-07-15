@@ -70,6 +70,7 @@ public class RepositoryFragment extends Fragment {
 
         rvRepos =view.findViewById(R.id.rvRepos);
 
+        reposLoader = view.findViewById(R.id.repos_loader);
 
         RepositoryAdapter.onClickListener  onClickListener = position -> {
 
