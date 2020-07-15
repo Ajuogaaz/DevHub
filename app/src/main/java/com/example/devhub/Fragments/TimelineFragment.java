@@ -16,7 +16,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
@@ -45,7 +48,7 @@ public class TimelineFragment extends Fragment {
 
 
 
-    public HomeFragment() {
+    public TimelineFragment() {
         // Required empty public constructor
     }
 
@@ -53,27 +56,28 @@ public class TimelineFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
-        MainActivity.setToolBarvisible();
 
 
         allPosts = new ArrayList<>();
 
 
 
-        PostAdapater.onClickListener onClickListener = new PostAdapater.onClickListener() {
+        TimelineAdapter.onClickListener onClickListener = new TimelineAdapter.onClickListener() {
             @Override
             public void onItemClicked(int position, int replyCode) {
 
-                if (replyCode == PostAdapater.DETAILS_CODE) {
+                if (replyCode == TimelineAdapter.DETAILS_CODE) {
 
-                    Intent intent = new Intent(getContext(), DetailsActivity.class);
+                    Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
 
-                    intent.putExtra("post", allPosts.get(position));
+                    //Intent intent = new Intent(getContext(), ValidateActivity.class);
 
-                    startActivity(intent);
+                    //intent.putExtra("post", allPosts.get(position));
+
+                    //startActivity(intent);
                 }
-                if (replyCode == PostAdapater.PROFILE_CODE){
-                    Fragment fragment = new ProfileFragment();
+                if (replyCode == TimelineAdapter.PROFILE_CODE){
+                    Fragment fragment = new ChatFragment();
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("user", allPosts.get(position).getUser());
                     fragment.setArguments(bundle);
@@ -87,11 +91,12 @@ public class TimelineFragment extends Fragment {
 
 
                 }
-                if (replyCode == PostAdapater.LIKE_CODE){
+                if (replyCode == TimelineAdapter.LIKE_CODE){
 
-                    Number k = allPosts.get(position).getLikes().intValue() + 1;
+                    //Number k = allPosts.get(position).getLikes().intValue() + 1;
 
-                    allPosts.get(position).setLikes(k);
+                    //allPosts.get(position).setLikes(k);
+                    Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -100,7 +105,7 @@ public class TimelineFragment extends Fragment {
             }
         };
 
-        adapter = new PostAdapater(getContext(), allPosts, onClickListener, PostAdapater.HOME_FRAGMENT_CODE);
+        adapter = new TimelineAdapter(getContext(), allPosts, onClickListener);
 
         rvPost.setAdapter(adapter);
 
@@ -160,7 +165,7 @@ public class TimelineFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_timeline, container, false);
     }
 
     protected void queryPost(final int page) {
@@ -183,9 +188,5 @@ public class TimelineFragment extends Fragment {
             }
         });
     }
-
-
-
-
 
 }
