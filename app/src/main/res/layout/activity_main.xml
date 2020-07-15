@@ -64,5 +64,7 @@
         android:background="@color/cardview_light_background"
         app:menu="@menu/menu_bottom_navigation" />
 
+    </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
