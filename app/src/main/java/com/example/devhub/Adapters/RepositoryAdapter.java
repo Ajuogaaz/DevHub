@@ -57,6 +57,11 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         return repos.size();
     }
 
+    public void clear(){
+        repos.clear();
+        notifyDataSetChanged();
+    }
+
     /*public void setData(List<UserRepo> userRepos){
         mUserRepos = userRepos;
         notifyDataSetChanged();

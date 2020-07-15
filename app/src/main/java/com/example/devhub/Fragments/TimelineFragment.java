@@ -59,47 +59,44 @@ public class TimelineFragment extends Fragment {
 
 
 
-        TimelineAdapter.onClickListener onClickListener = new TimelineAdapter.onClickListener() {
-            @Override
-            public void onItemClicked(int position, int replyCode) {
+        TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {
 
-                if (replyCode == TimelineAdapter.DETAILS_CODE) {
+            if (replyCode == TimelineAdapter.DETAILS_CODE) {
 
-                    Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
 
-                    //Intent intent = new Intent(getContext(), ValidateActivity.class);
+                //Intent intent = new Intent(getContext(), ValidateActivity.class);
 
-                    //intent.putExtra("post", allPosts.get(position));
+                //intent.putExtra("post", allPosts.get(position));
 
-                    //startActivity(intent);
-                }
-                if (replyCode == TimelineAdapter.PROFILE_CODE){
-                    Fragment fragment = new ChatFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("user", allPosts.get(position).getUser());
-                    fragment.setArguments(bundle);
+                //startActivity(intent);
+            }
+            if (replyCode == TimelineAdapter.PROFILE_CODE){
+                Fragment fragment = new ChatFragment();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("user", allPosts.get(position).getUser());
+                fragment.setArguments(bundle);
 
-                    //Go from this fragment to profile fragment
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.flContainer, fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-
-
-                }
-                if (replyCode == TimelineAdapter.LIKE_CODE){
-
-                    //Number k = allPosts.get(position).getLikes().intValue() + 1;
-
-                    //allPosts.get(position).setLikes(k);
-                    Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
-
-
-                }
+                //Go from this fragment to profile fragment
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContainer, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
 
             }
+            if (replyCode == TimelineAdapter.LIKE_CODE){
+
+                //Number k = allPosts.get(position).getLikes().intValue() + 1;
+
+                //allPosts.get(position).setLikes(k);
+                Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
+
+
+            }
+
+
         };
 
         adapter = new TimelineAdapter(getContext(), allPosts, onClickListener);

@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.devhub.Adapters.RepositoryAdapter;
 import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
@@ -33,8 +34,8 @@ public class RepositoryFragment extends Fragment {
 
     private RecyclerView rvPost;
     public static final String TAG = "RepositoryFragment";
-    protected TimelineAdapter adapter;
-    protected List<Repositories> allPosts;
+    protected  RepositoryAdapter adapter;
+    protected List<Repositories> allRepos;
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
@@ -49,54 +50,18 @@ public class RepositoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        allPosts = new ArrayList<>();
-
-
-        TimelineAdapter.onClickListener onClickListener = new TimelineAdapter.onClickListener() {
-            @Override
-            public void onItemClicked(int position, int replyCode) {
-
-                if (replyCode == TimelineAdapter.DETAILS_CODE) {
-
-                    Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
-
-                    //Intent intent = new Intent(getContext(), ValidateActivity.class);
-
-                    //intent.putExtra("post", allPosts.get(position));
-
-                    //startActivity(intent);
-                }
-                if (replyCode == TimelineAdapter.PROFILE_CODE){
-                    Fragment fragment = new ChatFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("user", allPosts.get(position).getUser());
-                    fragment.setArguments(bundle);
-
-                    //Go from this fragment to profile fragment
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.flContainer, fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+        allRepos = new ArrayList<>();
 
 
-                }
-                if (replyCode == TimelineAdapter.LIKE_CODE){
 
-                    //Number k = allPosts.get(position).getLikes().intValue() + 1;
+        RepositoryAdapter.onClickListener  onClickListener = position -> {
 
-                    //allPosts.get(position).setLikes(k);
-                    Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Showing click", Toast.LENGTH_SHORT).show();
 
-
-                }
-
-
-            }
         };
 
-        adapter = new TimelineAdapter(getContext(), allPosts, onClickListener);
+
+        adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
         rvPost.setAdapter(adapter);
 
