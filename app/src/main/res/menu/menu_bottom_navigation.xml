@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/action_timeline"
         android:icon="@drawable/instagram_home_filled_24"
         android:title="@string/Timeline"
         app:showAsAction="always" />
