@@ -1,5 +1,6 @@
 package com.example.devhub.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -69,6 +70,7 @@ public class RepositoryFragment extends Fragment {
             Toast.makeText(getContext(), "Showing click", Toast.LENGTH_SHORT).show();
 
         };
+
 
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
