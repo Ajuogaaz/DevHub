@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         final Fragment ChatFragment = new ChatFragment();
         final Fragment NotificationFragment = new NotificationFragment();
         final Fragment RepositoryFragment = new RepositoryFragment();
-        final Fragment Searchfragment = new SearchFragment();
+        final Fragment SearchFragment = new SearchFragment();
         final Fragment TimelineFragment = new TimelineFragment();
 
 
@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Search",
                                 Toast.LENGTH_SHORT).show();
                         //binding.toolbar.setVisibility(View.GONE);
-                        fragment = Searchfragment;
+                        fragment = SearchFragment;
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });
-        binding.bottomNavigation.setSelectedItemId(R.id.action_home);
+        binding.bottomNavigation.setSelectedItemId(R.id.action_timeline);
 
 
 
