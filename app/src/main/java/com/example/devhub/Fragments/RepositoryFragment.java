@@ -75,7 +75,7 @@ public class RepositoryFragment extends Fragment {
 
         RepositoryAdapter.onClickListener  onClickListener = position -> {
 
-            Toast.makeText(getContext(), "Showing click", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "clicked " + allRepos.get(position).getName(), Toast.LENGTH_SHORT).show();
 
         };
 
@@ -175,6 +175,8 @@ public class RepositoryFragment extends Fragment {
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
+                        getUserRepositories(user.getUsername());
+
                     } else {
                         Toast.makeText(
                                 getContext(),
@@ -239,13 +241,5 @@ public class RepositoryFragment extends Fragment {
             Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
         }
     }
-
-    @Override
-    public void repoItemClick(Repositories repository) {
-        Toast.makeText(getContext(), "clicked " + repository.getName(), Toast.LENGTH_SHORT).show();
-    }
-
-
-
 
 }
