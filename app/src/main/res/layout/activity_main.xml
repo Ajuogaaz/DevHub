@@ -25,5 +25,14 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
 
+    <ImageView
+        android:id="@+id/Camera"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:padding="0dp"
+        android:layout_marginStart="0dp"
+        android:contentDescription="Camera"
+        app:srcCompat="@drawable/cameraaa" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
