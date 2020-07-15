@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
                         fragment = NotificationFragment;
                         break;
 
-                    case R.id.action_compose:
+                    case R.id.action_repository:
                         Toast.makeText(MainActivity.this, "Compose",
                                 Toast.LENGTH_SHORT).show();
                         binding.toolbar.setVisibility(View.GONE);
-                        fragment = composeFragment;
+                        fragment = RepositoryFragment;
                         break;
                     case R.id.action_profile:
                     default:
