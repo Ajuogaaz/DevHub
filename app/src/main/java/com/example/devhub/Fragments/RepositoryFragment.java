@@ -241,8 +241,8 @@ public class RepositoryFragment extends Fragment {
     }
 
     @Override
-    public void repoItemClick(UserRepo userRepo) {
-        Toast.makeText(this, "clicked " + userRepo.getName(), Toast.LENGTH_SHORT).show();
+    public void repoItemClick(Repositories repository) {
+        Toast.makeText(getContext(), "clicked " + repository.getName(), Toast.LENGTH_SHORT).show();
     }
 
 
