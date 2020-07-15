@@ -33,7 +33,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         void onItemClicked(int position, int replyCode);
     }
 
-    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener, ) {
+    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener) {
         this.context = context;
         this.posts = posts;
         this.clickListener = clickListener;
@@ -43,7 +43,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
+
         return new ViewHolder(view);
 
     }
@@ -52,7 +54,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = posts.get(position);
         holder.bind(post);
-
     }
 
     public void clear(){
@@ -101,22 +102,14 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvUserName.setText(post.getUser().getUsername());
             tvUserNameDescription.setText(post.getUser().getUsername());
             tvDate.setText(post.getTime());
-            tvNumberofLikes.setText(post.getLikes().toString());
+            tvNumberofLikes.setText("200");
 
-            profilePic.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE);
-                }
-            });
+            profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
 
-            likeIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE);
-                    likeIcon.setImageResource(R.drawable.ufi_heart_active);
-                    tvNumberofLikes.setText(post.getLikes().toString());
-                }
+            likeIcon.setOnClickListener(view -> {
+                clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE);
+                likeIcon.setImageResource(R.drawable.ufi_heart_active);
+                tvNumberofLikes.setText("200");
             });
 
 
@@ -137,18 +130,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
                 Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
             }
 
-            ivImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickListener.onItemClicked(getAdapterPosition(), DETAILS_CODE);
-                }
-            });
+            ivImage.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), DETAILS_CODE));
 
         }
     }
-
-
-
 
 
 }
