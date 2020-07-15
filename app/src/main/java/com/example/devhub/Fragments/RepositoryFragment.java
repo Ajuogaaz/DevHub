@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.devhub.R;
 
-
-public class TimelineFragment extends Fragment {
+public class RepositoryFragment extends Fragment {
 
 }
