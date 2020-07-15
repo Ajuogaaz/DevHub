@@ -24,4 +24,8 @@
     <string name="chat">Chat</string>
     <string name="repository">Repository</string>
     <string name="search">Search</string>
+    <string name="post_image">Post Image</string>
+    <string name="likeicon">LikeIcon</string>
+    <string name="comment_icon">comment_icon</string>
+    <string name="savepost">SavePost</string>
 </resources>
