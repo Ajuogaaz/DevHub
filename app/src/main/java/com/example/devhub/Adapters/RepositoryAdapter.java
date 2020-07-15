@@ -1,146 +1,75 @@
 package com.example.devhub.Adapters;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.devhub.Models.Post;
+import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
-import com.parse.ParseFile;
 
 import java.util.List;
 
-public class RepositoryAdapter {
+public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.RepoHolder> {
 
-    private Context context;
-    private List<Post> posts;
-    TimelineAdapter.onClickListener clickListener;
-    public static final int DETAILS_CODE = 200;
-    public static final int PROFILE_CODE = 300;
-    public static final int LIKE_CODE = 400;
+    private List<Repositories> mUserRepos;
+    private ItemInteraction mItemInteraction;
 
-    public static final int HOME_FRAGMENT_CODE = 21;
-    public static final int PROFILE_FRAGMENT_CODE = 22;
-
-    public interface onClickListener{
-        void onItemClicked(int position, int replyCode);
-    }
-
-    public TimelineAdapter(Context context, List<Post> posts, TimelineAdapter.onClickListener clickListener) {
-        this.context = context;
-        this.posts = posts;
-        this.clickListener = clickListener;
-
+    public RepositoryAdapter(ItemInteraction itemInteraction) {
+        mItemInteraction = itemInteraction;
     }
 
     @NonNull
     @Override
-    public TimelineAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
-
-        return new TimelineAdapter.ViewHolder(view);
-
+    public RepoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.repo_item, parent, false);
+        return new RepoHolder(view, mItemInteraction);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TimelineAdapter.ViewHolder holder, int position) {
-        Post post = posts.get(position);
-        holder.bind(post);
+    public void onBindViewHolder(@NonNull RepoHolder holder, int position) {
+        holder.bind(mUserRepos.get(position));
     }
-
-    public void clear(){
-        posts.clear();
-        notifyDataSetChanged();
-    }
-
-
 
     @Override
     public int getItemCount() {
-        return posts.size();
+        return mUserRepos != null ? mUserRepos.size() : 0;
     }
 
-    class ViewHolder extends  RecyclerView.ViewHolder{
+    public void setData(List<UserRepo> userRepos){
+        mUserRepos = userRepos;
+        notifyDataSetChanged();
+    }
 
-        private TextView tvUserName;
-        private ImageView ivImage;
-        private TextView tvDescription;
-        private TextView tvUserNameDescription;
-        private TextView tvDate;
-        private TextView tvNumberofLikes;
-        private ImageView profilePic;
-        private ImageView likeIcon;
-        private TextView tvTopic;
+    class RepoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        ItemInteraction mItemInteraction;
+        TextView repoName, repoFullName;
 
-
-        public ViewHolder(@NonNull View itemView) {
+        RepoHolder(@NonNull View itemView, ItemInteraction itemInteraction) {
             super(itemView);
-            tvUserName = itemView.findViewById(R.id.tvName);
-            tvDescription = itemView.findViewById(R.id.tvDescription);
-            ivImage = itemView.findViewById(R.id.ivPostImage);
-            tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
-            tvDate = itemView.findViewById(R.id.tvCreatedAt);
-            tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
-            profilePic = itemView.findViewById(R.id.ivProfileImage);
-            likeIcon = itemView.findViewById(R.id.ivLike);
-            tvTopic = itemView.findViewById(R.id.tvTitle);
-
-
-
+            mItemInteraction = itemInteraction;
+            repoName = itemView.findViewById(R.id.repo_name);
+            repoFullName = itemView.findViewById(R.id.repo_full_name);
+            itemView.setOnClickListener(this);
         }
 
-        public void bind(final Post post) {
+        public void bind(UserRepo userRepo) {
+            repoFullName.setText(userRepo.getFullName());
+            repoName.setText(userRepo.getName());
+        }
 
-            tvDescription.setText(post.getDescription());
-            tvUserName.setText(post.getUser().getUsername());
-            tvUserNameDescription.setText(post.getUser().getUsername());
-            tvDate.setText(post.getTime());
-            tvNumberofLikes.setText("200");
-            tvTopic.setText(post.getTopic());
-
-            profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
-
-            likeIcon.setOnClickListener(view -> {
-                clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE);
-                likeIcon.setImageResource(R.drawable.ufi_heart_active);
-                tvNumberofLikes.setText("200");
-            });
-
-
-
-            String profilepic = post.getUser().getParseFile("ProfilePic").getUrl();
-
-            Glide.with(context)
-                    .load(profilepic)
-                    .into(profilePic);
-
-            ParseFile image = post.getImage();
-
-            if (image != null){
-                Glide.with(context)
-                        .load(image.getUrl())
-                        .into(ivImage);
-            }else{
-                Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
-            }
-
-            ivImage.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), DETAILS_CODE));
-
+        @Override
+        public void onClick(View v) {
+            mItemInteraction.repoItemClick(mUserRepos.get(getAdapterPosition()));
         }
     }
 
-
-}
-
-
+    public interface ItemInteraction {
+        void repoItemClick(UserRepo userRepo);
+    }
 }
