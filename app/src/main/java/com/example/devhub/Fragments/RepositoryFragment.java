@@ -218,7 +218,7 @@ public class RepositoryFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<UserRepo>> call, Throwable t) {
+            public void onFailure(Call<List<Repositories>> call, Throwable t) {
                 reposLoader.setVisibility(View.GONE);
                 Toast.makeText(
                         HomeActivity.this,
