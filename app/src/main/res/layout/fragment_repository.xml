@@ -27,7 +27,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPost"
+                android:id="@+id/rvRepos"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:layout_width="match_parent"

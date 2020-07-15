@@ -49,7 +49,7 @@ import static com.example.devhub.Utils.Constants.AUTH_URL;
 
 public class RepositoryFragment extends Fragment {
 
-    private RecyclerView rvPost;
+    private RecyclerView rvRepos;
     public static final String TAG = "RepositoryFragment";
     protected  RepositoryAdapter adapter;
     protected List<Repositories> allRepos;
@@ -68,6 +68,7 @@ public class RepositoryFragment extends Fragment {
 
         allRepos = new ArrayList<>();
 
+        rvRepos =view.findViewById(R.id.rvRepos);
 
 
         RepositoryAdapter.onClickListener  onClickListener = position -> {
@@ -80,10 +81,10 @@ public class RepositoryFragment extends Fragment {
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
-        rvPost.setAdapter(adapter);
+        rvRepos.setAdapter(adapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rvPost.setLayoutManager(linearLayoutManager);
+        rvRepos.setLayoutManager(linearLayoutManager);
 
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
@@ -94,7 +95,7 @@ public class RepositoryFragment extends Fragment {
             }
         };
         // Adds the scroll listener to RecyclerView
-        rvPost.addOnScrollListener(scrollListener);
+        rvRepos.addOnScrollListener(scrollListener);
 
         swipeContainer = view.findViewById(R.id.swipeContainer);
 
