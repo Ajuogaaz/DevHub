@@ -20,6 +20,8 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "postImage";
     public static final String KEY_USER = "postingUser";
     public static final String KEY_CREATED_AT = "createdAt";
+    public static final String KEY_TOPIC = "Topic";
+
 
 
     //Making getter and setter methods
@@ -42,6 +44,13 @@ public class Post extends ParseObject {
     }
     public void setUser(ParseUser user){
         put (KEY_USER, user);
+    }
+
+    public String getTopic(){
+        return getString(KEY_TOPIC);
+    }
+    public void setTopic(String topic){
+        put (KEY_TOPIC, topic);
     }
 
 
