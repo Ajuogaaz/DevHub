@@ -34,5 +34,14 @@
         android:contentDescription="Camera"
         app:srcCompat="@drawable/cameraaa" />
 
+    <ImageView
+        android:id="@+id/igLogo"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:padding="0dp"
+        android:layout_marginStart="0dp"
+        android:contentDescription="IgLogo"
+        app:srcCompat="@drawable/toolbarinstagram" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
