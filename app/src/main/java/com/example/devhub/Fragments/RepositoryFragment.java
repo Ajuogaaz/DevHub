@@ -67,9 +67,9 @@ public class RepositoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        rvRepos = view.findViewById(R.id.rvRepos);
         allRepos = new ArrayList<>();
 
-        rvRepos =view.findViewById(R.id.rvRepos);
 
         reposLoader = view.findViewById(R.id.repos_loader);
 
@@ -79,7 +79,7 @@ public class RepositoryFragment extends Fragment {
 
         };
 
-        getUserInfo(MainActivity.accessToken);
+
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
@@ -116,7 +116,7 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-
+        getUserInfo(MainActivity.accessToken);
     }
 
     public void loadNextDataFromBackend(int offset) {
@@ -137,7 +137,7 @@ public class RepositoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_timeline, container, false);
+        return inflater.inflate(R.layout.fragment_repository, container, false);
     }
 
     private void getUserInfo(AccessToken accessToken) {
@@ -166,6 +166,7 @@ public class RepositoryFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
                         getUserRepositories(user.getUsername());
+                        Toast.makeText(getContext(), "Data collected", Toast.LENGTH_SHORT).show();
 
                     } else {
                         Toast.makeText(
@@ -198,6 +199,7 @@ public class RepositoryFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
                     reposLoader.setVisibility(View.GONE);
                     List<Repositories> repositories = response.body();
+                    Toast.makeText(getContext(), "Data processed", Toast.LENGTH_SHORT).show();
                     loadRepositories(repositories);
                 } else {
                     reposLoader.setVisibility(View.GONE);
@@ -223,9 +225,9 @@ public class RepositoryFragment extends Fragment {
 
     private void loadRepositories(List<Repositories> repositories) {
         if (repositories.size() > 0){
-            allRepos = new ArrayList<>();
             allRepos.clear();
             allRepos.addAll(repositories);
+            adapter.notifyDataSetChanged();
 
         } else {
             Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
