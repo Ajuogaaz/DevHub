@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
         final Fragment RepositoryFragment = new RepositoryFragment();
         final Fragment Searchfragment = new SearchFragment();
         final Fragment TimelineFragment = new TimelineFragment();
+
+
+        // layout of activity is stored in a special property called root
+        final View view = binding.getRoot();
+        setContentView(view);
+
+
 
 
 
