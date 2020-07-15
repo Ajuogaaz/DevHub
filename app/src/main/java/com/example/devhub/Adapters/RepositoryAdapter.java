@@ -1,5 +1,6 @@
 package com.example.devhub.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,26 +14,40 @@ import com.example.devhub.R;
 
 import java.util.List;
 
-public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.RepoHolder> {
+public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.ViewHolder> {
 
-    private List<Repositories> mUserRepos;
-    private ItemInteraction mItemInteraction;
+    private List<Repositories> repos;
+    private Context context;
+    onClickListener clickListener;
 
-    public RepositoryAdapter(ItemInteraction itemInteraction) {
-        mItemInteraction = itemInteraction;
+    public interface onClickListener{
+        void onItemClicked(int position);
+    }
+
+
+    public RepositoryAdapter(Context context, List<Repositories> repos, onClickListener clickListener) {
+
+        this.context = context;
+        this.repos = repos;
+        this.clickListener = clickListener;
+
     }
 
     @NonNull
     @Override
-    public RepoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.repo_item, parent, false);
-        return new RepoHolder(view, mItemInteraction);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
+
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RepoHolder holder, int position) {
-        holder.bind(mUserRepos.get(position));
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        Repositories repo = repos.get(position)
+
+        holder.bind(repo);
     }
 
     @Override
@@ -45,12 +60,12 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         notifyDataSetChanged();
     }
 
-    class RepoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         ItemInteraction mItemInteraction;
         TextView repoName, repoFullName;
 
-        RepoHolder(@NonNull View itemView, ItemInteraction itemInteraction) {
+        ViewHolder(@NonNull View itemView, ItemInteraction itemInteraction) {
             super(itemView);
             mItemInteraction = itemInteraction;
             repoName = itemView.findViewById(R.id.repo_name);
