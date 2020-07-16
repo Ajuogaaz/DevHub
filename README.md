@@ -1,6 +1,8 @@
 Original App Design Project - README Template
 ===
 
+Sprint1 walk through  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 # DEVHUB
 
 ## Table of Contents
@@ -108,7 +110,7 @@ click [here](https://framer.com/share/DEVHUB-yahfAQ8BazAXITmUOE8C) to view a dig
 
 click [here](https://framer.com/share/DEVHUB-yahfAQ8BazAXITmUOE8C) to view an interactive prototype in framer. It is fully equiped inside a virtual mobile frame and you get a simulation of how the app will exactly work.
 
-Or watch this short summary. <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sample.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Or watch this short summary.
 
 
 
