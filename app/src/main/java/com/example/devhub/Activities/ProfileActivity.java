@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -28,17 +29,28 @@ public class ProfileActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnEditProfile.setOnClickListener(view -> {
-
-            Toast.makeText(this, "EditProfile", Toast.LENGTH_SHORT).show();
+        binding.btnEditProfile.setOnClickListener(view1 -> {
+            Toast.makeText(this, "Edit Profile", Toast.LENGTH_SHORT).show();
 
         });
 
-        bin
+        posts = queryposts();
+
+
+        binding.txtName.setText(ParseUser.getCurrentUser().getUsername());
+        binding.
+
 
 
 
 
 
     }
+
+    private List<Post> queryposts() {
+
+    }
+
+
+
 }
