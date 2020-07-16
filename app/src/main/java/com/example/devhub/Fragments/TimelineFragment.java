@@ -56,7 +56,7 @@ public class TimelineFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
 
-
+        toolbar = view.findViewById(R.id.toolbar);
         allPosts = new ArrayList<>();
 
 
