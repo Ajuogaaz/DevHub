@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
@@ -49,6 +50,11 @@ public class ProfileActivity extends AppCompatActivity {
         binding.repoNo.setText(R.string.temp_repno);
         binding.userEmail.setText(R.string.temp_email);
         binding.username.setText(R.string.temp_username);
+
+        Glide.with(this)
+                .load(ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl())
+                .into(binding.userAvatar);
+
 
 
         profileAdapter = new ProfileAdapter(this, posts, position -> {
