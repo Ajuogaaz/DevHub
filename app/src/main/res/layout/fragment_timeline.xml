@@ -8,23 +8,26 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
+            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:fitsSystemWindows="true"
-            android:background="@color/Black"
+            android:background="@color/DarkMagenta"
             android:minHeight="?attr/actionBarSize"
             app:titleTextColor="@android:color/white">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/circularContainer"
                 android:layout_width="35dp"
+                android:layout_marginTop="0dp"
                 android:layout_height="35dp"
                 app:cardCornerRadius="35dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="2dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_centerVertical="true">

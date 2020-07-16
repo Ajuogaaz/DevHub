@@ -19,6 +19,7 @@ import com.example.devhub.Fragments.ChatFragment;
 import com.example.devhub.Fragments.NotificationFragment;
 import com.example.devhub.Models.AccessToken;
 import com.example.devhub.R;
+
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //
 
         Intent intent = getIntent();
         accessToken = intent.getParcelableExtra("accessToken");

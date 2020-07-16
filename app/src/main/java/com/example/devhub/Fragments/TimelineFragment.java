@@ -61,6 +61,7 @@ public class TimelineFragment extends Fragment {
         allPosts = new ArrayList<>();
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
 
