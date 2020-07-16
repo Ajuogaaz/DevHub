@@ -6,56 +6,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.TimelineFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/circularContainer"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="35dp"
-            android:layout_marginStart="8dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true">
-
-        <ImageView
-            android:id="@+id/ivProfileImage"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="0dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        </androidx.cardview.widget.CardView>
-    </com.google.android.material.appbar.MaterialToolbar>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeContainer"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@android:color/white">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/circularContainer"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:cardCornerRadius="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVerticaal="true">
+
+                <ImageView
+                    android:id="@+id/ivProfileImage"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </androidx.cardview.widget.CardView>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPost"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
 
 
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </LinearLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>
