@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Intent intent = getIntent();
         accessToken = intent.getParcelableExtra("accessToken");
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // layout of activity is stored in a special property called root
         final View view = binding.getRoot();
         setContentView(view);
+
 
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
