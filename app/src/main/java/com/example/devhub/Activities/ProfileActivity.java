@@ -46,6 +46,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
 
+        binding.btnEditSettings.setOnClickListener(view2 -> {
+            Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
+        });
+
         binding.name.setText(ParseUser.getCurrentUser().getUsername());
         binding.repoNo.setText(R.string.temp_repno);
         binding.userEmail.setText(R.string.temp_email);
