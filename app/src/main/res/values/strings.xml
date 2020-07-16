@@ -28,4 +28,5 @@
     <string name="likeicon">LikeIcon</string>
     <string name="comment_icon">comment_icon</string>
     <string name="savepost">SavePost</string>
+    <string name="edit_profile">Edit profile</string>
 </resources>

@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ProfileActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rlLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/circularContainer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="45dp"
+            android:layout_toEndOf="@+id/circularContainer"
+            android:textColor="@color/Black"
+            tools:text="username" />
+
+        <TextView
+            android:id="@+id/tvBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUsername"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/circularContainer"
+            tools:text="This is my ig bio" />
+
+        <Button
+            android:id="@+id/btnEditProfile"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/tvBio"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/circularContainer"
+            android:backgroundTint="#FFFFFF"
+            android:text="@string/edit_profile"
+            android:textAllCaps="false"
+            android:textColor="@color/Black" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/flLayout"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_below="@+id/rlLayout"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        tools:context=".fragments.PostFragment">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
