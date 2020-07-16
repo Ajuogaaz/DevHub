@@ -181,23 +181,20 @@ public class TimelineFragment extends Fragment {
     }
 
     protected void queryPost(final int page) {
-        Post.query(page, DISPLAY_LIMIT, specifiedUser, new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
-                }
-                for(Post post: posts){
-                    Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
-                }
-                if(page == 0) {
-                    adapter.clear();
-                }
-
-                allPosts.addAll(posts);
-                adapter.notifyDataSetChanged();
+        Post.query(page, DISPLAY_LIMIT, specifiedUser, (FindCallback<Post>) (posts, e) -> {
+            if (e != null){
+                Log.e(TAG, "Issue with getting posts", e);
+                return;
             }
+            for(Post post: posts){
+                Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
+            }
+            if(page == 0) {
+                adapter.clear();
+            }
+
+            allPosts.addAll(posts);
+            adapter.notifyDataSetChanged();
         });
     }
 
