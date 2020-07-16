@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
 import com.parse.ParseException;
