@@ -14,10 +14,27 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/circularContainer"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:cardCornerRadius="35dp"
+            android:layout_marginStart="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true">
 
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
 
-
-
+        </androidx.cardview.widget.CardView>
     </com.google.android.material.appbar.MaterialToolbar>
 
     <LinearLayout
