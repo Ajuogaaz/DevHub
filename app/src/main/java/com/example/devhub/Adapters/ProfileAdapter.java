@@ -65,29 +65,23 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView repoName, repoFullName;
-        CardView repoItem;
+        TextView Title, Description;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            repoName = itemView.findViewById(R.id.repo_name);
-            repoFullName = itemView.findViewById(R.id.repo_full_name);
-            repoItem = itemView.findViewById(R.id.repoItem);
+            Title = itemView.findViewById(R.id.tvTitle);
+            Description = itemView.findViewById(R.id.tvDescription);
+
 
         }
 
         public void bind(Post post) {
 
 
-            repoFullName.setText(repo.getFullName());
-            repoName.setText(repo.getName());
+            Title.setText(post.getUser().getUsername());
+            Description.setText(post.getDescription());
 
-            repoItem.setOnClickListener(view -> {
-                Toast.makeText(context, "A repo is clicked", Toast.LENGTH_SHORT).show();
-                clickListener.onItemClicked(getAdapterPosition());
-
-            });
 
         }
 
