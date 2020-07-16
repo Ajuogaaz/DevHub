@@ -15,15 +15,18 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
 
     ActivityProfileBinding binding;
-
-    List<Post> posts
+    private static final String TAG = "PROFILEACTIVITY";
+    List<Post> posts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        binding = new ActivityProfileBinding();
+        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+
+        final View view = binding.getRoot();
+        setContentView(view);
 
         binding.btnEditProfile.setOnClickListener(view -> {
 
