@@ -16,6 +16,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -31,6 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        posts = new ArrayList<>();
+
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
 
         final View view = binding.getRoot();
@@ -45,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         binding.repoNo.setText(R.string.temp_repno);
         binding.userEmail.setText(R.string.temp_email);
         binding.username.setText(R.string.temp_username);
+
 
         profileAdapter = new ProfileAdapter(this, posts, position -> {
 
