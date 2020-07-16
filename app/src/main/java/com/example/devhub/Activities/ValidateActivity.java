@@ -29,16 +29,17 @@ public class ValidateActivity extends AppCompatActivity {
 
    Button btn;
     private static final String TAG = "ValidateActivity";
+    ParseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
-        //ParseUser.logOut();
-        ParseUser user = ParseUser.getCurrentUser();
+
+        user = ParseUser.getCurrentUser();
 
 
-        if(user == null){
+        if(user == null || user.getBoolean("HasToken")){
             toLoginActivity();
         }
         else{
@@ -101,9 +102,17 @@ public class ValidateActivity extends AppCompatActivity {
     }
 
     private void showHomePage(AccessToken accessToken) {
+        updateUserInfo(accessToken);
         Intent intent = new Intent(ValidateActivity.this, MainActivity.class);
+
         intent.putExtra("accessToken", accessToken);
         startActivity(intent);
+    }
+
+    private void updateUserInfo(AccessToken accessToken) {
+
+        user.put("Token", accessToken.getAccessToken());
+
     }
 
 }
