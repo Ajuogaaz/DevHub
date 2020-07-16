@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -58,6 +59,8 @@ public class TimelineFragment extends Fragment {
 
         toolbar = view.findViewById(R.id.toolbar);
         allPosts = new ArrayList<>();
+
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
 
 
@@ -162,6 +165,7 @@ public class TimelineFragment extends Fragment {
         // Inflate the layout for this fragment
 
         return inflater.inflate(R.layout.fragment_timeline, container, false);
+
     }
 
     protected void queryPost(final int page) {
