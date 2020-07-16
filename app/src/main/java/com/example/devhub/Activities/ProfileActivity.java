@@ -42,9 +42,13 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         binding.name.setText(ParseUser.getCurrentUser().getUsername());
-        binding.repoNo.setText("20");
-        binding.userEmail.setText("brianlinus1753@gmail.com");
-        binding.username.setText("Ajuogaaz");
+        binding.repoNo.setText(R.string.temp_repno);
+        binding.userEmail.setText(R.string.temp_email);
+        binding.username.setText(R.string.temp_username);
+
+        profileAdapter = new ProfileAdapter(this, posts, position -> {
+
+        });
 
         binding.rvPost.setAdapter(profileAdapter);
 
@@ -59,26 +63,21 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void queryposts(final int page) {
 
-        Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
+        Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), (FindCallback<Post>) (newposts, e) -> {
+            if (e != null){
+                Log.e(TAG, "Issue with getting posts", e);
+                return;
 
-                }
-                for(Post post: posts){
-                    Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
-                }
-                if(page == 0) {
-                    userAdapter.clear();
-                }
-                userPosts.addAll(posts);
-                userAdapter.notifyDataSetChanged();
             }
+            for(Post post: newposts){
+                Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
+            }
+            if(page == 0) {
+                profileAdapter.clear();
+            }
+            posts.addAll(newposts);
+            profileAdapter.notifyDataSetChanged();
         });
-    }
-
     }
 
 

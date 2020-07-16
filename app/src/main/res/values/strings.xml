@@ -29,4 +29,7 @@
     <string name="comment_icon">comment_icon</string>
     <string name="savepost">SavePost</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="temp_repno">20</string>
+    <string name="temp_email">brianlinus1753@gmail.com</string>
+    <string name="temp_username">Ajuogaaz</string>
 </resources>
