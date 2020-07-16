@@ -15,8 +15,6 @@
         android:textStyle="bold"
         />
 
-
-
     <TextView
         android:id="@+id/tvDescription"
         android:layout_below="@id/tvTitle"
