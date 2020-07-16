@@ -18,14 +18,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
+import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -45,6 +48,7 @@ public class TimelineFragment extends Fragment {
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
     private Toolbar toolbar;
+    private ImageView profilePic;
 
 
 
@@ -59,6 +63,13 @@ public class TimelineFragment extends Fragment {
 
         toolbar = view.findViewById(R.id.toolbar);
         allPosts = new ArrayList<>();
+        profilePic = view.findViewById(R.id.ivProfileImage);
+
+        profilePic.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), ProfileActivity.class);
+
+            startActivity(intent);
+        });
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
