@@ -22,11 +22,12 @@
 
     <Button
         android:id="@+id/btnEditProfile"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginEnd="4dp"
         android:layout_below="@+id/info_card"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#FFFFFF"
         android:text="@string/edit_profile"
         android:textAllCaps="false"
@@ -40,7 +41,7 @@
         android:layout_below="@+id/btnEditProfile"
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         tools:context=".fragments.PostFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
