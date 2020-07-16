@@ -1,23 +1,30 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private static final int DISPLAY_LIMIT = 20;
     ActivityProfileBinding binding;
     private static final String TAG = "PROFILEACTIVITY";
     List<Post> posts;
+    ProfileAdapter profileAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +41,43 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
 
-        posts = queryposts();
+        binding.name.setText(ParseUser.getCurrentUser().getUsername());
+        binding.repoNo.setText("20");
+        binding.userEmail.setText("brianlinus1753@gmail.com");
+        binding.username.setText("Ajuogaaz");
+
+        binding.rvPost.setAdapter(profileAdapter);
+
+        //set the layout manager on the recycler view
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        binding.rvPost.setLayoutManager(linearLayoutManager);
 
 
-        binding.txtName.setText(ParseUser.getCurrentUser().getUsername());
-        binding.
-
-
-
-
-
+        queryposts(0);
 
     }
 
-    private List<Post> queryposts() {
+    private void queryposts(final int page) {
+
+        Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> posts, ParseException e) {
+                if (e != null){
+                    Log.e(TAG, "Issue with getting posts", e);
+                    return;
+
+                }
+                for(Post post: posts){
+                    Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
+                }
+                if(page == 0) {
+                    userAdapter.clear();
+                }
+                userPosts.addAll(posts);
+                userAdapter.notifyDataSetChanged();
+            }
+        });
+    }
 
     }
 
