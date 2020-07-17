@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.Adapters.RepositoryAdapter;
 import com.example.devhub.Adapters.TimelineAdapter;
 import com.example.devhub.Models.AccessToken;
@@ -231,7 +232,13 @@ public class RepositoryFragment extends Fragment {
             adapter.notifyDataSetChanged();
 
             if (repositories.size() != (ParseUser.getCurrentUser().getNumber("NumberOfRepos")).intValue()){
-                ParseUser.getCurrentUser().put("NumberOfRepos", repositories.size());
+                ParseUser user =  ParseUser.getCurrentUser();
+                user.put("NumberOfRepos", repositories.size());
+                user.saveInBackground(e -> {
+                    if(e == null){
+                        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
         } else {
