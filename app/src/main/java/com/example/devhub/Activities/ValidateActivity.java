@@ -121,23 +121,13 @@ public class ValidateActivity extends AppCompatActivity {
     }
 
     private void updateUserInfo(AccessToken accessToken) {
-
-        user.put("Token", accessToken.getAccessToken());
-        user.put("HasToken", true);
         getUserInfo(accessToken.getAccessToken());
-        user.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if(e == null){
-                    Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
     }
 
-    private User getUserInfo(String currentUserToken) {
+    private void getUserInfo(String currentUserToken) {
         if (!currentUserToken.isEmpty()) {
+
+
 
             OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
             okHttpClient.addInterceptor(chain -> {
@@ -160,9 +150,7 @@ public class ValidateActivity extends AppCompatActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         User replyUser = response.body();
-
-
-
+                        saveUserInfo(replyUser, currentUserToken);
                     } else {
                         Toast.makeText(
                                 ValidateActivity.this,
@@ -184,7 +172,25 @@ public class ValidateActivity extends AppCompatActivity {
         }
     }
 
-
+    private void saveUserInfo(User replyUser, String currentUserToken) {
+        user.put("Token", currentUserToken);
+        user.put("HasToken", true);
+        user.put("email", replyUser.getEmail());
+        user.put("Bio", replyUser.getBio());
+        user.put("PreferredName", replyUser.getName());
+        user.put("gitHubUserName", replyUser.getUsername());
+        user.put("NumberOfRepos", replyUser.getRepos());
+        user.put("githubProfilePic", replyUser.getAvatar());
+        user.put("HasUploadedPic", false);
+        user.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e == null){
+                    Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
 
 }
