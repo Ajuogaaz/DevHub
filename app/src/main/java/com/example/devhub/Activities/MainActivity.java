@@ -42,6 +42,7 @@ import static com.example.devhub.Utils.Constants.AUTH_URL;
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
+    public static List<Repositories> Repos;
 
 
     @Override
@@ -164,20 +165,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void getUserRepositories(String username) {
-        reposLoader.setVisibility(View.VISIBLE);
         ApiClient apiClient = ApiService.getApiUserRepos();
         apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
             @Override
             public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    reposLoader.setVisibility(View.GONE);
                     List<Repositories> repositories = response.body();
-                    Toast.makeText(getContext(), "Data processed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Data processed", Toast.LENGTH_SHORT).show();
                     loadRepositories(repositories);
                 } else {
-                    reposLoader.setVisibility(View.GONE);
                     Toast.makeText(
-                            getContext(),
+                            MainActivity.this,
                             "Something went wrong while fetching repositories",
                             Toast.LENGTH_SHORT
                     ).show();
@@ -186,9 +184,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Repositories>> call, Throwable t) {
-                reposLoader.setVisibility(View.GONE);
                 Toast.makeText(
-                        getContext(),
+                        MainActivity.this,
                         "Unable to fetch repositories",
                         Toast.LENGTH_SHORT
                 ).show();
@@ -198,12 +195,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadRepositories(List<Repositories> repositories) {
         if (repositories.size() > 0){
-            allRepos.clear();
-            allRepos.addAll(repositories);
-            adapter.notifyDataSetChanged();
+
+            Repos.clear();
+            Repos.addAll(repositories);
 
         } else {
-            Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "No repositories found", Toast.LENGTH_SHORT).show();
         }
     }
 
