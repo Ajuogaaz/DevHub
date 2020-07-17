@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/info_card"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="250dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -24,8 +24,28 @@
         <ImageView
             android:id="@+id/coverPictureView"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             tools:srcCompat="@color/Blue" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/circularContainer"
+            android:layout_width="125dp"
+            android:layout_marginTop="86dp"
+            android:layout_height="125dp"
+            app:cardCornerRadius="125dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
 
@@ -57,27 +77,6 @@
         android:textAllCaps="false"
         android:textColor="@color/Black" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/circularContainer"
-        android:layout_width="125dp"
-        android:layout_marginTop="0dp"
-        android:layout_height="125dp"
-        app:cardCornerRadius="125dp"
-        android:layout_marginStart="2dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true">
-
-        <ImageView
-            android:id="@+id/ivProfileImage"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="0dp"
-            tools:srcCompat="@tools:sample/avatars" />
-    </androidx.cardview.widget.CardView>
 
 
     <FrameLayout
