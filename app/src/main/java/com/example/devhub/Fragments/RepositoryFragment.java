@@ -230,6 +230,10 @@ public class RepositoryFragment extends Fragment {
             allRepos.addAll(repositories);
             adapter.notifyDataSetChanged();
 
+            if (repositories.size() != (ParseUser.getCurrentUser().getNumber("NumberOfRepos")).intValue()){
+                ParseUser.getCurrentUser().put("NumberOfRepos", repositories.size());
+            }
+
         } else {
             Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
         }
