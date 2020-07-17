@@ -182,12 +182,9 @@ public class ValidateActivity extends AppCompatActivity {
         user.put("NumberOfRepos", replyUser.getRepos());
         user.put("githubProfilePic", replyUser.getAvatar());
         user.put("HasUploadedPic", false);
-        user.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if(e == null){
-                    Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                }
+        user.saveInBackground(e -> {
+            if(e == null){
+                Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
             }
         });
     }
