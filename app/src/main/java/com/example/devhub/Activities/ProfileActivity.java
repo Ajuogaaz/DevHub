@@ -35,6 +35,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        ParseUser.getCurrentUser().fetchInBackground();
+
         posts = new ArrayList<>();
 
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
@@ -57,10 +59,10 @@ public class ProfileActivity extends AppCompatActivity {
         binding.preferredName.setText(ParseUser.getCurrentUser().getUsername());
         binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
         binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
-        binding.NumberofActualPosts.setText(ParseUser.getCurrentUser().getNumber("NumberOfPost").toString());
-        binding.NumberofActualRepos.setText(ParseUser.getCurrentUser().getNumber("NumberOfRepos").toString());
-        binding.NumberofActualFollowers.setText(ParseUser.getCurrentUser().getNumber("NumberOfFollowers").toString());
-        binding.NumberofActualfollowing.setText(ParseUser.getCurrentUser().getNumber("NumberOfFollowing").toString());
+        binding.NumberofActualPosts.setText((ParseUser.getCurrentUser().getNumber("NumberOfPost")).toString());
+        binding.NumberofActualRepos.setText((ParseUser.getCurrentUser().getNumber("NumberOfRepos")).toString());
+        binding.NumberofActualFollowers.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowers")).toString());
+        binding.NumberofActualfollowing.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowing")).toString());
 
 
 
