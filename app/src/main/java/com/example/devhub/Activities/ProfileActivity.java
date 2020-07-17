@@ -50,7 +50,8 @@ public class ProfileActivity extends AppCompatActivity {
         binding.btnEditSettings.setOnClickListener(view2 -> {
             Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
 
-            Intent intent
+            Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
 
         binding.name.setText(ParseUser.getCurrentUser().getUsername());
