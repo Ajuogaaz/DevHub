@@ -54,9 +54,9 @@ public class ValidateActivity extends AppCompatActivity {
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         }
         //Check if the Has token meaning its not a new user, Then push them to main activity
-        //if (user.getBoolean("HasToken")){
-           // showHomePage();
-        //}
+        if (user.getBoolean("HasToken")){
+           showHomePage();
+        }
 
         //Run this remaining code if and only if its a new user from Register activity
         super.onCreate(savedInstanceState);
@@ -176,13 +176,12 @@ public class ValidateActivity extends AppCompatActivity {
     private void saveUserInfo(User replyUser, String currentUserToken) {
         user.put("Token", currentUserToken);
         user.put("HasToken", true);
-        //user.put("email", replyUser.getEmail());
         user.put("Bio", replyUser.getBio());
-        //user.put("PreferredName", replyUser.getName());
-        //user.put("gitHubUserName", replyUser.getUsername());
-        //user.put("NumberOfRepos", replyUser.getRepos());
-        //user.put("githubProfilePic", replyUser.getAvatar());
-        //user.put("HasUploadedPic", false);
+        user.put("PreferredName", replyUser.getName());
+        user.put("gitHubUserName", replyUser.getUsername());
+        user.put("NumberOfRepos", replyUser.getRepos());
+        user.put("githubProfilePic", replyUser.getAvatar());
+        user.put("HasUploadedPic", false);
         user.saveInBackground(e -> {
             if(e == null){
                 Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
