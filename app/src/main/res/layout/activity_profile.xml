@@ -120,17 +120,31 @@
 
     <Button
         android:id="@+id/btnEditProfile"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/info_card"
-        android:layout_marginStart="4dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/btnEditSettings"
         android:backgroundTint="#FFFFFF"
         android:text="@string/edit_profile"
         android:textAllCaps="false"
         android:textColor="@color/Black" />
 
+
+    <Button
+        android:id="@+id/btnEditSettings"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_card"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="14dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/settings"
+        android:textAllCaps="false"
+        android:textColor="@color/Black" />
 
     <FrameLayout
         android:id="@+id/flLayout"

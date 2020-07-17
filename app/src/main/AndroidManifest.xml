@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.ProfileActivity"></activity>
+        <activity android:name=".Activities.SettingsActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.ProfileActivity" />
         <!--
          <provider
             android:name="androidx.core.content.FileProvider"
@@ -43,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
     </application>
 
 </manifest>

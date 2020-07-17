@@ -3,6 +3,7 @@ package com.example.devhub.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,13 @@ public class ProfileActivity extends AppCompatActivity {
         binding.btnEditProfile.setOnClickListener(view1 -> {
             Toast.makeText(this, "Edit Profile", Toast.LENGTH_SHORT).show();
 
+        });
+
+        binding.btnEditSettings.setOnClickListener(view2 -> {
+            Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
 
         binding.name.setText(ParseUser.getCurrentUser().getUsername());

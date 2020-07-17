@@ -26,18 +26,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
-    public static AccessToken accessToken;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //
-
-        Intent intent = getIntent();
-        accessToken = intent.getParcelableExtra("accessToken");
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 

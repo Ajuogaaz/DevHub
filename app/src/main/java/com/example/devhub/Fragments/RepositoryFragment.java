@@ -58,6 +58,7 @@ public class RepositoryFragment extends Fragment {
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
     private ProgressBar reposLoader;
+    private String currentUserToken;
 
     public RepositoryFragment() {
         // Required empty public constructor
@@ -69,6 +70,7 @@ public class RepositoryFragment extends Fragment {
 
         rvRepos = view.findViewById(R.id.rvRepos);
         allRepos = new ArrayList<>();
+        currentUserToken = ParseUser.getCurrentUser().getString("Token");
 
 
         reposLoader = view.findViewById(R.id.repos_loader);
@@ -105,7 +107,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                getUserInfo(MainActivity.accessToken);
+                getUserInfo(currentUserToken);
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -116,12 +118,12 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-        getUserInfo(MainActivity.accessToken);
+        getUserInfo(currentUserToken);
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        getUserInfo(MainActivity.accessToken);
+        getUserInfo(currentUserToken);
     }
 
 
@@ -140,16 +142,15 @@ public class RepositoryFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_repository, container, false);
     }
 
-    private void getUserInfo(AccessToken accessToken) {
-        if (accessToken != null) {
-            String token = accessToken.getAccessToken();
+    private void getUserInfo(String currentUserToken) {
+        if (!currentUserToken.isEmpty()) {
 
             OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
             okHttpClient.addInterceptor(chain -> {
                 Request request = chain.request();
                 Request.Builder newRequest = request.newBuilder().header(
                         "Authorization",
-                        "token " + token);
+                        "token " + currentUserToken);
                 return chain.proceed(newRequest.build());
             }).build();
 

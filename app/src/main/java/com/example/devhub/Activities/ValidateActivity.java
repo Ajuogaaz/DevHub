@@ -14,7 +14,9 @@ import com.example.devhub.R;
 import com.example.devhub.Models.AccessToken;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,25 +31,31 @@ public class ValidateActivity extends AppCompatActivity {
 
    Button btn;
     private static final String TAG = "ValidateActivity";
+    ParseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_validate);
-        //ParseUser.logOut();
-        ParseUser user = ParseUser.getCurrentUser();
+        //Get the current user
+        user = ParseUser.getCurrentUser();
 
-
+        //Check if the user is Null -- meaning logged out
+        //If thats the case then go to login activity
         if(user == null){
             toLoginActivity();
         }
         else{
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         }
+        //Check if the Has token meaning its not a new user, Then push them to main activity
+        if (user.getBoolean("HasToken")){
+            showHomePage();
+        }
 
+        //Run this remaining code if and only if its a new user from Register activity
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_validate);
 
         btn = findViewById(R.id.btn_Login);
-
         btn.setOnClickListener(view -> initiateGithubLogin());
     }
 
@@ -87,7 +95,8 @@ public class ValidateActivity extends AppCompatActivity {
             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     AccessToken accessToken = response.body();
-                    showHomePage(accessToken);
+                    updateUserInfo(accessToken);
+                    showHomePage();
                 } else {
                     Toast.makeText(ValidateActivity.this, R.string.RequestDenied, Toast.LENGTH_SHORT).show();
                 }
@@ -100,10 +109,24 @@ public class ValidateActivity extends AppCompatActivity {
         });
     }
 
-    private void showHomePage(AccessToken accessToken) {
+    private void showHomePage() {
         Intent intent = new Intent(ValidateActivity.this, MainActivity.class);
-        intent.putExtra("accessToken", accessToken);
         startActivity(intent);
+    }
+
+    private void updateUserInfo(AccessToken accessToken) {
+
+        user.put("Token", accessToken.getAccessToken());
+        user.put("HasToken", true);
+        user.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e == null){
+                    Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
 }

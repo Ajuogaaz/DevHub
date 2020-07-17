@@ -30,59 +30,34 @@ public class LoginActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        //if(ParseUser.getCurrentUser() != null) {
-          //  goToMainActivity();
-        //}
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "OnClick login button");
-                String username = binding.etUsername.getText().toString();
-                String password = binding.etPassword.getText().toString();
-                Toast.makeText(LoginActivity.this, "login in", Toast.LENGTH_SHORT).show();
-                loginUser(username, password);
-            }
+        binding.btnLogin.setOnClickListener(view1 -> {
+            Log.i(TAG, "OnClick login button");
+            String username = binding.etUsername.getText().toString();
+            String password = binding.etPassword.getText().toString();
+            Toast.makeText(LoginActivity.this, "login in", Toast.LENGTH_SHORT).show();
+            loginUser(username, password);
+
+
+
         });
-        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "Onclick dignIn");
 
-                ParseUser user =  new ParseUser();
-
-                user.setUsername(binding.etUsername.getText().toString());
-                user.setPassword(binding.etPassword.getText().toString());
-
-                user.signUpInBackground(new SignUpCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            goToValidateActivity();
-                        }else{
-                            Toast.makeText(LoginActivity.this, "User Already exists", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-            }
-        });
 
     }
 
     private void loginUser(String username, String password) {
 
-        ParseUser.logInInBackground(username, password, new LogInCallback() {
-            @Override
-            public void done(ParseUser user, ParseException e) {
-                if(e != null){
-                    Log.e(TAG, "Issue with login" + e);
-                    return;
+        ParseUser.logInInBackground(username, password, (user, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with login" + e);
+                return;
+            }else{
+                //Send them back to validate activity to confirm if the user if they dont have login credentials
+                if(ParseUser.getCurrentUser().getBoolean("HasToken")){
+                    goToMainActivity();
+                }else {
+                    goToValidateActivity();
                 }
-
-                //goToMainActivity();
-                goToValidateActivity();
-                //cd42332af24c8b381a2cf6452d87c807c0899d02
 
             }
         });
@@ -95,8 +70,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-
     private void goToMainActivity() {
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
