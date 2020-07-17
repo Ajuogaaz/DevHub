@@ -124,7 +124,7 @@ public class ValidateActivity extends AppCompatActivity {
 
         user.put("Token", accessToken.getAccessToken());
         user.put("HasToken", true);
-
+        getUserInfo(accessToken.getAccessToken());
         user.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -136,7 +136,7 @@ public class ValidateActivity extends AppCompatActivity {
 
     }
 
-    private void getUserInfo(String currentUserToken) {
+    private User getUserInfo(String currentUserToken) {
         if (!currentUserToken.isEmpty()) {
 
             OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
@@ -159,13 +159,13 @@ public class ValidateActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful() && response.body() != null) {
-                        User user = response.body();
-                        getUserRepositories(user.getUsername());
-                        Toast.makeText(getContext(), "Data collected", Toast.LENGTH_SHORT).show();
+                        User replyUser = response.body();
+
+
 
                     } else {
                         Toast.makeText(
-                                getContext(),
+                                ValidateActivity.this,
                                 "Please try again",
                                 Toast.LENGTH_SHORT
                         ).show();
@@ -175,7 +175,7 @@ public class ValidateActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     Toast.makeText(
-                            getContext(),
+                            ValidateActivity.this,
                             "Check your connection",
                             Toast.LENGTH_SHORT
                     ).show();
