@@ -181,12 +181,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/NumberOfPosts"
-                android:layout_marginStart="240dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginEnd="2dp"
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
-                tools:text="267" />
+                tools:text="2724" />
 
             <TextView
                 android:id="@+id/NumberOfFollowing"
@@ -211,7 +211,7 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
-                tools:text="267" />
+                tools:text="364" />
 
         </RelativeLayout>
 
@@ -221,12 +221,12 @@
 
     <Button
         android:id="@+id/btnEditProfile"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stats"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:layout_toStartOf="@+id/btnEditSettings"
         android:backgroundTint="#FFFFFF"
         android:text="@string/edit_profile"
@@ -236,12 +236,12 @@
 
     <Button
         android:id="@+id/btnEditSettings"
-        android:layout_width="175dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stats"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="#FFFFFF"
         android:text="@string/settings"
         android:textAllCaps="false"
