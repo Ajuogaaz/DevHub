@@ -21,24 +21,24 @@
         app:cardCornerRadius="5dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/coverPictureView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            tools:srcCompat="@color/Blue" />
-
         <RelativeLayout
             android:id="@+id/relativeContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/coverPictureView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                tools:srcCompat="@color/Blue" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/circularContainer"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
-                android:layout_centerVertical="true"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="86dp"
+                android:layout_marginTop="80dp"
+                android:padding="10dp"
                 app:cardCornerRadius="125dp">
 
 
@@ -53,39 +53,35 @@
                     tools:srcCompat="@tools:sample/avatars" />
             </androidx.cardview.widget.CardView>
 
-
             <TextView
                 android:id="@+id/preferredName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/circularContainer"
+                android:layout_below="@+id/circularContainer"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="20sp"
                 android:textColor="@color/Black"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp"
                 tools:text="@string/preferredName" />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/circularContainer"
+                android:layout_below="@id/preferredName"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="2dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/Black"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                tools:text="@string/preferredName" />
+                tools:text="@string/titledescription" />
 
             <TextView
                 android:id="@+id/bio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
-                android:layout_below="@id/preferredName"
+                android:layout_below="@id/title"
                 android:layout_marginStart="20dp"
                 android:textSize="15sp"
                 android:textColor="@color/Black"
