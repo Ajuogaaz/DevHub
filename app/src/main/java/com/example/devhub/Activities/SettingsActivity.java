@@ -25,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnLogout.setOnClickListener(view -> {
+        binding.btnLogout.setOnClickListener(view1 -> {
             Toast.makeText(this, "Logging Out", Toast.LENGTH_SHORT).show();
             ParseUser.logOut();
 
