@@ -37,14 +37,16 @@ public class LoginActivity extends AppCompatActivity {
             String password = binding.etPassword.getText().toString();
             Toast.makeText(LoginActivity.this, "login in", Toast.LENGTH_SHORT).show();
             loginUser(username, password);
+
+            //Send them back to validate activity to confirm if the user if they dont have login credentials
+            if(ParseUser.getCurrentUser().getBoolean("HasToken")){
+                goToMainActivity();
+            }else {
+                goToValidateActivity();
+            }
+
         });
 
-        //Send them back to validate activity to confirm if the user if they dont have login credentials
-        if(ParseUser.getCurrentUser().getBoolean("HasToken")){
-            goToMainActivity();
-        }else {
-        goToValidateActivity();
-        }
 
     }
 
