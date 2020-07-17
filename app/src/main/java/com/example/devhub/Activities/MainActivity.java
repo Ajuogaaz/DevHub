@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     Toast.makeText(
-                            getContext(),
+                            MainActivity.this,
                             "Check your connection",
                             Toast.LENGTH_SHORT
                     ).show();
