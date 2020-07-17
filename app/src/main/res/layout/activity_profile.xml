@@ -57,6 +57,29 @@
         android:textAllCaps="false"
         android:textColor="@color/Black" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/circularContainer"
+        android:layout_width="125dp"
+        android:layout_marginTop="0dp"
+        android:layout_height="125dp"
+        app:cardCornerRadius="125dp"
+        android:layout_marginStart="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+
     <FrameLayout
         android:id="@+id/flLayout"
         android:layout_width="match_parent"
