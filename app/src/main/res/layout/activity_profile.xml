@@ -134,8 +134,84 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="2dp"
                 android:textSize="18sp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
                 tools:text="200" />
+
+            <TextView
+                android:id="@+id/NumberOfRepos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:text="@string/repos"
+                />
+
+            <TextView
+                android:id="@+id/NumberofActualRepos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/NumberOfPosts"
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/Black"
+                tools:text="267" />
+
+            <TextView
+                android:id="@+id/NumberOfFollowers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:text="@string/followers"
+                />
+
+            <TextView
+                android:id="@+id/NumberofActualFollowers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/NumberOfPosts"
+                android:layout_marginStart="240dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/Black"
+                tools:text="267" />
+
+            <TextView
+                android:id="@+id/NumberOfFollowing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:text="@string/following"
+                />
+
+            <TextView
+                android:id="@+id/NumberofActualfollowing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/NumberOfPosts"
+                android:layout_marginStart="340dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/Black"
+                tools:text="267" />
 
         </RelativeLayout>
 

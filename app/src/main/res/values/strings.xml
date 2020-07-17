@@ -39,4 +39,6 @@
     <string name="titledescription">computer Scientist</string>
     <string name="followers">FOLLOWERS</string>
     <string name="postsLabel">POSTS</string>
+    <string name="repos">REPOS</string>
+    <string name="following">FOLLOWING</string>
 </resources>
