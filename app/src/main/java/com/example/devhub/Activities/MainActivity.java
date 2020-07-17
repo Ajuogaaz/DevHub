@@ -139,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
                         getUserRepositories(user.getUsername());
-                        Toast.makeText(getContext(), "Data collected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Data collected", Toast.LENGTH_SHORT).show();
 
                     } else {
                         Toast.makeText(
-                                getContext(),
+                                MainActivity.this,
                                 "Please try again",
                                 Toast.LENGTH_SHORT
                         ).show();
