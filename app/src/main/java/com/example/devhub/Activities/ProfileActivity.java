@@ -54,14 +54,20 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.name.setText(ParseUser.getCurrentUser().getUsername());
-        binding.repoNo.setText(R.string.temp_repno);
-        binding.userEmail.setText(R.string.temp_email);
-        binding.username.setText(R.string.temp_username);
+        binding.preferredName.setText(ParseUser.getCurrentUser().getUsername());
+        binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
+        binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
+        binding.NumberofActualPosts.setText(ParseUser.getCurrentUser().getNumber("NumberOfPost").toString());
+        binding.NumberofActualRepos.setText(ParseUser.getCurrentUser().getNumber("NumberOfRepos").toString());
+        binding.NumberofActualFollowers.setText(ParseUser.getCurrentUser().getNumber("NumberOfFollowers").toString());
+        binding.NumberofActualfollowing.setText(ParseUser.getCurrentUser().getNumber("NumberOfFollowing").toString());
+
+
+
 
         Glide.with(this)
                 .load(ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl())
-                .into(binding.userAvatar);
+                .into(binding.ivProfileImage);
 
 
 
