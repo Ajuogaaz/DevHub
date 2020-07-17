@@ -30,6 +30,7 @@
                 android:id="@+id/coverPictureView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                app:srcCompat="@color/Chartreuse"
                 tools:srcCompat="@color/Blue" />
 
             <androidx.cardview.widget.CardView
@@ -268,7 +269,9 @@
                 android:id="@+id/rvPost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="8dp" />
+                android:padding="8dp" >
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
