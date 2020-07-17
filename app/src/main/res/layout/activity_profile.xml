@@ -81,7 +81,7 @@
                 tools:text="@string/preferredName" />
 
             <TextView
-                android:id="@+id/bioSection"
+                android:id="@+id/bio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -90,7 +90,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/Black"
                 android:layout_marginTop="2dp"
-                tools:text="@string/bio" />
+                tools:text="@string/bioMessage" />
 
 
         </RelativeLayout>
