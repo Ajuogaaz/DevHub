@@ -24,9 +24,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         binding.btnLogout.setOnClickListener(view -> {
             Toast.makeText(this, "Logging Out", Toast.LENGTH_SHORT).show();
+            ParseUser.logOut();
 
             Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
-            ParseUser.logOut();
             startActivity(intent);
             finish();
 
