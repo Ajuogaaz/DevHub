@@ -56,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.preferredName.setText(ParseUser.getCurrentUser().getUsername());
+        binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
         binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
         binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
         binding.NumberofActualPosts.setText((ParseUser.getCurrentUser().getNumber("NumberOfPost")).toString());
