@@ -84,22 +84,62 @@
                 android:layout_below="@id/title"
                 android:layout_marginStart="20dp"
                 android:textSize="15sp"
+                android:layout_marginBottom="5dp"
                 android:textColor="@color/Black"
                 android:layout_marginTop="2dp"
                 tools:text="@string/bioMessage" />
 
-
         </RelativeLayout>
 
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_card"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="5dp"
+        >
+
+
+    <TextView
+        android:id="@+id/NumberOfPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_card"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="2dp"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:text="@string/postsLabel"
+       />
+
+    <TextView
+        android:id="@+id/NumberofActualPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NumberOfPosts"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="2dp"
+        android:textSize="18sp"
+        android:textColor="@color/Black"
+        tools:text="200" />
 
     </androidx.cardview.widget.CardView>
+
 
 
     <Button
         android:id="@+id/btnEditProfile"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/info_card"
+        android:layout_below="@+id/stats"
         android:layout_alignParentStart="true"
         android:layout_marginStart="14dp"
         android:layout_marginTop="10dp"
@@ -114,7 +154,7 @@
         android:id="@+id/btnEditSettings"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/info_card"
+        android:layout_below="@+id/stats"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="14dp"

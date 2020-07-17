@@ -37,4 +37,6 @@
     <string name="preferredName">Preferred Name</string>
     <string name="bioMessage">bio fhhfhfhhfh fhfhfhfhf fhffhfhfh fhfhfhf fhfhfhff fhfhfhf fhfhfhf fhfhfhf</string>
     <string name="titledescription">computer Scientist</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="postsLabel">POSTS</string>
 </resources>
