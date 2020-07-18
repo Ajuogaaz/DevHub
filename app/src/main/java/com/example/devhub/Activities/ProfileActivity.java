@@ -156,11 +156,13 @@ public class ProfileActivity extends AppCompatActivity {
                 ParseUser currentUser = ParseUser.getCurrentUser();
 
                 currentUser.put("ProfilePic", new ParseFile(photoFile));
+                currentUser.put("HasUploadedPic", true);
                 currentUser.saveInBackground(e -> {
                     if(e==null){
                         Log.i(TAG, "done: Saved Success");
                     }
                 });
+
 
             } else { // Result was a failure
                 Toast.makeText(ProfileActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
