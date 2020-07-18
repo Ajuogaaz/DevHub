@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (!ImageUrl.isEmpty()) {
             Glide.with(this)
-                    .load(ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl())
+                    .load(ImageUrl)
                     .into(binding.ivProfileImage);
         }
 
