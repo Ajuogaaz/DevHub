@@ -39,16 +39,19 @@
         app:layout_anchor="@id/anchor"
         app:layout_anchorGravity="bottom|right|end" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <toan.android.floatingactionmenu.FloatingActionsMenu
+
         android:id="@+id/ProfilPic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|left"
+        android:src="@android:drawable/ic_menu_add"
         android:layout_margin="16dp"
         app:layout_anchor="@id/anchor"
         app:layout_anchorGravity="top|left|start">
 
+    </toan.android.floatingactionmenu.FloatingActionsMenu>
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
