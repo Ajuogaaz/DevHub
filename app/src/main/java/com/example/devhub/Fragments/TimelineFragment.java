@@ -36,6 +36,8 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import toan.android.floatingactionmenu.FloatingActionsMenu;
+
 
 public class TimelineFragment extends Fragment {
 
@@ -47,6 +49,7 @@ public class TimelineFragment extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
+    private FloatingActionsMenu floatingActionsMenu;
 
 
 
@@ -59,6 +62,7 @@ public class TimelineFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
         allPosts = new ArrayList<>();
+        floatingActionsMenu = view.findViewById(R.id.ProfilPic);
 
        /* profilePic.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
@@ -68,6 +72,7 @@ public class TimelineFragment extends Fragment {
         //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
+        floatingActionsMenu.setIcon(getResources().getDrawable(R.mipmap.icon));
 
         TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {
 
