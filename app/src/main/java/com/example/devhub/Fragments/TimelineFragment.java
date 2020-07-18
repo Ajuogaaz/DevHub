@@ -29,8 +29,10 @@ import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -50,6 +52,7 @@ public class TimelineFragment extends Fragment {
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
     private FloatingActionsMenu floatingActionsMenu;
+    private FloatingActionButton compose;
 
 
 
@@ -63,16 +66,21 @@ public class TimelineFragment extends Fragment {
         rvPost = view.findViewById(R.id.rvPost);
         allPosts = new ArrayList<>();
         floatingActionsMenu = view.findViewById(R.id.ProfilPic);
+        compose = view.findViewById(R.id.composebtn);
 
-       /* profilePic.setOnClickListener(view1 -> {
+        compose.setOnClickListener(view3 -> {
+            Toast.makeText(getContext(), "Compose", Toast.LENGTH_SHORT).show();
+        });
+
+       floatingActionsMenu.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
 
-            startActivity(intent);*/
-        //});
+            startActivity(intent);
+        });
         //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        floatingActionsMenu.setIcon(getResources().getDrawable(R.mipmap.icon));
+
 
         TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {
 
