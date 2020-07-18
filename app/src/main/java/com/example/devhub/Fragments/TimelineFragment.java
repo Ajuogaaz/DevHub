@@ -47,8 +47,6 @@ public class TimelineFragment extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
-    private Toolbar toolbar;
-    private ImageView profilePic;
 
 
 
@@ -60,19 +58,14 @@ public class TimelineFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
-
-        toolbar = view.findViewById(R.id.toolbar);
         allPosts = new ArrayList<>();
-        profilePic = view.findViewById(R.id.ivProfileImage);
 
-        profilePic.setOnClickListener(view1 -> {
+       /* profilePic.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
 
-            startActivity(intent);
-        });
-
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+            startActivity(intent);*/
+        //});
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
 
