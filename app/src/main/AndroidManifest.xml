@@ -15,9 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.SettingsActivity"></activity>
-        <activity android:name=".Activities.RegisterActivity" />
-        <activity android:name=".Activities.ProfileActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.codepath.fileprovider"
@@ -27,7 +25,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-
+        <activity android:name=".Activities.SettingsActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.ValidateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
