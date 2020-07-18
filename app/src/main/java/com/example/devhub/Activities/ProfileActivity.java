@@ -64,13 +64,19 @@ public class ProfileActivity extends AppCompatActivity {
         binding.NumberofActualFollowers.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowers")).toString());
         binding.NumberofActualfollowing.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowing")).toString());
 
+        String ImageUrl = "";
 
+        if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+            ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+        }
 
-
-        Glide.with(this)
-                .load(ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl())
-                .into(binding.ivProfileImage);
-
+        if (!ImageUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl())
+                    .into(binding.ivProfileImage);
+        }
 
 
         profileAdapter = new ProfileAdapter(this, posts, position -> {
