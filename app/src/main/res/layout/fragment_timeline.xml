@@ -42,10 +42,14 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="top|left"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_menu_add"
         app:layout_anchor="@id/anchor"
-        app:layout_anchorGravity="bottom|right|end" />
+        app:layout_anchorGravity="top|left|start">
+
+
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
