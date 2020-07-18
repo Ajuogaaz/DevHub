@@ -44,10 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|left"
         android:layout_margin="16dp"
-        android:src="@android:drawable/ic_menu_add"
         app:layout_anchor="@id/anchor"
         app:layout_anchorGravity="top|left|start">
-
 
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
