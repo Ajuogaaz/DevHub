@@ -155,10 +155,6 @@ public class ProfileActivity extends AppCompatActivity {
                 // Load the taken image into a preview
                 ParseUser currentUser = ParseUser.getCurrentUser();
 
-                Glide.with(this)
-                        .load((new ParseFile(photoFile)).getUrl())
-                        .into(binding.ivProfileImage);
-
                 currentUser.put("ProfilePic", new ParseFile(photoFile));
                 currentUser.put("HasUploadedPic", true);
                 currentUser.saveInBackground(e -> {
