@@ -118,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
         photoFile = getPhotoFileUri(photoFileName);
 
         //wrap file object into a content provider
-        Uri fileProvider = FileProvider.getUriForFile(this, "com.codepath.fileprovider", photoFile);
+        Uri fileProvider = FileProvider.getUriForFile(this, "com.codepath.fileprovider.DevHub", photoFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
 
         if(intent.resolveActivity(getPackageManager()) != null){
