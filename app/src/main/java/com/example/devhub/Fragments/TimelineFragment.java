@@ -1,6 +1,8 @@
 package com.example.devhub.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Activities.MainActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
@@ -68,6 +71,15 @@ public class TimelineFragment extends Fragment {
         floatingActionsMenu = view.findViewById(R.id.ProfilPic);
         compose = view.findViewById(R.id.composebtn);
 
+        String ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+
+        Drawable iconss = Drawable.createFromPath(ImageUrl);
+
+
+        final Uri uri = Uri.parse(url);
+        final String path = uri.getPath();
+        final Drawable drawable = Drawable.createFromPath(path)
+
         compose.setOnClickListener(view3 -> {
             Toast.makeText(getContext(), "Compose", Toast.LENGTH_SHORT).show();
         });
@@ -78,8 +90,6 @@ public class TimelineFragment extends Fragment {
             startActivity(intent);
         });
         //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
 
 
         TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {
