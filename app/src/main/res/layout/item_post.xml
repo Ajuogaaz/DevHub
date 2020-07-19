@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height='800dp'
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="20dp"
     card_view:cardBackgroundColor="@color/colorWhite"
@@ -14,7 +14,8 @@
    <RelativeLayout
        android:id="@+id/main_container"
        android:layout_width="match_parent"
-       android:layout_height="400dp">
+       android:layout_marginBottom="50dp"
+       android:layout_height="wrap_content">
 
 
        <androidx.cardview.widget.CardView
@@ -73,6 +74,7 @@
            android:layout_width="wrap_content"
            android:textColor="@color/Black"
            android:layout_marginTop="20dp"
+           android:layout_marginStart="5dp"
            android:layout_below="@id/circularContainer"
            android:layout_height="wrap_content"
            tools:text="@string/AjuogaazTitle"
@@ -83,17 +85,70 @@
            android:id="@+id/tvDescription"
            android:layout_width="match_parent"
            android:layout_below="@id/title"
-           android:layout_height="55dp"
+           android:layout_height="wrap_content"
            android:layout_marginStart="5dp"
            android:ellipsize="end"
-           android:maxLines="3"
+           android:maxLines="4"
            tools:text="@string/PostBody"
-
            />
+       <ImageView
+           android:id="@+id/PostImage"
+           android:layout_width="match_parent"
+           android:layout_height="200dp"
+           android:layout_below="@id/tvDescription"
+           tools:src="@color/Green"
+           android:visibility="visible"
+           />
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="200dp"
+           android:layout_below="@id/PostImage"
+           android:layout_marginTop="-3dp">
+
+           <ImageView
+               android:id="@+id/imageView3"
+               android:layout_width="36dp"
+               android:layout_height="41dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="24dp"
+               app:srcCompat="@drawable/ufi_heart_icon"
+               card_view:layout_constraintStart_toStartOf="parent"
+               card_view:layout_constraintTop_toTopOf="parent" />
+
+           <ImageView
+               android:id="@+id/imageView4"
+               android:layout_width="49dp"
+               android:layout_height="35dp"
+               android:layout_marginStart="24dp"
+               app:srcCompat="@android:drawable/stat_notify_chat"
+               card_view:layout_constraintStart_toEndOf="@+id/imageView3"
+               card_view:layout_constraintTop_toTopOf="@+id/imageView3"
+               card_view:srcCompat="?android:attr/textCursorDrawable" />
+
+           <ImageView
+               android:id="@+id/imageView5"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="13dp"
+               app:srcCompat="@android:drawable/ic_menu_share"
+               card_view:layout_constraintStart_toEndOf="@+id/imageView4"
+               card_view:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+           <ImageView
+               android:id="@+id/imageView6"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="64dp"
+               app:srcCompat="@drawable/ufi_save"
+               card_view:layout_constraintEnd_toEndOf="parent"
+               card_view:layout_constraintHorizontal_bias="0.0"
+               card_view:layout_constraintStart_toEndOf="@+id/imageView5"
+               card_view:layout_constraintTop_toTopOf="@+id/imageView5" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
 
 
    </RelativeLayout>
-
 
 
 </androidx.cardview.widget.CardView>
