@@ -137,10 +137,14 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             ParseFile image = post.getImage();
 
             if (image != null){
+                ivImage.setVisibility(View.VISIBLE);
+                tvDescription.setMaxLines(4);
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(ivImage);
             }else{
+                ivImage.setVisibility(View.GONE);
+                tvDescription.setMaxLines(8);
                 Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
             }
 
