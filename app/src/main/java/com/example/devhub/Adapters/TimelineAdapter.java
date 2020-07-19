@@ -90,8 +90,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             gitHubUsername = itemView.findViewById(R.id.gitHubUserName);
             tvDate = itemView.findViewById(R.id.tvCreatedAt);
             tvTopic = itemView.findViewById(R.id.title);
-
             tvDescription = itemView.findViewById(R.id.tvDescription);
+
             ivImage = itemView.findViewById(R.id.ivPostImage);
             tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
 
@@ -112,7 +112,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvDate.setText(post.getTime());
             tvTopic.setText(post.getTopic());
 
-            tvUserNameDescription.setText(post.getUser().getUsername());
+
 
             tvNumberofLikes.setText("200");
 
