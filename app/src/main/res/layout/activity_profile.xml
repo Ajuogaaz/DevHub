@@ -211,11 +211,14 @@
                 app:layout_constraintEnd_toEndOf="@id/NumberOfFollowers" />
 
             <TextView
-                android:id="@+id/ivBookmarkText"
+                android:id="@+id/NumberofActualfollowing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bookmark"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
+                tools:text="364"
                 app:layout_constraintTop_toBottomOf="@id/NumberOfFollowing"
                 app:layout_constraintStart_toStartOf="@id/NumberOfFollowing"
                 app:layout_constraintEnd_toEndOf="@id/NumberOfFollowing" />
@@ -233,16 +236,13 @@
 
 
             <TextView
-                android:id="@+id/NumberofActualfollowing"
+                android:id=""
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/NumberOfPosts"
                 android:layout_marginStart="340dp"
                 android:layout_marginEnd="2dp"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/Black"
-                tools:text="364" />
+                 />
 
         </RelativeLayout>
 
