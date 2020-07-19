@@ -7,7 +7,6 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/transparent"
     tools:context=".Activities.MainActivity"
     android:fitsSystemWindows="true">
 
