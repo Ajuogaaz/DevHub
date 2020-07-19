@@ -114,46 +114,60 @@
             android:layout_below="@id/separatingLine"
             android:layout_marginTop="3dp">
 
-            <ImageView
-                android:id="@+id/ivUpvote"
+            <TextView
+                android:id="@+id/NumberOfPosts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_upvote" />
+                android:text="@string/postsLabel" />
 
 
-            <ImageView
-                android:id="@+id/ivComment"
+            <TextView
+                android:id="@+id/NumberOfRepos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.38"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ivUpvote"
-                app:srcCompat="@drawable/ic_comment" />
+                app:layout_constraintTop_toTopOf="@+id/NumberOfPosts"
+                android:text="@string/repos" />
 
-            <ImageView
-                android:id="@+id/ivShare"
+            <TextView
+                android:id="@+id/NumberOfFollowers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/followers"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.62"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ivUpvote"
-                app:srcCompat="@drawable/ic_share_variant" />
+                app:layout_constraintTop_toTopOf="@id/NumberOfPosts"
+                 />
 
-            <ImageView
-                android:id="@+id/ivBookmark"
+            <TextView
+                android:id="@+id/NumberOfFollowing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/following"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.85"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ivUpvote"
+                app:layout_constraintTop_toTopOf="@id/NumberOfPosts"
                 app:srcCompat="@drawable/ic_bookmark"
                 />
 
@@ -162,11 +176,11 @@
                 android:id="@+id/ivUpvoteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/upvote"
+                android:text=""
                 android:textColor="@color/Black"
-                app:layout_constraintTop_toBottomOf="@id/ivUpvote"
-                app:layout_constraintStart_toStartOf="@id/ivUpvote"
-                app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
+                app:layout_constraintTop_toBottomOf="@id/NumberOfPosts"
+                app:layout_constraintStart_toStartOf="@id/NumberOfPosts"
+                app:layout_constraintEnd_toEndOf="@id/NumberOfPosts" />
 
             <TextView
                 android:id="@+id/ivCommentText"
@@ -207,18 +221,6 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
-                android:id="@+id/NumberOfPosts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/Black"
-                android:text="@string/postsLabel"
-                />
 
             <TextView
                 android:id="@+id/NumberofActualPosts"
@@ -231,20 +233,6 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
                 tools:text="200" />
-
-            <TextView
-                android:id="@+id/NumberOfRepos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="120dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/Black"
-                android:text="@string/repos"
-                />
-
             <TextView
                 android:id="@+id/NumberofActualRepos"
                 android:layout_width="match_parent"
@@ -257,18 +245,7 @@
                 android:textColor="@color/Black"
                 tools:text="267" />
 
-            <TextView
-                android:id="@+id/NumberOfFollowers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="210dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/Black"
-                android:text="@string/followers"
-                />
+
 
             <TextView
                 android:id="@+id/NumberofActualFollowers"
@@ -282,18 +259,7 @@
                 android:textColor="@color/Black"
                 tools:text="2724" />
 
-            <TextView
-                android:id="@+id/NumberOfFollowing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="320dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/Black"
-                android:text="@string/following"
-                />
+
 
             <TextView
                 android:id="@+id/NumberofActualfollowing"
