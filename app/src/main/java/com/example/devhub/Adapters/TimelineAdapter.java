@@ -91,8 +91,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvDate = itemView.findViewById(R.id.tvCreatedAt);
             tvTopic = itemView.findViewById(R.id.title);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivImage = itemView.findViewById(R.id.PostImage);
 
-            ivImage = itemView.findViewById(R.id.ivPostImage);
+
             tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
 
             tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
