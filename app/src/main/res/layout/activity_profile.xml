@@ -173,11 +173,13 @@
 
 
             <TextView
-                android:id="@+id/ivUpvoteText"
+                android:id="@+id/NumberofActualPosts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/Black"
+                tools:text="200"
                 app:layout_constraintTop_toBottomOf="@id/NumberOfPosts"
                 app:layout_constraintStart_toStartOf="@id/NumberOfPosts"
                 app:layout_constraintEnd_toEndOf="@id/NumberOfPosts" />
@@ -188,9 +190,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/comment"
                 android:textColor="@color/Black"
-                app:layout_constraintTop_toBottomOf="@id/ivComment"
-                app:layout_constraintStart_toStartOf="@id/ivComment"
-                app:layout_constraintEnd_toEndOf="@id/ivComment" />
+                app:layout_constraintTop_toBottomOf="@id/NumberOfRepos"
+                app:layout_constraintStart_toStartOf="@id/NumberOfRepos"
+                app:layout_constraintEnd_toEndOf="@id/NumberOfRepos" />
 
             <TextView
                 android:id="@+id/ivShareText"
@@ -198,18 +200,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/share"
                 android:textColor="@color/Black"
-                app:layout_constraintTop_toBottomOf="@id/ivShare"
-                app:layout_constraintStart_toStartOf="@id/ivShare"
-                app:layout_constraintEnd_toEndOf="@id/ivShare" />
+                app:layout_constraintTop_toBottomOf="@id/NumberOfFollowers"
+                app:layout_constraintStart_toStartOf="@id/NumberOfFollowers"
+                app:layout_constraintEnd_toEndOf="@id/NumberOfFollowers" />
+
             <TextView
                 android:id="@+id/ivBookmarkText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bookmark"
                 android:textColor="@color/Black"
-                app:layout_constraintTop_toBottomOf="@id/ivBookmark"
-                app:layout_constraintStart_toStartOf="@id/ivBookmark"
-                app:layout_constraintEnd_toEndOf="@id/ivBookmark" />
+                app:layout_constraintTop_toBottomOf="@id/NumberOfFollowing"
+                app:layout_constraintStart_toStartOf="@id/NumberOfFollowing"
+                app:layout_constraintEnd_toEndOf="@id/NumberOfFollowing" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -220,19 +223,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-
-            <TextView
-                android:id="@+id/NumberofActualPosts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/NumberOfPosts"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="2dp"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/Black"
-                tools:text="200" />
             <TextView
                 android:id="@+id/NumberofActualRepos"
                 android:layout_width="match_parent"
