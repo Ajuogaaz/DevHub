@@ -70,7 +70,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
     class ViewHolder extends  RecyclerView.ViewHolder{
 
-        private TextView tvUserName;
+        private TextView tvPreferredName;
         private ImageView ivImage;
         private TextView tvDescription;
         private TextView tvUserNameDescription;
@@ -84,13 +84,16 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserName = itemView.findViewById(R.id.tvName);
+            profilePic = itemView.findViewById(R.id.ivProfileImage);
+            tvPreferredName = itemView.findViewById(R.id.tvName);
+
+
             tvDescription = itemView.findViewById(R.id.tvDescription);
             ivImage = itemView.findViewById(R.id.ivPostImage);
             tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
             tvDate = itemView.findViewById(R.id.tvCreatedAt);
             tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
-            profilePic = itemView.findViewById(R.id.ivProfileImage);
+
             likeIcon = itemView.findViewById(R.id.ivLike);
             tvTopic = itemView.findViewById(R.id.tvTitle);
 
@@ -101,7 +104,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         public void bind(final Post post) {
 
             tvDescription.setText(post.getDescription());
-            tvUserName.setText(post.getUser().getUsername());
+            tvPreferredName.setText(post.getUser().getString("PreferredName"));
             tvUserNameDescription.setText(post.getUser().getUsername());
             tvDate.setText(post.getTime());
             tvNumberofLikes.setText("200");
