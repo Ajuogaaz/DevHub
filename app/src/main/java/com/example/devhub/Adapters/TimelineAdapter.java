@@ -88,12 +88,12 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             profilePic = itemView.findViewById(R.id.ivProfileImage);
             tvPreferredName = itemView.findViewById(R.id.tvName);
             gitHubUsername = itemView.findViewById(R.id.gitHubUserName);
-
+            tvDate = itemView.findViewById(R.id.tvCreatedAt);
 
             tvDescription = itemView.findViewById(R.id.tvDescription);
             ivImage = itemView.findViewById(R.id.ivPostImage);
             tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
-            tvDate = itemView.findViewById(R.id.tvCreatedAt);
+
             tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
 
             likeIcon = itemView.findViewById(R.id.ivLike);
