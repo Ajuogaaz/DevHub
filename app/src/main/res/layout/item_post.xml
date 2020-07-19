@@ -119,6 +119,8 @@
            android:layout_below="@id/tvDescription"
            android:src="@color/Green"
            android:visibility="gone"
+           android:scaleType="centerCrop"
+           android:contentDescription="@string/post_image"
            android:background="@android:color/transparent"
            />
 
