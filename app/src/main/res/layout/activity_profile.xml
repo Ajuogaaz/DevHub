@@ -63,7 +63,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:textColor="@color/Black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="@string/preferredName" />
 
@@ -74,7 +74,7 @@
                 android:layout_below="@id/preferredName"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="2dp"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textColor="@color/Black"
                 tools:text="@string/titledescription" />
 
@@ -85,7 +85,7 @@
                 android:layout_marginEnd="2dp"
                 android:layout_below="@id/title"
                 android:layout_marginStart="20dp"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/Black"
                 android:layout_marginTop="2dp"
