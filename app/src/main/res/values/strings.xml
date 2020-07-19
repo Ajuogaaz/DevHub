@@ -47,4 +47,5 @@
     <string name="comment">Comment</string>
     <string name="share">Share</string>
     <string name="bookmark">Bookmark</string>
+    <string name="_2_hours_ago">2h</string>
 </resources>
