@@ -89,6 +89,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvPreferredName = itemView.findViewById(R.id.tvName);
             gitHubUsername = itemView.findViewById(R.id.gitHubUserName);
             tvDate = itemView.findViewById(R.id.tvCreatedAt);
+            tvTopic = itemView.findViewById(R.id.title);
 
             tvDescription = itemView.findViewById(R.id.tvDescription);
             ivImage = itemView.findViewById(R.id.ivPostImage);
@@ -97,7 +98,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
 
             likeIcon = itemView.findViewById(R.id.ivLike);
-            tvTopic = itemView.findViewById(R.id.tvTitle);
+
 
 
 
@@ -108,9 +109,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvDescription.setText(post.getDescription());
             tvPreferredName.setText(post.getUser().getString("PreferredName"));
             gitHubUsername.setText(String.format("@%s", post.getUser().getString("gitHubUserName")));
+            tvDate.setText(post.getTime());
 
             tvUserNameDescription.setText(post.getUser().getUsername());
-            tvDate.setText(post.getTime());
+
             tvNumberofLikes.setText("200");
             tvTopic.setText(post.getTopic());
 
