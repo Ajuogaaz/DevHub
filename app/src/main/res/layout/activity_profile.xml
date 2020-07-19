@@ -19,6 +19,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="2dp"
         app:cardCornerRadius="40dp"
+        android:elevation="5dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
@@ -104,6 +105,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
+        android:elevation="10dp"
         app:cardCornerRadius="15dp"
         >
 
@@ -227,35 +229,37 @@
     </androidx.cardview.widget.CardView>
 
 
-
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnEditProfile"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stats"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="5dp"
-        android:layout_toStartOf="@+id/btnEditSettings"
-        android:background="@android:color/transparent"
+        android:layout_marginStart="20dp"
+        android:elevation="5dp"
         android:text="@string/edit_profile"
-        android:textAllCaps="false"
-        android:textColor="@color/Black" />
-
-
+        android:textAllCaps="true"
+        android:textColor="@color/Black"
+        android:textSize="12sp"
+        app:backgroundTint="#FFFFFF" />
 
     <Button
         android:id="@+id/btnEditSettings"
-        android:layout_width="210dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/stats"
+        android:layout_alignTop="@+id/btnEditProfile"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/btnEditProfile"
+        android:elevation="5dp"
         android:text="@string/settings"
-        android:textAllCaps="false"
-        android:textColor="@color/Black" />
-
-
+        android:textAllCaps="true"
+        android:textColor="@color/Black"
+        android:textSize="12sp"
+        app:backgroundTint="#FFFFFF" />
 
     <FrameLayout
         android:id="@+id/flLayout"
