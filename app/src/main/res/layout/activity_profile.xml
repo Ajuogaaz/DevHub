@@ -104,14 +104,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="15dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/separatingLine"
-            android:layout_marginTop="3dp">
+            android:layout_marginBottom="10dp"
+            >
 
             <TextView
                 android:id="@+id/NumberOfPosts"
@@ -228,19 +228,19 @@
 
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stats"
         android:layout_alignParentStart="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:layout_toStartOf="@+id/btnEditSettings"
-        android:backgroundTint="#FFFFFF"
+        android:background="@android:color/transparent"
         android:text="@string/edit_profile"
         android:textAllCaps="false"
         android:textColor="@color/Black" />
+
 
 
     <Button
@@ -249,7 +249,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/stats"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:backgroundTint="#FFFFFF"
         android:text="@string/settings"
