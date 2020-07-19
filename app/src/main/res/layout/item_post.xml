@@ -68,6 +68,30 @@
            tools:text="@string/Ajuogaaz"
            />
 
+       <TextView
+           android:id="@+id/title"
+           android:layout_width="wrap_content"
+           android:textColor="@color/Black"
+           android:layout_marginTop="20dp"
+           android:layout_below="@id/circularContainer"
+           android:layout_height="wrap_content"
+           tools:text="@string/AjuogaazTitle"
+           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+           android:textStyle="bold"
+           />
+       <TextView
+           android:id="@+id/tvDescription"
+           android:layout_width="match_parent"
+           android:layout_below="@id/title"
+           android:layout_height="55dp"
+           android:layout_marginStart="5dp"
+           android:ellipsize="end"
+           android:maxLines="3"
+           tools:text="@string/PostBody"
+
+           />
+
+
    </RelativeLayout>
 
 

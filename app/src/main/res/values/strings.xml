@@ -42,4 +42,6 @@
     <string name="repos">REPOS</string>
     <string name="following">FOLLOWING</string>
     <string name="Ajuogaaz">\@Ajuogaaz</string>
+    <string name="AjuogaazTitle">\@Ajuogaaz/SimpleInstagramClown</string>
+    <string name="PostBody">D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1</string>
 </resources>
