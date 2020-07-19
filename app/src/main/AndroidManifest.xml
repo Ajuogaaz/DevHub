@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.devhub">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -45,7 +47,9 @@
                     android:scheme="edtrum" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.MainActivity">
+        </activity>
         <activity android:name=".Activities.LoginActivity" />
     </application>
 

@@ -70,29 +70,33 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
     class ViewHolder extends  RecyclerView.ViewHolder{
 
-        private TextView tvUserName;
+        private TextView tvPreferredName;
+        private TextView gitHubUsername;
         private ImageView ivImage;
         private TextView tvDescription;
-        private TextView tvUserNameDescription;
         private TextView tvDate;
         private TextView tvNumberofLikes;
         private ImageView profilePic;
-        private ImageView likeIcon;
         private TextView tvTopic;
+        private  TextView numberOfComments;
 
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserName = itemView.findViewById(R.id.tvName);
-            tvDescription = itemView.findViewById(R.id.tvDescription);
-            ivImage = itemView.findViewById(R.id.ivPostImage);
-            tvUserNameDescription = itemView.findViewById(R.id.tvUserNameDescription);
-            tvDate = itemView.findViewById(R.id.tvCreatedAt);
-            tvNumberofLikes = itemView.findViewById(R.id.NumberofActualLikes);
             profilePic = itemView.findViewById(R.id.ivProfileImage);
-            likeIcon = itemView.findViewById(R.id.ivLike);
-            tvTopic = itemView.findViewById(R.id.tvTitle);
+            tvPreferredName = itemView.findViewById(R.id.tvName);
+            gitHubUsername = itemView.findViewById(R.id.gitHubUserName);
+            tvDate = itemView.findViewById(R.id.tvCreatedAt);
+            tvTopic = itemView.findViewById(R.id.title);
+            tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivImage = itemView.findViewById(R.id.PostImage);
+            tvNumberofLikes = itemView.findViewById(R.id.tvActualLikes);
+            numberOfComments = itemView.findViewById(R.id.tvActualComments);
+
+
+
+
 
 
 
@@ -101,21 +105,12 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         public void bind(final Post post) {
 
             tvDescription.setText(post.getDescription());
-            tvUserName.setText(post.getUser().getUsername());
-            tvUserNameDescription.setText(post.getUser().getUsername());
+            tvPreferredName.setText(post.getUser().getString("PreferredName"));
+            gitHubUsername.setText(String.format("@%s", post.getUser().getString("gitHubUserName")));
             tvDate.setText(post.getTime());
-            tvNumberofLikes.setText("200");
             tvTopic.setText(post.getTopic());
 
             profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
-
-            likeIcon.setOnClickListener(view -> {
-                clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE);
-                likeIcon.setImageResource(R.drawable.ufi_heart_active);
-                tvNumberofLikes.setText("200");
-            });
-
-
 
             String profilepic = post.getUser().getParseFile("ProfilePic").getUrl();
 
@@ -126,10 +121,14 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             ParseFile image = post.getImage();
 
             if (image != null){
+                ivImage.setVisibility(View.VISIBLE);
+                tvDescription.setMaxLines(4);
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(ivImage);
             }else{
+                ivImage.setVisibility(View.GONE);
+                tvDescription.setMaxLines(8);
                 Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
             }
 

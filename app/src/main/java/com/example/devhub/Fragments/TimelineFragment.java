@@ -1,6 +1,9 @@
 package com.example.devhub.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,9 +21,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Activities.MainActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
@@ -29,12 +35,16 @@ import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import toan.android.floatingactionmenu.FloatingActionsMenu;
 
 
 public class TimelineFragment extends Fragment {
@@ -47,8 +57,8 @@ public class TimelineFragment extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
-    private Toolbar toolbar;
-    private ImageView profilePic;
+    private FloatingActionButton compose;
+    ImageView profileButton;
 
 
 
@@ -60,20 +70,30 @@ public class TimelineFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
-
-        toolbar = view.findViewById(R.id.toolbar);
         allPosts = new ArrayList<>();
-        profilePic = view.findViewById(R.id.ivProfileImage);
+        profileButton = view.findViewById(R.id.ivProfile);
 
-        profilePic.setOnClickListener(view1 -> {
+
+
+        compose = view.findViewById(R.id.composebtn);
+
+        String ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+
+        Glide.with(this)
+                .load(ImageUrl)
+                .into(profileButton);
+
+
+        compose.setOnClickListener(view3 -> {
+            Toast.makeText(getContext(), "Compose", Toast.LENGTH_SHORT).show();
+        });
+
+       profileButton.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
 
             startActivity(intent);
         });
-
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {

@@ -17,7 +17,6 @@
     <string name="github_auth">Click on the Button below to Authenticate with Github</string>
     <string name="connectionFailure">Check your connection</string>
     <string name="RequestDenied">Request denied</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Timeline">Timeline</string>
     <string name="Notification">Notification</string>
@@ -41,4 +40,14 @@
     <string name="postsLabel">POSTS</string>
     <string name="repos">REPOS</string>
     <string name="following">FOLLOWING</string>
+    <string name="Ajuogaaz">\@Ajuogaaz</string>
+    <string name="AjuogaazTitle">\@Ajuogaaz/SimpleInstagramClown</string>
+    <string name="PostBody">D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1</string>
+    <string name="upvote">Upvote</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="TimeSpent">2 hours</string>
+    <string name="NumberOfUpvotes">1,345 upvotes</string>
+    <string name="NumberOfComments">12,345 comments</string>
 </resources>
