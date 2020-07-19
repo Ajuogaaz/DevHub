@@ -110,11 +110,12 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             tvPreferredName.setText(post.getUser().getString("PreferredName"));
             gitHubUsername.setText(String.format("@%s", post.getUser().getString("gitHubUserName")));
             tvDate.setText(post.getTime());
+            tvTopic.setText(post.getTopic());
 
             tvUserNameDescription.setText(post.getUser().getUsername());
 
             tvNumberofLikes.setText("200");
-            tvTopic.setText(post.getTopic());
+
 
             profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
 
