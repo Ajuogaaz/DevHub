@@ -14,7 +14,47 @@
    <RelativeLayout
        android:id="@+id/main_container"
        android:layout_width="match_parent"
-       android:layout_height="400dp"
+       android:layout_height="400dp">
+
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/circularContainer"
+           android:layout_width="45dp"
+           android:layout_height="45dp"
+           app:cardCornerRadius="45dp"
+           android:layout_marginTop="20dp"
+           android:layout_marginStart="20dp"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentTop="true"
+           card_view:cardElevation="10dp"
+           android:layout_centerVertical="true">
+
+           <ImageView
+               android:id="@+id/ivProfileImage"
+               android:layout_width="45dp"
+               android:layout_height="45dp"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="0dp"
+               android:layout_marginStart="0dp"
+               tools:srcCompat="@tools:sample/avatars" />
+
+       </androidx.cardview.widget.CardView>
+
+       <TextView
+           android:id="@+id/tvName"
+           android:layout_marginTop="5dp"
+           android:layout_width="270dp"
+           android:layout_marginStart="18dp"
+           android:ems="10"
+           android:textStyle="bold"
+           android:textColor="@color/Black"
+           android:layout_height="wrap_content"
+           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+           tools:text="Linus"
+           />
+
+   </RelativeLayout>
 
 
 
