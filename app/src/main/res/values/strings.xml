@@ -44,7 +44,7 @@
     <string name="AjuogaazTitle">\@Ajuogaaz/SimpleInstagramClown</string>
     <string name="PostBody">D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 0 D/ViewRootImpl@ce9ad29[ProfileActivity]: ViewPostIme pointer 1</string>
     <string name="upvote">Upvote</string>
-    <string name="comment">comment</string>
-    <string name="share">share</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
     <string name="bookmark">Bookmark</string>
 </resources>
