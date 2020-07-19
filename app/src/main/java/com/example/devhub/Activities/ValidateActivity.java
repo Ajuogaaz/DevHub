@@ -52,11 +52,13 @@ public class ValidateActivity extends AppCompatActivity {
         }
         else{
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+
+            if (user.getBoolean("HasToken")){
+                showHomePage();
+            }
         }
         //Check if the Has token meaning its not a new user, Then push them to main activity
-        if (user.getBoolean("HasToken")){
-           showHomePage();
-        }
+
 
         //Run this remaining code if and only if its a new user from Register activity
         super.onCreate(savedInstanceState);
