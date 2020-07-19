@@ -54,8 +54,8 @@ public class TimelineFragment extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
-    private FloatingActionsMenu floatingActionsMenu;
     private FloatingActionButton compose;
+    ImageView profileButton;
 
 
 
@@ -68,23 +68,22 @@ public class TimelineFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvPost = view.findViewById(R.id.rvPost);
         allPosts = new ArrayList<>();
-        floatingActionsMenu = view.findViewById(R.id.ProfilPic);
+        profileButton = view.findViewById(R.id.ivProfile);
+
         compose = view.findViewById(R.id.composebtn);
 
         String ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
 
-        Drawable iconss = Drawable.createFromPath(ImageUrl);
+        Glide.with(this)
+                .load(ImageUrl)
+                .into(profileButton);
 
-
-        final Uri uri = Uri.parse(url);
-        final String path = uri.getPath();
-        final Drawable drawable = Drawable.createFromPath(path)
 
         compose.setOnClickListener(view3 -> {
             Toast.makeText(getContext(), "Compose", Toast.LENGTH_SHORT).show();
         });
 
-       floatingActionsMenu.setOnClickListener(view1 -> {
+       profileButton.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
 
             startActivity(intent);
