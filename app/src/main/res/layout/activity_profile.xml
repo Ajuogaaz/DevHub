@@ -102,10 +102,8 @@
         android:layout_below="@id/info_card"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="2dp"
-        app:cardCornerRadius="5dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -224,27 +222,6 @@
                 app:layout_constraintEnd_toEndOf="@id/NumberOfFollowing" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-        <RelativeLayout
-            android:id="@+id/relativeContainer2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-
-            <TextView
-                android:id=""
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/NumberOfPosts"
-                android:layout_marginStart="340dp"
-                android:layout_marginEnd="2dp"
-                 />
-
-        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
