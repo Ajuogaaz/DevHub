@@ -66,7 +66,21 @@
            android:textStyle="bold"
            android:layout_height="wrap_content"
            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+           android:text="@string/Ajuogaaz"
            tools:text="@string/Ajuogaaz"
+           />
+
+       <TextView
+           android:id="@+id/tvCreatedAt"
+           android:layout_width="wrap_content"
+           android:layout_marginEnd="30dp"
+           android:layout_alignTop="@id/circularContainer"
+           android:layout_alignParentEnd="true"
+           android:textColor="@color/Black"
+           android:layout_height="wrap_content"
+           android:textAppearance="@style/TextAppearance.AppCompat.Small"
+           android:text="@string/TimeSpent"
+           tools:text="@string/TimeSpent"
            />
 
        <TextView
@@ -80,7 +94,7 @@
            android:layout_marginStart="5dp"
            android:layout_below="@id/circularContainer"
            android:layout_height="wrap_content"
-           tools:text="@string/AjuogaazTitle"
+           android:text="@string/AjuogaazTitle"
            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
            android:textStyle="bold"
            />
@@ -96,14 +110,14 @@
            android:ellipsize="end"
            android:autoLink="all"
            android:maxLines="8"
-           tools:text="@string/PostBody"
+           android:text="@string/PostBody"
            />
        <ImageView
            android:id="@+id/PostImage"
            android:layout_width="match_parent"
            android:layout_height="200dp"
            android:layout_below="@id/tvDescription"
-           tools:src="@color/Green"
+           android:src="@color/Green"
            android:visibility="gone"
            android:background="@android:color/transparent"
            />
@@ -119,7 +133,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="12sp"
-           android:text="@string/_1_345_upvotes"
+           android:text="@string/NumberOfUpvotes"
            />
 
        <TextView
