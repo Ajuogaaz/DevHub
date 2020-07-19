@@ -17,7 +17,6 @@
     <string name="github_auth">Click on the Button below to Authenticate with Github</string>
     <string name="connectionFailure">Check your connection</string>
     <string name="RequestDenied">Request denied</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Timeline">Timeline</string>
     <string name="Notification">Notification</string>
