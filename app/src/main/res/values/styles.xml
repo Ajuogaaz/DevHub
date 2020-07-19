@@ -1,17 +1,13 @@
 <resources>
     <!-- Base application theme. -->
 
-    <style name="transparent" parent="Theme.AppCompat.Light">
-        //AppCompat is the key; You can choose any other theme than the light-theme, but stick to AppCompat
-
-        <item name="colorPrimaryDark">#00000000</item>//THIS is the important part.
-        //Other styling(optional)
-    </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
