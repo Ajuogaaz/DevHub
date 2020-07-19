@@ -43,7 +43,6 @@
 
        <TextView
            android:id="@+id/tvName"
-           android:layout_marginTop="2dp"
            android:layout_width="270dp"
            android:layout_marginStart="10dp"
            android:layout_alignTop="@id/circularContainer"
@@ -51,6 +50,19 @@
            android:ems="10"
            android:textStyle="bold"
            android:textColor="@color/Black"
+           android:layout_height="wrap_content"
+           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+           tools:text="Linus"
+           />
+
+       <TextView
+           android:id="@+id/gitHubUserName"
+           android:layout_width="270dp"
+           android:layout_marginStart="10dp"
+           android:layout_below="@id/tvName"
+           android:layout_toEndOf="@id/circularContainer"
+           android:ems="10"
+           android:textStyle="bold"
            android:layout_height="wrap_content"
            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
            tools:text="Linus"
