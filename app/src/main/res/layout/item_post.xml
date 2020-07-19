@@ -44,7 +44,7 @@
 
        <TextView
            android:id="@+id/tvName"
-           android:layout_width="270dp"
+           android:layout_width="wrap_content"
            android:layout_marginStart="10dp"
            android:layout_alignTop="@id/circularContainer"
            android:layout_toEndOf="@id/circularContainer"
@@ -58,7 +58,7 @@
 
        <TextView
            android:id="@+id/gitHubUserName"
-           android:layout_width="270dp"
+           android:layout_width="wrap_content"
            android:layout_marginStart="10dp"
            android:layout_below="@id/tvName"
            android:layout_toEndOf="@id/circularContainer"
@@ -74,6 +74,9 @@
            android:layout_width="wrap_content"
            android:textColor="@color/Black"
            android:layout_marginTop="20dp"
+           android:layout_marginEnd="10dp"
+           android:autoLink="all"
+           android:typeface="sans"
            android:layout_marginStart="5dp"
            android:layout_below="@id/circularContainer"
            android:layout_height="wrap_content"
@@ -85,9 +88,12 @@
            android:id="@+id/tvDescription"
            android:layout_width="match_parent"
            android:layout_below="@id/title"
+           android:typeface="sans"
            android:layout_height="wrap_content"
-           android:layout_marginStart="5dp"
+           android:layout_marginStart="10dp"
+           android:layout_marginEnd="10dp"
            android:ellipsize="end"
+           android:autoLink="all"
            android:maxLines="4"
            tools:text="@string/PostBody"
            />
@@ -98,53 +104,85 @@
            android:layout_below="@id/tvDescription"
            tools:src="@color/Green"
            android:visibility="visible"
+           android:background="@android:color/transparent"
            />
+
+       <View
+           android:id="@+id/separatingLine"
+           android:layout_width="match_parent"
+           android:layout_marginStart="10dp"
+           android:layout_marginEnd="10dp"
+           android:layout_below="@id/PostImage"
+           android:layout_marginTop="50dp"
+           android:layout_height="1dp"
+           android:background="@color/Green"/>
 
        <androidx.constraintlayout.widget.ConstraintLayout
            android:layout_width="match_parent"
            android:layout_height="200dp"
-           android:layout_below="@id/PostImage"
+           android:layout_below="@id/separatingLine"
            android:layout_marginTop="-3dp">
 
+
+
            <ImageView
-               android:id="@+id/imageView3"
-               android:layout_width="36dp"
-               android:layout_height="41dp"
-               android:layout_marginStart="16dp"
-               android:layout_marginTop="24dp"
+               android:id="@+id/ivUpvote"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
                app:srcCompat="@drawable/ufi_heart_icon"
+               card_view:layout_constraintEnd_toEndOf="parent"
+               card_view:layout_constraintHorizontal_bias="0.15"
                card_view:layout_constraintStart_toStartOf="parent"
-               card_view:layout_constraintTop_toTopOf="parent" />
+               card_view:layout_constraintTop_toTopOf="parent"
+               card_view:srcCompat="@drawable/ic_upvote" />
+
 
            <ImageView
-               android:id="@+id/imageView4"
-               android:layout_width="49dp"
-               android:layout_height="35dp"
-               android:layout_marginStart="24dp"
-               app:srcCompat="@android:drawable/stat_notify_chat"
-               card_view:layout_constraintStart_toEndOf="@+id/imageView3"
-               card_view:layout_constraintTop_toTopOf="@+id/imageView3"
-               card_view:srcCompat="?android:attr/textCursorDrawable" />
-
-           <ImageView
-               android:id="@+id/imageView5"
+               android:id="@+id/ivComment"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_marginStart="13dp"
                app:srcCompat="@android:drawable/ic_menu_share"
-               card_view:layout_constraintStart_toEndOf="@+id/imageView4"
-               card_view:layout_constraintTop_toTopOf="@+id/imageView4" />
+               card_view:layout_constraintEnd_toEndOf="parent"
+               card_view:layout_constraintHorizontal_bias="0.38"
+               card_view:layout_constraintStart_toStartOf="parent"
+               card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+               card_view:srcCompat="@drawable/ic_comment" />
 
            <ImageView
-               android:id="@+id/imageView6"
+               android:id="@+id/ivShare"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_marginStart="64dp"
                app:srcCompat="@drawable/ufi_save"
                card_view:layout_constraintEnd_toEndOf="parent"
-               card_view:layout_constraintHorizontal_bias="0.0"
-               card_view:layout_constraintStart_toEndOf="@+id/imageView5"
-               card_view:layout_constraintTop_toTopOf="@+id/imageView5" />
+               card_view:layout_constraintHorizontal_bias="0.62"
+               card_view:layout_constraintStart_toStartOf="parent"
+               card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+               card_view:srcCompat="@drawable/ic_share_variant" />
+
+           <ImageView
+               android:id="@+id/ivBookmark"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:srcCompat="@android:drawable/stat_notify_chat"
+               card_view:layout_constraintEnd_toEndOf="parent"
+               card_view:layout_constraintHorizontal_bias="0.85"
+               card_view:layout_constraintStart_toStartOf="parent"
+               card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+               card_view:srcCompat="@drawable/ic_comment"
+               tools:srcCompat="@drawable/ic_bookmark" />
+
+
+           <TextView
+               android:id="@+id/ivUpvoteText"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
+               card_view:layout_constraintEnd_toEndOf="parent"
+               card_view:layout_constraintHorizontal_bias="0.15"
+               card_view:layout_constraintStart_toStartOf="parent"
+               card_view:layout_constraintTop_toTopOf="parent"
+               card_view:srcCompat="@drawable/ic_upvote" />
        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
