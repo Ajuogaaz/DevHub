@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }*/
-        StatusBarUtil.setTransparent(MainActivity);
+
+
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -125,6 +127,18 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setSelectedItemId(R.id.action_timeline);
 
 
+    }
+
+    public static void setWindowFlag(Activity activity, final int bits, boolean on) {
+
+        Window win = activity.getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
     }
 
 }
