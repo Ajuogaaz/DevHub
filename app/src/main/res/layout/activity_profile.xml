@@ -232,6 +232,15 @@
 
 
     <Button
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnEditProfile"
+        android:textColor="@color/Black"
+        style="?attr/materialButtonOutlinedStyle"
+        android:text="Test"/>
+
+    <Button
         android:id="@+id/btnEditProfile"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="175dp"
@@ -266,7 +275,7 @@
         android:id="@+id/flLayout"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        android:layout_below="@+id/btnEditProfile"
+        android:layout_below="@id/test"
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
