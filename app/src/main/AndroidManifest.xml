@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".Activities.ComposeActivity"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -27,7 +27,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-        <activity android:name=".Activities.SettingsActivity"></activity>
+
+        <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.ValidateActivity">
@@ -47,9 +48,7 @@
                     android:scheme="edtrum" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activities.MainActivity">
-        </activity>
+        <activity android:name=".Activities.MainActivity"></activity>
         <activity android:name=".Activities.LoginActivity" />
     </application>
 
