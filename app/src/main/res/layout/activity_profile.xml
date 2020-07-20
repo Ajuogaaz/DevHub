@@ -237,6 +237,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnEditProfile"
         android:textColor="@color/Black"
+        android:layout_margin="20dp"
         style="?attr/materialButtonOutlinedStyle"
         android:text="Test"/>
 
