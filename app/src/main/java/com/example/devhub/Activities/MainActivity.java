@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
