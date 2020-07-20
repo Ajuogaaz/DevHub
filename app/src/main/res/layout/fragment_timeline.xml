@@ -26,8 +26,7 @@
                 android:id="@+id/rvPost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp" />
+                 />
 
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
