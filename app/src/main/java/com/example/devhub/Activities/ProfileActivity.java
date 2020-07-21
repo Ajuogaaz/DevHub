@@ -73,7 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
-        binding.gitHubUserName.setText(ParseUser.getCurrentUser().getString("gitHubUserName"));
+        binding.gitHubUserName.setText(String.format("@%s", ParseUser.getCurrentUser().getString("gitHubUserName")));
         binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
         binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
         binding.NumberofActualPosts.setText((ParseUser.getCurrentUser().getNumber("NumberOfPost")).toString());
