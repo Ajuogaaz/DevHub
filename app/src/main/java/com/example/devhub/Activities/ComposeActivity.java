@@ -77,7 +77,11 @@ public class ComposeActivity extends AppCompatActivity {
 
         binding.CameraIcon.setOnClickListener(view3 ->{
             Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
-            TakePictureFromCamera();
+            try {
+                TakePictureFromCamera();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         });
 
@@ -90,11 +94,11 @@ public class ComposeActivity extends AppCompatActivity {
     }
 
     private void TakePictureFromGallery(View view) {
-        onPickPhoto(view);
+        //onPickPhoto(view);
 
     }
 
-    private void TakePictureFromCamera() {
+    private void TakePictureFromCamera() throws IOException {
 
         launchCamera();
     }
@@ -122,7 +126,7 @@ public class ComposeActivity extends AppCompatActivity {
         // by this point we have the camera photo on disk
         Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
        // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
-        Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, SOME_WIDTH);
+        Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, 300);
 
         // Configure byte output stream
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -178,7 +182,7 @@ public class ComposeActivity extends AppCompatActivity {
                 ivPostImage.setImageBitmap(selectedImage);*/
 
     }
-
+/*
     @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
     public void onPickPhoto(View view){
         //Create an intent for picking a photo from gallery
@@ -188,7 +192,7 @@ public class ComposeActivity extends AppCompatActivity {
             startActivityForResult(intent, PICK_PHOTO_CODE);
         }
 
-    }
+    }*/
 
 
 
