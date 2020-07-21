@@ -141,20 +141,30 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="477dp"
         android:layout_below="@id/enterTitle"
-        android:background="@color/colorPrimary"
-        app:boxBackgroundColor="@android:color/transparent"
-        android:hint="@string/required">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/required"
+        app:boxBackgroundColor="@android:color/transparent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="@color/colorPrimary"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:padding="15dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </RelativeLayout>
