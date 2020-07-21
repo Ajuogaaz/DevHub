@@ -12,6 +12,11 @@
 
     <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
     <style name="LoginButton" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">@color/instagram_blue</item>
