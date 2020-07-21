@@ -25,6 +25,7 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.BitmapScaler;
 import com.example.devhub.databinding.ActivityComposeBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.google.android.material.button.MaterialButton;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
@@ -73,8 +74,7 @@ public class ComposeActivity extends AppCompatActivity {
         binding.Cancel.setOnClickListener(view1 -> {
 
             Toast.makeText(this, "Discarding post", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ComposeActivity.this, TimelineFragment.class);
-
+            Intent intent = new Intent(ComposeActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         });

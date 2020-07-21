@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static ActivityMainBinding binding;
     public static List<Repositories> Repos;
 
+    public static final int TimelineFragmentRequest = 1234;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
