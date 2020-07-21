@@ -187,7 +187,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     }
 
-    public File getPhotoFileUri(String fileName) {
+    public File getPhotoFileUri(String fileName) throws IOException {
         // Get safe storage directory for photos
         // Use `getExternalFilesDir` on Context to access package-specific directories.
         // This way, we don't need to request external read/write runtime permissions.
@@ -200,6 +200,8 @@ public class ComposeActivity extends AppCompatActivity {
 
         // Return the file target for the photo based on filename
         File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
+
+        //resizeThepicture();
 
         return file;
     }
