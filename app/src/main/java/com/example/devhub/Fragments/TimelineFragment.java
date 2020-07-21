@@ -77,7 +77,13 @@ public class TimelineFragment extends Fragment {
 
         compose = view.findViewById(R.id.composebtn);
 
-        String ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+        String ImageUrl = "";
+
+        if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+            ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+        }
 
         Glide.with(this)
                 .load(ImageUrl)
