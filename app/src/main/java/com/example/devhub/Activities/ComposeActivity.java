@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.R;
+import com.example.devhub.Utils.BitmapScaler;
 import com.example.devhub.databinding.ActivityComposeBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.ParseFile;
@@ -25,7 +26,10 @@ import com.parse.ParseUser;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ComposeActivity extends AppCompatActivity {
 
@@ -95,7 +99,7 @@ public class ComposeActivity extends AppCompatActivity {
         launchCamera();
     }
 
-    private void launchCamera() {
+    private void launchCamera() throws IOException {
         //Create an intent to take pictures and return control to the app
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //Create a file reference to access to future access
@@ -113,12 +117,24 @@ public class ComposeActivity extends AppCompatActivity {
 
     }
 
-    private void resizeThepicture() {
+    private void resizeThepicture() throws IOException {
         Uri takenPhotoUri = Uri.fromFile(getPhotoFileUri(photoFileName));
         // by this point we have the camera photo on disk
         Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
        // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
         Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, SOME_WIDTH);
+
+        // Configure byte output stream
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        // Compress the image further
+        resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+        // Create a new file for the resized bitmap (`getPhotoFileUri` defined above)
+        File resizedFile = getPhotoFileUri(photoFileName + "_resized");
+        resizedFile.createNewFile();
+        FileOutputStream fos = new FileOutputStream(resizedFile);
+        // Write the bytes of the bitmap to file
+        fos.write(bytes.toByteArray());
+        fos.close();
 
     }
 
