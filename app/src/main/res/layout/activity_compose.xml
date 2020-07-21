@@ -22,7 +22,7 @@
             >
 
             <ImageView
-                android:id="@+id/Camera"
+                android:id="@+id/Cancel"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:padding="0dp"
