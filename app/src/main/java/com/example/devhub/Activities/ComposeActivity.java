@@ -78,10 +78,6 @@ public class ComposeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-        binding.toolbarPost.setOnClickListener(view2 ->{
-
-            Toast.makeText(this, "Posting", Toast.LENGTH_SHORT).show();
-        });
 
         binding.CameraIcon.setOnClickListener(view3 ->{
             Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
@@ -104,6 +100,11 @@ public class ComposeActivity extends AppCompatActivity {
             binding.PostImage.setImageResource(0);
             binding.PostImage.setVisibility(View.GONE);
             binding.TittleText.setText("");
+
+            Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ComposeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
 
         });
 
