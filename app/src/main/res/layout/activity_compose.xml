@@ -179,7 +179,7 @@
             android:contentDescription="@string/post_image"
             android:scaleType="centerCrop"
             android:src="@color/Green"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:srcCompat="@drawable/ic_image_outline" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -197,13 +197,11 @@
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="2dp"
             android:layout_toStartOf="@+id/CameraIcon"
-            android:background="@android:color/transparent"
+            android:background="@color/colorPrimary"
             android:contentDescription="@string/post_image"
             android:scaleType="centerCrop"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_image_outline" />
 
         <ImageView

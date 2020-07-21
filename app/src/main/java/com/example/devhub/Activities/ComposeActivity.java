@@ -44,8 +44,6 @@ public class ComposeActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
-
-
         binding.Cancel.setOnClickListener(view1 -> {
 
             Toast.makeText(this, "Cancel Clicked", Toast.LENGTH_SHORT).show();
@@ -54,6 +52,14 @@ public class ComposeActivity extends AppCompatActivity {
         binding.toolbarPost.setOnClickListener(view2 ->{
 
             Toast.makeText(this, "Posting", Toast.LENGTH_SHORT).show();
+        });
+
+        binding.CameraIcon.setOnClickListener(view3 ->{
+            Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
+        });
+
+        binding.GalleryIcon.setOnClickListener(view4 -> {
+            Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show();
         });
 
 
