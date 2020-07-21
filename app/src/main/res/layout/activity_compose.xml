@@ -203,7 +203,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/post_image"
             android:scaleType="centerCrop"
-            android:visibility="visible"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_image_outline" />
 
         <ImageView
