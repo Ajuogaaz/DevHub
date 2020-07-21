@@ -13,16 +13,18 @@ import org.jetbrains.annotations.NotNull;
 
 public class ComposeActivity extends AppCompatActivity {
 
-    ActivityProfileBinding binding;
+    ActivityComposeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityComposeBinding.inflate(getLayoutInflater());
 
         final View view = binding.getRoot();
         setContentView(view);
+
+        binding.
 
 
     }
