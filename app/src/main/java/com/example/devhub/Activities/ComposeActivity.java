@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -78,13 +79,15 @@ public class ComposeActivity extends AppCompatActivity {
 
         binding.GalleryIcon.setOnClickListener(view4 -> {
             Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show();
-            TakePictureFromGallery();
+            TakePictureFromGallery(view4);
         });
 
 
     }
 
-    private void TakePictureFromGallery() {
+    private void TakePictureFromGallery(View view) {
+        onPickPhoto(view);
+
     }
 
     private void TakePictureFromCamera() {
@@ -96,6 +99,8 @@ public class ComposeActivity extends AppCompatActivity {
         //Create an intent to take pictures and return control to the app
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //Create a file reference to access to future access
+
+        resizeThepicture();
         photoFile = getPhotoFileUri(photoFileName);
 
         //wrap file object into a content provider
@@ -105,6 +110,15 @@ public class ComposeActivity extends AppCompatActivity {
         if(intent.resolveActivity(getPackageManager()) != null){
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
+
+    }
+
+    private void resizeThepicture() {
+        Uri takenPhotoUri = Uri.fromFile(getPhotoFileUri(photoFileName));
+        // by this point we have the camera photo on disk
+        Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+       // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
+        Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, SOME_WIDTH);
 
     }
 
@@ -146,6 +160,17 @@ public class ComposeActivity extends AppCompatActivity {
                 Bitmap selectedImage = loadFromUri(photoUri);
 
                 ivPostImage.setImageBitmap(selectedImage);*/
+
+    }
+
+    @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+    public void onPickPhoto(View view){
+        //Create an intent for picking a photo from gallery
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        if(intent.resolveActivity(PackageManager()) != null){
+            startActivityForResult(intent, PICK_PHOTO_CODE);
+        }
 
     }
 
