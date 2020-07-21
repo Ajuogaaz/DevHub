@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Activities.ComposeActivity;
 import com.example.devhub.Activities.MainActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
@@ -59,6 +60,7 @@ public class TimelineFragment extends Fragment {
     protected ParseUser specifiedUser;
     private FloatingActionButton compose;
     ImageView profileButton;
+    public static final int ComposeRequestCode = 211;
 
 
 
@@ -73,8 +75,6 @@ public class TimelineFragment extends Fragment {
         allPosts = new ArrayList<>();
         profileButton = view.findViewById(R.id.ivProfile);
 
-
-
         compose = view.findViewById(R.id.composebtn);
 
         String ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
@@ -85,7 +85,10 @@ public class TimelineFragment extends Fragment {
 
 
         compose.setOnClickListener(view3 -> {
-            Toast.makeText(getContext(), "Compose", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), ComposeActivity.class);
+
+
+            startActivityForResult(intent, ComposeRequestCode);
         });
 
        profileButton.setOnClickListener(view1 -> {

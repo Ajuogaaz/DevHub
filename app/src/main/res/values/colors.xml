@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#A9A9A9</color>
-    <color name="colorAccent">#FF00FF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#008000</color>
     <color name="instagram_blue">#0095f6</color>
     <color name="colorBack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>

@@ -1,65 +1,39 @@
 package com.example.devhub.Activities;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
-
+import com.example.devhub.Fragments.ChatFragment;
+import com.example.devhub.Fragments.NotificationFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
-import com.example.devhub.Fragments.ChatFragment;
-import com.example.devhub.Fragments.NotificationFragment;
-import com.example.devhub.Models.AccessToken;
 import com.example.devhub.Models.Repositories;
-import com.example.devhub.Models.User;
 import com.example.devhub.R;
-
 import com.example.devhub.databinding.ActivityMainBinding;
-import com.example.devhub.network.ApiClient;
-import com.example.devhub.network.ApiService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.jaeger.library.StatusBarUtil;
 
 import java.util.List;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.example.devhub.Utils.Constants.AUTH_URL;
 
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
     public static List<Repositories> Repos;
 
+    public static final int TimelineFragmentRequest = 1234;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
