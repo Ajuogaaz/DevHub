@@ -95,8 +95,10 @@ public class ComposeActivity extends AppCompatActivity {
         });
 
         binding.toolbarPost.setOnClickListener(view5 -> {
-
             savePost();
+            binding.PostBody.setText("");
+            binding.PostImage.setVisibility(View.GONE);
+            binding.TittleText.setText("");
 
         });
 
@@ -106,6 +108,8 @@ public class ComposeActivity extends AppCompatActivity {
     private void savePost() {
 
         Post post = new Post();
+
+        post.setUser(ParseUser.getCurrentUser());
 
         String title = binding.TittleText.getText().toString();
 
