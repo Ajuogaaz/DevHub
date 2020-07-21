@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -112,10 +113,16 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
             profilePic.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), PROFILE_CODE));
 
-            String profilepic = post.getUser().getParseFile("ProfilePic").getUrl();
+            String ImageUrl = "";
+
+            if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+                ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+            }else{
+                ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+            }
 
             Glide.with(context)
-                    .load(profilepic)
+                    .load(ImageUrl)
                     .into(profilePic);
 
             ParseFile image = post.getImage();
