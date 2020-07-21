@@ -25,10 +25,10 @@
                 android:id="@+id/Cancel"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:padding="0dp"
                 android:layout_marginStart="0dp"
-                android:contentDescription="Camera"
-                app:srcCompat="@drawable/cameraaa" />
+                android:contentDescription="Cancel"
+                android:padding="0dp"
+                app:srcCompat="@drawable/ic_close" />
 
 
 
