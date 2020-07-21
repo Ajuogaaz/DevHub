@@ -71,7 +71,8 @@ public class ComposeActivity extends AppCompatActivity {
 
         binding.Cancel.setOnClickListener(view1 -> {
 
-            Toast.makeText(this, "Cancel Clicked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Discarding post", Toast.LENGTH_SHORT).show();
+            Intent
 
         });
         binding.toolbarPost.setOnClickListener(view2 ->{
@@ -97,6 +98,7 @@ public class ComposeActivity extends AppCompatActivity {
         binding.toolbarPost.setOnClickListener(view5 -> {
             savePost();
             binding.PostBody.setText("");
+            binding.PostImage.setImageResource(0);
             binding.PostImage.setVisibility(View.GONE);
             binding.TittleText.setText("");
 
