@@ -94,10 +94,6 @@ public class ProfileActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
 
 
         profileAdapter = new ProfileAdapter(this, posts, position -> {

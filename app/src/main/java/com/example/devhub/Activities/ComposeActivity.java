@@ -28,6 +28,9 @@ public class ComposeActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
+        binding.tvName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
+
+
         if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
             ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
         }else{
@@ -40,7 +43,7 @@ public class ComposeActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
-        binding.ivProfileImage
+
 
         binding.Cancel.setOnClickListener(view1 -> {
 

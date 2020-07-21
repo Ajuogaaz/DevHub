@@ -65,12 +65,13 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Title, Description;
+        TextView Title, Description, gitHubUserName;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             Title = itemView.findViewById(R.id.tvTitle);
+            gitHubUserName = itemView.findViewById((R.id.gitHubUserName));
             Description = itemView.findViewById(R.id.tvDescription);
 
 
@@ -78,8 +79,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
         public void bind(Post post) {
 
-
-            Title.setText(post.getUser().getUsername());
+            gitHubUserName.setText(post.getUser().getString("gitHubUserName"));
+            Title.setText(post.getUser().getString("PreferredName"));
             Description.setText(post.getDescription());
 
 
