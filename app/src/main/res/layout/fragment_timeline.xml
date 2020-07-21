@@ -40,6 +40,7 @@
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_menu_add"
         app:layout_anchor="@id/anchor"
+        app:backgroundTint="@color/colorAccent"
         app:layout_anchorGravity="bottom|right|end" />
 
     <androidx.cardview.widget.CardView
