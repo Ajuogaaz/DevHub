@@ -147,7 +147,6 @@ public class ComposeActivity extends AppCompatActivity {
 
                 ivPostImage.setImageBitmap(selectedImage);*/
 
-        }
     }
 
 
