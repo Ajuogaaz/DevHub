@@ -96,32 +96,36 @@ public class ComposeActivity extends AppCompatActivity {
 
         binding.toolbarPost.setOnClickListener(view5 -> {
 
-            String title = binding.TittleText.getText().toString();
-
-            if(title.isEmpty()){
-                Toast.makeText(this, "Title cannot be empty", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            String Body = binding.PostBody.getText().toString();
-            if(Body.isEmpty()){
-                Toast.makeText(this, "Body cannot be empty", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if(photoFile == null){
-                Toast.makeText(this, "isNull", Toast.LENGTH_SHORT).show();
-            }
-
-
-
-
-
-
+            savePost();
 
         });
 
 
+    }
+
+    private void savePost() {
+
+        Post post = new Post();
+
+        String title = binding.TittleText.getText().toString();
+
+        if(title.isEmpty()){
+            Toast.makeText(this, "Title cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        post.setTopic(title);
+
+        String Body = binding.PostBody.getText().toString();
+        if(Body.isEmpty()){
+            Toast.makeText(this, "Body cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        post.setDescription(Body);
+
+        if(photoFile != null){
+            ParseFile pic = new ParseFile(photoFile);
+            post.setImage(pic);
+        }
     }
 
     private void TakePictureFromGallery(View view) {
