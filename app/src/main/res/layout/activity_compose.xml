@@ -56,5 +56,67 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
+    <View
+        android:id="@+id/separatingLine"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/toolbar"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/circularContainer"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:cardCornerRadius="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/separatingLine"
+        app:cardElevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@id/circularContainer"
+        android:layout_toEndOf="@id/circularContainer"
+        android:ems="10"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Linus"
+        />
+
+    <TextView
+        android:id="@+id/gitHubUserName"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/tvName"
+        android:layout_toEndOf="@id/circularContainer"
+        android:ems="10"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:text="@string/Ajuogaaz"
+        tools:text="@string/Ajuogaaz"
+        />
+
+
+
 
 </RelativeLayout>
