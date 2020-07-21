@@ -25,6 +25,8 @@ public class ComposeActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
+
+
         binding.Cancel.setOnClickListener(view1 -> {
 
             Toast.makeText(this, "Cancel Clicked", Toast.LENGTH_SHORT).show();

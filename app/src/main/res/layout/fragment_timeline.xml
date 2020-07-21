@@ -43,12 +43,15 @@
         app:backgroundTint="@color/colorAccent"
         app:layout_anchorGravity="bottom|right|end" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_gravity="top|left"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="25dp"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         app:layout_anchor="@id/anchor"
+        android:fitsSystemWindows="true"
+        android:layout_marginStart="16dp"
         app:layout_anchorGravity="top|left|start"
+        android:layout_gravity="top|left"
+        android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
         android:id="@+id/circularContainer"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -68,6 +71,8 @@
             android:layout_marginTop="0dp"
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
 
 
 
