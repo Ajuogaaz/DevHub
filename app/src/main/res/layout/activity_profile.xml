@@ -69,10 +69,21 @@
                 tools:text="@string/preferredName" />
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/gitHubUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/preferredName"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="2dp"
+                android:textSize="14sp"
+                android:textColor="@color/Black"
+                tools:text="@string/temp_username" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gitHubUserName"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="2dp"
                 android:textSize="14sp"
