@@ -6,15 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityComposeBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.ParseUser;
 
 import org.jetbrains.annotations.NotNull;
 
 public class ComposeActivity extends AppCompatActivity {
 
     ActivityComposeBinding binding;
+    String ImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,20 @@ public class ComposeActivity extends AppCompatActivity {
 
         final View view = binding.getRoot();
         setContentView(view);
+
+        if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+            ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+        }
+
+        if (!ImageUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(ImageUrl)
+                    .into(binding.ivProfileImage);
+        }
+
+        binding.ivProfileImage
 
         binding.Cancel.setOnClickListener(view1 -> {
 
