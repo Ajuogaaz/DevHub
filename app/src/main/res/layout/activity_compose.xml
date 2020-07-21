@@ -126,6 +126,8 @@
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusBottomEnd="15dp"
         android:hint="@string/titleFormat"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
