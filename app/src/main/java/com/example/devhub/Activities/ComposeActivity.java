@@ -24,7 +24,11 @@ public class ComposeActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        binding.
+        binding.Cancel.setOnClickListener(view1 -> {
+
+
+
+        });
 
 
     }
