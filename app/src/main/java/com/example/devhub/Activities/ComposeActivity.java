@@ -108,6 +108,8 @@ public class ComposeActivity extends AppCompatActivity {
                 return;
             }
 
+            Toast.makeText(this, "Here" + Body + title, Toast.LENGTH_SHORT).show();
+
 
 
 
