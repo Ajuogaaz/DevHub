@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityComposeBinding;
@@ -25,6 +26,8 @@ public class ComposeActivity extends AppCompatActivity {
         setContentView(view);
 
         binding.Cancel.setOnClickListener(view1 -> {
+
+            Toast.makeText(this, "Cancel Clicked", Toast.LENGTH_SHORT).show();
 
 
 
