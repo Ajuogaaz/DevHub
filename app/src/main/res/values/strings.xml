@@ -56,4 +56,6 @@
     <string name="post_TOOLBAR">POST</string>
     <string name="required">Required</string>
     <string name="titleFormat">\@githubUserName/githubRepositoryName</string>
+    <string name="hintforCompose">whats on your mind?</string>
+    <string name="post_body">Post Body</string>
 </resources>
