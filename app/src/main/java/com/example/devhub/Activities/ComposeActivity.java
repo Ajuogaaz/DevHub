@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.BitmapScaler;
 import com.example.devhub.databinding.ActivityComposeBinding;
@@ -108,7 +109,12 @@ public class ComposeActivity extends AppCompatActivity {
                 return;
             }
 
-            Toast.makeText(this, "Here" + Body + title, Toast.LENGTH_SHORT).show();
+            if(photoFile == null){
+                Toast.makeText(this, "isNull", Toast.LENGTH_SHORT).show();
+            }
+
+
+
 
 
 
