@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.ComposeActivity"></activity>
+        <activity android:name=".Activities.DetailsActivity"></activity>
+        <activity android:name=".Activities.ComposeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -48,7 +49,7 @@
                     android:scheme="edtrum" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity"></activity>
+        <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.LoginActivity" />
     </application>
 
