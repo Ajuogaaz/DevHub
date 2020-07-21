@@ -177,12 +177,14 @@ public class ComposeActivity extends AppCompatActivity {
                     Toast.makeText(ComposeActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
                 }
 
-            }/*if((data != null) && requestCode == PICK_PHOTO_CODE){
+        }
+        if((data != null) && requestCode == PICK_PHOTO_CODE){
                 Uri photoUri = data.getData();
                 //Load the image located in the photo Uri
                 Bitmap selectedImage = loadFromUri(photoUri);
 
-                ivPostImage.setImageBitmap(selectedImage);*/
+                binding.PostImage.setImageBitmap(selectedImage);
+        }
 
     }
 
@@ -212,7 +214,5 @@ public class ComposeActivity extends AppCompatActivity {
         }
         return image;
     }
-
-
 
 }
