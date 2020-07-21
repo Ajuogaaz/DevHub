@@ -73,8 +73,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             Title = itemView.findViewById(R.id.tvTitle);
             gitHubUserName = itemView.findViewById((R.id.gitHubUserName));
             Description = itemView.findViewById(R.id.tvDescription);
-
-
         }
 
         public void bind(Post post) {

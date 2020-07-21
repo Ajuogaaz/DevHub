@@ -29,6 +29,7 @@ public class ComposeActivity extends AppCompatActivity {
         setContentView(view);
 
         binding.tvName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
+        binding.gitHubUserName.setText(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
 
         if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
