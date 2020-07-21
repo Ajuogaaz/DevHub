@@ -111,7 +111,6 @@
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
             android:autoLink="all"
-            android:maxLines="8"
             android:text="@string/PostBody"
             />
         <ImageView
@@ -120,7 +119,7 @@
             android:layout_height="200dp"
             android:layout_below="@id/tvDescription"
             android:src="@color/Green"
-            android:visibility="gone"
+            android:visibility="visible"
             android:scaleType="centerCrop"
             android:contentDescription="@string/post_image"
             android:background="@android:color/transparent"

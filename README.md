@@ -28,20 +28,31 @@ Sprint1 walk through  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/s
 
 ### 1. User Stories (Required and Optional)
 
-**Required Must-have Stories**
+#### Required Must-have Stories
 
-* Users are able to sign up new accounts in the register activity (Sign up requirement)
-* User is able to login through the login activity and logout of the app (login requirement) 
-* The app is configured with the Parse nosql database hosted in heroku ( Database requirement)
-* Users are able to use the camera to take a picture and set their profile picture using it (Camera requirement)
-* Users are required Auth their github accounts to access full functionality. (sdk requirement).
-* User lands on the home fragment where they see the floating compose icon for compose activity. (Multiple views)
-* User can compose a post that is posted to the tiomeline after being saved on the parse database (Database requirement)
-* User can double tap the like icon to like a post (gesture recognizer requirement)
-* User can switch to the repo fragment where they’ll be able to see all their repositories in a recycleview(multiple views requirements)
-* In the timeline View user will see posts ranked in order of the latest factoring in who they follow and popular posts with more likes.(complex algorithm requirements)
-* Use glide an external library to shape the image for user to be circular. (incoporate external library fpr polish).
-* Add an animation for the login screen as the screen appears. (Animation requirement)
+1. **SignUp Requirement** [Issue #6](https://github.com/Ajuogaaz/DevHub/issues/6)  *Status*: ***Closed***  
+    - Users are able to sign up new accounts in the register activity  
+2. **Login and Logout Requirement** [Issue #6](https://github.com/Ajuogaaz/DevHub/issues/6) *Status*: ***Closed***    
+    - User is able to login through the login activity and logout of the app
+3. **Database Requirement** [Issue #1](https://github.com/Ajuogaaz/DevHub/issues/1) *Status*: ***Closed***
+    - The app is configured with the Parse nosql database hosted in heroku
+    - User can compose a post that is posted to the tiomeline after being saved on the parse database
+4. **Camera Requirement** [Issue #18](https://github.com/Ajuogaaz/DevHub/issues/18) *Status*: ***Open***
+    - Users are able to use the camera to take a picture and set their profile picture using it 
+5. **Sdk Requirement** [Issue #19](https://github.com/Ajuogaaz/DevHub/issues/19) *Status*: ***Closed***
+    - Users are required Auth their github accounts to access full functionality.
+6. **MultipleViews** [Issue #3](https://github.com/Ajuogaaz/DevHub/issues/3) *Status*: ***Closed***
+    - User lands on the home fragment where they see the floating compose icon for compose activity.
+    - User can switch to the repo fragment where they’ll be able to see all their repositories in a recycleview
+7. **Gesture Recognizer Requirement** [Issue #13](https://github.com/Ajuogaaz/DevHub/issues/13) *Status*: ***Open***
+    - User can double tap the like icon to like a post
+8. **Complex Algorithm Requirement**. [Issue #11](https://github.com/Ajuogaaz/DevHub/issues/11) *Status*: ***Open***
+    - In the timeline View user will see posts ranked.
+9. **Incoporated External Library for polish**. [Issue #20](https://github.com/Ajuogaaz/DevHub/issues/20) *Status*: ***Closed***
+    - Use glide an external library to load Images.
+    - Add the External material Design Libraries.
+10. **Animation Requirements** [Issue #12](https://github.com/Ajuogaaz/DevHub/issues/12) *Status*: ***Open***
+    - Add an animation for the login screen as the screen appears.
 
 **Optional Nice-to-have Stories**
 
