@@ -1,10 +1,5 @@
 package com.example.devhub.Activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
-import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,18 +13,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
 import com.bumptech.glide.Glide;
-import com.example.devhub.Fragments.TimelineFragment;
 import com.example.devhub.Models.Post;
-import com.example.devhub.R;
 import com.example.devhub.Utils.BitmapScaler;
 import com.example.devhub.databinding.ActivityComposeBinding;
-import com.example.devhub.databinding.ActivityProfileBinding;
-import com.google.android.material.button.MaterialButton;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -91,6 +84,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         binding.GalleryIcon.setOnClickListener(view4 -> {
             Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show();
+            binding.PostImage.setVisibility(View.VISIBLE);
             TakePictureFromGallery(view4);
         });
 
@@ -159,7 +153,7 @@ public class ComposeActivity extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //Create a file reference to access to future access
 
-        resizeThepicture();
+
         photoFile = getPhotoFileUri(photoFileName);
 
         //wrap file object into a content provider
