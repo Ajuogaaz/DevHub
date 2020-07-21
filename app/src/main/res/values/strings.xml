@@ -51,4 +51,7 @@
     <string name="NumberOfUpvotes">1,345 upvotes</string>
     <string name="NumberOfComments">12,345 comments</string>
     <string name="post">Post</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_post">Create Post</string>
+    <string name="post_TOOLBAR">POST</string>
 </resources>
