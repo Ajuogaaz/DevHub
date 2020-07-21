@@ -145,30 +145,68 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
         android:layout_width="match_parent"
-        android:layout_height="477dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/takePicture"
         android:layout_below="@id/enterTitle"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        app:hintTextAppearance="@style/ShapeAppearance.MaterialComponents.LargeComponent"
-        app:hintTextColor="@color/colorAccent"
         android:hint="@string/post_body"
+        app:boxBackgroundColor="@android:color/transparent"
         app:hintAnimationEnabled="true"
-        app:boxBackgroundColor="@android:color/transparent">
+        app:hintTextAppearance="@style/ShapeAppearance.MaterialComponents.LargeComponent"
+        app:hintTextColor="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PostBody"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textCursorDrawable="@null"
-            android:gravity="top"
-            android:padding="20dp"
+            android:layout_height="200dp"
             android:background="@null"
-            android:textSize="24sp"
+            android:gravity="top"
             android:hint="@string/hintforCompose"
             android:inputType="textMultiLine"
-            />
+            android:padding="20dp"
+            android:textCursorDrawable="@null"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/PostImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/PostBody"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/post_image"
+            android:scaleType="centerCrop"
+            android:src="@color/Green"
+            android:visibility="visible"
+            tools:srcCompat="@drawable/ic_image_outline" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/takePicture"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp">
+
+        <ImageView
+            android:id="@+id/CameraIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="30dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/post_image"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_image_outline"
+            tools:srcCompat="@drawable/ic_image_outline" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
