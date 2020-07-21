@@ -28,9 +28,12 @@ import java.io.File;
 
 public class ComposeActivity extends AppCompatActivity {
 
+    private static final String TAG = "ComposeActivity";
     ActivityComposeBinding binding;
     String ImageUrl;
     File photoFile;
+    public String photoFileName = "post.jpg";
+    public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,25 +129,24 @@ public class ComposeActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == -1) {
-                // by this point we have the camera photo on disk
-                Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                // RESIZE BITMAP, see section below
-                // Load the taken image into a preview
-                ParseUser currentUser = ParseUser.getCurrentUser();
+                if (resultCode == RESULT_OK) {
+                    // by this point we have the camera photo on disk
+                    Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+                    // RESIZE BITMAP, see section below
+                    // Load the taken image into a preview
+                    binding.PostImage.setImageBitmap(takenImage);
+                    binding.PostImage.setVisibility(View.VISIBLE);
+                } else { // Result was a failure
+                    Toast.makeText(ComposeActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                }
 
-                currentUser.put("ProfilePic", new ParseFile(photoFile));
-                currentUser.put("HasUploadedPic", true);
-                currentUser.saveInBackground(e -> {
-                    if(e==null){
-                        Log.i(TAG, "done: Saved Success");
-                    }
-                });
+            }/*if((data != null) && requestCode == PICK_PHOTO_CODE){
+                Uri photoUri = data.getData();
+                //Load the image located in the photo Uri
+                Bitmap selectedImage = loadFromUri(photoUri);
 
+                ivPostImage.setImageBitmap(selectedImage);*/
 
-            } else { // Result was a failure
-                Toast.makeText(ProfileActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
-            }
         }
     }
 
