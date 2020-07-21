@@ -126,6 +126,12 @@ public class ComposeActivity extends AppCompatActivity {
             ParseFile pic = new ParseFile(photoFile);
             post.setImage(pic);
         }
+
+        post.saveInBackground(e -> {
+            if(e==null){
+                Log.i(TAG, "done: Saved Success");
+            }
+        });
     }
 
     private void TakePictureFromGallery(View view) {
