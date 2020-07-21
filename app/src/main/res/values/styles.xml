@@ -12,7 +12,7 @@
 
     <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 
-    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">#fff</item>
         <item name="boxStrokeWidth">2dp</item>
     </style>
