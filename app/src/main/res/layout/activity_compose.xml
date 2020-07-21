@@ -179,7 +179,7 @@
             android:contentDescription="@string/post_image"
             android:scaleType="centerCrop"
             android:src="@color/Green"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:srcCompat="@drawable/ic_image_outline" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -192,6 +192,21 @@
         android:layout_marginBottom="1dp">
 
         <ImageView
+            android:id="@+id/GalleryIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="2dp"
+            android:layout_toStartOf="@+id/CameraIcon"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/post_image"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_image_outline" />
+
+        <ImageView
             android:id="@+id/CameraIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -199,12 +214,12 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="30dp"
-            android:background="@color/colorPrimary"
             android:contentDescription="@string/post_image"
             android:scaleType="centerCrop"
             android:visibility="visible"
-            app:srcCompat="@drawable/ic_image_outline"
-            tools:srcCompat="@drawable/ic_image_outline" />
+            android:background="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_camera_outline"
+            tools:srcCompat="@drawable/ic_camera_outline" />
 
     </RelativeLayout>
 
