@@ -8,7 +8,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageDecoder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -39,6 +41,7 @@ public class ComposeActivity extends AppCompatActivity {
     File photoFile;
     public String photoFileName = "post.jpg";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 200;
+    public final static int PICK_PHOTO_CODE = 1146;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +97,7 @@ public class ComposeActivity extends AppCompatActivity {
     }
 
     private void TakePictureFromGallery(View view) {
-        //onPickPhoto(view);
+        onPickPhoto(view);
 
     }
 
@@ -182,17 +185,33 @@ public class ComposeActivity extends AppCompatActivity {
                 ivPostImage.setImageBitmap(selectedImage);*/
 
     }
-/*
-    @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+
     public void onPickPhoto(View view){
         //Create an intent for picking a photo from gallery
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
-        if(intent.resolveActivity(PackageManager()) != null){
+        if(intent.resolveActivity(getPackageManager()) != null){
             startActivityForResult(intent, PICK_PHOTO_CODE);
         }
 
-    }*/
+    }
+    public Bitmap loadFromUri(Uri photoUri) {
+        Bitmap image = null;
+        try {
+            // check version of Android on device
+            if(Build.VERSION.SDK_INT > 27){
+                // on newer versions of Android, use the new decodeBitmap method
+                ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), photoUri);
+                image = ImageDecoder.decodeBitmap(source);
+            } else {
+                // support older versions of Android by using getBitmap
+                image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return image;
+    }
 
 
 
