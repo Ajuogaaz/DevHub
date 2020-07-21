@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/Green"
+        android:background="@color/colorAccent"
         app:titleTextColor="@android:color/white">
 
 
