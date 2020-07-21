@@ -60,6 +60,7 @@ public class TimelineFragment extends Fragment {
     protected ParseUser specifiedUser;
     private FloatingActionButton compose;
     ImageView profileButton;
+    public static final int ComposeRequestCode = 211;
 
 
 
@@ -86,7 +87,8 @@ public class TimelineFragment extends Fragment {
         compose.setOnClickListener(view3 -> {
             Intent intent = new Intent(getContext(), ComposeActivity.class);
 
-            startActivity(intent);
+
+            startActivityForResult(intent, ComposeRequestCode);
         });
 
        profileButton.setOnClickListener(view1 -> {
