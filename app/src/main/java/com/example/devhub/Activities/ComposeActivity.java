@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Fragments.TimelineFragment;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.BitmapScaler;
@@ -72,8 +73,10 @@ public class ComposeActivity extends AppCompatActivity {
         binding.Cancel.setOnClickListener(view1 -> {
 
             Toast.makeText(this, "Discarding post", Toast.LENGTH_SHORT).show();
-            Intent
+            Intent intent = new Intent(ComposeActivity.this, TimelineFragment.class);
 
+            startActivity(intent);
+            finish();
         });
         binding.toolbarPost.setOnClickListener(view2 ->{
 
