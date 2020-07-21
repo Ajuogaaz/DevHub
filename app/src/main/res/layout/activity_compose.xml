@@ -20,6 +20,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toolbarContainer"
             >
 
             <ImageView
@@ -30,6 +31,17 @@
                 android:contentDescription="Cancel"
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_close" />
+
+            <ImageView
+                android:id="@+id/"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="0dp"
+                android:contentDescription="Cancel"
+                android:padding="0dp"
+                app:srcCompat="@drawable/ic_close" />
+
+
 
 
 
