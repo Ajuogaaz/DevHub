@@ -29,8 +29,10 @@ public class ComposeActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Cancel Clicked", Toast.LENGTH_SHORT).show();
 
+        });
+        binding.toolbarPost.setOnClickListener(view2 ->{
 
-
+            Toast.makeText(this, "Posting", Toast.LENGTH_SHORT).show();
         });
 
 
