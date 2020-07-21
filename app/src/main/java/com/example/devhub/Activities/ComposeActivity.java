@@ -93,6 +93,26 @@ public class ComposeActivity extends AppCompatActivity {
             TakePictureFromGallery(view4);
         });
 
+        binding.toolbarPost.setOnClickListener(view5 -> {
+
+            String title = binding.TittleText.getText().toString();
+
+            if(title.isEmpty()){
+                Toast.makeText(this, "Title cannot be empty", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String Body = binding.PostBody.getText().toString();
+            if(Body.isEmpty()){
+                Toast.makeText(this, "Body cannot be empty", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+
+
+        });
+
 
     }
 
