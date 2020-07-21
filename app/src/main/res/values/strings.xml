@@ -54,4 +54,6 @@
     <string name="cancel">Cancel</string>
     <string name="create_post">Create Post</string>
     <string name="post_TOOLBAR">POST</string>
+    <string name="required">Required</string>
+    <string name="titleFormat">\@githubUserName/githubRepositoryName</string>
 </resources>

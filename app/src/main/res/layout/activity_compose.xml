@@ -115,6 +115,42 @@
         tools:text="@string/Ajuogaaz"
         />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/gitHubUserName"
+        android:id="@+id/enterTitle"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        android:hint="@string/titleFormat"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterTitle"
+        android:background="@color/colorPrimary"
+        app:boxBackgroundColor="@android:color/transparent"
+        android:hint="@string/required">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/colorPrimary"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
