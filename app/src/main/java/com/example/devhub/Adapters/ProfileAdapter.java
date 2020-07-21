@@ -76,8 +76,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         }
 
         public void bind(Post post) {
-
-            gitHubUserName.setText(post.getUser().getString("gitHubUserName"));
             Title.setText(post.getUser().getString("PreferredName"));
             Description.setText(post.getDescription());
 
