@@ -38,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         commentsAdapter = new CommentsAdapter(this, posts, position -> {
 
         });
+        binding.rvComments.setAdapter(commentsAdapter);
 
 
 
