@@ -4,13 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -63,17 +66,41 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Title;
+        TextView PreferredName, gitHubUserName, date, body;
+        ImageView ProfilePic;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            Title = itemView.findViewById(R.id.tvName);
+            PreferredName = itemView.findViewById(R.id.tvName);
+            ProfilePic = itemView.findViewById(R.id.ivProfileImage);
+            gitHubUserName = itemView.findViewById(R.id.gitHubUserName);
+            date = itemView.findViewById(R.id.tvCreatedAt);
+            body = itemView.findViewById(R.id.tvDescription);
 
         }
 
         public void bind(Post post) {
-            Title.setText(post.getUser().getString("PreferredName"));
+
+            String ImageUrl = "";
+
+            if(post.getUser().getBoolean("HasUploadedPic")){
+                ImageUrl = post.getUser().getParseFile("ProfilePic").getUrl();
+            }else{
+                ImageUrl = post.getUser().getString("githubProfilePic");
+            }
+
+            if (!ImageUrl.isEmpty()) {
+                Glide.with(context)
+                        .load(ImageUrl)
+                        .into(ProfilePic);
+            }
+
+            PreferredName.setText(post.getUser().getString("PreferredName"));
+            gitHubUserName.setText(post.getUser().getString("gitHubUserName"));
+            date.setText(post.getTime());
+            body.setText(post.getDescription());
+
 
         }
 

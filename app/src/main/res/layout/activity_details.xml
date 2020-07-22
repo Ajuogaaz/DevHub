@@ -1,316 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/AnimatorView"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:theme="?attr/actionBarTheme"
-            android:minHeight="?attr/actionBarSize"
-            android:id="@+id/titleToolBar"
-            app:title="TEST"
-            />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/MainCardView"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height='wrap_content'
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                card_view:cardBackgroundColor="@color/colorWhite"
-                card_view:cardCornerRadius="50dp"
-                card_view:cardElevation="8dp">
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:theme="?attr/actionBarTheme"
+                android:minHeight="?attr/actionBarSize"
+                android:id="@+id/titleToolBar"
+                app:title="TEST"
+                />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-                <!-- Main Content View -->
-                <RelativeLayout
-                    android:id="@+id/main_container"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/MainCardView"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="20dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height='wrap_content'
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    card_view:cardBackgroundColor="@color/colorWhite"
+                    card_view:cardCornerRadius="50dp"
+                    card_view:cardElevation="8dp">
 
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/circularContainer"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        app:cardCornerRadius="45dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        card_view:cardElevation="10dp"
-                        android:layout_centerVertical="true">
+                    <!-- Main Content View -->
+                    <RelativeLayout
+                        android:id="@+id/main_container"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ivProfileImage"
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/circularContainer"
                             android:layout_width="45dp"
                             android:layout_height="45dp"
+                            app:cardCornerRadius="45dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginStart="0dp"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            card_view:cardElevation="10dp"
+                            android:layout_centerVertical="true">
 
-                    </androidx.cardview.widget.CardView>
+                            <ImageView
+                                android:id="@+id/ivProfileImage"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginStart="0dp"
+                                tools:srcCompat="@tools:sample/avatars" />
 
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_alignTop="@id/circularContainer"
-                        android:layout_toEndOf="@id/circularContainer"
-                        android:ems="10"
-                        android:textStyle="bold"
-                        android:textColor="@color/Black"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        tools:text="Linus"
-                        />
+                        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/gitHubUserName"
-                        android:layout_width="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_below="@id/tvName"
-                        android:layout_toEndOf="@id/circularContainer"
-                        android:ems="10"
-                        android:textStyle="bold"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:text="@string/Ajuogaaz"
-                        tools:text="@string/Ajuogaaz"
-                        />
-
-                    <TextView
-                        android:id="@+id/tvCreatedAt"
-                        android:layout_width="wrap_content"
-                        android:layout_marginEnd="30dp"
-                        android:layout_alignTop="@id/circularContainer"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@color/Black"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:text="@string/TimeSpent"
-                        tools:text="@string/TimeSpent"
-                        />
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/Black"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:autoLink="all"
-                        android:typeface="sans"
-                        android:layout_marginStart="5dp"
-                        android:layout_below="@id/circularContainer"
-                        android:layout_height="wrap_content"
-                        android:text="@string/AjuogaazTitle"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
-                        />
-                    <TextView
-                        android:id="@+id/tvDescription"
-                        android:layout_width="match_parent"
-                        android:layout_below="@id/title"
-                        android:layout_marginTop="5dp"
-                        android:typeface="sans"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:ellipsize="end"
-                        android:autoLink="all"
-                        android:text="@string/PostBody"
-                        />
-                    <ImageView
-                        android:id="@+id/PostImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_below="@id/tvDescription"
-                        android:src="@color/Green"
-                        android:visibility="visible"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/post_image"
-                        android:background="@android:color/transparent"
-                        />
-
-
-                    <TextView
-                        android:id="@+id/tvActualLikes"
-                        android:layout_below="@id/PostImage"
-                        android:layout_marginStart="10dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="25dp"
-                        android:textColor="@color/Black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/NumberOfUpvotes"
-                        />
-
-                    <TextView
-                        android:id="@+id/tvActualComments"
-                        android:layout_below="@id/PostImage"
-                        android:layout_marginEnd="10dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="25dp"
-                        android:textColor="@color/Black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/NumberOfComments"
-                        />
-
-                    <View
-                        android:id="@+id/separatingLine"
-                        android:layout_width="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_below="@id/PostImage"
-                        android:layout_marginTop="50dp"
-                        android:layout_height="1dp"
-                        android:background="@color/Green"/>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/separatingLine"
-                        android:layout_marginTop="3dp">
-
-                        <ImageView
-                            android:id="@+id/ivUpvote"
+                        <TextView
+                            android:id="@+id/tvName"
                             android:layout_width="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_alignTop="@id/circularContainer"
+                            android:layout_toEndOf="@id/circularContainer"
+                            android:ems="10"
+                            android:textStyle="bold"
+                            android:textColor="@color/Black"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            card_view:layout_constraintEnd_toEndOf="parent"
-                            card_view:layout_constraintHorizontal_bias="0.15"
-                            card_view:layout_constraintStart_toStartOf="parent"
-                            card_view:layout_constraintTop_toTopOf="parent"
-                            card_view:srcCompat="@drawable/ic_upvote" />
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:text="Linus"
+                            />
 
-
-                        <ImageView
-                            android:id="@+id/ivComment"
+                        <TextView
+                            android:id="@+id/gitHubUserName"
                             android:layout_width="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_below="@id/tvName"
+                            android:layout_toEndOf="@id/circularContainer"
+                            android:ems="10"
+                            android:textStyle="bold"
                             android:layout_height="wrap_content"
-                            card_view:layout_constraintEnd_toEndOf="parent"
-                            card_view:layout_constraintHorizontal_bias="0.38"
-                            card_view:layout_constraintStart_toStartOf="parent"
-                            card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
-                            card_view:srcCompat="@drawable/ic_comment" />
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@string/Ajuogaaz"
+                            tools:text="@string/Ajuogaaz"
+                            />
 
-                        <ImageView
-                            android:id="@+id/ivShare"
+                        <TextView
+                            android:id="@+id/tvCreatedAt"
                             android:layout_width="wrap_content"
+                            android:layout_marginEnd="30dp"
+                            android:layout_alignTop="@id/circularContainer"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/Black"
                             android:layout_height="wrap_content"
-                            card_view:layout_constraintEnd_toEndOf="parent"
-                            card_view:layout_constraintHorizontal_bias="0.62"
-                            card_view:layout_constraintStart_toStartOf="parent"
-                            card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
-                            card_view:srcCompat="@drawable/ic_share_variant" />
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:text="@string/TimeSpent"
+                            tools:text="@string/TimeSpent"
+                            />
 
-                        <ImageView
-                            android:id="@+id/ivBookmark"
+                        <TextView
+                            android:id="@+id/title"
                             android:layout_width="wrap_content"
+                            android:textColor="@color/Black"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:autoLink="all"
+                            android:typeface="sans"
+                            android:layout_marginStart="5dp"
+                            android:layout_below="@id/circularContainer"
                             android:layout_height="wrap_content"
-                            card_view:layout_constraintEnd_toEndOf="parent"
-                            card_view:layout_constraintHorizontal_bias="0.85"
-                            card_view:layout_constraintStart_toStartOf="parent"
-                            card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
-                            card_view:srcCompat="@drawable/ic_bookmark"
+                            android:text="@string/AjuogaazTitle"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/tvDescription"
+                            android:layout_width="match_parent"
+                            android:layout_below="@id/title"
+                            android:layout_marginTop="5dp"
+                            android:typeface="sans"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:ellipsize="end"
+                            android:autoLink="all"
+                            android:text="@string/PostBody"
+                            />
+                        <ImageView
+                            android:id="@+id/PostImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_below="@id/tvDescription"
+                            android:src="@color/Green"
+                            android:visibility="visible"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/post_image"
+                            android:background="@android:color/transparent"
                             />
 
 
                         <TextView
-                            android:id="@+id/ivUpvoteText"
+                            android:id="@+id/tvActualLikes"
+                            android:layout_below="@id/PostImage"
+                            android:layout_marginStart="10dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="25dp"
+                            android:textColor="@color/Black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/upvote"
-                            android:textColor="@color/Black"
-                            app:layout_constraintTop_toBottomOf="@id/ivUpvote"
-                            app:layout_constraintStart_toStartOf="@id/ivUpvote"
-                            app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
+                            android:textSize="12sp"
+                            android:text="@string/NumberOfUpvotes"
+                            />
 
                         <TextView
-                            android:id="@+id/ivCommentText"
+                            android:id="@+id/tvActualComments"
+                            android:layout_below="@id/PostImage"
+                            android:layout_marginEnd="10dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="25dp"
+                            android:textColor="@color/Black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/comment"
-                            android:textColor="@color/Black"
-                            app:layout_constraintTop_toBottomOf="@id/ivComment"
-                            app:layout_constraintStart_toStartOf="@id/ivComment"
-                            app:layout_constraintEnd_toEndOf="@id/ivComment" />
+                            android:textSize="12sp"
+                            android:text="@string/NumberOfComments"
+                            />
 
-                        <TextView
-                            android:id="@+id/ivShareText"
-                            android:layout_width="wrap_content"
+                        <View
+                            android:id="@+id/separatingLine"
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_below="@id/PostImage"
+                            android:layout_marginTop="50dp"
+                            android:layout_height="1dp"
+                            android:background="@color/Green"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/share"
-                            android:textColor="@color/Black"
-                            app:layout_constraintTop_toBottomOf="@id/ivShare"
-                            app:layout_constraintStart_toStartOf="@id/ivShare"
-                            app:layout_constraintEnd_toEndOf="@id/ivShare" />
-                        <TextView
-                            android:id="@+id/ivBookmarkText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/bookmark"
-                            android:textColor="@color/Black"
-                            app:layout_constraintTop_toBottomOf="@id/ivBookmark"
-                            app:layout_constraintStart_toStartOf="@id/ivBookmark"
-                            app:layout_constraintEnd_toEndOf="@id/ivBookmark" />
+                            android:layout_below="@id/separatingLine"
+                            android:layout_marginTop="3dp">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <ImageView
+                                android:id="@+id/ivUpvote"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                card_view:layout_constraintEnd_toEndOf="parent"
+                                card_view:layout_constraintHorizontal_bias="0.15"
+                                card_view:layout_constraintStart_toStartOf="parent"
+                                card_view:layout_constraintTop_toTopOf="parent"
+                                card_view:srcCompat="@drawable/ic_upvote" />
 
 
-                </RelativeLayout>
+                            <ImageView
+                                android:id="@+id/ivComment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                card_view:layout_constraintEnd_toEndOf="parent"
+                                card_view:layout_constraintHorizontal_bias="0.38"
+                                card_view:layout_constraintStart_toStartOf="parent"
+                                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                                card_view:srcCompat="@drawable/ic_comment" />
+
+                            <ImageView
+                                android:id="@+id/ivShare"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                card_view:layout_constraintEnd_toEndOf="parent"
+                                card_view:layout_constraintHorizontal_bias="0.62"
+                                card_view:layout_constraintStart_toStartOf="parent"
+                                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                                card_view:srcCompat="@drawable/ic_share_variant" />
+
+                            <ImageView
+                                android:id="@+id/ivBookmark"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                card_view:layout_constraintEnd_toEndOf="parent"
+                                card_view:layout_constraintHorizontal_bias="0.85"
+                                card_view:layout_constraintStart_toStartOf="parent"
+                                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                                card_view:srcCompat="@drawable/ic_bookmark"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/ivUpvoteText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/upvote"
+                                android:textColor="@color/Black"
+                                app:layout_constraintTop_toBottomOf="@id/ivUpvote"
+                                app:layout_constraintStart_toStartOf="@id/ivUpvote"
+                                app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
+
+                            <TextView
+                                android:id="@+id/ivCommentText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/comment"
+                                android:textColor="@color/Black"
+                                app:layout_constraintTop_toBottomOf="@id/ivComment"
+                                app:layout_constraintStart_toStartOf="@id/ivComment"
+                                app:layout_constraintEnd_toEndOf="@id/ivComment" />
+
+                            <TextView
+                                android:id="@+id/ivShareText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/share"
+                                android:textColor="@color/Black"
+                                app:layout_constraintTop_toBottomOf="@id/ivShare"
+                                app:layout_constraintStart_toStartOf="@id/ivShare"
+                                app:layout_constraintEnd_toEndOf="@id/ivShare" />
+                            <TextView
+                                android:id="@+id/ivBookmarkText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/bookmark"
+                                android:textColor="@color/Black"
+                                app:layout_constraintTop_toBottomOf="@id/ivBookmark"
+                                app:layout_constraintStart_toStartOf="@id/ivBookmark"
+                                app:layout_constraintEnd_toEndOf="@id/ivBookmark" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </RelativeLayout>
 
 
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvComments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:overScrollMode="never"
-                android:scrollbars="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/MainCardView" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:overScrollMode="never"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/MainCardView" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/AnimatorView"
+        android:id="@+id/enterTitle"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/colorAccent"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        android:layout_alignParentBottom="true"
+        android:hint="@string/titleFormat"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TittleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textMultiLine"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

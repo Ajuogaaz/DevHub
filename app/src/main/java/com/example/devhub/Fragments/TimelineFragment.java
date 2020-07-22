@@ -115,6 +115,8 @@ public class TimelineFragment extends Fragment {
 
                 Intent intent = new Intent(getContext(), DetailsActivity.class);
 
+                intent.putExtra("post", allPosts.get(position));
+
                 startActivity(intent);
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
