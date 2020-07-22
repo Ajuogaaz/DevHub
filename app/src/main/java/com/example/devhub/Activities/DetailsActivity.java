@@ -97,9 +97,7 @@ public class DetailsActivity extends AppCompatActivity {
                     .load(image.getUrl())
                     .into(binding.PostImage);
         }else{
-            ivImage.setVisibility(View.GONE);
-            tvDescription.setMaxLines(8);
-            Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
+            binding.PostImage.setVisibility(View.GONE);
         }
 
 
