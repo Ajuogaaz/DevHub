@@ -66,7 +66,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView PreferredName, gitHubUserName, date;
+        TextView PreferredName, gitHubUserName, date, body;
         ImageView ProfilePic;
 
         ViewHolder(@NonNull View itemView) {
@@ -76,6 +76,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             ProfilePic = itemView.findViewById(R.id.ivProfileImage);
             gitHubUserName = itemView.findViewById(R.id.gitHubUserName);
             date = itemView.findViewById(R.id.tvCreatedAt);
+            body = itemView.findViewById(R.id.tvDescription);
 
         }
 
@@ -98,6 +99,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             PreferredName.setText(post.getUser().getString("PreferredName"));
             gitHubUserName.setText(post.getUser().getString("gitHubUserName"));
             date.setText(post.getTime());
+            body.setText(post.getDescription());
+
 
         }
 
