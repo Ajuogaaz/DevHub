@@ -135,7 +135,7 @@
             android:layout_height="match_parent"
             android:background="@null"
             android:gravity="top"
-            android:hint="@string/hintforCompose"
+            android:hint="@string/hintforComment"
             android:inputType="textMultiLine"
             android:padding="20dp"
             android:textCursorDrawable="@null"
