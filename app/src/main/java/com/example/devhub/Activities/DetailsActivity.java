@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.devhub.Adapters.CommentsAdapter;
+import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
@@ -18,6 +20,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     ActivityDetailsBinding binding;
     List<Post> posts;
+    CommentsAdapter commentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         final View view = binding.getRoot();
         setContentView(view);
+
+        commentsAdapter = new CommentsAdapter(this, posts, position -> {
+
+        });
 
 
 
