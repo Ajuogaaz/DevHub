@@ -45,6 +45,8 @@ public class ValidateActivity extends AppCompatActivity {
         //Get the current user
         user = ParseUser.getCurrentUser();
 
+
+
         //Check if the user is Null -- meaning logged out
         //If thats the case then go to login activity
         if(user == null){

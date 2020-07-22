@@ -168,7 +168,9 @@ public class RepositoryFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
                         getUserRepositories(user.getUsername());
-                        Toast.makeText(getContext(), "Data collected", Toast.LENGTH_SHORT).show();
+                        if(getContext() != null){
+                            Toast.makeText(getContext(), "DataCollected", Toast.LENGTH_SHORT).show();
+                        }
 
                     } else {
                         Toast.makeText(
