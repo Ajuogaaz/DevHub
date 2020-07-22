@@ -64,6 +64,13 @@ public class DetailsActivity extends AppCompatActivity {
 
         innitViews();
 
+        binding.ivComment.setOnClickListener(view1 -> {
+
+        });
+        binding.ivCommentText.setOnClickListener(view2 -> {
+
+        });
+
 
 
     }
