@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Activities.ComposeActivity;
+import com.example.devhub.Activities.DetailsActivity;
 import com.example.devhub.Activities.MainActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
@@ -111,11 +113,9 @@ public class TimelineFragment extends Fragment {
 
                 Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
 
-                //Intent intent = new Intent(getContext(), ValidateActivity.class);
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
 
-                //intent.putExtra("post", allPosts.get(position));
-
-                //startActivity(intent);
+                startActivity(intent);
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
                 Fragment fragment = new ChatFragment();
