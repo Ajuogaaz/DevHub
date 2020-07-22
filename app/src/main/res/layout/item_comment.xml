@@ -62,6 +62,7 @@
                 android:textColor="@color/Black"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="Linus"
                 tools:text="Linus"
                 />
 
