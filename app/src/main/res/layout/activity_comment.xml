@@ -32,21 +32,10 @@
                 app:srcCompat="@drawable/ic_close" />
 
             <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/create_post"
-                android:textColor="@color/Black"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_centerInParent="true"
-                />
-
-            <TextView
                 android:id="@+id/toolbarPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/post_TOOLBAR"
+                android:text="@string/cooment_TOOLBAR"
                 android:textColor="@color/Black"
                 android:layout_marginEnd="20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
