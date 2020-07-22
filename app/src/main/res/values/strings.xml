@@ -58,4 +58,5 @@
     <string name="titleFormat">\@githubUserName/githubRepositoryName</string>
     <string name="hintforCompose">whats on your mind?</string>
     <string name="post_body">Post Body</string>
+    <string name="hintforComment">whats your take on the issue?</string>
 </resources>
