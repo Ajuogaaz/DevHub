@@ -86,7 +86,8 @@ public class DetailsActivity extends AppCompatActivity {
         binding.gitHubUserName.setText(String.format("@%s", SubjectPost.getUser().getString("gitHubUserName")));
         binding.tvCreatedAt.setText(SubjectPost.getTime());
         binding.title.setText(SubjectPost.getTopic());
-        binding
+        binding.tvDescription.setText(SubjectPost.getDescription());
+
 
 
 
