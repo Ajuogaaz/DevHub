@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/AnimatorView"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.AppBarLayout
             android:fitsSystemWindows="true"
@@ -320,7 +322,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@id/gitHubUserName"
+        android:layout_below="@id/AnimatorView"
         android:id="@+id/enterTitle"
         android:layout_width="match_parent"
         android:layout_margin="5dp"
@@ -330,7 +332,7 @@
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusBottomEnd="15dp"
-        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
         android:hint="@string/titleFormat"
         app:boxStrokeColor="@color/colorAccent"
         android:theme="@style/TextInputLayoutStyle"
