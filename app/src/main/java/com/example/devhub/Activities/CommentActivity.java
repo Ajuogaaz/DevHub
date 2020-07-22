@@ -10,6 +10,8 @@ import com.example.devhub.R;
 public class CommentActivity extends AppCompatActivity {
 
     Post SubjectPost;
+
+    private static final String TAG = "COMMENTACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
