@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -64,11 +66,13 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView Title;
+        ImageView ProfilePic;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             Title = itemView.findViewById(R.id.tvName);
+            ProfilePic = itemView.findViewById(R.id.ivProfileImage);
 
         }
 
