@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.parse.ParseUser;
@@ -77,6 +78,21 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         }
 
         public void bind(Post post) {
+
+            String ImageUrl = "";
+
+            if(post.getUser().getBoolean("HasUploadedPic")){
+                ImageUrl = post.getUser().getParseFile("ProfilePic").getUrl();
+            }else{
+                ImageUrl = post.getUser().getString("githubProfilePic");
+            }
+
+            if (!ImageUrl.isEmpty()) {
+                Glide.with(context)
+                        .load(ImageUrl)
+                        .into(ProfilePic);
+            }
+
             PreferredName.setText(post.getUser().getString("PreferredName"));
 
         }
