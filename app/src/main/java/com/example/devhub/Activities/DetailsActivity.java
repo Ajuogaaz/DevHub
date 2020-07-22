@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.CommentsAdapter;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
@@ -66,7 +67,20 @@ public class DetailsActivity extends AppCompatActivity {
     private void innitViews() {
 
         binding.titleToolBar.setTitle(SubjectPost.getTopic());
-        binding.
+
+        String ImageUrl = "";
+
+        if(SubjectPost.getUser().getBoolean("HasUploadedPic")){
+            ImageUrl = SubjectPost.getUser().getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = SubjectPost.getUser().getString("githubProfilePic");
+        }
+
+        if (!ImageUrl.isEmpty()) {
+            Glide.with(DetailsActivity.this)
+                    .load(ImageUrl)
+                    .into(binding.ivProfileImage);
+        }
 
 
 
