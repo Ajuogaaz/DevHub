@@ -66,13 +66,24 @@ public class DetailsActivity extends AppCompatActivity {
 
         binding.ivComment.setOnClickListener(view1 -> {
 
+            toComments();
+
         });
         binding.ivCommentText.setOnClickListener(view2 -> {
+            toComments();
 
         });
 
 
 
+    }
+
+    private void toComments() {
+
+        Intent intent = new Intent(DetailsActivity.this, CommentActivity.class);
+        intent.putExtra("post", SubjectPost);
+        startActivity(intent);
+        finish();
     }
 
     @Override
