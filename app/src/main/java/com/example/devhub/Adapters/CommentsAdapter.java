@@ -65,19 +65,19 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Title;
+        TextView PreferredName;
         ImageView ProfilePic;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            Title = itemView.findViewById(R.id.tvName);
+            PreferredName = itemView.findViewById(R.id.tvName);
             ProfilePic = itemView.findViewById(R.id.ivProfileImage);
 
         }
 
         public void bind(Post post) {
-            Title.setText(post.getUser().getString("PreferredName"));
+            PreferredName.setText(post.getUser().getString("PreferredName"));
 
         }
 
