@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityCommentBinding;
 import com.example.devhub.databinding.ActivityDetailsBinding;
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 
@@ -39,13 +43,15 @@ public class CommentActivity extends AppCompatActivity {
 
         binding.toolbarComment.setOnClickListener(view3 -> {
 
+            if(binding.PostBody.getText().toString().isEmpty()){
+                Toast.makeText(this, "Comment body cant be empty", Toast.LENGTH_SHORT).show();
+                return;
+            }
             saveComment();
             fireIntent();
         });
 
         initValues();
-
-
 
     }
 
@@ -78,6 +84,16 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void saveComment() {
+
+        Comments comment = new Comments();
+        comment.setPost(SubjectPost);
+        comment.setUser(ParseUser.getCurrentUser());
+        comment.setDescription(binding.PostBody.getText().toString());
+
+        comment.saveInBackground(e -> {
+            binding.PostBody.setText("");
+        });
+
 
     }
 }
