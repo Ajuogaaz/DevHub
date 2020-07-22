@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.DetailsActivity"></activity>
+        <activity android:name=".Activities.CommentActivity"></activity>
+        <activity android:name=".Activities.DetailsActivity" />
         <activity android:name=".Activities.ComposeActivity" />
 
         <provider

@@ -168,24 +168,30 @@ public class RepositoryFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         User user = response.body();
                         getUserRepositories(user.getUsername());
-                        Toast.makeText(getContext(), "Data collected", Toast.LENGTH_SHORT).show();
+                        if(getContext() != null){
+                            Toast.makeText(getContext(), "DataCollected", Toast.LENGTH_SHORT).show();
+                        }
 
                     } else {
-                        Toast.makeText(
-                                getContext(),
-                                "Please try again",
-                                Toast.LENGTH_SHORT
-                        ).show();
+                        if(getContext() != null) {
+                            Toast.makeText(
+                                    getContext(),
+                                    "Please try again",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
                     }
                 }
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(
-                            getContext(),
-                            "Check your connection",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    if(getContext() != null) {
+                        Toast.makeText(
+                                getContext(),
+                                "Check your connection",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
                 }
             });
         }
@@ -201,26 +207,29 @@ public class RepositoryFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
                     reposLoader.setVisibility(View.GONE);
                     List<Repositories> repositories = response.body();
-                    Toast.makeText(getContext(), "Data processed", Toast.LENGTH_SHORT).show();
                     loadRepositories(repositories);
                 } else {
                     reposLoader.setVisibility(View.GONE);
-                    Toast.makeText(
-                            getContext(),
-                            "Something went wrong while fetching repositories",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    if(getContext() != null) {
+                        Toast.makeText(
+                                getContext(),
+                                "Something went wrong while fetching repositories",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<List<Repositories>> call, Throwable t) {
                 reposLoader.setVisibility(View.GONE);
-                Toast.makeText(
-                        getContext(),
-                        "Unable to fetch repositories",
-                        Toast.LENGTH_SHORT
-                ).show();
+                if(getContext() != null) {
+                    Toast.makeText(
+                            getContext(),
+                            "Unable to fetch repositories",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
             }
         });
     }
@@ -242,7 +251,9 @@ public class RepositoryFragment extends Fragment {
             }
 
         } else {
-            Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
+            if(getContext() != null){
+                Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

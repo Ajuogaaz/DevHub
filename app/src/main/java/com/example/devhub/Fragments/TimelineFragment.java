@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Activities.CommentActivity;
 import com.example.devhub.Activities.ComposeActivity;
 import com.example.devhub.Activities.DetailsActivity;
 import com.example.devhub.Activities.MainActivity;
@@ -141,6 +142,15 @@ public class TimelineFragment extends Fragment {
                 //allPosts.get(position).setLikes(k);
                 Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
 
+
+            }
+            if (replyCode == TimelineAdapter.COMMENT_CODE){
+
+                Intent intent = new Intent(getContext(), CommentActivity.class);
+
+                intent.putExtra("post", allPosts.get(position));
+
+                startActivity(intent);
 
             }
 

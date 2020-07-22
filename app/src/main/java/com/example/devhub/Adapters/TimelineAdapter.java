@@ -26,6 +26,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     public static final int DETAILS_CODE = 200;
     public static final int PROFILE_CODE = 300;
     public static final int LIKE_CODE = 400;
+    public static final int COMMENT_CODE = 500;
 
     public static final int HOME_FRAGMENT_CODE = 21;
     public static final int PROFILE_FRAGMENT_CODE = 22;
@@ -80,6 +81,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private ImageView profilePic;
         private TextView tvTopic;
         private  TextView numberOfComments;
+        private ImageView comments;
+        private TextView commentText;
 
 
 
@@ -94,6 +97,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             ivImage = itemView.findViewById(R.id.PostImage);
             tvNumberofLikes = itemView.findViewById(R.id.tvActualLikes);
             numberOfComments = itemView.findViewById(R.id.tvActualComments);
+            comments = itemView.findViewById(R.id.ivComment);
+            commentText = itemView.findViewById(R.id.ivCommentText);
 
 
 
@@ -141,6 +146,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
             ivImage.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), DETAILS_CODE));
             tvDescription.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), DETAILS_CODE));
+
+            comments.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
+            commentText.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
 
         }
     }

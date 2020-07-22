@@ -3,6 +3,7 @@ package com.example.devhub.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
 
+        binding.Previous.setOnClickListener(view -> {
+            startActivity(new Intent(DetailsActivity.this, MainActivity.class));
+        });
+
         final View view = binding.getRoot();
         setContentView(view);
 
@@ -59,8 +64,26 @@ public class DetailsActivity extends AppCompatActivity {
 
         innitViews();
 
+        binding.ivComment.setOnClickListener(view1 -> {
+
+            toComments();
+
+        });
+        binding.ivCommentText.setOnClickListener(view2 -> {
+            toComments();
+
+        });
 
 
+
+    }
+
+    private void toComments() {
+
+        Intent intent = new Intent(DetailsActivity.this, CommentActivity.class);
+        intent.putExtra("post", SubjectPost);
+        startActivity(intent);
+        finish();
     }
 
     @Override
