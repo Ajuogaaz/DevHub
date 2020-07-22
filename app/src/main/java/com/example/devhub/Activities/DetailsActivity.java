@@ -25,11 +25,14 @@ public class DetailsActivity extends AppCompatActivity {
     private static final int DISPLAY_LIMIT = 20;
     List<Post> posts;
     CommentsAdapter commentsAdapter;
+    Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SubjectPost= getIntent().getParcelableExtra("post");
 
         ParseUser.getCurrentUser().fetchInBackground();
 
@@ -52,7 +55,24 @@ public class DetailsActivity extends AppCompatActivity {
 
         queryposts(0);
 
+        innitViews();
+
+
+
+
+
     }
+
+    private void innitViews() {
+
+        binding.titleToolBar.setTitle(SubjectPost.getTopic());
+        binding.
+
+
+
+
+    }
+
     private void queryposts(final int page) {
 
         Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), (FindCallback<Post>) (newposts, e) -> {
