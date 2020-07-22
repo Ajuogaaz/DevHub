@@ -37,7 +37,7 @@ Sprint1 walk through  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/s
 3. **Database Requirement** [Issue #1](https://github.com/Ajuogaaz/DevHub/issues/1) *Status*: ***Closed***
     - The app is configured with the Parse nosql database hosted in heroku
     - User can compose a post that is posted to the tiomeline after being saved on the parse database
-4. **Camera Requirement** [Issue #18](https://github.com/Ajuogaaz/DevHub/issues/18) *Status*: ***Open***
+4. **Camera Requirement** [Issue #18](https://github.com/Ajuogaaz/DevHub/issues/18) *Status*: ***Closed***
     - Users are able to use the camera to take a picture and set their profile picture using it 
 5. **Sdk Requirement** [Issue #19](https://github.com/Ajuogaaz/DevHub/issues/19) *Status*: ***Closed***
     - Users are required Auth their github accounts to access full functionality.
@@ -52,7 +52,7 @@ Sprint1 walk through  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/s
     - Use glide an external library to load Images.
     - Add the External material Design Libraries.
 10. **Animation Requirements** [Issue #12](https://github.com/Ajuogaaz/DevHub/issues/12) *Status*: ***Open***
-    - Add an animation for the login screen as the screen appears.
+    - Add an animation to the profile activity changing the toolbar.
 
 **Optional Nice-to-have Stories**
 
