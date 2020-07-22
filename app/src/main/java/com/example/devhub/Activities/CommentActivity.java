@@ -64,6 +64,9 @@ public class CommentActivity extends AppCompatActivity {
                     .load(ImageUrl)
                     .into(binding.ivProfileImage);
         }
+
+        binding.tvName.setText(SubjectPost.getUser().getString("PreferredName"));
+        binding.gitHubUserName.setText(String.format("@%s", SubjectPost.getUser().getString("gitHubUserName")));
     }
 
     private void fireIntent() {
