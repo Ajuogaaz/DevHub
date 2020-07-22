@@ -15,6 +15,7 @@ import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -87,6 +88,19 @@ public class DetailsActivity extends AppCompatActivity {
         binding.tvCreatedAt.setText(SubjectPost.getTime());
         binding.title.setText(SubjectPost.getTopic());
         binding.tvDescription.setText(SubjectPost.getDescription());
+
+        ParseFile image = SubjectPost.getImage();
+
+        if (image != null){
+            binding.PostImage.setVisibility(View.VISIBLE);
+            Glide.with(DetailsActivity.this)
+                    .load(image.getUrl())
+                    .into(binding.PostImage);
+        }else{
+            ivImage.setVisibility(View.GONE);
+            tvDescription.setMaxLines(8);
+            Log.i("pOSN CB ", "IMAGE NOT EXISTING" );
+        }
 
 
 
