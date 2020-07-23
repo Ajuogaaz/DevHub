@@ -47,6 +47,9 @@ public class EditProfile extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
+        binding.tvName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
+        binding.gitHubUserName.setText(ParseUser.getCurrentUser().getString("gitHubUserName"));
+
 
          binding.bio.setText(user.getString("Bio"));
          binding.Profession.setText(user.getString("Title"));
