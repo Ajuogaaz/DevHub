@@ -50,7 +50,7 @@
                 android:textColor="@color/Black"
                 android:layout_marginEnd="20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               android:layout_alignParentEnd="true"
+                android:layout_alignParentEnd="true"
                 />
 
         </RelativeLayout>
