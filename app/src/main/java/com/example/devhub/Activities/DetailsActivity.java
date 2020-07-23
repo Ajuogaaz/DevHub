@@ -40,7 +40,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         ParseUser.getCurrentUser().fetchInBackground();
 
-        posts = new ArrayList<>();
+        Allcomments = new ArrayList<>();
 
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
 
@@ -51,7 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        commentsAdapter = new CommentsAdapter(this, posts, position -> {
+        commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
 
         });
         binding.rvComments.setAdapter(commentsAdapter);

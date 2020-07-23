@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.parse.ParseUser;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHolder>{
 
-    private List<Post> posts;
+    private List<Comments> comments;
     private Context context;
     onClickListener clickListener;
 
@@ -28,10 +29,10 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     }
 
 
-    public CommentsAdapter(Context context, List<Post> posts, onClickListener clickListener) {
+    public CommentsAdapter(Context context, List<Comments> comments, onClickListener clickListener) {
 
         this.context = context;
-        this.posts = posts;
+        this.comments = comments;
         this.clickListener = clickListener;
 
     }
@@ -48,19 +49,19 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Post post = posts.get(position);
+        Comments comment = comments.get(position);
 
-        holder.bind(post);
+        holder.bind(comment);
 
     }
 
     @Override
     public int getItemCount() {
-        return posts.size();
+        return comments.size();
     }
 
     public void clear(){
-        posts.clear();
+        comments.clear();
         notifyDataSetChanged();
     }
 
@@ -80,14 +81,14 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
         }
 
-        public void bind(Post post) {
+        public void bind(Comments comment) {
 
             String ImageUrl = "";
 
-            if(post.getUser().getBoolean("HasUploadedPic")){
-                ImageUrl = post.getUser().getParseFile("ProfilePic").getUrl();
+            if(comment.getUser().getBoolean("HasUploadedPic")){
+                ImageUrl = comment.getUser().getParseFile("ProfilePic").getUrl();
             }else{
-                ImageUrl = post.getUser().getString("githubProfilePic");
+                ImageUrl = comment.getUser().getString("githubProfilePic");
             }
 
             if (!ImageUrl.isEmpty()) {
@@ -96,10 +97,10 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
                         .into(ProfilePic);
             }
 
-            PreferredName.setText(post.getUser().getString("PreferredName"));
-            gitHubUserName.setText(post.getUser().getString("gitHubUserName"));
-            date.setText(post.getTime());
-            body.setText(post.getDescription());
+            PreferredName.setText(comment.getUser().getString("PreferredName"));
+            gitHubUserName.setText(comment.getUser().getString("gitHubUserName"));
+            date.setText(comment.getTime());
+            body.setText(comment.getDescription());
 
 
         }
