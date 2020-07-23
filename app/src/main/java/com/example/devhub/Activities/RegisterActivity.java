@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         //if(ParseUser.getCurrentUser() != null) {
         //  goToMainActivity();
         //}
-        binding.btnSignUp.setOnClickListener(view1 -> {
+        binding.btnLogin.setOnClickListener(view1 -> {
             Log.i(TAG, "Onclick dignIn");
 
             ParseUser user =  new ParseUser();
