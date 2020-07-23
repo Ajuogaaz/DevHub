@@ -8,6 +8,7 @@ import android.view.View;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityEditProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.ParseUser;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class EditProfile extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-
+        ParseUser user = ParseUser.getCurrentUser();
 
 
 
