@@ -35,7 +35,7 @@ import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 
 public class ValidateActivity extends AppCompatActivity {
 
-   Button btn;
+    Button btn;
     private static final String TAG = "ValidateActivity";
     ParseUser user;
 

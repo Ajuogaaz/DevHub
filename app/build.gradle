@@ -40,8 +40,8 @@ dependencies {
     implementation 'androidx.emoji:emoji:1.1.0'
     apply plugin: 'com.android.application'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    compile 'com.github.toanvc:floatingactionmenu:0.8.9'
-    compile 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.github.toanvc:floatingactionmenu:0.8.9'
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'

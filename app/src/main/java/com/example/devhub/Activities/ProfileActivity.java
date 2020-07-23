@@ -1,5 +1,6 @@
 package com.example.devhub.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -14,6 +15,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,6 +28,7 @@ import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.google.android.material.appbar.AppBarLayout;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -60,11 +64,6 @@ public class ProfileActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnEditProfile.setOnClickListener(view1 -> {
-            Toast.makeText(this, "Edit Profile", Toast.LENGTH_SHORT).show();
-
-        });
-
         binding.btnEditSettings.setOnClickListener(view2 -> {
             Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
 
@@ -83,9 +82,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         String ImageUrl = "";
 
-        if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+        if (ParseUser.getCurrentUser().getBoolean("HasUploadedPic")) {
             ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
-        }else{
+        } else {
             ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
         }
 
@@ -94,7 +93,6 @@ public class ProfileActivity extends AppCompatActivity {
                     .load(ImageUrl)
                     .into(binding.ivProfileImage);
         }
-
 
 
         profileAdapter = new ProfileAdapter(this, posts, position -> {
@@ -115,7 +113,6 @@ public class ProfileActivity extends AppCompatActivity {
         queryposts(0);
 
     }
-
     private void launchCamera() {
         //Create an intent to take pictures and return control to the app
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

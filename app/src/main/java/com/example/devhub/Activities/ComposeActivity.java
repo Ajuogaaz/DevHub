@@ -170,7 +170,7 @@ public class ComposeActivity extends AppCompatActivity {
         Uri takenPhotoUri = Uri.fromFile(getPhotoFileUri(photoFileName));
         // by this point we have the camera photo on disk
         Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-       // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
+        // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
         Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, 300);
 
         // Configure byte output stream
@@ -210,24 +210,24 @@ public class ComposeActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-                if (resultCode == RESULT_OK) {
-                    // by this point we have the camera photo on disk
-                    Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                    // RESIZE BITMAP, see section below
-                    // Load the taken image into a preview
-                    binding.PostImage.setImageBitmap(takenImage);
-                    binding.PostImage.setVisibility(View.VISIBLE);
-                } else { // Result was a failure
-                    Toast.makeText(ComposeActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
-                }
+            if (resultCode == RESULT_OK) {
+                // by this point we have the camera photo on disk
+                Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+                // RESIZE BITMAP, see section below
+                // Load the taken image into a preview
+                binding.PostImage.setImageBitmap(takenImage);
+                binding.PostImage.setVisibility(View.VISIBLE);
+            } else { // Result was a failure
+                Toast.makeText(ComposeActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+            }
 
         }
         if((data != null) && requestCode == PICK_PHOTO_CODE){
-                Uri photoUri = data.getData();
-                //Load the image located in the photo Uri
-                Bitmap selectedImage = loadFromUri(photoUri);
+            Uri photoUri = data.getData();
+            //Load the image located in the photo Uri
+            Bitmap selectedImage = loadFromUri(photoUri);
 
-                binding.PostImage.setImageBitmap(selectedImage);
+            binding.PostImage.setImageBitmap(selectedImage);
         }
 
     }
