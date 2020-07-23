@@ -63,4 +63,6 @@
     <string name="submit">SUBMIT</string>
     <string name="professional_identity">Professional Identity</string>
     <string name="bio">Bio</string>
+    <string name="dont_have_an_account">Dont have an account</string>
+    <string name="signup_here">SignUp here</string>
 </resources>
