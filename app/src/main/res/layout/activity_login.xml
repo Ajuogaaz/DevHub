@@ -67,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btn_Login"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,26 +82,35 @@
         app:backgroundTint="@color/colorAccent"
         android:focusable="true" />
 
-    <TextView
-        android:id="@+id/intro"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginStart="40dp"
-        android:textColor="@color/Black"
-        android:layout_alignParentBottom="true"
-        android:text="@string/dont_have_an_account"/>
+        android:fitsSystemWindows="true"
+        android:layout_alignParentBottom="true">
 
-    <TextView
-        android:id="@+id/signUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginStart="10dp"
-        android:textColor="@color/Blue"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/intro"
-        android:text="@string/signup_here"/>
+        <TextView
+            android:id="@+id/intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/Black"
+            android:text="@string/dont_have_an_account"/>
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/Blue"
+            android:layout_toEndOf="@id/intro"
+            android:text="@string/signup_here"/>
+
+
+    </RelativeLayout>
+
+
 
 
 </RelativeLayout>
