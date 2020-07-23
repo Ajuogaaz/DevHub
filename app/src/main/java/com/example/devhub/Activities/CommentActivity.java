@@ -10,9 +10,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
-import com.example.devhub.R;
+
 import com.example.devhub.databinding.ActivityCommentBinding;
-import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
