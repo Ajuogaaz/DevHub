@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityEditProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
@@ -32,7 +33,22 @@ public class EditProfile extends AppCompatActivity {
 
          user = ParseUser.getCurrentUser();
 
-         binding.bio.setText(user.getString("bio"));
+        String ImageUrl = "";
+
+        if (ParseUser.getCurrentUser().getBoolean("HasUploadedPic")) {
+            ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+        } else {
+            ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+        }
+
+        if (!ImageUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(ImageUrl)
+                    .into(binding.ivProfileImage);
+        }
+
+
+         binding.bio.setText(user.getString("Bio"));
          binding.Profession.setText(user.getString("Title"));
          binding.preferredName.setText(user.getString("PreferredName"));
 
