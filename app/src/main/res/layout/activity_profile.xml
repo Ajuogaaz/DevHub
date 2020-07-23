@@ -63,6 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
                         app:srcCompat="@drawable/ic_cog"
                         tools:srcCompat="@drawable/ic_cog" />
 
@@ -105,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@id/preferredName"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="40dp"
                         app:srcCompat="@drawable/ic_account_edit_outline"
                         tools:srcCompat="@drawable/ic_account_edit_outline" />
 
@@ -301,19 +302,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnEditSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_arrow_left"
-        app:backgroundTint="@color/colorAccent"
-        app:fabSize="normal"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|right|end" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
