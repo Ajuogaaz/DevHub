@@ -126,9 +126,11 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
                 ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
             }
 
-            Glide.with(context)
-                    .load(ImageUrl)
-                    .into(profilePic);
+            if(!ImageUrl.isEmpty()) {
+                Glide.with(context)
+                        .load(ImageUrl)
+                        .into(profilePic);
+            }
 
             ParseFile image = post.getImage();
 
