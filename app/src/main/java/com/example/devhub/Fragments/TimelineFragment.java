@@ -100,7 +100,7 @@ public class TimelineFragment extends Fragment {
             startActivityForResult(intent, ComposeRequestCode);
         });
 
-       profileButton.setOnClickListener(view1 -> {
+        profileButton.setOnClickListener(view1 -> {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
 
             startActivity(intent);
