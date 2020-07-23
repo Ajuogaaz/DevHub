@@ -43,7 +43,7 @@
         android:layout_below="@id/enterUserName"
         android:layout_width="match_parent"
         android:layout_margin="10dp"
-        android:hint="@string/usernameHint"
+        android:hint="@string/enter_password"
         android:layout_height="wrap_content"
         app:hintTextColor="@color/colorAccent"
         app:boxCornerRadiusTopStart="15dp"
