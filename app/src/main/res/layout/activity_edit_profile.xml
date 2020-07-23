@@ -28,6 +28,7 @@
                 android:id="@+id/Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:contentDescription="@string/cancel"
                 app:srcCompat="@drawable/ic_close" />
 
@@ -36,22 +37,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_centerVertical="true"
                 android:text="@string/edit_profile"
                 android:textColor="@color/Black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_centerInParent="true"
                 />
 
-            <TextView
-                android:id="@+id/toolbarPost"
+
+            <Button
+                android:id="@+id/btnEditSettings"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/submit"
-                android:textColor="@color/Black"
-                android:layout_marginEnd="20dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_marginEnd="10dp"
                 android:layout_alignParentEnd="true"
-                />
+                android:elevation="5dp"
+                android:text="@string/submit"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="12sp"
+                app:backgroundTint="#FFFFFF" />
+
 
         </RelativeLayout>
 
@@ -199,6 +206,7 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
 
 </RelativeLayout>
