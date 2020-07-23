@@ -101,11 +101,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             commentText = itemView.findViewById(R.id.ivCommentText);
 
 
-
-
-
-
-
         }
 
         public void bind(final Post post) {
@@ -120,10 +115,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
             String ImageUrl = "";
 
-            if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
-                ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
+            if(post.getUser().getBoolean("HasUploadedPic")){
+                ImageUrl = post.getUser().getParseFile("ProfilePic").getUrl();
             }else{
-                ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+                ImageUrl = post.getUser().getString("githubProfilePic");
             }
 
             if(!ImageUrl.isEmpty()) {
