@@ -62,4 +62,5 @@
     <string name="cooment_TOOLBAR">COMMENT</string>
     <string name="submit">SUBMIT</string>
     <string name="professional_identity">Professional Identity</string>
+    <string name="bio">Bio</string>
 </resources>
