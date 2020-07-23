@@ -103,7 +103,11 @@ public class ProfileActivity extends AppCompatActivity {
             launchCamera();
         });
 
-
+        binding.Previous.setOnClickListener(view5 -> {
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         binding.rvPost.setAdapter(profileAdapter);
 
