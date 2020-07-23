@@ -27,7 +27,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     ActivityDetailsBinding binding;
     private static final int DISPLAY_LIMIT = 20;
-    List<Post> posts;
+    List<Comments> Allcomments;
     CommentsAdapter commentsAdapter;
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
@@ -165,19 +165,16 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void queryComments(final int page) {
 
-        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newposts, e) -> {
+        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newcomments, e) -> {
             if (e != null){
                 Log.e(TAG, "Issue with getting posts", e);
                 return;
 
             }
-            for(Post post: newposts){
-                Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
-            }
             if(page == 0) {
                 commentsAdapter.clear();
             }
-            posts.addAll(newposts);
+            Allcomments.addAll(newcomments);
             commentsAdapter.notifyDataSetChanged();
         });
     }

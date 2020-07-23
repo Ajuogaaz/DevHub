@@ -51,7 +51,7 @@ public class Comments extends ParseObject {
 
     }
     public static void query(int page, int limit, Post post, FindCallback callback) {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+        ParseQuery<Comments> query = ParseQuery.getQuery(Comments.class);
         query.include(Comments.KEY_POST);
         query.include(Comments.KEY_USER);
         if (post != null) {
