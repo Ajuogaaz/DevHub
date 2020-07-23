@@ -91,7 +91,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
                 ImageUrl = comment.getUser().getString("githubProfilePic");
             }
 
-            if (!ImageUrl.isEmpty()) {
+            if (ImageUrl != null && !ImageUrl.isEmpty()) {
                 Glide.with(context)
                         .load(ImageUrl)
                         .into(ProfilePic);
