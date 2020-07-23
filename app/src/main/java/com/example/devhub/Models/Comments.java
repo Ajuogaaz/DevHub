@@ -52,9 +52,10 @@ public class Comments extends ParseObject {
     }
     public static void query(int page, int limit, Post post, FindCallback callback) {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        if (currentUser != null) {
-            query.whereEqualTo(Post.KEY_USER, currentUser);
+        query.include(Comments.KEY_POST);
+        query.include(Comments.KEY_USER);
+        if (post != null) {
+            query.whereEqualTo(Comments.KEY_POST, post);
         }
         query.setLimit(limit);
         query.setSkip(page * limit);
