@@ -50,7 +50,7 @@ public class Comments extends ParseObject {
         return currDate;
 
     }
-    public static void query(int page, int limit, ParseUser currentUser, FindCallback callback) {
+    public static void query(int page, int limit, Post post, FindCallback callback) {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         if (currentUser != null) {

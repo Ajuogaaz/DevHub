@@ -11,6 +11,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.CommentsAdapter;
 import com.example.devhub.Adapters.ProfileAdapter;
+import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
@@ -164,7 +165,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void queryComments(final int page) {
 
-        Post.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newposts, e) -> {
+        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newposts, e) -> {
             if (e != null){
                 Log.e(TAG, "Issue with getting posts", e);
                 return;
