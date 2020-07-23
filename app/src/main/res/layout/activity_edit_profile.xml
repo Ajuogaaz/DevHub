@@ -1,9 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.EditProfile">
+    tools:context=".Activities.ComposeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbarContainer"
+            android:padding="0dp"
+            >
+            <ImageView
+                android:id="@+id/Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cancel"
+                app:srcCompat="@drawable/ic_close" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/edit_profile"
+                android:textColor="@color/Black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_centerInParent="true"
+                />
+
+            <TextView
+                android:id="@+id/toolbarPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:textColor="@color/Black"
+                android:layout_marginEnd="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_alignParentEnd="true"
+                />
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <View
+        android:id="@+id/separatingLine"
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_height="0.8dp"
+        android:background="@color/colorAccent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/circularContainer"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:cardCornerRadius="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/separatingLine"
+        app:cardElevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@id/circularContainer"
+        android:layout_toEndOf="@id/circularContainer"
+        android:ems="10"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Linus"
+        />
+
+    <TextView
+        android:id="@+id/gitHubUserName"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/tvName"
+        android:layout_toEndOf="@id/circularContainer"
+        android:ems="10"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:text="@string/Ajuogaaz"
+        tools:text="@string/Ajuogaaz"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/gitHubUserName"
+        android:id="@+id/enterTitle"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/colorAccent"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        android:hint="@string/titleFormat"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TittleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textMultiLine"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</RelativeLayout>

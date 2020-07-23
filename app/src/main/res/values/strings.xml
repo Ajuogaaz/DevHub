@@ -60,4 +60,5 @@
     <string name="post_body">Post Body</string>
     <string name="hintforComment">whats your take on the issue?</string>
     <string name="cooment_TOOLBAR">COMMENT</string>
+    <string name="submit">SUBMIT</string>
 </resources>
