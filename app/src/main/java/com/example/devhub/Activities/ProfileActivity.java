@@ -103,6 +103,8 @@ public class ProfileActivity extends AppCompatActivity {
             launchCamera();
         });
 
+
+
         binding.rvPost.setAdapter(profileAdapter);
 
         //set the layout manager on the recycler view
