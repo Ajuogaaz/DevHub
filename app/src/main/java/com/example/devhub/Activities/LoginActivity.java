@@ -38,8 +38,11 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, "login in", Toast.LENGTH_SHORT).show();
             loginUser(username, password);
 
+        });
 
-
+        binding.signUp.setOnClickListener(view2 -> {
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            finish();
         });
 
 
@@ -50,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         ParseUser.logInInBackground(username, password, (user, e) -> {
             if(e != null){
                 Log.e(TAG, "Issue with login" + e);
+                Toast.makeText(this, "Wrong credentials", Toast.LENGTH_SHORT).show();
                 return;
             }else{
                 //Send them back to validate activity to confirm if the user if they dont have login credentials
