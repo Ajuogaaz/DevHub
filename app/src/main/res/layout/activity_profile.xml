@@ -18,6 +18,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/anchor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -302,6 +303,30 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        app:layout_anchor="@id/anchor"
+        android:fitsSystemWindows="true"
+        android:layout_marginStart="16dp"
+        app:layout_anchorGravity="top|left|start"
+        android:layout_gravity="top|left"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:fitsSystemWindows="true"
+            app:srcCompat="@drawable/ic_arrow_left"
+            tools:srcCompat="@drawable/ic_arrow_left" />
+
+    </RelativeLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

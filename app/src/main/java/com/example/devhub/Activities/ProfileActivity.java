@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnEditSettings.setOnClickListener(view2 -> {
+        binding.settingsPicture.setOnClickListener(view2 -> {
             Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
