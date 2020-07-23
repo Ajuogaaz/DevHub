@@ -165,7 +165,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void queryComments(final int page) {
 
-        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newcomments, e) -> {
+        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback) (newcomments, e) -> {
             if (e != null){
                 Log.e(TAG, "Issue with getting posts", e);
                 return;
