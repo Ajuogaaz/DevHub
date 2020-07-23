@@ -39,8 +39,12 @@ public class EditProfile extends AppCompatActivity {
 
          binding.btnSubmit.setOnClickListener(view1 -> {
              saveProfile();
-             backToProfile()
+             backToProfile();
 
+         });
+
+         binding.Cancel.setOnClickListener(view2 -> {
+             backToProfile();
          });
 
 
