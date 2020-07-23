@@ -44,9 +44,6 @@ public class ValidateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //Get the current user
         user = ParseUser.getCurrentUser();
-
-
-
         //Check if the user is Null -- meaning logged out
         //If thats the case then go to login activity
         if(user == null){
@@ -178,13 +175,18 @@ public class ValidateActivity extends AppCompatActivity {
     }
 
     private void saveUserInfo(User replyUser, String currentUserToken) {
+
         user.put("Token", currentUserToken);
         user.put("HasToken", true);
-        user.put("Bio", replyUser.getBio());
+        if(replyUser.getBio() != null) {
+            user.put("Bio", replyUser.getBio());
+        }
         user.put("PreferredName", replyUser.getName());
         user.put("gitHubUserName", replyUser.getUsername());
         user.put("NumberOfRepos", replyUser.getRepos());
-        user.put("githubProfilePic", replyUser.getAvatar());
+        if(replyUser.getAvatar() != null) {
+            user.put("githubProfilePic", replyUser.getAvatar());
+        }
         user.put("HasUploadedPic", false);
         user.saveInBackground(e -> {
             if(e == null){
