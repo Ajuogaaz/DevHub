@@ -109,6 +109,11 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
+        binding.editPicture.setOnClickListener(view6 -> {
+            Intent intent = new Intent(ProfileActivity.this, EditProfile.class);
+            startActivity(intent);
+        });
+
         binding.rvPost.setAdapter(profileAdapter);
 
         //set the layout manager on the recycler view
