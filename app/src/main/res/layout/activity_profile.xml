@@ -316,12 +316,12 @@
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fitsSystemWindows="true"
             app:srcCompat="@drawable/ic_arrow_left"
             tools:srcCompat="@drawable/ic_arrow_left" />
