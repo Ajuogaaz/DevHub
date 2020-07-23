@@ -60,7 +60,7 @@ public class DetailsActivity extends AppCompatActivity {
         binding.rvComments.setLayoutManager(linearLayoutManager);
 
 
-        queryposts(0);
+        queryComments(0);
 
         innitViews();
 
@@ -162,9 +162,9 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-    private void queryposts(final int page) {
+    private void queryComments(final int page) {
 
-        Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), (FindCallback<Post>) (newposts, e) -> {
+        Post.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Post>) (newposts, e) -> {
             if (e != null){
                 Log.e(TAG, "Issue with getting posts", e);
                 return;
