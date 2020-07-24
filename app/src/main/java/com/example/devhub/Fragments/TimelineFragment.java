@@ -64,6 +64,7 @@ public class TimelineFragment extends Fragment {
     private FloatingActionButton compose;
     ImageView profileButton;
     public static final int ComposeRequestCode = 211;
+    List<String> likes;
 
 
 
@@ -154,6 +155,11 @@ public class TimelineFragment extends Fragment {
                 startActivity(intent);
 
             }
+            if(replyCode == TimelineAdapter.LIKE_CODE){
+
+                updateLikes();
+
+            }
 
 
         };
@@ -198,6 +204,9 @@ public class TimelineFragment extends Fragment {
         queryPost(0);
 
 
+    }
+
+    private void updateLikes() {
     }
 
     public void loadNextDataFromBackend(int offset) {
