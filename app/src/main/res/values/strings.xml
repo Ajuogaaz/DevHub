@@ -48,7 +48,7 @@
     <string name="share">Share</string>
     <string name="bookmark">Bookmark</string>
     <string name="TimeSpent">2 hours</string>
-    <string name="NumberOfUpvotes">1,345 upvotes</string>
+    <string name="NumberOfUpvotes">upvotes</string>
     <string name="NumberOfComments">comments</string>
     <string name="post">Post</string>
     <string name="cancel">Cancel</string>
