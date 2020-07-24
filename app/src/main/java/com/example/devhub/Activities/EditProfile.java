@@ -34,7 +34,7 @@ public class EditProfile extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-         user = ParseUser.getCurrentUser();
+        user = ParseUser.getCurrentUser();
 
         String ImageUrl = "";
 
@@ -61,8 +61,6 @@ public class EditProfile extends AppCompatActivity {
 
          binding.btnSubmit.setOnClickListener(view1 -> {
              saveProfile();
-             backToProfile();
-
          });
 
          binding.Cancel.setOnClickListener(view2 -> {
@@ -96,9 +94,11 @@ public class EditProfile extends AppCompatActivity {
                 user.saveInBackground(k -> {
                     if(k == null){
                         Log.i(TAG, "done: Saved Success");
+                        backToProfile();
                     }
                 });
             }
+
 
         });
 
