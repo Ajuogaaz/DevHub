@@ -55,7 +55,7 @@ public class Post extends ParseObject {
         put (KEY_TOPIC, topic);
     }
 
-    public List<ParseUser>getLikes(){return (List<ParseUser>)getJSONArray(KEY_LIKES);}
+    public List<ParseUser>getLikes(){return getList(KEY_LIKES);}
     public void setLike( List<ParseUser> likes){ put(KEY_LIKES, likes);}
 
 
