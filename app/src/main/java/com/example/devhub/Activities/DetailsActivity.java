@@ -89,11 +89,16 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void likedPost() {
-        List<ParseUser> like= SubjectPost.getLikes();
+        List<String> likes = new ArrayList<>();
 
-        like.add(ParseUser.getCurrentUser());
+        if (SubjectPost.getLikes() != null){
+            if(!currentUserInList(likes)) {
+                likes.addAll(SubjectPost.getLikes());
+            }
+        }
+        likes.add(ParseUser.getCurrentUser().getObjectId());
 
-        SubjectPost.setLike(like);
+        SubjectPost.setLike(likes);
 
         SubjectPost.saveInBackground(e -> {
             if(e == null){
@@ -104,15 +109,19 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-    private void likePost() {
-        List<ParseUser> likes = new ArrayList<>(SubjectPost.getLikes());
+    private boolean currentUserInList(List<String> likes) {
 
         if (likes.size() != 0){
             for(int i = 0; i < likes.size(); i++) {
-
+                if(ParseUser.getCurrentUser().getObjectId() == likes.get(i)){
+                    return true;
+                }
             }
+            return false;
         }
+     return false;
     }
+
 
     private void toComments() {
 
