@@ -17,6 +17,7 @@ import com.example.devhub.R;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHolder> {
@@ -83,6 +84,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private  TextView numberOfComments;
         private ImageView comments;
         private TextView commentText;
+        List<String> likes;
+        private ImageView ivUpvote;
 
 
 
@@ -99,11 +102,12 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             numberOfComments = itemView.findViewById(R.id.tvActualComments);
             comments = itemView.findViewById(R.id.ivComment);
             commentText = itemView.findViewById(R.id.ivCommentText);
+            ivUpvote = itemView.findViewById(R.id.ivUpvote);
 
 
         }
 
-        public void bind(final Post post) {
+        public void bind(Post post) {
 
             tvDescription.setText(post.getDescription());
             tvPreferredName.setText(post.getUser().getString("PreferredName"));
@@ -120,6 +124,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             }else{
                 ImageUrl = post.getUser().getString("githubProfilePic");
             }
+
+            initLikesandComments(post);
 
             if(!ImageUrl.isEmpty()) {
                 Glide.with(context)
@@ -148,7 +154,42 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             commentText.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
 
         }
+
+        private void initLikesandComments(Post post) {
+
+            numberOfComments.setText(String.format("%d comments", querycomments(post)));
+
+            likes = new ArrayList<>();
+
+            if (post.getLikes() != null){
+                likes.addAll(post.getLikes());
+
+                if(currentUserInList(likes)){
+                    ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+                }else{
+                    ivUpvote.setImageResource(R.drawable.ic_upvote);
+                }
+            }else{
+                ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+            }
+
+            tvNumberofLikes.setText(String.format("%d upvotes", likes.size()));
+
+
+        }
+
+        private boolean currentUserInList(List<String> likes) {
+            if (likes.size() != 0){
+                for(int i = 0; i < likes.size(); i++)
+                    if (ParseUser.getCurrentUser().getObjectId().equals(likes.get(i))) {
+                        return true;
+                    }
+                return false;
+            }
+            return false;
+        }
     }
+
 
 
 }

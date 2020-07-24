@@ -23,6 +23,8 @@ public class Post extends ParseObject {
     public static final String KEY_CREATED_AT = "createdAt";
     public static final String KEY_TOPIC = "postTitle";
     public static final String KEY_LIKES = "Likes";
+    public static final String KEY_COMMENTS = "numberOfComments";
+
 
 
 
@@ -57,6 +59,8 @@ public class Post extends ParseObject {
 
     public List<String>getLikes(){return getList(KEY_LIKES);}
     public void setLike( List<String> likes){ put(KEY_LIKES, likes);}
+
+    public Number getNumberofComments(){ return getNumber()}
 
 
     public String getTime(){
