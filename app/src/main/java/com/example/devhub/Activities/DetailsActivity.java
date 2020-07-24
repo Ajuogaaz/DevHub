@@ -55,11 +55,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         init();
 
-        commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
-
-        });
-        binding.rvComments.setAdapter(commentsAdapter);
-
         //set the layout manager on the recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.rvComments.setLayoutManager(linearLayoutManager);
@@ -88,6 +83,15 @@ public class DetailsActivity extends AppCompatActivity {
 
     private  void init(){
         Allcomments = new ArrayList<>();
+
+        commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
+
+        });
+
+        binding.rvComments.setAdapter(commentsAdapter);
+
+        binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
+
         likes = new ArrayList<>();
 
         if (SubjectPost.getLikes() != null){
