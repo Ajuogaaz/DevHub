@@ -34,6 +34,7 @@ public class DetailsActivity extends AppCompatActivity {
     CommentsAdapter commentsAdapter;
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
+    List<String> likes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,7 @@ public class DetailsActivity extends AppCompatActivity {
         SubjectPost= getIntent().getParcelableExtra("post");
 
         ParseUser.getCurrentUser().fetchInBackground();
-
-        Allcomments = new ArrayList<>();
+        init();
 
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
 
@@ -83,13 +83,17 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
 
+    }
 
-
+    private  void init(){
+        Allcomments = new ArrayList<>();
+        likes = new ArrayList<>();
 
     }
 
+
     private void likedPost() {
-        List<String> likes = new ArrayList<>();
+
 
         if (SubjectPost.getLikes() != null){
                 likes.addAll(SubjectPost.getLikes());
