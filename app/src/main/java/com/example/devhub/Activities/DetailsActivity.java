@@ -93,7 +93,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (SubjectPost.getLikes() != null){
             likes.addAll(SubjectPost.getLikes());
 
-            if(!currentUserInList(likes)){
+            if(currentUserInList(likes)){
                 binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
             }else{
                 binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
@@ -102,21 +102,25 @@ public class DetailsActivity extends AppCompatActivity {
             binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
         }
 
+        binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+
     }
 
 
     private void likedPost() {
 
-
+        likes.clear();
         if (SubjectPost.getLikes() != null){
                 likes.addAll(SubjectPost.getLikes());
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
                 binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
             }else{
                 likes.remove(ParseUser.getCurrentUser().getObjectId());
                 binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
             }
         }else{
             likes.add(ParseUser.getCurrentUser().getObjectId());
