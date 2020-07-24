@@ -157,7 +157,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
         private void initLikesandComments(Post post) {
 
-            numberOfComments.setText(String.format("%d comments", querycomments(post)));
+            numberOfComments.setText(String.format("%d comments", post.getNumberofComments()));
 
             likes = new ArrayList<>();
 
