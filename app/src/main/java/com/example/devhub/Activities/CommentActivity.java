@@ -91,8 +91,12 @@ public class CommentActivity extends AppCompatActivity {
 
         comment.saveInBackground(e -> {
             binding.PostBody.setText("");
+            updateComments();
         });
 
 
+    }
+
+    private void updateComments() {
     }
 }
