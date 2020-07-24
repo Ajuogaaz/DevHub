@@ -10,6 +10,7 @@ import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 //Adding the class tag
@@ -53,6 +54,8 @@ public class Post extends ParseObject {
     public void setTopic(String topic){
         put (KEY_TOPIC, topic);
     }
+
+    public List<User>
 
 
     public String getTime(){
