@@ -92,12 +92,13 @@ public class DetailsActivity extends AppCompatActivity {
         List<String> likes = new ArrayList<>();
 
         if (SubjectPost.getLikes() != null){
-            if(!currentUserInList(likes)) {
                 likes.addAll(SubjectPost.getLikes());
-            }
         }
-        likes.add(ParseUser.getCurrentUser().getObjectId());
-
+        if(!currentUserInList(likes)){
+            likes.add(ParseUser.getCurrentUser().getObjectId());
+        }else{
+            likes.remove(ParseUser.getCurrentUser().getObjectId());
+        }
         SubjectPost.setLike(likes);
 
         SubjectPost.saveInBackground(e -> {
@@ -112,11 +113,10 @@ public class DetailsActivity extends AppCompatActivity {
     private boolean currentUserInList(List<String> likes) {
 
         if (likes.size() != 0){
-            for(int i = 0; i < likes.size(); i++) {
-                if(ParseUser.getCurrentUser().getObjectId() == likes.get(i)){
+            for(int i = 0; i < likes.size(); i++)
+                if (ParseUser.getCurrentUser().getObjectId().equals(likes.get(i))) {
                     return true;
                 }
-            }
             return false;
         }
      return false;
