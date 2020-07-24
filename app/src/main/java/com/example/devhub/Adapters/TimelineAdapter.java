@@ -153,6 +153,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             comments.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
             commentText.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
 
+            ivUpvote.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE));
+
         }
 
         private void initLikesandComments(Post post) {
@@ -174,7 +176,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             }
 
             tvNumberofLikes.setText(String.format("%d upvotes", likes.size()));
-
 
         }
 
