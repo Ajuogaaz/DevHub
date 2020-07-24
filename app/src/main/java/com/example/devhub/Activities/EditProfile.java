@@ -13,7 +13,10 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityEditProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -83,15 +86,23 @@ public class EditProfile extends AppCompatActivity {
             return;
         }
 
-        user.put(binding.bio.getText().toString(), "bio");
-        user.put(binding.Profession.getText().toString(), "Title");
-        user.put(binding.preferredName.getText().toString(), "PreferredName");
 
-        user.saveInBackground(e -> {
-            if(e == null){
-                Log.i(TAG, "done: Saved Success");
+        user.fetchInBackground((object, e) -> {
+            if (e == null){
+                user.put(binding.bio.getText().toString(), "bio");
+                user.put(binding.Profession.getText().toString(), "Title");
+                user.put(binding.preferredName.getText().toString(), "PreferredName");
+
+                user.saveInBackground(k -> {
+                    if(k == null){
+                        Log.i(TAG, "done: Saved Success");
+                    }
+                });
             }
+
         });
+
+
 
     }
 
