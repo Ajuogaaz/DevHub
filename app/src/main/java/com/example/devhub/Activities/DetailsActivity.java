@@ -96,6 +96,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.
             }else{
                 likes.remove(ParseUser.getCurrentUser().getObjectId());
             }
