@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.CommentsAdapter;
@@ -17,8 +18,10 @@ import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class DetailsActivity extends AppCompatActivity {
     CommentsAdapter commentsAdapter;
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
+    List<String> likes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +44,20 @@ public class DetailsActivity extends AppCompatActivity {
 
         ParseUser.getCurrentUser().fetchInBackground();
 
-        Allcomments = new ArrayList<>();
-
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
-
-        binding.Previous.setOnClickListener(view -> {
-            startActivity(new Intent(DetailsActivity.this, MainActivity.class));
-        });
 
         final View view = binding.getRoot();
         setContentView(view);
 
-        commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
-
+        binding.Previous.setOnClickListener(view8 -> {
+            startActivity(new Intent(DetailsActivity.this, MainActivity.class));
         });
-        binding.rvComments.setAdapter(commentsAdapter);
+
+        init();
 
         //set the layout manager on the recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.rvComments.setLayoutManager(linearLayoutManager);
-
-
-        queryComments(0);
 
         innitViews();
 
@@ -75,9 +71,85 @@ public class DetailsActivity extends AppCompatActivity {
 
         });
 
+        binding.ivUpvote.setOnClickListener(view3 -> {
+            likedPost();
+        });
 
 
     }
+
+    private  void init(){
+        Allcomments = new ArrayList<>();
+
+        commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
+
+        });
+
+        binding.rvComments.setAdapter(commentsAdapter);
+
+        queryComments(0);
+
+        likes = new ArrayList<>();
+
+        if (SubjectPost.getLikes() != null){
+            likes.addAll(SubjectPost.getLikes());
+
+            if(currentUserInList(likes)){
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+            }else{
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
+            }
+        }else{
+            binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+        }
+
+        binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+
+    }
+
+
+    private void likedPost() {
+
+        likes.clear();
+        if (SubjectPost.getLikes() != null){
+                likes.addAll(SubjectPost.getLikes());
+
+            if(!currentUserInList(likes)){
+                likes.add(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+            }else{
+                likes.remove(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+            }
+        }else{
+            likes.add(ParseUser.getCurrentUser().getObjectId());
+        }
+
+        SubjectPost.setLike(likes);
+
+        SubjectPost.saveInBackground(e -> {
+            if(e == null){
+                Toast.makeText(this, "likedPost", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private boolean currentUserInList(List<String> likes) {
+
+        if (likes.size() != 0){
+            for(int i = 0; i < likes.size(); i++)
+                if (ParseUser.getCurrentUser().getObjectId().equals(likes.get(i))) {
+                    return true;
+                }
+            return false;
+        }
+     return false;
+    }
+
 
     private void toComments() {
 
@@ -176,6 +248,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
             Allcomments.addAll(newcomments);
             commentsAdapter.notifyDataSetChanged();
+            binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
         });
     }
 

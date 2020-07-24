@@ -64,6 +64,8 @@ public class TimelineFragment extends Fragment {
     private FloatingActionButton compose;
     ImageView profileButton;
     public static final int ComposeRequestCode = 211;
+    List<String> likes;
+
 
 
 
@@ -77,6 +79,7 @@ public class TimelineFragment extends Fragment {
         rvPost = view.findViewById(R.id.rvPost);
         allPosts = new ArrayList<>();
         profileButton = view.findViewById(R.id.ivProfile);
+        likes = new ArrayList<>();
 
         compose = view.findViewById(R.id.composebtn);
 
@@ -153,6 +156,11 @@ public class TimelineFragment extends Fragment {
                 startActivity(intent);
 
             }
+            if(replyCode == TimelineAdapter.LIKE_CODE){
+
+                updatelikes(position);
+
+            }
 
 
         };
@@ -198,6 +206,47 @@ public class TimelineFragment extends Fragment {
 
 
     }
+
+    private void updatelikes(int position) {
+
+        Post SubjectPost = allPosts.get(position);
+
+        likes.clear();
+        if (SubjectPost.getLikes() != null){
+            likes.addAll(allPosts.get(position).getLikes());
+
+
+            if(!currentUserInList(likes)){
+                likes.add(ParseUser.getCurrentUser().getObjectId());
+            }else{
+                likes.remove(ParseUser.getCurrentUser().getObjectId());
+            }
+        }else{
+            likes.add(ParseUser.getCurrentUser().getObjectId());
+        }
+
+        SubjectPost.setLike(likes);
+
+        SubjectPost.saveInBackground(e -> {
+            if(e == null){
+                Toast.makeText(getContext(), "likedPost", Toast.LENGTH_SHORT).show();
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+    }
+    private boolean currentUserInList(List<String> likes) {
+        if (likes.size() != 0){
+            for(int i = 0; i < likes.size(); i++)
+                if (ParseUser.getCurrentUser().getObjectId().equals(likes.get(i))) {
+                    return true;
+                }
+            return false;
+        }
+        return false;
+    }
+
 
     public void loadNextDataFromBackend(int offset) {
 

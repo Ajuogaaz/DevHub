@@ -10,6 +10,7 @@ import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 //Adding the class tag
@@ -22,6 +23,8 @@ public class Post extends ParseObject {
     public static final String KEY_CREATED_AT = "createdAt";
     public static final String KEY_TOPIC = "postTitle";
     public static final String KEY_LIKES = "Likes";
+    public static final String KEY_COMMENTS = "numberOfComments";
+
 
 
 
@@ -54,6 +57,12 @@ public class Post extends ParseObject {
         put (KEY_TOPIC, topic);
     }
 
+    public List<String>getLikes(){return getList(KEY_LIKES);}
+    public void setLike( List<String> likes){ put(KEY_LIKES, likes);}
+
+    public Number getNumberofComments(){ return getNumber(KEY_COMMENTS);}
+    public void setNumberOfComments(Number comments){ put (KEY_COMMENTS, comments); }
+
 
     public String getTime(){
 
@@ -80,3 +89,5 @@ public class Post extends ParseObject {
 
     }
 }
+
+
