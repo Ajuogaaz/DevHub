@@ -21,6 +21,7 @@ public class Post extends ParseObject {
     public static final String KEY_USER = "postingUser";
     public static final String KEY_CREATED_AT = "createdAt";
     public static final String KEY_TOPIC = "postTitle";
+    public static final String KEY_LIKES = "Likes";
 
 
 
