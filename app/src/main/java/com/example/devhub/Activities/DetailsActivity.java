@@ -90,7 +90,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         binding.rvComments.setAdapter(commentsAdapter);
 
-        binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
+        binding.tvActualComments.setText(String.format("%d comments", commentsAdapter.getItemCount()));
 
         likes = new ArrayList<>();
 
