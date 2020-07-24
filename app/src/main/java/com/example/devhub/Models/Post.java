@@ -60,7 +60,8 @@ public class Post extends ParseObject {
     public List<String>getLikes(){return getList(KEY_LIKES);}
     public void setLike( List<String> likes){ put(KEY_LIKES, likes);}
 
-    public Number getNumberofComments(){ return getNumber()}
+    public Number getNumberofComments(){ return getNumber(KEY_COMMENTS);}
+    public void setNumberOfComments(Number comments){ put (KEY_COMMENTS, comments); }
 
 
     public String getTime(){
