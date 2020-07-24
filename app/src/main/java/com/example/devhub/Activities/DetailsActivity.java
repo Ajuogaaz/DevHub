@@ -89,6 +89,18 @@ public class DetailsActivity extends AppCompatActivity {
         Allcomments = new ArrayList<>();
         likes = new ArrayList<>();
 
+        if (SubjectPost.getLikes() != null){
+            likes.addAll(SubjectPost.getLikes());
+
+            if(!currentUserInList(likes)){
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+            }else{
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
+            }
+        }else{
+            binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+        }
+
     }
 
 
