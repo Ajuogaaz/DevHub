@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.CommentsAdapter;
@@ -17,8 +18,10 @@ import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,9 +85,33 @@ public class DetailsActivity extends AppCompatActivity {
 
 
 
+
     }
 
     private void likedPost() {
+        List<ParseUser> like = new ArrayList<>(SubjectPost.getLikes());
+
+        like.add(ParseUser.getCurrentUser());
+
+        SubjectPost.setLike(like);
+
+        SubjectPost.saveInBackground(e -> {
+            if(e == null){
+                Toast.makeText(this, "likedPost", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private void likePost() {
+        List<ParseUser> likes = new ArrayList<>(SubjectPost.getLikes());
+
+        if (likes.size() != 0){
+            for(int i = 0; i < likes.size(); i++) {
+
+            }
+        }
     }
 
     private void toComments() {
