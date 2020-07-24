@@ -96,9 +96,10 @@ public class DetailsActivity extends AppCompatActivity {
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
-                binding.ivUpvote.
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
             }else{
                 likes.remove(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
             }
         }else{
             likes.add(ParseUser.getCurrentUser().getObjectId());
