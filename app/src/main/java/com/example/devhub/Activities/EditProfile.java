@@ -54,9 +54,9 @@ public class EditProfile extends AppCompatActivity {
         binding.gitHubUserName.setText(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
 
-         binding.bio.setText(user.getString("Bio"));
-         binding.Profession.setText(user.getString("Title"));
-         binding.preferredName.setText(user.getString("PreferredName"));
+         //binding.bio.setText(user.getString("Bio"));
+         //binding.Profession.setText(user.getString("Title"));
+         //binding.preferredName.setText(user.getString("PreferredName"));
 
 
          binding.btnSubmit.setOnClickListener(view1 -> {
@@ -87,16 +87,20 @@ public class EditProfile extends AppCompatActivity {
 
         user.fetchInBackground((object, e) -> {
             if (e == null){
-                user.put(binding.bio.getText().toString(), "bio");
-                user.put(binding.Profession.getText().toString(), "Title");
-                user.put(binding.preferredName.getText().toString(), "PreferredName");
+                user.put("bio", binding.bio.getText().toString());
+                user.put("Title", binding.Profession.getText().toString());
+                user.put("PreferredName", binding.preferredName.getText().toString());
 
                 user.saveInBackground(k -> {
                     if(k == null){
                         Log.i(TAG, "done: Saved Success");
                         backToProfile();
+                    }else{
+                        Log.d(TAG, k.getMessage());
                     }
                 });
+            }else {
+                Log.d(TAG, "Not fetching " + e.getMessage());
             }
 
 
