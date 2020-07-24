@@ -75,8 +75,16 @@ public class DetailsActivity extends AppCompatActivity {
 
         });
 
+        binding.ivUpvote.setOnClickListener(view3 -> {
+            likedPost();
+        });
 
 
+
+
+    }
+
+    private void likedPost() {
     }
 
     private void toComments() {
