@@ -79,6 +79,7 @@ public class TimelineFragment extends Fragment {
         rvPost = view.findViewById(R.id.rvPost);
         allPosts = new ArrayList<>();
         profileButton = view.findViewById(R.id.ivProfile);
+        likes = new ArrayList<>();
 
         compose = view.findViewById(R.id.composebtn);
 
@@ -157,7 +158,7 @@ public class TimelineFragment extends Fragment {
             }
             if(replyCode == TimelineAdapter.LIKE_CODE){
 
-                updateLikes();
+                updatelikes();
 
             }
 
@@ -206,7 +207,11 @@ public class TimelineFragment extends Fragment {
 
     }
 
-    private void updateLikes() {
+    private void updatelikes() {
+
+        likes.clear();
+        if (SubjectPost.getLikes() != null){
+            likes.addAll(SubjectPost.getLikes());
     }
 
     public void loadNextDataFromBackend(int offset) {

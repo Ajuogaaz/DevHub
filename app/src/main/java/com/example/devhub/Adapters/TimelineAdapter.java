@@ -32,6 +32,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     public static final int HOME_FRAGMENT_CODE = 21;
     public static final int PROFILE_FRAGMENT_CODE = 22;
 
+
     public interface onClickListener{
         void onItemClicked(int position, int replyCode);
     }
