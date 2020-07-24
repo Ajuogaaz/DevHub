@@ -89,7 +89,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void likedPost() {
-        List<ParseUser> like = new ArrayList<>(SubjectPost.getLikes());
+        List<ParseUser> like= SubjectPost.getLikes();
 
         like.add(ParseUser.getCurrentUser());
 
