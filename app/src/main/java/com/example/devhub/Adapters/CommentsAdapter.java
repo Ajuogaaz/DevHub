@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Comments;
-import com.example.devhub.Models.Post;
 import com.example.devhub.R;
-import com.parse.ParseUser;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHolder>{
 
@@ -83,11 +83,11 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
         public void bind(Comments comment) {
 
-            String ImageUrl = "";
+            String ImageUrl;
 
-            if(comment.getUser().getBoolean("HasUploadedPic")){
-                ImageUrl = comment.getUser().getParseFile("ProfilePic").getUrl();
-            }else{
+            if(comment.getUser().getBoolean("HasUploadedPic")) {
+                ImageUrl = Objects.requireNonNull(comment.getUser().getParseFile("ProfilePic")).getUrl();
+            } else{
                 ImageUrl = comment.getUser().getString("githubProfilePic");
             }
 
@@ -101,6 +101,11 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             gitHubUserName.setText(comment.getUser().getString("gitHubUserName"));
             date.setText(comment.getTime());
             body.setText(comment.getDescription());
+
+
+            body.setOnClickListener(view1 -> {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+            });
 
 
         }
