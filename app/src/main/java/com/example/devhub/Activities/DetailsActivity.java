@@ -59,9 +59,6 @@ public class DetailsActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.rvComments.setLayoutManager(linearLayoutManager);
 
-
-        queryComments(0);
-
         innitViews();
 
         binding.ivComment.setOnClickListener(view1 -> {
@@ -89,6 +86,7 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         binding.rvComments.setAdapter(commentsAdapter);
+        queryComments(0);
 
         binding.tvActualComments.setText(String.format("%d comments", commentsAdapter.getItemCount()));
 
