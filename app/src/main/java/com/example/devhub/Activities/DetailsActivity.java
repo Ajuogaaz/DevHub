@@ -93,12 +93,16 @@ public class DetailsActivity extends AppCompatActivity {
 
         if (SubjectPost.getLikes() != null){
                 likes.addAll(SubjectPost.getLikes());
-        }
-        if(!currentUserInList(likes)){
-            likes.add(ParseUser.getCurrentUser().getObjectId());
+
+            if(!currentUserInList(likes)){
+                likes.add(ParseUser.getCurrentUser().getObjectId());
+            }else{
+                likes.remove(ParseUser.getCurrentUser().getObjectId());
+            }
         }else{
-            likes.remove(ParseUser.getCurrentUser().getObjectId());
+            likes.add(ParseUser.getCurrentUser().getObjectId());
         }
+
         SubjectPost.setLike(likes);
 
         SubjectPost.saveInBackground(e -> {
