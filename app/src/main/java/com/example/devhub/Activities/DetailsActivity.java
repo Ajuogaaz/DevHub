@@ -86,9 +86,8 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         binding.rvComments.setAdapter(commentsAdapter);
-        queryComments(0);
 
-        binding.tvActualComments.setText(String.format("%d comments", commentsAdapter.getItemCount()));
+        queryComments(0);
 
         likes = new ArrayList<>();
 
@@ -249,6 +248,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
             Allcomments.addAll(newcomments);
             commentsAdapter.notifyDataSetChanged();
+            binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
         });
     }
 
