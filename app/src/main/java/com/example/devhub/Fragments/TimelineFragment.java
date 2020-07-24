@@ -214,7 +214,30 @@ public class TimelineFragment extends Fragment {
         likes.clear();
         if (SubjectPost.getLikes() != null){
             likes.addAll(allPosts.get(position).getLikes());
+
+
+            if(!currentUserInList(likes)){
+                likes.add(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+            }else{
+                likes.remove(ParseUser.getCurrentUser().getObjectId());
+                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
+                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
+            }
+        }else{
+            likes.add(ParseUser.getCurrentUser().getObjectId());
         }
+
+        SubjectPost.setLike(likes);
+
+        SubjectPost.saveInBackground(e -> {
+            if(e == null){
+                Toast.makeText(this, "likedPost", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     public void loadNextDataFromBackend(int offset) {
