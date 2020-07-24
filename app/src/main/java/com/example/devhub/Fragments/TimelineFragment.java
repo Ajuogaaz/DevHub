@@ -158,7 +158,7 @@ public class TimelineFragment extends Fragment {
             }
             if(replyCode == TimelineAdapter.LIKE_CODE){
 
-                updatelikes();
+                updatelikes(position);
 
             }
 
@@ -207,11 +207,14 @@ public class TimelineFragment extends Fragment {
 
     }
 
-    private void updatelikes() {
+    private void updatelikes(int position) {
+
+        Post SubjectPost = allPosts.get(position);
 
         likes.clear();
         if (SubjectPost.getLikes() != null){
-            likes.addAll(SubjectPost.getLikes());
+            likes.addAll(allPosts.get(position).getLikes());
+        }
     }
 
     public void loadNextDataFromBackend(int offset) {
