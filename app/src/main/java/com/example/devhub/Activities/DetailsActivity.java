@@ -43,16 +43,17 @@ public class DetailsActivity extends AppCompatActivity {
         SubjectPost= getIntent().getParcelableExtra("post");
 
         ParseUser.getCurrentUser().fetchInBackground();
-        init();
 
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
 
-        binding.Previous.setOnClickListener(view -> {
+        final View view = binding.getRoot();
+        setContentView(view);
+
+        binding.Previous.setOnClickListener(view8 -> {
             startActivity(new Intent(DetailsActivity.this, MainActivity.class));
         });
 
-        final View view = binding.getRoot();
-        setContentView(view);
+        init();
 
         commentsAdapter = new CommentsAdapter(this, Allcomments, position -> {
 
