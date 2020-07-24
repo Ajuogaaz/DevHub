@@ -218,12 +218,8 @@ public class TimelineFragment extends Fragment {
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
-                binding.ivUpvote.setImageResource(R.drawable.ic_upvote_done);
-                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
             }else{
                 likes.remove(ParseUser.getCurrentUser().getObjectId());
-                binding.ivUpvote.setImageResource(R.drawable.ic_upvote);
-                binding.tvActualLikes.setText(String.format("%d upvotes", likes.size()));
             }
         }else{
             likes.add(ParseUser.getCurrentUser().getObjectId());
@@ -233,12 +229,24 @@ public class TimelineFragment extends Fragment {
 
         SubjectPost.saveInBackground(e -> {
             if(e == null){
-                Toast.makeText(this, "likedPost", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "likedPost", Toast.LENGTH_SHORT).show();
+                adapter.notifyDataSetChanged();
             }
         });
 
 
     }
+    private boolean currentUserInList(List<String> likes) {
+        if (likes.size() != 0){
+            for(int i = 0; i < likes.size(); i++)
+                if (ParseUser.getCurrentUser().getObjectId().equals(likes.get(i))) {
+                    return true;
+                }
+            return false;
+        }
+        return false;
+    }
+
 
     public void loadNextDataFromBackend(int offset) {
 
