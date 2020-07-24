@@ -1,22 +1,18 @@
 package com.example.devhub.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
-
 import com.example.devhub.databinding.ActivityCommentBinding;
-import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 
-import java.util.ArrayList;
 
 public class CommentActivity extends AppCompatActivity {
 
@@ -47,7 +43,6 @@ public class CommentActivity extends AppCompatActivity {
                 return;
             }
             saveComment();
-            fireIntent();
         });
 
         initValues();
@@ -88,7 +83,7 @@ public class CommentActivity extends AppCompatActivity {
         comment.setPost(SubjectPost);
         comment.setUser(ParseUser.getCurrentUser());
         comment.setDescription(binding.PostBody.getText().toString());
-
+        fireIntent();
         comment.saveInBackground(e -> {
             binding.PostBody.setText("");
             updateComments();
@@ -98,5 +93,14 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void updateComments() {
+        int comment = SubjectPost.getNumberofComments().intValue();
+        comment += 1;
+
+        SubjectPost.setNumberOfComments(comment);
+
+        SubjectPost.saveInBackground(e -> {
+
+        });
+
     }
 }
