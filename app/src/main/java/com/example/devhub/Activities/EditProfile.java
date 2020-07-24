@@ -54,9 +54,9 @@ public class EditProfile extends AppCompatActivity {
         binding.gitHubUserName.setText(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
 
-         //binding.bio.setText(user.getString("Bio"));
-         //binding.Profession.setText(user.getString("Title"));
-         //binding.preferredName.setText(user.getString("PreferredName"));
+         binding.bio.setText(user.getString("Bio"));
+         binding.Profession.setText(user.getString("Title"));
+         binding.preferredName.setText(user.getString("PreferredName"));
 
 
          binding.btnSubmit.setOnClickListener(view1 -> {
