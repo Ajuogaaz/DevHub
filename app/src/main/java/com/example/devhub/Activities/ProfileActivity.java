@@ -85,10 +85,14 @@ public class ProfileActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
+        ProfileAdapter.onClickListener clickListener = position -> {
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        };
 
-        profileAdapter = new ProfileAdapter(this, posts, position -> {
 
-        });
+        profileAdapter = new ProfileAdapter(this, posts, clickListener);
 
         binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
 
@@ -103,11 +107,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ProfileAdapter.onClickListener clickListener = position -> {
-            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        };
+
 
         binding.rvPost.setAdapter(profileAdapter);
 
