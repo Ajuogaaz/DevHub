@@ -110,12 +110,6 @@ public class TimelineFragment extends Fragment {
         });
         //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        TimelineAdapter.onTouchListener onTouchListener = new TimelineAdapter.onTouchListener() {
-            @Override
-            public void onItemTouched(int position) {
-
-            }
-        };
 
         TimelineAdapter.onClickListener onClickListener = (position, replyCode) -> {
 
@@ -171,7 +165,7 @@ public class TimelineFragment extends Fragment {
 
         };
 
-        adapter = new TimelineAdapter(getContext(), allPosts, onClickListener, onTouchListener);
+        adapter = new TimelineAdapter(getContext(), allPosts, onClickListener);
 
         rvPost.setAdapter(adapter);
 

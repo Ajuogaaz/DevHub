@@ -30,7 +30,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     private Context context;
     private List<Post> posts;
     onClickListener clickListener;
-    onTouchListener touchListener;
     public static final int DETAILS_CODE = 200;
     public static final int PROFILE_CODE = 300;
     public static final int LIKE_CODE = 400;
@@ -44,15 +43,13 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         void onItemClicked(int position, int replyCode);
     }
 
-    public interface onTouchListener{
-        void onItemTouched(int position);
-    }
 
-    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener, onTouchListener touchListener) {
+
+    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener) {
         this.context = context;
         this.posts = posts;
         this.clickListener = clickListener;
-        this.touchListener = touchListener;
+
 
     }
 

@@ -117,10 +117,12 @@ public class ProfileActivity extends AppCompatActivity {
         binding.anchor.setOnTouchListener(new OnSwipeTouchListener(this) {
             @Override
             public void onSwipeDown() {
+
             }
 
             @Override
             public void onSwipeLeft() {
+
 
             }
 
