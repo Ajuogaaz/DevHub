@@ -87,7 +87,7 @@ public class EditProfile extends AppCompatActivity {
 
         user.fetchInBackground((object, e) -> {
             if (e == null){
-                user.put("bio", binding.bio.getText().toString());
+                user.put("Bio", binding.bio.getText().toString());
                 user.put("Title", binding.Profession.getText().toString());
                 user.put("PreferredName", binding.preferredName.getText().toString());
 

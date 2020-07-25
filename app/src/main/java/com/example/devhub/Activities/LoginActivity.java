@@ -49,13 +49,14 @@ public class LoginActivity extends AppCompatActivity {
 
         user = ParseUser.getCurrentUser();
 
-        if(user != null)
+        if(user != null){
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
 
             if (user.getBoolean("HasToken")){
                 showHomePage();
-            }else{
+            }else {
                 goToValidateActivity();
+            }
         }
 
 
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.signUp.setOnClickListener(view2 -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            finish();
+
         });
 
 
@@ -99,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent = new Intent(LoginActivity.this, ValidateActivity.class);
         startActivity(intent);
-        finish();
     }
     private void goToMainActivity() {
 
