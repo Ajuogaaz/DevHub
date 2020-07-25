@@ -24,6 +24,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     private Context context;
     private List<Post> posts;
     onClickListener clickListener;
+    onDoubleTapListener doubleTapListener;
     public static final int DETAILS_CODE = 200;
     public static final int PROFILE_CODE = 300;
     public static final int LIKE_CODE = 400;
@@ -35,6 +36,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
     public interface onClickListener{
         void onItemClicked(int position, int replyCode);
+    }
+
+    public interface onDoubleTapListener{
+        void onItemDoubleClicked(int position);
     }
 
     public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener) {
