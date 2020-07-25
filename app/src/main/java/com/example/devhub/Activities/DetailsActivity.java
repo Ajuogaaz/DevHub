@@ -39,8 +39,6 @@ public class DetailsActivity extends AppCompatActivity{
     private static final String TAG = "DETAILSACTIVITY";
     List<String> likes;
 
-    private GestureDetectorCompat mDetector;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
