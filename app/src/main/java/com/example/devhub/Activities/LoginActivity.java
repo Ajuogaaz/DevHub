@@ -39,10 +39,12 @@ public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
     ParseUser user;
 
+    ActivityLoginBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ActivityLoginBinding binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+
         // layout of activity is stored in a special property called root
         View view = binding.getRoot();
         setContentView(view);
@@ -110,6 +112,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        binding.reposLoader.setVisibility(View.VISIBLE);
+        binding.btnLogin.setVisibility(View.GONE);
+        binding.enterPassword.setVisibility(View.GONE);
+        binding.enterUserName.setVisibility(View.GONE);
         Log.d(TAG, "onResume: ONRESUMECALLED");
         Uri uri = getIntent().getData();
         if (uri != null && uri.toString().startsWith(REDIRECT_URI)) {
