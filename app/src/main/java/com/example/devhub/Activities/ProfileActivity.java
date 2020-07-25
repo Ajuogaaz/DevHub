@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
 import com.parse.ParseFile;
@@ -110,6 +111,34 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queryposts(0);
+
+
+
+        binding.anchor.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeDown() {
+            }
+
+            @Override
+            public void onSwipeLeft() {
+
+            }
+
+            @Override
+            public void onSwipeUp() {
+
+            }
+
+            @Override
+            public void onSwipeRight() {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
 
     }
     private void launchCamera() {
@@ -224,6 +253,7 @@ public class ProfileActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
     }
+
 
 }
 
