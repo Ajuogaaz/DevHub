@@ -168,12 +168,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
             ivUpvote.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE));
 
-            particularPost.setOnTouchListener(new OnDoubleTapListener(context) {
-                @Override
-                public void onDoubleTap(MotionEvent e) {
-                    clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE);
-                }
-            });
 
         }
 

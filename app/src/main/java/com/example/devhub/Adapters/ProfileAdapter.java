@@ -1,6 +1,7 @@
 package com.example.devhub.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Activities.DetailsActivity;
+import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.parse.ParseFile;
 
 import java.util.List;
@@ -71,6 +75,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
         TextView Title, Description, datel;
         ImageView postImage;
+        CardView ParticularPost;
 
 
         ViewHolder(@NonNull View itemView) {
@@ -80,6 +85,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             postImage = itemView.findViewById(R.id.PostImage);
             Description = itemView.findViewById(R.id.tvDescription);
             datel = itemView.findViewById(R.id.tvCreatedAt);
+            ParticularPost = itemView.findViewById(R.id.particularPost);
 
         }
 
@@ -99,6 +105,30 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                 postImage.setVisibility(View.GONE);
                 Description.setMaxLines(4);
             }
+
+            ParticularPost.setOnTouchListener(new OnSwipeTouchListener(context) {
+                @Override
+                public void onSwipeDown() {
+
+                }
+
+                @Override
+                public void onSwipeLeft() {
+
+
+                }
+
+                @Override
+                public void onSwipeUp() {
+
+                }
+
+                @Override
+                public void onSwipeRight() {
+                    clickListener.onItemClicked(getAdapterPosition());
+                }
+            });
+
 
 
         }
