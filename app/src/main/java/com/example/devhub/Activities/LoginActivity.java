@@ -114,6 +114,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if(ParseUser.getCurrentUser() == null){
+            return;
+        }
         binding.reposLoader.setVisibility(View.VISIBLE);
         binding.btnLogin.setVisibility(View.GONE);
         binding.enterPassword.setVisibility(View.GONE);
