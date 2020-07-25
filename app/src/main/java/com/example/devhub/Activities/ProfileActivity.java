@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
 import com.parse.ParseFile;
@@ -84,10 +85,14 @@ public class ProfileActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
+        ProfileAdapter.onClickListener clickListener = position -> {
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        };
 
-        profileAdapter = new ProfileAdapter(this, posts, position -> {
 
-        });
+        profileAdapter = new ProfileAdapter(this, posts, clickListener);
 
         binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
 
@@ -102,6 +107,8 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+
         binding.rvPost.setAdapter(profileAdapter);
 
         //set the layout manager on the recycler view
@@ -110,6 +117,36 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         queryposts(0);
+
+
+
+        binding.anchor.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeDown() {
+
+            }
+
+            @Override
+            public void onSwipeLeft() {
+
+
+            }
+
+            @Override
+            public void onSwipeUp() {
+
+            }
+
+            @Override
+            public void onSwipeRight() {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
 
     }
     private void launchCamera() {
@@ -224,6 +261,7 @@ public class ProfileActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
     }
+
 
 }
 

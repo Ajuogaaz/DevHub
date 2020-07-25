@@ -1,11 +1,14 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,6 +18,7 @@ import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnDoubleTapListener;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
@@ -26,7 +30,7 @@ import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity{
 
     ActivityDetailsBinding binding;
     private static final int DISPLAY_LIMIT = 20;
@@ -35,6 +39,8 @@ public class DetailsActivity extends AppCompatActivity {
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
     List<String> likes;
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,8 @@ public class DetailsActivity extends AppCompatActivity {
             toComments();
 
         });
+
+
         binding.ivCommentText.setOnClickListener(view2 -> {
             toComments();
 
@@ -74,6 +82,14 @@ public class DetailsActivity extends AppCompatActivity {
         binding.ivUpvote.setOnClickListener(view3 -> {
             likedPost();
         });
+
+        binding.MainCardView.setOnTouchListener(new OnDoubleTapListener(this) {
+            @Override
+            public void onDoubleTap(MotionEvent e) {
+                likedPost();
+            }
+        });
+
 
 
     }
@@ -112,7 +128,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         likes.clear();
         if (SubjectPost.getLikes() != null){
-                likes.addAll(SubjectPost.getLikes());
+            likes.addAll(SubjectPost.getLikes());
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
@@ -147,7 +163,7 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             return false;
         }
-     return false;
+        return false;
     }
 
 
@@ -231,27 +247,23 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
 
-
-
     }
 
-    private void queryComments(final int page) {
+    private void queryComments(final int page){
 
-        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Comments>) (newcomments, e) -> {
-            if (e != null){
-                Log.e(TAG, "Issue with getting posts", e);
+        Comments.query(page,DISPLAY_LIMIT,SubjectPost,(FindCallback<Comments>)(newcomments,e)->{
+            if(e!=null){
+                Log.e(TAG,"Issue with getting posts",e);
                 return;
 
             }
-            if(page == 0) {
+            if(page==0){
                 commentsAdapter.clear();
             }
             Allcomments.addAll(newcomments);
             commentsAdapter.notifyDataSetChanged();
-            binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
+            binding.tvActualComments.setText(String.format("%d comments",Allcomments.size()));
         });
     }
-
-
 
 }

@@ -1,19 +1,25 @@
 package com.example.devhub.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnDoubleTapListener;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
@@ -37,10 +43,13 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         void onItemClicked(int position, int replyCode);
     }
 
+
+
     public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener) {
         this.context = context;
         this.posts = posts;
         this.clickListener = clickListener;
+
 
     }
 
@@ -85,8 +94,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private  TextView numberOfComments;
         private ImageView comments;
         private TextView commentText;
-        List<String> likes;
+        public List<String> likes;
         private ImageView ivUpvote;
+        private CardView particularPost;
+
 
 
 
@@ -104,6 +115,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             comments = itemView.findViewById(R.id.ivComment);
             commentText = itemView.findViewById(R.id.ivCommentText);
             ivUpvote = itemView.findViewById(R.id.ivUpvote);
+            particularPost = itemView.findViewById(R.id.particularPost);
 
 
         }
@@ -156,6 +168,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
             ivUpvote.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE));
 
+
         }
 
         private void initLikesandComments(Post post) {
@@ -191,6 +204,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             return false;
         }
     }
+
+
 
 
 
