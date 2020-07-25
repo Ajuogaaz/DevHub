@@ -28,6 +28,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ComposeActivity extends AppCompatActivity {
 
@@ -136,6 +137,11 @@ public class ComposeActivity extends AppCompatActivity {
                 Log.i(TAG, "done: Saved Success");
             }
         });
+        post.setLike(new ArrayList<>());
+
+        post.setNumberOfComments(0);
+
+
     }
 
     private void TakePictureFromGallery(View view) {
