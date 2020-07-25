@@ -131,15 +131,16 @@ public class ComposeActivity extends AppCompatActivity {
             ParseFile pic = new ParseFile(photoFile);
             post.setImage(pic);
         }
+        post.setLike(new ArrayList<>());
+
+        post.setNumberOfComments(0);
 
         post.saveInBackground(e -> {
             if(e==null){
                 Log.i(TAG, "done: Saved Success");
             }
         });
-        post.setLike(new ArrayList<>());
 
-        post.setNumberOfComments(0);
 
 
     }
