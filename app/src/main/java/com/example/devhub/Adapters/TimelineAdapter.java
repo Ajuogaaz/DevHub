@@ -2,6 +2,7 @@ package com.example.devhub.Adapters;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     private Context context;
     private List<Post> posts;
     onClickListener clickListener;
-    onDoubleTapListener doubleTapListener;
+    onTouchListener touchListener;
     public static final int DETAILS_CODE = 200;
     public static final int PROFILE_CODE = 300;
     public static final int LIKE_CODE = 400;
@@ -39,15 +40,15 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         void onItemClicked(int position, int replyCode);
     }
 
-    public interface onDoubleTapListener{
-        void onItemDoubleClicked(int position);
+    public interface onTouchListener{
+        void onItemTouched(int position);
     }
 
-    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener, onDoubleTapListener doubleTapListener) {
+    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener, onTouchListener touchListener) {
         this.context = context;
         this.posts = posts;
         this.clickListener = clickListener;
-        this.doubleTapListener = doubleTapListener;
+        this.touchListener = touchListener;
 
     }
 
@@ -113,6 +114,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             comments = itemView.findViewById(R.id.ivComment);
             commentText = itemView.findViewById(R.id.ivCommentText);
             ivUpvote = itemView.findViewById(R.id.ivUpvote);
+            particularPost = itemView.findViewById(R.id.particularPost);
 
 
         }
@@ -164,6 +166,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             commentText.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), COMMENT_CODE));
 
             ivUpvote.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition(), LIKE_CODE));
+
+            //particularPost.setOnTouchListener(view3 -> touchListener.onItemTouched(getAdapterPosition());
 
         }
 
