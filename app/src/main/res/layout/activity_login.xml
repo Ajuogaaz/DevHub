@@ -43,6 +43,7 @@
         android:layout_below="@id/enterUserName"
         android:layout_width="match_parent"
         android:layout_margin="10dp"
+        app:endIconMode="password_toggle"
         android:hint="@string/enter_password"
         android:layout_height="wrap_content"
         app:hintTextColor="@color/colorAccent"
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:textCursorDrawable="@null"
             android:textColor="@color/Black"
-            android:inputType="textMultiLine"
+            android:inputType="textPassword"
 
             />
 
