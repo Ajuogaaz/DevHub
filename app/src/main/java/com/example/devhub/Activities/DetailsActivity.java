@@ -1,11 +1,14 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,7 +29,9 @@ import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity implements
+        GestureDetector.OnDoubleTapListener,
+        GestureDetector.OnGestureListener{
 
     ActivityDetailsBinding binding;
     private static final int DISPLAY_LIMIT = 20;
@@ -35,6 +40,8 @@ public class DetailsActivity extends AppCompatActivity {
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
     List<String> likes;
+
+    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +73,8 @@ public class DetailsActivity extends AppCompatActivity {
             toComments();
 
         });
+
+
         binding.ivCommentText.setOnClickListener(view2 -> {
             toComments();
 
@@ -74,6 +83,8 @@ public class DetailsActivity extends AppCompatActivity {
         binding.ivUpvote.setOnClickListener(view3 -> {
             likedPost();
         });
+
+        mDetector = new GestureDetectorCompat(this, this);
 
 
     }
@@ -253,5 +264,48 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        return false;
+    }
 
+    @Override
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
 }
