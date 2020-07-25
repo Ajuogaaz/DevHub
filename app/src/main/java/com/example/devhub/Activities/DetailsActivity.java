@@ -84,7 +84,7 @@ public class DetailsActivity extends AppCompatActivity{
         binding.MainCardView.setOnTouchListener(new OnDoubleTapListener(this) {
             @Override
             public void onDoubleTap(MotionEvent e) {
-
+                likedPost();
             }
         });
 
