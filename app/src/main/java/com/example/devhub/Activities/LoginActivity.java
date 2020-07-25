@@ -54,8 +54,6 @@ public class LoginActivity extends AppCompatActivity {
 
             if (user.getBoolean("HasToken")){
                 showHomePage();
-            }else {
-                goToValidateActivity();
             }
         }
 
