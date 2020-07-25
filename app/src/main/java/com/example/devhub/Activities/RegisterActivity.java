@@ -49,6 +49,10 @@ public class RegisterActivity extends AppCompatActivity {
 
             user.signUpInBackground(e -> {
                 binding.reposLoader.setVisibility(View.GONE);
+                binding.btnLogin.setVisibility(View.VISIBLE);
+                binding.enterPassword.setVisibility(View.VISIBLE);
+                binding.enterUserName.setVisibility(View.VISIBLE);
+
                 if (e == null) {
                     goToValidateActivity();
                 }else{
