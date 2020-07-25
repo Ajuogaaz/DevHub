@@ -18,6 +18,7 @@ import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.OnDoubleTapListener;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
@@ -78,6 +79,13 @@ public class DetailsActivity extends AppCompatActivity{
 
         binding.ivUpvote.setOnClickListener(view3 -> {
             likedPost();
+        });
+
+        binding.MainCardView.setOnTouchListener(new OnDoubleTapListener(this) {
+            @Override
+            public void onDoubleTap(MotionEvent e) {
+
+            }
         });
 
 
