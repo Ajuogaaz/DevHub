@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         //  goToMainActivity();
         //}
         binding.btnLogin.setOnClickListener(view1 -> {
+            binding.reposLoader.setVisibility(View.VISIBLE);
             Log.i(TAG, "Onclick dignIn");
 
             ParseUser user =  new ParseUser();
@@ -44,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
             user.setPassword(binding.etPassword.getText().toString());
 
             user.signUpInBackground(e -> {
+                binding.reposLoader.setVisibility(View.GONE);
                 if (e == null) {
                     goToValidateActivity();
                 }else{
