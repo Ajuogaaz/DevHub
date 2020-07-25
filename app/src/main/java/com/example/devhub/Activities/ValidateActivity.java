@@ -70,6 +70,7 @@ public class ValidateActivity extends AppCompatActivity {
                 "?client_id=" + CLIENT_ID + "&scope=repo&redirect_uri=" + REDIRECT_URI)
         );
         startActivity(intent);
+        finish();
     }
 
 }
