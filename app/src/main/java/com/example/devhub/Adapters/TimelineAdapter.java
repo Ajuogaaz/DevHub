@@ -94,7 +94,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private TextView commentText;
         public List<String> likes;
         private ImageView ivUpvote;
-        private CardView
+        private CardView particularPost;
 
 
 
