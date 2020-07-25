@@ -248,6 +248,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         user.saveInBackground(e -> {
+            binding.reposLoader.setVisibility(View.GONE);
             if(e == null){
                 Toast.makeText(LoginActivity.this, "Saved", Toast.LENGTH_SHORT).show();
                 goToMainActivity();
