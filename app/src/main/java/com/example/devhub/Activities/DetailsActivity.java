@@ -39,6 +39,8 @@ public class DetailsActivity extends AppCompatActivity{
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
     List<String> likes;
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +128,7 @@ public class DetailsActivity extends AppCompatActivity{
 
         likes.clear();
         if (SubjectPost.getLikes() != null){
-                likes.addAll(SubjectPost.getLikes());
+            likes.addAll(SubjectPost.getLikes());
 
             if(!currentUserInList(likes)){
                 likes.add(ParseUser.getCurrentUser().getObjectId());
@@ -161,7 +163,7 @@ public class DetailsActivity extends AppCompatActivity{
                 }
             return false;
         }
-     return false;
+        return false;
     }
 
 
@@ -249,20 +251,20 @@ public class DetailsActivity extends AppCompatActivity{
 
     }
 
-    private void queryComments(final int page) {
+    private void queryComments(final int page){
 
-        Comments.query(page, DISPLAY_LIMIT, SubjectPost, (FindCallback<Comments>) (newcomments, e) -> {
-            if (e != null){
-                Log.e(TAG, "Issue with getting posts", e);
+        Comments.query(page,DISPLAY_LIMIT,SubjectPost,(FindCallback<Comments>)(newcomments,e)->{
+            if(e!=null){
+                Log.e(TAG,"Issue with getting posts",e);
                 return;
 
             }
-            if(page == 0) {
+            if(page==0){
                 commentsAdapter.clear();
             }
             Allcomments.addAll(newcomments);
             commentsAdapter.notifyDataSetChanged();
-            binding.tvActualComments.setText(String.format("%d comments", Allcomments.size()));
+            binding.tvActualComments.setText(String.format("%d comments",Allcomments.size()));
         });
     }
 
