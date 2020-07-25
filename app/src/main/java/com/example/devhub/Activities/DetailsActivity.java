@@ -247,8 +247,6 @@ public class DetailsActivity extends AppCompatActivity{
         }
 
 
-
-
     }
 
     private void queryComments(final int page){
