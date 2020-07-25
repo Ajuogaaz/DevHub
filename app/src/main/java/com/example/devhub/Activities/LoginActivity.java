@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (user.getBoolean("HasToken")){
                 showHomePage();
+                finish();
             }
         }
 
@@ -100,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent = new Intent(LoginActivity.this, ValidateActivity.class);
         startActivity(intent);
+        finish();
     }
     private void goToMainActivity() {
 
