@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,10 +43,11 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         void onItemDoubleClicked(int position);
     }
 
-    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener) {
+    public TimelineAdapter(Context context, List<Post> posts, onClickListener clickListener, onDoubleTapListener doubleTapListener) {
         this.context = context;
         this.posts = posts;
         this.clickListener = clickListener;
+        this.doubleTapListener = doubleTapListener;
 
     }
 
@@ -90,8 +92,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         private  TextView numberOfComments;
         private ImageView comments;
         private TextView commentText;
-        List<String> likes;
+        public List<String> likes;
         private ImageView ivUpvote;
+        private CardView
+
 
 
 

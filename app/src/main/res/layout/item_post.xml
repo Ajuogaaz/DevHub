@@ -1,4 +1,5 @@
 <androidx.cardview.widget.CardView
+    android:id="@+id/particularPost"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
