@@ -2,6 +2,7 @@ package com.example.devhub.Fragments;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -91,7 +92,7 @@ public class TimelineFragment extends Fragment {
             ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
         }
 
-        Glide.with(this)
+        Glide.with(requireActivity())
                 .load(ImageUrl)
                 .into(profileButton);
 
