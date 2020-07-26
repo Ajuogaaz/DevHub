@@ -66,6 +66,7 @@ public class DetailsActivity extends AppCompatActivity{
             // options need to be passed when starting the activity
             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
             startActivity(intent, options.toBundle());
+            finishAfterTransition();
         });
 
         init();
