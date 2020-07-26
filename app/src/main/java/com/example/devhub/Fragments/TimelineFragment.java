@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.telecom.Call;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,6 +85,9 @@ public class TimelineFragment extends Fragment {
         likes = new ArrayList<>();
 
         compose = view.findViewById(R.id.composebtn);
+
+        Transition transition = TransitionInflater.from(getContext()).inflateTransition(R.transition.slide_right_animation);
+        getActivity().getWindow().setExitTransition(transition);
 
         String ImageUrl = "";
 

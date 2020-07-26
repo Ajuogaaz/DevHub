@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
-        getWindow().setExitTransition(transition);
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
