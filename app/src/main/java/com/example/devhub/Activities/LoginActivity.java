@@ -66,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
             String username = binding.etUsername.getText().toString();
             String password = binding.etPassword.getText().toString();
             Toast.makeText(LoginActivity.this, "login in", Toast.LENGTH_SHORT).show();
+            binding.reposLoader.setVisibility(View.VISIBLE);
+            binding.btnLogin.setVisibility(View.GONE);
+            binding.enterPassword.setVisibility(View.GONE);
+            binding.enterUserName.setVisibility(View.GONE);
             loginUser(username, password);
 
         });
@@ -81,6 +85,10 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String username, String password) {
 
         ParseUser.logInInBackground(username, password, (user, e) -> {
+            binding.reposLoader.setVisibility(View.GONE);
+            binding.btnLogin.setVisibility(View.VISIBLE);
+            binding.enterPassword.setVisibility(View.VISIBLE);
+            binding.enterUserName.setVisibility(View.VISIBLE);
             if(e != null){
                 Log.e(TAG, "Issue with login" + e);
                 Toast.makeText(this, "Wrong credentials", Toast.LENGTH_SHORT).show();
