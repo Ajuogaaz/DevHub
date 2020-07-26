@@ -185,7 +185,7 @@ public class DetailsActivity extends AppCompatActivity{
         intent.putExtra("post", SubjectPost);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
         startActivity(intent, options.toBundle());
-        finishAfterTransition();
+
 
     }
 
