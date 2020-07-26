@@ -49,11 +49,11 @@ public class DetailsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
-        getWindow().setEnterTransition(transition);
+        Transition transitionIn = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
+        getWindow().setEnterTransition(transitionIn);
 
-        Transition transition1 = TransitionInflater.from(this).inflateTransition(R.transition.slide_left_animation);
-        getWindow().setExitTransition(transition);
+        Transition transitionOut = TransitionInflater.from(this).inflateTransition(R.transition.slide_left_animation);
+        getWindow().setExitTransition(transitionOut);
 
         SubjectPost= getIntent().getParcelableExtra("post");
 
