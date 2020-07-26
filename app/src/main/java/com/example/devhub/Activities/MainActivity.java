@@ -1,6 +1,8 @@
 package com.example.devhub.Activities;
 
 import android.os.Bundle;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
+        getWindow().setExitTransition(transition);
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
