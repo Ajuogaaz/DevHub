@@ -52,6 +52,9 @@ public class DetailsActivity extends AppCompatActivity{
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
         getWindow().setEnterTransition(transition);
 
+        Transition transition1 = TransitionInflater.from(this).inflateTransition(R.transition.slide_left_animation);
+        getWindow().setExitTransition(transition);
+
         SubjectPost= getIntent().getParcelableExtra("post");
 
         ParseUser.getCurrentUser().fetchInBackground();
@@ -64,9 +67,8 @@ public class DetailsActivity extends AppCompatActivity{
         binding.Previous.setOnClickListener(view8 -> {
             Intent intent = new Intent(DetailsActivity.this, MainActivity.class);
             // options need to be passed when starting the activity
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
-            startActivity(intent, options.toBundle());
-            finishAfterTransition();
+            startActivity(intent);
+            finish();
         });
 
         init();
@@ -181,8 +183,10 @@ public class DetailsActivity extends AppCompatActivity{
 
         Intent intent = new Intent(DetailsActivity.this, CommentActivity.class);
         intent.putExtra("post", SubjectPost);
-        startActivity(intent);
-        finish();
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
+        startActivity(intent, options.toBundle());
+        finishAfterTransition();
+
     }
 
     @Override
