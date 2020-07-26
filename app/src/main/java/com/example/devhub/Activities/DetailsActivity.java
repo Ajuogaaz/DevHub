@@ -1,6 +1,7 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.transition.Transition;
@@ -61,7 +62,10 @@ public class DetailsActivity extends AppCompatActivity{
         setContentView(view);
 
         binding.Previous.setOnClickListener(view8 -> {
-            startActivity(new Intent(DetailsActivity.this, MainActivity.class));
+            Intent intent = new Intent(DetailsActivity.this, MainActivity.class);
+            // options need to be passed when starting the activity
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
+            startActivity(intent, options.toBundle());
         });
 
         init();
