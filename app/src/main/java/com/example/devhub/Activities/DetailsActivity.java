@@ -3,6 +3,8 @@ package com.example.devhub.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +48,8 @@ public class DetailsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
+        getWindow().setEnterTransition(transition);
 
         SubjectPost= getIntent().getParcelableExtra("post");
 
