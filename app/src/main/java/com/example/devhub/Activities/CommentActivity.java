@@ -2,6 +2,8 @@ package com.example.devhub.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Post;
+import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityCommentBinding;
 import com.parse.ParseUser;
 
@@ -31,6 +34,13 @@ public class CommentActivity extends AppCompatActivity {
         binding = ActivityCommentBinding.inflate(getLayoutInflater());
         final View view = binding.getRoot();
         setContentView(view);
+
+        Transition transitionIn = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
+        getWindow().setEnterTransition(transitionIn);
+
+        Transition transitionOut = TransitionInflater.from(this).inflateTransition(R.transition.slide_left_animation);
+        getWindow().setExitTransition(transitionOut);
+
 
         binding.Cancel.setOnClickListener(view2 -> {
             fireIntent();

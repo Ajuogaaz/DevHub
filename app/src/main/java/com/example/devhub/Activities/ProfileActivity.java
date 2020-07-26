@@ -191,6 +191,7 @@ public class ProfileActivity extends AppCompatActivity {
                 // RESIZE BITMAP, see section below
                 // Load the taken image into a preview
                 ParseUser currentUser = ParseUser.getCurrentUser();
+                Toast.makeText(this, "Your profile picture will be updated shortly", Toast.LENGTH_SHORT).show();
 
                 currentUser.put("ProfilePic", new ParseFile(photoFile));
                 currentUser.put("HasUploadedPic", true);

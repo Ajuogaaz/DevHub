@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:name=".Utils.ParseApplication"
         android:allowBackup="true"
@@ -31,15 +32,24 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
+        <activity android:name=".Utils.SplashScreen"
+            android:theme="@style/SplashTheme">
+
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.ValidateActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -51,8 +61,6 @@
                     android:scheme="edtrum" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.LoginActivity" />
     </application>
 
 </manifest>

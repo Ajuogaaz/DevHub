@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.telecom.Call;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,6 +87,9 @@ public class TimelineFragment extends Fragment {
 
         compose = view.findViewById(R.id.composebtn);
 
+        Transition transition = TransitionInflater.from(getContext()).inflateTransition(R.transition.slide_right_animation);
+        getActivity().getWindow().setExitTransition(transition);
+
         String ImageUrl = "";
 
         if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
@@ -119,10 +125,12 @@ public class TimelineFragment extends Fragment {
                 Toast.makeText(getContext(), "Getting Details", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getContext(), DetailsActivity.class);
-
+                // options need to be passed when starting the activity
                 intent.putExtra("post", allPosts.get(position));
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity());
+                startActivity(intent, options.toBundle());
 
-                startActivity(intent);
+
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
                 Fragment fragment = new ChatFragment();

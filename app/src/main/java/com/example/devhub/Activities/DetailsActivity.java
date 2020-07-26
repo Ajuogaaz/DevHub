@@ -1,8 +1,11 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +49,12 @@ public class DetailsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Transition transitionIn = TransitionInflater.from(this).inflateTransition(R.transition.slide_right_animation);
+        getWindow().setEnterTransition(transitionIn);
+
+        Transition transitionOut = TransitionInflater.from(this).inflateTransition(R.transition.slide_left_animation);
+        getWindow().setExitTransition(transitionOut);
+
         SubjectPost= getIntent().getParcelableExtra("post");
 
         ParseUser.getCurrentUser().fetchInBackground();
@@ -56,7 +65,10 @@ public class DetailsActivity extends AppCompatActivity{
         setContentView(view);
 
         binding.Previous.setOnClickListener(view8 -> {
-            startActivity(new Intent(DetailsActivity.this, MainActivity.class));
+            Intent intent = new Intent(DetailsActivity.this, MainActivity.class);
+            // options need to be passed when starting the activity
+            startActivity(intent);
+            finish();
         });
 
         init();
@@ -171,8 +183,10 @@ public class DetailsActivity extends AppCompatActivity{
 
         Intent intent = new Intent(DetailsActivity.this, CommentActivity.class);
         intent.putExtra("post", SubjectPost);
-        startActivity(intent);
-        finish();
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
+        startActivity(intent, options.toBundle());
+
+
     }
 
     @Override

@@ -50,17 +50,7 @@ public class ValidateActivity extends AppCompatActivity {
         if(user == null){
             toLoginActivity();
         }
-        else{
-            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
 
-            if (user.getBoolean("HasToken")){
-                showHomePage();
-            }
-        }
-        //Check if the Has token meaning its not a new user, Then push them to main activity
-
-
-        //Run this remaining code if and only if its a new user from Register activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
 
@@ -80,121 +70,7 @@ public class ValidateActivity extends AppCompatActivity {
                 "?client_id=" + CLIENT_ID + "&scope=repo&redirect_uri=" + REDIRECT_URI)
         );
         startActivity(intent);
+        finish();
     }
-
-    //We use retrofit to deal with the response of the data from the passed intent
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume: ONRESUMECALLED");
-        Uri uri = getIntent().getData();
-        if (uri != null && uri.toString().startsWith(REDIRECT_URI)) {
-            String code = uri.getQueryParameter("code");
-            retroBuilder(code);
-        }
-    }
-
-
-    private void retroBuilder(String code) {
-        ApiClient apiClient = ApiService.getApiClient();
-
-        Call<AccessToken> call = apiClient.getAccessToken(CLIENT_ID, CLIENT_SECRET, code);
-        call.enqueue(new Callback<AccessToken>() {
-            @Override
-            public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    AccessToken accessToken = response.body();
-                    updateUserInfo(accessToken);
-                    showHomePage();
-                } else {
-                    Toast.makeText(ValidateActivity.this, R.string.RequestDenied, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AccessToken> call, Throwable t) {
-                Toast.makeText(ValidateActivity.this, R.string.connectionFailure, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void showHomePage() {
-        Intent intent = new Intent(ValidateActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    private void updateUserInfo(AccessToken accessToken) {
-        getUserInfo(accessToken.getAccessToken());
-    }
-
-    private void getUserInfo(String currentUserToken) {
-        if (!currentUserToken.isEmpty()) {
-
-
-
-            OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-            okHttpClient.addInterceptor(chain -> {
-                Request request = chain.request();
-                Request.Builder newRequest = request.newBuilder().header(
-                        "Authorization",
-                        "token " + currentUserToken);
-                return chain.proceed(newRequest.build());
-            }).build();
-
-            Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(AUTH_URL)
-                    .client(okHttpClient.build())
-                    .addConverterFactory(GsonConverterFactory.create());
-
-            Retrofit retrofit = builder.build();
-            ApiClient apiClient = retrofit.create(ApiClient.class);
-            apiClient.getUserDetails().enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        User replyUser = response.body();
-                        saveUserInfo(replyUser, currentUserToken);
-                    } else {
-                        Toast.makeText(
-                                ValidateActivity.this,
-                                "Please try again",
-                                Toast.LENGTH_SHORT
-                        ).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(
-                            ValidateActivity.this,
-                            "Check your connection",
-                            Toast.LENGTH_SHORT
-                    ).show();
-                }
-            });
-        }
-    }
-
-    private void saveUserInfo(User replyUser, String currentUserToken) {
-
-        user.put("Token", currentUserToken);
-        user.put("HasToken", true);
-        if(replyUser.getBio() != null) {
-            user.put("Bio", replyUser.getBio());
-        }
-        user.put("PreferredName", replyUser.getName());
-        user.put("gitHubUserName", replyUser.getUsername());
-        user.put("NumberOfRepos", replyUser.getRepos());
-        if(replyUser.getAvatar() != null) {
-            user.put("githubProfilePic", replyUser.getAvatar());
-        }
-        user.put("HasUploadedPic", false);
-        user.saveInBackground(e -> {
-            if(e == null){
-                Toast.makeText(ValidateActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
 
 }
