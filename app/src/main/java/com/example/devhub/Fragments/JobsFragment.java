@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class JobsFragment extends Fragment {
+public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction{
 
     private RecyclerView mJobRecycler;
     private JobsAdapter mJobsAdapter;
@@ -57,6 +57,11 @@ public class JobsFragment extends Fragment {
 
         initViews(view);
 
+        mJobsAdapter = new JobsAdapter(getContext(), this);
+
+        setUpRecycler();
+
+        btnSearch.setOnClickListener(view2 -> performSearch());
     }
 
     private void initViews(View view) {
@@ -136,6 +141,22 @@ public class JobsFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(job.getJobUrl()));
         startActivity(intent);
+    }
+
+    private void performSearch() {
+        String location = edLocation.getText().toString().toLowerCase().trim();
+        String description = edDescription.getText().toString().toLowerCase().trim();
+
+        if (!location.isEmpty() || !description.isEmpty()) {
+            if (location.contains(" ")) {
+                location = location.replace(" ", "+");
+            }
+            initialLoad = false;
+            makeRequest(location, description);
+        } else {
+            if (!initialLoad)
+                setUpRecycler();
+        }
     }
 
 
