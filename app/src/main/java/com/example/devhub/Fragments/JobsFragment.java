@@ -160,14 +160,14 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     }
     private void makeRequest(String location, String description) {
         loader.setVisibility(View.VISIBLE);
-        apiClient.getQueriedJobs(description, location).enqueue(new Callback<List<Job>>() {
+        apiClient.getQueriedJobs(description, location).enqueue(new Callback<List<jobs>>() {
             @Override
-            public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+            public void onResponse(Call<List<jobs>> call, Response<List<jobs>> response) {
                 loadResponse(response);
             }
 
             @Override
-            public void onFailure(Call<List<Job>> call, Throwable t) {
+            public void onFailure(Call<List<jobs>> call, Throwable t) {
                 showConnectionError();
             }
         });
