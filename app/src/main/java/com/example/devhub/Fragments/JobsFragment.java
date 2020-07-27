@@ -94,6 +94,11 @@ public class JobsFragment extends Fragment {
         }
     }
 
+    private void showConnectionError() {
+        loader.setVisibility(View.GONE);
+        Toast.makeText(getContext(), "Internet Unavailable", Toast.LENGTH_SHORT).show();
+    }
+
 
 
 
