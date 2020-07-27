@@ -11,6 +11,7 @@ public class ApiService {
 
     public static final String BASE_URL = "https://github.com/";
     public static final String BASE_URL_REPOS = "https://api.github.com/";
+    public static final String BASE_JOBS_URL = "https://jobs.github.com/";
     private static Retrofit sRetrofit = null;
     private static Retrofit userRepos = null;
     private static OkHttpClient sOkHttpClient;
