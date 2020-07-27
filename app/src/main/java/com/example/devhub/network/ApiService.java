@@ -14,6 +14,7 @@ public class ApiService {
     public static final String BASE_JOBS_URL = "https://jobs.github.com/";
     private static Retrofit sRetrofit = null;
     private static Retrofit userRepos = null;
+    private static Retrofit userJobs = null;
     private static OkHttpClient sOkHttpClient;
 
     private static Retrofit getRetrofit() {
@@ -56,13 +57,33 @@ public class ApiService {
         }
         return userRepos;
     }
+    private static Retrofit getUserJobs() {
+        if (userJobs == null) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            OkHttpClient sOkHttpClient = logging(logging);
+
+            userJobs = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(sOkHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return userJobs;
+    }
 
     public static ApiClient getApiClient() {
         return getRetrofit().create(ApiClient.class);
     }
 
     public static ApiClient getApiUserRepos() {
+
         return getUserRepos().create(ApiClient.class);
+    }
+
+    public static ApiClient getApiUserJobs() {
+        return getUserJobs().create(ApiClient.class);
     }
 
 }
