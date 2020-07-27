@@ -65,7 +65,7 @@ public class ApiService {
             OkHttpClient sOkHttpClient = logging(logging);
 
             userJobs = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(BASE_JOBS_URL)
                     .client(sOkHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
