@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -79,6 +80,20 @@ public class JobsFragment extends Fragment {
             }
         });
     }
+
+    private void loadResponse(Response<List<jobs>> response) {
+        mJobList.clear();
+        if (response.isSuccessful() && response.body() != null) {
+            loader.setVisibility(View.GONE);
+            mJobList.addAll(response.body());
+            mJobsAdapter.setJobData(mJobList);
+            mJobRecycler.setAdapter(mJobsAdapter);
+        } else {
+            loader.setVisibility(View.GONE);
+            Toast.makeText(getContext(), "Please try again", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
 
