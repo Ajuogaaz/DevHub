@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.JobsAdapter;
@@ -21,6 +22,10 @@ import com.example.devhub.network.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class JobsFragment extends Fragment {
@@ -54,6 +59,25 @@ public class JobsFragment extends Fragment {
         btnSearch = view.findViewById(R.id.btn_search);
         edLocation = view.findViewById(R.id.search_location);
         edDescription = view.findViewById(R.id.search_desc);
+    }
+
+    private void setUpRecycler() {
+        mJobRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        mJobRecycler.setHasFixedSize(true);
+
+        loader.setVisibility(View.VISIBLE);
+        apiClient.getAvailableJobs().enqueue(new Callback<List<jobs>>() {
+            @Override
+            public void onResponse(Call<List<jobs>> call, Response<List<jobs>> response) {
+                initialLoad = true;
+                loadResponse(response);
+            }
+
+            @Override
+            public void onFailure(Call<List<jobs>> call, Throwable t) {
+                showConnectionError();
+            }
+        });
     }
 
 
