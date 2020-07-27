@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.evans.jobs.R;
-import com.evans.jobs.models.Job;
 import com.example.devhub.Models.jobs;
+import com.example.devhub.R;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
     @Override
     public JobHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.job_item, parent, false);
+        View view = inflater.inflate(R.layout.item_jobs, parent, false);
         return new JobHolder(view, mJobInteraction);
     }
 
