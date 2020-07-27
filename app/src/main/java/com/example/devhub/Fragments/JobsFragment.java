@@ -158,6 +158,20 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
                 setUpRecycler();
         }
     }
+    private void makeRequest(String location, String description) {
+        loader.setVisibility(View.VISIBLE);
+        apiClient.getQueriedJobs(description, location).enqueue(new Callback<List<Job>>() {
+            @Override
+            public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+                loadResponse(response);
+            }
+
+            @Override
+            public void onFailure(Call<List<Job>> call, Throwable t) {
+                showConnectionError();
+            }
+        });
+    }
 
 
 }
