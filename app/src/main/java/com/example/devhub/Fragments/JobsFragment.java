@@ -22,6 +22,7 @@ import com.example.devhub.Adapters.JobsAdapter;
 import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.network.ApiClient;
+import com.example.devhub.network.ApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,8 @@ public class JobsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        apiClient = ApiService.getApiClient();
 
         initViews(view);
 
