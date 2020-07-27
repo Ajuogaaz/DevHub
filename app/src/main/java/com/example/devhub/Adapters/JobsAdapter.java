@@ -46,7 +46,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
         return mJobs != null ? mJobs.size() : 0;
     }
 
-    public void setJobData(List<Job> jobs){
+    public void setJobData(List<jobs> jobs){
         mJobs = jobs;
         notifyDataSetChanged();
     }
@@ -79,7 +79,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
             mJobInteraction.jobClicked(mJobs.get(getAdapterPosition()), view);
         }
 
-        public void bind(Job job) {
+        public void bind(jobs job) {
             jobTitle.setText(job.getTitle());
             postedOn.setText(job.getCreatedAt());
             companyName.setText(job.getCompany());
@@ -93,6 +93,6 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
 
     public interface JobInteraction {
 
-        void jobClicked(Job job, View view);
+        void jobClicked(jobs job, View view);
     }
 }
