@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Title"
-            android:textColor="@color/colorDarkGrey"
+            android:textColor="@color/DarkGray"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +41,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Job Type"
-            android:textSize="@dimen/small_txt"
+            android:textSize="10sp"
             android:padding="4dp"
             android:textColor="@android:color/white"
-            android:background="@drawable/tag_bg"
+            android:background="@drawable/tag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_company_name" />
 
