@@ -1,7 +1,7 @@
 Original App Design Project - README Template
 ===
 #Week 2 walk through.  
- -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+ -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/week2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 #Week 1 walk through.  
  -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
