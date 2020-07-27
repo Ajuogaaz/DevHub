@@ -53,7 +53,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        apiClient = ApiService.getApiClient();
+        apiClient = ApiService.getApiUserJobs();
 
         initViews(view);
 
