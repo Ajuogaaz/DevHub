@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Job implements Parcelable {
+public class jobs implements Parcelable {
 
     @SerializedName("type")
     private String type;
@@ -22,7 +22,7 @@ public class Job implements Parcelable {
     @SerializedName("company_logo")
     private String logo;
 
-    protected Job(Parcel in) {
+    protected jobs(Parcel in) {
         type = in.readString();
         jobUrl = in.readString();
         createdAt = in.readString();
@@ -32,15 +32,15 @@ public class Job implements Parcelable {
         logo = in.readString();
     }
 
-    public static final Creator<Job> CREATOR = new Creator<Job>() {
+    public static final Creator<jobs> CREATOR = new Creator<jobs>() {
         @Override
-        public Job createFromParcel(Parcel in) {
-            return new Job(in);
+        public jobs createFromParcel(Parcel in) {
+            return new jobs(in);
         }
 
         @Override
-        public Job[] newArray(int size) {
-            return new Job[size];
+        public jobs[] newArray(int size) {
+            return new jobs[size];
         }
     };
 
