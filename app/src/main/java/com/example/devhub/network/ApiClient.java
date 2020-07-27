@@ -13,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiClient {
     @Headers("Accept: application/json")
@@ -29,4 +30,15 @@ public interface ApiClient {
 
     @GET("users/{user}/repos")
     Call<List<Repositories>> getUserRepos(@Path("user") String user);
+
+
+
+    @GET("positions.json")
+    Call<List<Job>> getAvailableJobs();
+
+    @GET("positions.json")
+    Call<List<Job>> getQueriedJobs(
+            @Query("description") String description,
+            @Query("location") String location
+    );
 }
