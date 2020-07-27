@@ -3,6 +3,7 @@ package com.example.devhub.network;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.Models.User;
 import com.example.devhub.Models.AccessToken;
+import com.example.devhub.Models.jobs;
 
 import java.util.List;
 
@@ -34,10 +35,10 @@ public interface ApiClient {
 
 
     @GET("positions.json")
-    Call<List<Job>> getAvailableJobs();
+    Call<List<jobs>> getAvailableJobs();
 
     @GET("positions.json")
-    Call<List<Job>> getQueriedJobs(
+    Call<List<jobs>> getQueriedJobs(
             @Query("description") String description,
             @Query("location") String location
     );

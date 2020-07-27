@@ -1,4 +1,4 @@
-package com.evans.jobs.models;
+package com.example.devhub.Models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
