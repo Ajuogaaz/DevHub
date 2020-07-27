@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,6 +44,16 @@ public class JobsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initViews(view);
+
+    }
+
+    private void initViews(View view) {
+        mJobRecycler = view.findViewById(R.id.jobs_recycler);
+        loader = view.findViewById(R.id.jobs_loader);
+        btnSearch = view.findViewById(R.id.btn_search);
+        edLocation = view.findViewById(R.id.search_location);
+        edDescription = view.findViewById(R.id.search_desc);
     }
 
 
