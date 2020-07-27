@@ -1,5 +1,7 @@
 package com.example.devhub.Fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,6 +117,22 @@ public class JobsFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_jobs, container, false);
 
+    }
+
+    @Override
+    public void jobClicked(jobs job, View view) {
+        switch (view.getId()) {
+            case R.id.btn_job_details:
+            case R.id.txt_job_link:
+                openWebView(job);
+                break;
+        }
+    }
+
+    private void openWebView(jobs job) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(job.getJobUrl()));
+        startActivity(intent);
     }
 
 
