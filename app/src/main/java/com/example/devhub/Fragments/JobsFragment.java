@@ -37,11 +37,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NotificationFragment extends Fragment {
+public class JobsFragment extends Fragment {
 
 
 
-    public NotificationFragment() {
+    public JobsFragment() {
         // Required empty public constructor
     }
 
