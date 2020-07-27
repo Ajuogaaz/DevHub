@@ -51,7 +51,7 @@
             android:text="Search"
             android:textColor="@android:color/white"
             android:background="@drawable/search_btn_bg"
-            android:textSize="@dimen/small_txt"/>
+            android:textSize="12sp"/>
 
     </LinearLayout>
 
