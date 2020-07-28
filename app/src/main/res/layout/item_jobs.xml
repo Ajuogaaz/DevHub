@@ -8,14 +8,15 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="16dp"
     android:layout_marginBottom="4dp"
-    app:cardCornerRadius="5dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="30dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_post_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_job_title" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_company_name" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <<com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_post_date" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
