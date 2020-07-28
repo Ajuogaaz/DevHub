@@ -12,68 +12,81 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/search_feature"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterJob"
-            android:fitsSystemWindows="true"
-            android:layout_width="140dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="@string/eg_python"
-            android:layout_height="wrap_content"
-            app:hintTextColor="@color/colorAccent"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxStrokeColor="@color/colorAccent"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search_desc"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enterJob"
+                android:fitsSystemWindows="true"
                 android:layout_width="140dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/eg_python"
                 android:layout_height="wrap_content"
-                android:textCursorDrawable="@null"
-                android:textColor="@color/Black"
-                android:inputType="textMultiLine"
+                app:hintTextColor="@color/colorAccent"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxStrokeColor="@color/colorAccent"
+                android:theme="@style/TextInputLayoutStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/Black"
+                    android:inputType="textMultiLine"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterUserName"
-            android:fitsSystemWindows="true"
-            android:layout_width="140dp"
-            android:layout_toEndOf="@id/enterJob"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="@string/location"
-            android:layout_height="wrap_content"
-            app:hintTextColor="@color/colorAccent"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxStrokeColor="@color/colorAccent"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enterUserName"
+                android:fitsSystemWindows="true"
+                android:layout_width="140dp"
+                android:layout_toEndOf="@id/enterJob"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/location"
+                android:layout_height="wrap_content"
+                app:hintTextColor="@color/colorAccent"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxStrokeColor="@color/colorAccent"
+                android:theme="@style/TextInputLayoutStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/search_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textCursorDrawable="@null"
-            android:textColor="@color/Black"
-            android:inputType="textMultiLine"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/Black"
+                    android:inputType="textMultiLine"
 
-            />
-        </com.google.android.material.textfield.TextInputLayout>
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_toEndOf="@id/enterUserName"
+                android:src="@drawable/ic_briefcase_search"/>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/anchor"
-            android:layout_below="@id/enterUserName"
+            android:layout_below="@id/search_feature"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:padding="0dp"
