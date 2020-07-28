@@ -38,7 +38,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction, TextView.OnEditorActionListener {
+public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction {
 
     private RecyclerView mJobRecycler;
     private JobsAdapter mJobsAdapter;
@@ -177,17 +177,5 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
                 showConnectionError();
             }
         });
-    }
-
-
-    @Override
-    public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
-            InputMethodManager imm = (InputMethodManager)textView.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
-            return true;
-        }
-        return false;
     }
 }
