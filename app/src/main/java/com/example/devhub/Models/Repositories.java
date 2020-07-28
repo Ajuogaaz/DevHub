@@ -21,6 +21,9 @@ public class Repositories implements Parcelable{
     protected Repositories(Parcel in) {
         name = in.readString();
         fullName = in.readString();
+        commits = in.readString();
+        forks = in.readString();
+        stars = in.readString();
     }
 
     public static final Creator<Repositories> CREATOR = new Creator<Repositories>() {
