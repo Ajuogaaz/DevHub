@@ -72,4 +72,6 @@
     <string name="eg_python">eg Python</string>
     <string name="datesample">7/16/2020</string>
     <string name="JobTitle">Job Title</string>
+    <string name="job_type">Job Type</string>
+    <string name="company_name">Company Name</string>
 </resources>

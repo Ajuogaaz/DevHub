@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/JobTitle"
-            android:textColor="@color/DarkGray"
+            android:textColor="@color/Black"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Job Type"
+            android:text="@string/job_type"
             android:textSize="10sp"
             android:padding="4dp"
             android:textColor="@android:color/white"
@@ -54,12 +54,12 @@
             android:id="@+id/txt_company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Company Name"
+            android:text="@string/company_name"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <<com.google.android.material.textview.MaterialTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
