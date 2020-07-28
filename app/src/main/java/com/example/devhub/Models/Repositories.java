@@ -18,6 +18,8 @@ public class Repositories implements Parcelable{
     @SerializedName("stars")
     private String stars;
 
+
+
     protected Repositories(Parcel in) {
         name = in.readString();
         fullName = in.readString();
@@ -46,6 +48,18 @@ public class Repositories implements Parcelable{
         return fullName;
     }
 
+    public String getCommits() {
+        return commits;
+    }
+
+    public String getForks() {
+        return forks;
+    }
+
+    public String getStars() {
+        return stars;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -55,5 +69,8 @@ public class Repositories implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(fullName);
+        parcel.writeString(commits);
+        parcel.writeString(forks);
+        parcel.writeString(stars);
     }
 }
