@@ -15,11 +15,6 @@
 
 
 
-
-
-
-
-
     <LinearLayout
         android:id="@+id/anchor"
         android:layout_width="match_parent"
@@ -33,7 +28,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPost"
+                android:id="@+id/jobs_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_jobs"
@@ -51,6 +46,7 @@
         android:visibility="visible"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+
         />
 
     </RelativeLayout>
