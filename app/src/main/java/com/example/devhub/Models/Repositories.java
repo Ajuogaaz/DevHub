@@ -11,6 +11,12 @@ public class Repositories implements Parcelable{
     private String name;
     @SerializedName("full_name")
     private String fullName;
+    @SerializedName("commits")
+    private String commits;
+    @SerializedName("forks")
+    private String forks;
+    @SerializedName("stars")
+    private String stars;
 
     protected Repositories(Parcel in) {
         name = in.readString();
