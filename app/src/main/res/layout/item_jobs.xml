@@ -34,8 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/datesample"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_job_title" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_type"
@@ -48,7 +49,7 @@
             android:textColor="@android:color/white"
             android:background="@drawable/tag_bg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_company_name" />
+            app:layout_constraintTop_toBottomOf="@id/txt_job_title" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_company_name"
@@ -56,8 +57,9 @@
             android:layout_height="wrap_content"
             android:text="@string/company_name"
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_job_title"
+             />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_link"
@@ -69,7 +71,7 @@
             android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_job_post_date" />
+            app:layout_constraintTop_toBottomOf="@id/txt_company_name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_location"
@@ -81,7 +83,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_job_details"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
@@ -93,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/company_logo"
             android:layout_width="120dp"
             android:layout_height="45dp"
