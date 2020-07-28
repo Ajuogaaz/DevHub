@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginTop="4dp"
     android:layout_marginEnd="16dp"
@@ -17,7 +17,6 @@
         android:padding="8dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_marginTop="10dp"
             android:id="@+id/txt_job_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +25,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/txt_job_post_date" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_job_post_date"
@@ -88,6 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
             android:minWidth="100dp"
             android:text="@string/details"
             style="@style/LoginButton"
@@ -95,15 +96,20 @@
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
+            />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/company_logo"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="8dp"
+            android:visibility="visible"
+            android:scaleType="centerCrop"
+            android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_job_location" />
+            app:layout_constraintBottom_toTopOf="@id/btn_job_details"
+            app:layout_constraintTop_toBottomOf="@id/txt_job_location" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
