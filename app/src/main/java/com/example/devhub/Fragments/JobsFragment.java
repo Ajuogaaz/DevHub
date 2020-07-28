@@ -57,7 +57,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
         initViews(view);
 
-        mJobsAdapter = new JobsAdapter(getContext(), this);
+        mJobsAdapter = new JobsAdapter(requireContext(), this);
 
         setUpRecycler();
 
