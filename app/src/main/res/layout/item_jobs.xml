@@ -83,14 +83,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
 
-        <com.google.android.material.button.MaterialButton
+        <button
             android:id="@+id/btn_job_details"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/button_bg"
             android:minWidth="100dp"
             android:text="@string/details"
+            style="@style/LoginButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
