@@ -184,8 +184,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
 
         if (actionId == EditorInfo.IME_ACTION_DONE) {
-            InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            InputMethodManager imm = (InputMethodManager)textView.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
             return true;
         }
         return false;
