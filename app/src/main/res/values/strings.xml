@@ -70,4 +70,6 @@
     <string name="enter_password">Enter password</string>
     <string name="location">Location</string>
     <string name="eg_python">eg Python</string>
+    <string name="datesample">7/16/2020</string>
+    <string name="JobTitle">Job Title</string>
 </resources>
