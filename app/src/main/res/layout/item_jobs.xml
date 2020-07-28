@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:maxLines="2"
-            android:text="Job Url Link"
+            android:text="@string/job_url_link"
             android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Location"
+            android:text="@string/location"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
@@ -88,7 +88,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/button_bg"
             android:minWidth="100dp"
-            android:text="Details"
+            android:text="@string/details"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_link" />
