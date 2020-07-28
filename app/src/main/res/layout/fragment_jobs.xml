@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<RelativeLayout
     android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +22,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/enterJob"
                 android:layout_width="140dp"
-                android:layout_marginTop="30dp"
+                android:fitsSystemWindows="true"
+                android:layout_marginTop="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:hint="@string/eg_python"
@@ -39,11 +40,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/search_desc"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textCursorDrawable="@null"
                     android:textColor="@color/Black"
-                    android:inputType="textMultiLine"
-
+                    android:inputType="textAutoComplete"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,10 +51,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/enterUserName"
                 android:layout_width="140dp"
+                android:fitsSystemWindows="true"
                 android:layout_toEndOf="@id/enterJob"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:hint="@string/location"
                 android:layout_height="wrap_content"
                 app:hintTextColor="@color/colorAccent"
@@ -69,18 +70,19 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/search_location"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textCursorDrawable="@null"
                     android:textColor="@color/Black"
-                    android:inputType="textMultiLine"
+                    android:inputType="textAutoComplete"
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:id="@+id/btn_search"
+                android:fitsSystemWindows="true"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/enterUserName"
                 android:src="@drawable/ic_briefcase_search"/>
@@ -124,4 +126,4 @@
 
     </RelativeLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

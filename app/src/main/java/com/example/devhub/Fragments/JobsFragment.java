@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -39,7 +40,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private ProgressBar loader;
     private List<jobs> mJobList = new ArrayList<>();
     private EditText edLocation, edDescription;
-    private Button btnSearch;
+    private ImageView btnSearch;
     private ApiClient apiClient;
     private boolean initialLoad = true;
 
