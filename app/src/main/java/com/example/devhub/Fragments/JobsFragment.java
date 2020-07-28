@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.devhub.Adapters.JobsAdapter;
 import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
+import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
 
@@ -68,6 +69,10 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         setUpRecycler();
 
         btnSearch.setOnClickListener(view2 -> performSearch());
+
+        edLocation.setOnEditorActionListener(new DoneOnEditorActionListener());
+        edDescription.setOnEditorActionListener(new DoneOnEditorActionListener());
+
     }
 
     private void initViews(View view) {
