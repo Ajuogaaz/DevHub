@@ -13,41 +13,98 @@
         android:layout_height="match_parent">
 
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/enterJob"
+            android:fitsSystemWindows="true"
+            android:layout_width="140dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/eg_python"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/colorAccent"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxStrokeColor="@color/colorAccent"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search_desc"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/Black"
+                android:inputType="textMultiLine"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <LinearLayout
-        android:id="@+id/anchor"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="0dp"
-        android:layout_height="match_parent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/enterUserName"
+            android:fitsSystemWindows="true"
+            android:layout_width="140dp"
+            android:layout_toEndOf="@id/enterJob"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/location"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/colorAccent"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxStrokeColor="@color/colorAccent"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeContainer"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_location"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textMultiLine"
+
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/anchor"
+            android:layout_below="@id/enterUserName"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="0dp"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/jobs_recycler"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/item_jobs"
-                />
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/jobs_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_jobs"
+                    />
 
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </LinearLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
 
 
-    <ProgressBar
-        android:id="@+id/jobs_loader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        <ProgressBar
+            android:id="@+id/jobs_loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
 
-        />
+            />
 
     </RelativeLayout>
 

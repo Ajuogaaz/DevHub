@@ -68,4 +68,6 @@
     <string name="have_an_account">Have an account</string>
     <string name="login_here">login here</string>
     <string name="enter_password">Enter password</string>
+    <string name="location">Location</string>
+    <string name="eg_python">eg Python</string>
 </resources>
