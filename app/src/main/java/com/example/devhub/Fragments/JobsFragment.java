@@ -163,15 +163,23 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         String location = edLocation.getText().toString().toLowerCase().trim();
         String description = edDescription.getText().toString().toLowerCase().trim();
 
+        if (location.contains(" ")) {
+            location = location.replace(" ", "+");
+        }
+
         if (!location.isEmpty() || !description.isEmpty()) {
-            if (location.contains(" ")) {
-                location = location.replace(" ", "+");
-            }
             initialLoad = false;
             makeRequest(location, description);
         } else {
-            if (!initialLoad)
-                setUpRecycler();
+                if(!userRep.getDominantLanguage().isEmpty()){
+                    initialLoad = false;
+                    makeRequest(location, description);
+                }else{
+                    if(!initialLoad){
+                        setUpRecycler();
+                    }
+                }
+
         }
     }
     private void makeRequest(String location, String description) {
