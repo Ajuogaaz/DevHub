@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".Utils.ParseApplication"
         android:allowBackup="true"
@@ -17,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.EditProfile"></activity>
+        <activity android:name=".Activities.IntermediateActivity"></activity>
+        <activity android:name=".Activities.EditProfile" />
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.DetailsActivity" />
         <activity android:name=".Activities.ComposeActivity" />
@@ -32,24 +32,21 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <activity android:name=".Utils.SplashScreen"
+        <activity
+            android:name=".Utils.SplashScreen"
             android:theme="@style/SplashTheme">
-
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ProfileActivity" />
-        <activity android:name=".Activities.ValidateActivity">
-        </activity>
+        <activity android:name=".Activities.ValidateActivity"></activity>
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.LoginActivity" >
+        <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
