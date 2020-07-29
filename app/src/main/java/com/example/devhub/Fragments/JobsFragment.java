@@ -71,12 +71,10 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ParseUser.getCurrentUser().fetchInBackground();
-
+        initViews(view);
         getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
         apiClient = ApiService.getApiUserJobs();
-
-        initViews(view);
 
         mJobsAdapter = new JobsAdapter(requireContext(), this);
 
