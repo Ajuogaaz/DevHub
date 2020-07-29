@@ -194,13 +194,10 @@ public class TimelineFragment extends Fragment {
 
         swipeContainer = view.findViewById(R.id.swipeContainer);
 
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                adapter.clear();
-                queryPost(0);
-                swipeContainer.setRefreshing(false);
-            }
+        swipeContainer.setOnRefreshListener(() -> {
+            adapter.clear();
+            queryPost(0);
+            swipeContainer.setRefreshing(false);
         });
         //configure refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
