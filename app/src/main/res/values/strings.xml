@@ -81,4 +81,6 @@
     <string name="repo_description">This is all about my repo</string>
     <string name="url">This is the url</string>
     <string name="kotlin">Kotlin</string>
+    <string name="numberOfStars">0 stars</string>
+    <string name="spaceCovered">345kb size</string>
 </resources>
