@@ -25,6 +25,7 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.devhub.Adapters.JobsAdapter;
 import com.example.devhub.AlgoModels.UserRep;
@@ -60,6 +61,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private UserRep userRep;
     public HashMap<String, Integer> ProgrammingLanguage = new HashMap<>();
     String lang;
+    private SwipeRefreshLayout swipeContainer;
 
 
 
@@ -83,6 +85,18 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         edLocation.setOnEditorActionListener(new DoneOnEditorActionListener());
         edDescription.setOnEditorActionListener(new DoneOnEditorActionListener());
 
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        //configure refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
     }
 
     private void initViews(View view) {
@@ -91,6 +105,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         btnSearch = view.findViewById(R.id.btn_search);
         edLocation = view.findViewById(R.id.search_location);
         edDescription = view.findViewById(R.id.search_desc);
+        swipeContainer = view.findViewById(R.id.swipeContainer);
     }
 
     private void setUpRecycler() {
