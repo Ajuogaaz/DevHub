@@ -106,7 +106,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                getUserRepositories(ParseUser.getCurrentUser().getUsername());
+                getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -117,12 +117,12 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-        getUserRepositories(ParseUser.getCurrentUser().getUsername());
+        getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        getUserRepositories(ParseUser.getCurrentUser().getUsername());
+        getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
     }
 
 
