@@ -1,6 +1,7 @@
 package com.example.devhub.Fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ import com.example.devhub.Models.AccessToken;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.Models.User;
+import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.network.ApiClient;
@@ -77,12 +79,8 @@ public class RepositoryFragment extends Fragment {
         reposLoader = view.findViewById(R.id.repos_loader);
 
         RepositoryAdapter.onClickListener  onClickListener = position -> {
-
-            Toast.makeText(getContext(), "clicked " + allRepos.get(position).getName(), Toast.LENGTH_SHORT).show();
-
+            openWebView(allRepos.get(position));
         };
-
-
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
@@ -195,6 +193,12 @@ public class RepositoryFragment extends Fragment {
                 }
             });
         }
+    }
+
+    private void openWebView(Repositories repo) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(repo.getUrl()));
+        startActivity(intent);
     }
 
 
