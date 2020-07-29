@@ -70,6 +70,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ParseUser.getCurrentUser().fetchInBackground();
 
         getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
@@ -206,8 +207,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
                 if (response.isSuccessful() && response.body() != null) {
 
                     List<Repositories> repos = response.body();
-
-                    userRep = new UserRep(repos, ProgrammingLanguage, ParseUser.getCurrentUser().getString("Experience"));
+                    String Experience = ParseUser.getCurrentUser().getString("Experience");
+                    userRep = new UserRep(repos, ProgrammingLanguage,Experience);
                     setUpRecycler();
                     lang = userRep.getDominantLanguage();
 
