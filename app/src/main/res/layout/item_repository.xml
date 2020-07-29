@@ -53,15 +53,110 @@
             android:textColor="@color/Black"
             />
 
+        <View
+            android:id="@+id/separatingLine"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/language"
+            android:layout_marginTop="50dp"
+            android:layout_height="1dp"
+            android:background="@color/Green"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separatingLine"
+            android:layout_marginTop="3dp">
+
+            <ImageView
+                android:id="@+id/ivUpvote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.15"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:srcCompat="@drawable/ic_upvote" />
 
 
+            <ImageView
+                android:id="@+id/ivComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.38"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                card_view:srcCompat="@drawable/ic_comment" />
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.62"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                card_view:srcCompat="@drawable/ic_share_variant" />
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.85"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
+                card_view:srcCompat="@drawable/ic_bookmark"
+                />
 
 
+            <TextView
+                android:id="@+id/ivUpvoteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upvote"
+                android:textColor="@color/Black"
+                app:layout_constraintTop_toBottomOf="@id/ivUpvote"
+                app:layout_constraintStart_toStartOf="@id/ivUpvote"
+                app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
 
+            <TextView
+                android:id="@+id/ivCommentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comment"
+                android:textColor="@color/Black"
+                app:layout_constraintTop_toBottomOf="@id/ivComment"
+                app:layout_constraintStart_toStartOf="@id/ivComment"
+                app:layout_constraintEnd_toEndOf="@id/ivComment" />
 
+            <TextView
+                android:id="@+id/ivShareText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share"
+                android:textColor="@color/Black"
+                app:layout_constraintTop_toBottomOf="@id/ivShare"
+                app:layout_constraintStart_toStartOf="@id/ivShare"
+                app:layout_constraintEnd_toEndOf="@id/ivShare" />
+            <TextView
+                android:id="@+id/ivBookmarkText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bookmark"
+                android:textColor="@color/Black"
+                app:layout_constraintTop_toBottomOf="@id/ivBookmark"
+                app:layout_constraintStart_toStartOf="@id/ivBookmark"
+                app:layout_constraintEnd_toEndOf="@id/ivBookmark" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </RelativeLayout>
+
+
 
 </androidx.cardview.widget.CardView>
