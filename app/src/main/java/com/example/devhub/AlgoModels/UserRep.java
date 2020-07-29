@@ -72,23 +72,5 @@ public class UserRep {
         return experience;
     }
 
-    private void getUserRepositories(String username) {
-        ApiClient apiClient = ApiService.getApiUserRepos();
-        apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-
-                    repos = response.body();
-
-                }
-            }
-            @Override
-            public void onFailure(Call<List<Repositories>> call, Throwable t) {
-            }
-        });
-    }
-
 
 }

@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.JobsAdapter;
 import com.example.devhub.AlgoModels.UserRep;
+import com.example.devhub.Models.Repositories;
 import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.Utils.DoneOnEditorActionListener;
@@ -192,6 +193,25 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
             }
         });
     }
+
+    private void getUserRepositories(String username) {
+        ApiClient apiClient = ApiService.getApiUserRepos();
+        apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+
+                    List<Repositories> repos = response.body();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Repositories>> call, Throwable t) {
+            }
+        });
+    }
+
 
 
 
