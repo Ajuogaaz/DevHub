@@ -97,7 +97,6 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         otherProfileAdapter = new OtherProfileAdapter(this, posts, clickListener);
 
-        binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
 
         binding.Previous.setOnClickListener(view5 -> {
             Intent intent = new Intent(OtherProfileActivity.this, MainActivity.class);
@@ -153,64 +152,9 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
     }
-    private void launchCamera() {
-        //Create an intent to take pictures and return control to the app
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        //Create a file reference to access to future access
-        photoFile = getPhotoFileUri(photoFileName);
-
-        //wrap file object into a content provider
-        Uri fileProvider = FileProvider.getUriForFile(this, "com.codepath.fileprovider.DevHub", photoFile);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
-
-        if(intent.resolveActivity(getPackageManager()) != null){
-            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-
-    }
-
-    public File getPhotoFileUri(String fileName) {
-        // Get safe storage directory for photos
-        // Use `getExternalFilesDir` on Context to access package-specific directories.
-        // This way, we don't need to request external read/write runtime permissions.
-        File mediaStorageDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-            Log.i(TAG, "failed to create directory");
-        }
-
-        // Return the file target for the photo based on filename
-
-        return new File(mediaStorageDir.getPath() + File.separator + fileName);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == -1) {
-                // by this point we have the camera photo on disk
-                //Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                // RESIZE BITMAP, see section below
-                // Load the taken image into a preview
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                Toast.makeText(this, "Your profile picture will be updated shortly", Toast.LENGTH_SHORT).show();
-
-                currentUser.put("ProfilePic", new ParseFile(photoFile));
-                currentUser.put("HasUploadedPic", true);
-                currentUser.saveInBackground(e -> {
-                    if(e==null){
-                        Log.i(TAG, "done: Saved Success");
-                    }
-                });
 
 
-            } else { // Result was a failure
-                Toast.makeText(OtherProfileActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+
 
 
     private void queryposts(final int page) {
