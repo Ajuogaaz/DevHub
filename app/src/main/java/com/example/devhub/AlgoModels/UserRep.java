@@ -22,7 +22,7 @@ public class UserRep {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public String innitializeDominantLanguage(List<Repositories> repos){
+    public void innitializeDominantLanguage(List<Repositories> repos){
 
         for(Repositories repo : repos){
             String language = repo.getLanguage();
@@ -32,6 +32,9 @@ public class UserRep {
                 if (ProgrammingLanguage.containsKey(language)) {
                     int newValue = ProgrammingLanguage.get(language) + 1;
                     ProgrammingLanguage.replace(language, newValue);
+
+                }else{
+                    ProgrammingLanguage.put(language, 1);
                 }
             }
         }
