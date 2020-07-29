@@ -197,7 +197,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
         }else{
             location = "";
-            description = langu;
+            description = userRep.getExperience() + " " + langu;
         }
 
         if (!location.isEmpty() || !description.isEmpty()) {
