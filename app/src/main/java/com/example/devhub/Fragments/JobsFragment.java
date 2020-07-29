@@ -172,14 +172,9 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
             initialLoad = false;
             makeRequest(location, description);
         } else {
-                if(!userRep.getDominantLanguage().isEmpty()){
-                    initialLoad = false;
-                    makeRequest(location, description);
-                }else{
-                    if(!initialLoad){
-                        setUpRecycler();
-                    }
-                }
+            if(!initialLoad){
+                setUpRecycler();
+            }
 
         }
     }
