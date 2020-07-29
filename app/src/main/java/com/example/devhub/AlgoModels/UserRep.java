@@ -16,13 +16,15 @@ public class UserRep {
 
     String experience;
 
-    public UserRep(HashMap<String, Integer> programmingLanguage, String Experience) {
-        ProgrammingLanguage = programmingLanguage;
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public UserRep(List<Repositories> repos, String Experience) {
+        ProgrammingLanguage = new HashMap<String, Integer>();
         experience = Experience;
+        innitializeDominantLanguage(repos);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void innitializeDominantLanguage(List<Repositories> repos){
+    private void innitializeDominantLanguage(List<Repositories> repos){
 
         for(Repositories repo : repos){
             String language = repo.getLanguage();
@@ -40,5 +42,18 @@ public class UserRep {
         }
 
     }
+    public String getDominantLanguage(){
+
+        String language = "";
+        int maxCount = 0;
+
+        for (String lang : ProgrammingLanguage.keySet()){
+            if(ProgrammingLanguage.get(lang) >= maxCount){
+                language = lang;
+            }
+        }
+        return  language;
+    }
+
 
 }
