@@ -1,58 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    android:id="@+id/particularPost"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:id="@+id/repoItem"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="5dp"
-    android:padding="4dp">
-    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height='wrap_content'
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    card_view:cardBackgroundColor="@color/colorWhite"
+    card_view:cardCornerRadius="30dp"
+    card_view:cardElevation="8dp">
+
+
+    <RelativeLayout
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repo_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:weightSum="100">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Repository Name:"
-                android:layout_weight="40"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
-            <TextView
-                android:id="@+id/repo_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Repo name"
-                android:textColor="@color/colorAccent"
-                android:layout_weight="60"/>
-        </LinearLayout>
-        <LinearLayout
+            android:text="@string/repository_name"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorAccent"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repo_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:weightSum="100">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Full Name:"
-                android:layout_weight="40"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
-            <TextView
-                android:id="@+id/repo_full_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Full name"
-                android:textColor="@color/colorAccent"
-                android:layout_weight="60"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_below="@id/repo_name"
+            android:text="@string/repo_description"
+            android:textColor="@color/Black"
+            android:layout_marginTop="5dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/language"
+            android:layout_below="@id/repo_description"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/kotlin"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/Black"
+            />
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

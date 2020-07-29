@@ -77,4 +77,8 @@
     <string name="job_url_link">Job Url Link</string>
 
     <string name="details">Details</string>
+    <string name="repository_name">Repository Name:</string>
+    <string name="repo_description">This is all about my repo</string>
+    <string name="url">This is the url</string>
+    <string name="kotlin">Kotlin</string>
 </resources>
