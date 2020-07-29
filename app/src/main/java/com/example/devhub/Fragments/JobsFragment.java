@@ -241,8 +241,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
                     List<Repositories> repos = response.body();
                     String Experience = ParseUser.getCurrentUser().getString("Experience");
                     userRep = new UserRep(repos, ProgrammingLanguage,Experience);
-                    setUpRecycler();
                     lang = userRep.getDominantLanguage();
+                    setUpRecycler();
 
 
                 }
