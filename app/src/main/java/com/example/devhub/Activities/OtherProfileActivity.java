@@ -37,6 +37,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     private static final String TAG = "OTHERPROFILEACTIVITY";
     List<Post> posts;
     ProfileAdapter profileAdapter;
+    ParseUser CurrentUser;
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     File photoFile;
     public String photoFileName = "photo.jpg";
@@ -47,6 +48,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_other_profile);
 
         ParseUser.getCurrentUser().fetchInBackground();
+
+        CurrentUser = getIntent().getParcelableExtra("post");
 
         posts = new ArrayList<>();
 
@@ -60,21 +63,21 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         });
 
-        binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
-        binding.gitHubUserName.setText(String.format("@%s", ParseUser.getCurrentUser().getString("gitHubUserName")));
-        binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
-        binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
-        binding.NumberofActualPosts.setText((Objects.requireNonNull(ParseUser.getCurrentUser().getNumber("NumberOfPost"))).toString());
-        binding.NumberofActualRepos.setText((ParseUser.getCurrentUser().getNumber("NumberOfRepos")).toString());
-        binding.NumberofActualFollowers.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowers")).toString());
-        binding.NumberofActualfollowing.setText((Objects.requireNonNull(ParseUser.getCurrentUser().getNumber("NumberOfFollowing"))).toString());
+        binding.preferredName.setText(CurrentUser.getString("PreferredName"));
+        binding.gitHubUserName.setText(String.format("@%s", CurrentUser.getString("gitHubUserName")));
+        binding.bio.setText(CurrentUser.getString("Bio"));
+        binding.title.setText(CurrentUser.getString("Title"));
+        binding.NumberofActualPosts.setText((Objects.requireNonNull(CurrentUser.getNumber("NumberOfPost"))).toString());
+        binding.NumberofActualRepos.setText((CurrentUser.getNumber("NumberOfRepos")).toString());
+        binding.NumberofActualFollowers.setText((CurrentUser.getNumber("NumberOfFollowers")).toString());
+        binding.NumberofActualfollowing.setText((Objects.requireNonNull(CurrentUser.getNumber("NumberOfFollowing"))).toString());
 
         String ImageUrl;
 
-        if (ParseUser.getCurrentUser().getBoolean("HasUploadedPic")) {
-            ImageUrl = Objects.requireNonNull(ParseUser.getCurrentUser().getParseFile("ProfilePic")).getUrl();
+        if (CurrentUser.getBoolean("HasUploadedPic")) {
+            ImageUrl = Objects.requireNonNull(CurrentUser.getParseFile("ProfilePic")).getUrl();
         } else {
-            ImageUrl = ParseUser.getCurrentUser().getString("githubProfilePic");
+            ImageUrl = CurrentUser.getString("githubProfilePic");
         }
 
 
