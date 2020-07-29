@@ -61,6 +61,7 @@ public class UserRep {
         for (String lang : ProgrammingLanguage.keySet()){
             if(ProgrammingLanguage.get(lang) >= maxCount){
                 language = lang;
+                maxCount = ProgrammingLanguage.get(lang);
             }
         }
         return  language;
