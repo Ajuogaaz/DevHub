@@ -55,7 +55,7 @@ public class OtherProfileActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
-        binding.settingsPicture.setOnClickListener(view2 -> {
+        binding.followStatus.setOnClickListener(view2 -> {
             Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
 
         });
@@ -85,7 +85,7 @@ public class OtherProfileActivity extends AppCompatActivity {
         }
 
         ProfileAdapter.onClickListener clickListener = position -> {
-            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            Intent intent = new Intent(OtherProfileActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         };
@@ -96,14 +96,15 @@ public class OtherProfileActivity extends AppCompatActivity {
         binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
 
         binding.Previous.setOnClickListener(view5 -> {
-            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            Intent intent = new Intent(OtherProfileActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         });
 
-        binding.editPicture.setOnClickListener(view6 -> {
-            Intent intent = new Intent(ProfileActivity.this, EditProfile.class);
-            startActivity(intent);
+        binding.Follow.setOnClickListener(view6 -> {
+
+            Toast.makeText(this, "Follow clicked", Toast.LENGTH_SHORT).show();
+
         });
 
 
@@ -202,7 +203,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
             } else { // Result was a failure
-                Toast.makeText(ProfileActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OtherProfileActivity.this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
         }
     }
