@@ -117,12 +117,12 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-        getUserInfo(currentUserToken);
+        getUserRepositories(ParseUser.getCurrentUser().getUsername());
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        getUserInfo(currentUserToken);
+        getUserRepositories(ParseUser.getCurrentUser().getUsername());
     }
 
 
