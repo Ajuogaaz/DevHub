@@ -34,6 +34,7 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
+import com.parse.ParseUser;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -69,6 +70,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
 
         apiClient = ApiService.getApiUserJobs();
 
