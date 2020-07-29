@@ -80,7 +80,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
         mJobsAdapter = new JobsAdapter(requireContext(), this);
 
-        btnSearch.setOnClickListener(view2 -> performSearch());
+        btnSearch.setOnClickListener(view2 -> performSearch(""));
 
         edLocation.setOnEditorActionListener(new DoneOnEditorActionListener());
         edDescription.setOnEditorActionListener(new DoneOnEditorActionListener());
@@ -100,18 +100,24 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         mJobRecycler.setHasFixedSize(true);
 
         loader.setVisibility(View.VISIBLE);
-        apiClient.getAvailableJobs().enqueue(new Callback<List<jobs>>() {
-            @Override
-            public void onResponse(Call<List<jobs>> call, Response<List<jobs>> response) {
-                initialLoad = true;
-                loadResponse(response);
-            }
 
-            @Override
-            public void onFailure(Call<List<jobs>> call, Throwable t) {
-                showConnectionError();
-            }
-        });
+        if(lang == null){
+            apiClient.getAvailableJobs().enqueue(new Callback<List<jobs>>() {
+                @Override
+                public void onResponse(Call<List<jobs>> call, Response<List<jobs>> response) {
+                    initialLoad = true;
+                    loadResponse(response);
+                }
+
+                @Override
+                public void onFailure(Call<List<jobs>> call, Throwable t) {
+                    showConnectionError();
+                }
+            });
+        }else{
+            performSearch(lang);
+        }
+
     }
 
     private void loadResponse(Response<List<jobs>> response) {
@@ -166,9 +172,20 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         startActivity(intent);
     }
 
-    private void performSearch() {
-        String location = edLocation.getText().toString().toLowerCase().trim();
-        String description = edDescription.getText().toString().toLowerCase().trim();
+    private void performSearch(String langu) {
+
+        String location;
+        String description;
+
+        if (langu.isEmpty()){
+
+            location = edLocation.getText().toString().toLowerCase().trim();
+            description = edDescription.getText().toString().toLowerCase().trim();
+
+        }else{
+            location = "";
+            description = langu;
+        }
 
         if (!location.isEmpty() || !description.isEmpty()) {
             if (location.contains(" ")) {
@@ -200,6 +217,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
     private void getUserRepositories(String username) {
         ApiClient apiClient = ApiService.getApiUserRepos();
+        loader.setVisibility(View.VISIBLE);
         apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
