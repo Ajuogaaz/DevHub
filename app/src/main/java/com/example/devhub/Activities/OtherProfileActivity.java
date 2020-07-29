@@ -43,7 +43,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_other_profile);
 
         ParseUser.getCurrentUser().fetchInBackground();
 
@@ -57,8 +57,6 @@ public class OtherProfileActivity extends AppCompatActivity {
         binding.settingsPicture.setOnClickListener(view2 -> {
             Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
-            startActivity(intent);
         });
 
         binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
@@ -139,7 +137,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
             @Override
             public void onSwipeRight() {
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                Intent intent = new Intent(OtherProfileActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
