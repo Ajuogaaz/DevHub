@@ -95,7 +95,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
                 repoLanguage.setText("");
             }
 
-            repoSize.setText(String.format("%d size", repo.getSizeOfRepo()));
+            repoSize.setText(String.format("%dkb", repo.getSizeOfRepo()));
             repoForks.setText(String.format("%d forks", repo.getForks()));
             repoStars.setText(String.format("%d stars", repo.getStars()));
 
