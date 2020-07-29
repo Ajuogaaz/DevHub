@@ -1,15 +1,23 @@
 package com.example.devhub.AlgoModels;
 
 import android.os.Build;
+import android.view.View;
+import android.widget.Toast;
 
 
 import androidx.annotation.RequiresApi;
 
 import com.example.devhub.Models.Repositories;
+import com.example.devhub.network.ApiClient;
+import com.example.devhub.network.ApiService;
 import com.parse.ParseUser;
 
 import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserRep {
 
@@ -17,15 +25,19 @@ public class UserRep {
 
     String experience;
 
+    List<Repositories> repos;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public UserRep(List<Repositories> repos) {
+    public UserRep() {
         ProgrammingLanguage = new HashMap<String, Integer>();
         experience = ParseUser.getCurrentUser().getString("Experience");
-        innitializeDominantLanguage(repos);
+        innitializeDominantLanguage();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void innitializeDominantLanguage(List<Repositories> repos){
+    private void innitializeDominantLanguage(){
+
+        getUserRepositories(ParseUser.getCurrentUser().getUsername());
 
         for(Repositories repo : repos){
             String language = repo.getLanguage();
@@ -58,6 +70,23 @@ public class UserRep {
 
     public String getExperience(){
         return experience;
+    }
+
+    private void getUserRepositories(String username) {
+        ApiClient apiClient = ApiService.getApiUserRepos();
+        apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
+            @Override
+            public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+
+                    repos = response.body();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Repositories>> call, Throwable t) {
+            }
+        });
     }
 
 
