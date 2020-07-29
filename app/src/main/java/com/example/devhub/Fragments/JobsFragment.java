@@ -206,6 +206,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
                     userRep = new UserRep(repos, ProgrammingLanguage);
                     setUpRecycler();
+                    String Lang = userRep.getDominantLanguage();
+
 
                 }
             }
