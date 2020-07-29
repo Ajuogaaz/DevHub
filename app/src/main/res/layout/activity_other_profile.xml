@@ -108,8 +108,8 @@
                         android:layout_alignTop="@id/preferredName"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="40dp"
-                        app:srcCompat="@drawable/ic_account_edit_outline"
-                        tools:srcCompat="@drawable/ic_account_edit_outline" />
+                        app:srcCompat="@drawable/ic_account_heart_outline"
+                        tools:srcCompat="@drawable/ic_account_heart_outline" />
 
 
                     <TextView
