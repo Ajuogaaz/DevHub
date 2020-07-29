@@ -21,7 +21,7 @@ public class Repositories implements Parcelable{
     private int size;
     @SerializedName("description")
     private String description;
-    @SerializedName("url")
+    @SerializedName("html_url")
     private String url;
     @SerializedName("language")
     private String language;
