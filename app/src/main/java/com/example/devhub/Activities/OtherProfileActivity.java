@@ -15,6 +15,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Adapters.OtherProfileAdapter;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
@@ -36,7 +37,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     ActivityOtherProfileBinding binding;
     private static final String TAG = "OTHERPROFILEACTIVITY";
     List<Post> posts;
-    ProfileAdapter profileAdapter;
+    OtherProfileAdapter otherProfileAdapter;
     ParseUser CurrentUser;
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     File photoFile;
@@ -87,14 +88,14 @@ public class OtherProfileActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
-        ProfileAdapter.onClickListener clickListener = position -> {
+        OtherProfileAdapter.onClickListener clickListener = position -> {
             Intent intent = new Intent(OtherProfileActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         };
 
 
-        profileAdapter = new ProfileAdapter(this, posts, clickListener);
+        otherProfileAdapter = new OtherProfileAdapter(this, posts, clickListener);
 
         binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
 
@@ -112,7 +113,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
 
-        binding.rvPost.setAdapter(profileAdapter);
+        binding.rvPost.setAdapter(otherProfileAdapter);
 
         //set the layout manager on the recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -214,7 +215,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     private void queryposts(final int page) {
 
-        Post.query(page, DISPLAY_LIMIT, ParseUser.getCurrentUser(), (FindCallback<Post>) (newposts, e) -> {
+        Post.query(page, DISPLAY_LIMIT, CurrentUser, (FindCallback<Post>) (newposts, e) -> {
             if (e != null){
                 Log.e(TAG, "Issue with getting posts", e);
                 return;
@@ -224,10 +225,10 @@ public class OtherProfileActivity extends AppCompatActivity {
                 Log.i(TAG, "Post: " + post.getDescription() + " Username: " + post.getUser().getUsername());
             }
             if(page == 0) {
-                profileAdapter.clear();
+                otherProfileAdapter.clear();
             }
             posts.addAll(newposts);
-            profileAdapter.notifyDataSetChanged();
+            otherProfileAdapter.notifyDataSetChanged();
         });
     }
 
