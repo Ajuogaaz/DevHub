@@ -19,6 +19,7 @@ import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
+import com.example.devhub.databinding.ActivityOtherProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
 import com.parse.ParseFile;
@@ -32,7 +33,7 @@ import java.util.Objects;
 public class OtherProfileActivity extends AppCompatActivity {
 
     private static final int DISPLAY_LIMIT = 20;
-    ActivityProfileBinding binding;
+    ActivityOtherProfileBinding binding;
     private static final String TAG = "OTHERPROFILEACTIVITY";
     List<Post> posts;
     ProfileAdapter profileAdapter;
@@ -49,7 +50,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         posts = new ArrayList<>();
 
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityOtherProfileBinding.inflate(getLayoutInflater());
 
         final View view = binding.getRoot();
         setContentView(view);
