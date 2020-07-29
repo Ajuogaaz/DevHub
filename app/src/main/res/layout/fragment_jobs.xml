@@ -23,7 +23,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="@string/eg_python"
+            android:hint="@string/senior_software_developer"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/colorAccent"
             app:boxCornerRadiusTopStart="15dp"
