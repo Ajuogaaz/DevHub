@@ -3,6 +3,7 @@ package com.example.devhub.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,12 +20,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.JobsAdapter;
+import com.example.devhub.AlgoModels.UserRep;
 import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.Utils.DoneOnEditorActionListener;
@@ -39,6 +42,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction {
 
     private RecyclerView mJobRecycler;
@@ -49,6 +53,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private ImageView btnSearch;
     private ApiClient apiClient;
     private boolean initialLoad = true;
+    private UserRep userRep = new UserRep();
 
 
 
