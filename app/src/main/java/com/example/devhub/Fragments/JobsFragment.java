@@ -204,6 +204,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
                     List<Repositories> repos = response.body();
 
+                    userRep = new UserRep(repos)
+
                 }
             }
             @Override

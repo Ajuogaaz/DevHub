@@ -28,16 +28,14 @@ public class UserRep {
     List<Repositories> repos;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public UserRep() {
+    public UserRep(List<Repositories> repos) {
         ProgrammingLanguage = new HashMap<String, Integer>();
         experience = ParseUser.getCurrentUser().getString("Experience");
-        innitializeDominantLanguage();
+        innitializeDominantLanguage(repos);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void innitializeDominantLanguage(){
-
-        getUserRepositories(ParseUser.getCurrentUser().getUsername());
+    private void innitializeDominantLanguage(List<Repositories> repos){
 
         for(Repositories repo : repos){
             String language = repo.getLanguage();
