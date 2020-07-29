@@ -39,21 +39,6 @@ public class UserRep {
 
         getUserRepositories(ParseUser.getCurrentUser().getUsername());
 
-        for(Repositories repo : repos){
-            String language = repo.getLanguage();
-
-            if (language != null) {
-
-                if (ProgrammingLanguage.containsKey(language)) {
-                    int newValue = ProgrammingLanguage.get(language) + 1;
-                    ProgrammingLanguage.replace(language, newValue);
-
-                }else{
-                    ProgrammingLanguage.put(language, 1);
-                }
-            }
-        }
-
     }
     public String getDominantLanguage(){
 
@@ -75,11 +60,27 @@ public class UserRep {
     private void getUserRepositories(String username) {
         ApiClient apiClient = ApiService.getApiUserRepos();
         apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
                     repos = response.body();
+
+                    for(Repositories repo : repos){
+                        String language = repo.getLanguage();
+
+                        if (language != null) {
+
+                            if (ProgrammingLanguage.containsKey(language)) {
+                                int newValue = ProgrammingLanguage.get(language) + 1;
+                                ProgrammingLanguage.replace(language, newValue);
+
+                            }else{
+                                ProgrammingLanguage.put(language, 1);
+                            }
+                        }
+                    }
 
                 }
             }
