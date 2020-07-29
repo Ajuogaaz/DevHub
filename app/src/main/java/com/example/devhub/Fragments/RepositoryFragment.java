@@ -240,6 +240,7 @@ public class RepositoryFragment extends Fragment {
             allRepos.addAll(repositories);
             adapter.notifyDataSetChanged();
 
+
             if (repositories.size() != (ParseUser.getCurrentUser().getNumber("NumberOfRepos")).intValue()){
                 ParseUser user =  ParseUser.getCurrentUser();
                 user.put("NumberOfRepos", repositories.size());

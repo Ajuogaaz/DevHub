@@ -5,27 +5,38 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Repositories implements Parcelable{
 
     @SerializedName("name")
     private String name;
     @SerializedName("full_name")
     private String fullName;
-    @SerializedName("commits")
-    private String commits;
-    @SerializedName("forks")
-    private String forks;
-    @SerializedName("stars")
-    private String stars;
-
+    @SerializedName("forks_count")
+    private int forks;
+    @SerializedName("stargazers_count")
+    private int stars;
+    @SerializedName("size")
+    private int size;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("url")
+    private String url;
+    @SerializedName("language")
+    private String language;
 
 
     protected Repositories(Parcel in) {
         name = in.readString();
         fullName = in.readString();
-        commits = in.readString();
-        forks = in.readString();
-        stars = in.readString();
+        forks = in.readInt();
+        stars = in.readInt();
+        size = in.readInt();
+        description = in.readString();
+        url = in.readString();
+        language = in.readString();
+
     }
 
     public static final Creator<Repositories> CREATOR = new Creator<Repositories>() {
@@ -48,16 +59,29 @@ public class Repositories implements Parcelable{
         return fullName;
     }
 
-    public String getCommits() {
-        return commits;
-    }
 
-    public String getForks() {
+    public int getForks() {
         return forks;
     }
 
-    public String getStars() {
+    public int getStars() {
         return stars;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public int getSizeOfRepo() {
+        return size;
     }
 
     @Override
@@ -69,8 +93,11 @@ public class Repositories implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(fullName);
-        parcel.writeString(commits);
-        parcel.writeString(forks);
-        parcel.writeString(stars);
+        parcel.writeInt(forks);
+        parcel.writeInt(stars);
+        parcel.writeInt(size);
+        parcel.writeString(description);
+        parcel.writeString(url);
+        parcel.writeString(language);
     }
 }
