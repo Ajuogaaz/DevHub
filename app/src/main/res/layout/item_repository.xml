@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:id="@+id/particularPost"
+    android:id="@+id/repoItem"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -104,6 +104,7 @@
             android:layout_height="1dp"
             android:background="@color/Green"/>
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,7 +198,5 @@
 
 
     </RelativeLayout>
-
-
 
 </androidx.cardview.widget.CardView>

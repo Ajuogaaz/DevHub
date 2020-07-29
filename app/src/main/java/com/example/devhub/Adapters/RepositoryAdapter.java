@@ -76,7 +76,6 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
             super(itemView);
 
             repoName = itemView.findViewById(R.id.repo_name);
-            repoFullName = itemView.findViewById(R.id.repo_full_name);
             repoItem = itemView.findViewById(R.id.repoItem);
 
         }
