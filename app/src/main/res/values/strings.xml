@@ -83,4 +83,5 @@
     <string name="kotlin">Kotlin</string>
     <string name="numberOfStars">0 stars</string>
     <string name="spaceCovered">345kb size</string>
+    <string name="numberOfForks">15 forks</string>
 </resources>
