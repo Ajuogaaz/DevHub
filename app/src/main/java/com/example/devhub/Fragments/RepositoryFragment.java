@@ -106,7 +106,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                getUserInfo(currentUserToken);
+                getUserRepositories(ParseUser.getCurrentUser().getUsername());
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -139,60 +139,6 @@ public class RepositoryFragment extends Fragment {
         // Inflate the layout for this fragment
 
         return inflater.inflate(R.layout.fragment_repository, container, false);
-    }
-
-    private void getUserInfo(String currentUserToken) {
-        if (!currentUserToken.isEmpty()) {
-
-            OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-            okHttpClient.addInterceptor(chain -> {
-                Request request = chain.request();
-                Request.Builder newRequest = request.newBuilder().header(
-                        "Authorization",
-                        "token " + currentUserToken);
-                return chain.proceed(newRequest.build());
-            }).build();
-
-            Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(AUTH_URL)
-                    .client(okHttpClient.build())
-                    .addConverterFactory(GsonConverterFactory.create());
-
-            Retrofit retrofit = builder.build();
-            ApiClient apiClient = retrofit.create(ApiClient.class);
-            apiClient.getUserDetails().enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        User user = response.body();
-                        getUserRepositories(user.getUsername());
-                        if(getContext() != null){
-                            Toast.makeText(getContext(), "DataCollected", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else {
-                        if(getContext() != null) {
-                            Toast.makeText(
-                                    getContext(),
-                                    "Please try again",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    if(getContext() != null) {
-                        Toast.makeText(
-                                getContext(),
-                                "Check your connection",
-                                Toast.LENGTH_SHORT
-                        ).show();
-                    }
-                }
-            });
-        }
     }
 
     private void openWebView(Repositories repo) {
