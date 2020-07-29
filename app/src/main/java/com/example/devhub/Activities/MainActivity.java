@@ -1,11 +1,14 @@
 package com.example.devhub.Activities;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int TimelineFragmentRequest = 1234;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
+                Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.action_chat:
                         //binding.toolbar.setVisibility(View.VISIBLE);
@@ -86,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Timeline",
                                 Toast.LENGTH_SHORT).show();
                         //binding.toolbar.setVisibility(View.GONE);
-                        fragment = TimelineFragment;
+                        startActivity(new Intent(MainActivity.this, MainActivity.class));
                         break;
                     case R.id.action_search:
                         Toast.makeText(MainActivity.this, "Search",
