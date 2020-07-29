@@ -135,17 +135,18 @@ public class TimelineFragment extends Fragment {
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
 
-                Intent intent = new Intent(requireContext(), OtherProfileActivity.class);
-                intent.putExtra("post", allPosts.get(position));
-                startActivity(intent);
+                if(allPosts.get(position).getUser() == ParseUser.getCurrentUser()){
+                    Intent intent = new Intent(getContext(), ProfileActivity.class);
+                    startActivity(intent);
+                }else {
+
+                    Intent intent = new Intent(requireContext(), OtherProfileActivity.class);
+                    intent.putExtra("post", allPosts.get(position).getUser());
+                    startActivity(intent);
+                }
 
             }
             if (replyCode == TimelineAdapter.LIKE_CODE){
-
-                //Number k = allPosts.get(position).getLikes().intValue() + 1;
-
-                //allPosts.get(position).setLikes(k);
-                Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
 
 
             }
