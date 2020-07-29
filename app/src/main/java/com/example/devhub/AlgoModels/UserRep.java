@@ -30,7 +30,7 @@ public class UserRep {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public UserRep(List<Repositories> repos, HashMap<String, Integer> programmingLanguage, String Experience) {
         ProgrammingLanguage = programmingLanguage;
-        experience = "Experience";
+        experience = Experience;
         innitializeDominantLanguage(repos);
     }
 
