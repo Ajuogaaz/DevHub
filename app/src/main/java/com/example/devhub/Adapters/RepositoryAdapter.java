@@ -62,32 +62,48 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         notifyDataSetChanged();
     }
 
-    /*public void setData(List<UserRepo> userRepos){
-        mUserRepos = userRepos;
-        notifyDataSetChanged();
-    }*/
-
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView repoName, repoFullName;
-        CardView repoItem;
+        TextView repoName, repoDescription, repoLanguage, repoSize, repoStars, repoForks;
+
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             repoName = itemView.findViewById(R.id.repo_name);
-            repoItem = itemView.findViewById(R.id.repoItem);
+            repoDescription = itemView.findViewById(R.id.repo_description);
+            repoLanguage = itemView.findViewById(R.id.language);
+            repoSize = itemView.findViewById(R.id.tvActualSize);
+            repoForks = itemView.findViewById(R.id.tvActualForks);
+            repoStars = itemView.findViewById(R.id.tvActualStars);
+
 
         }
 
         public void bind(Repositories repo) {
 
 
-            repoFullName.setText(repo.getFullName());
             repoName.setText(repo.getName());
+            if(repo.getDescription() != null){
+                repoDescription.setText(repo.getDescription());
+            }else{
+                repoDescription.setText("");
+            }
+            if(repo.getLanguage() != null){
+                repoLanguage.setText(repo.getLanguage());
+            }else{
+                repoLanguage.setText("");
+            }
 
-            repoItem.setOnClickListener(view -> {
-                Toast.makeText(context, "A repo is clicked", Toast.LENGTH_SHORT).show();
+            repoSize.setText(String.format("%d size", repo.getSizeOfRepo()));
+            repoForks.setText(String.format("%d forks", repo.getForks()));
+            repoStars.setText(String.format("%d stars", repo.getStars()));
+
+            repoName.setOnClickListener(view -> {
+                clickListener.onItemClicked(getAdapterPosition());
+
+            });
+            repoDescription.setOnClickListener(view -> {
                 clickListener.onItemClicked(getAdapterPosition());
 
             });
