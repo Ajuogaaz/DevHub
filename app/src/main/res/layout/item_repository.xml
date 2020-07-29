@@ -53,6 +53,47 @@
             android:textColor="@color/Black"
             />
 
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvActualForks"
+            android:layout_below="@id/language"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/NumberOfUpvotes"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvActualSize"
+            android:layout_below="@id/language"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/NumberOfComments"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvActualStars"
+            android:layout_below="@id/language"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/NumberOfComments"
+            />
+
+
         <View
             android:id="@+id/separatingLine"
             android:layout_width="match_parent"
