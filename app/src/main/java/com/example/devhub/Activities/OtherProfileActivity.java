@@ -39,9 +39,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     List<Post> posts;
     OtherProfileAdapter otherProfileAdapter;
     ParseUser CurrentUser;
-    public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    File photoFile;
-    public String photoFileName = "photo.jpg";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,12 +148,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
 
-
     }
-
-
-
-
 
     private void queryposts(final int page) {
 
