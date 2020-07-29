@@ -206,6 +206,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
             @Override
             public void onResponse(Call<List<jobs>> call, Response<List<jobs>> response) {
                 loadResponse(response);
+                loader.setVisibility(View.GONE);
             }
 
             @Override
