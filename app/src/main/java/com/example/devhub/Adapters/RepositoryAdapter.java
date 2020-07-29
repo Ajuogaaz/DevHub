@@ -99,14 +99,6 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
             repoForks.setText(String.format("%d forks", repo.getForks()));
             repoStars.setText(String.format("%d stars", repo.getStars()));
 
-            repoName.setOnClickListener(view -> {
-                clickListener.onItemClicked(getAdapterPosition());
-
-            });
-            repoDescription.setOnClickListener(view -> {
-                clickListener.onItemClicked(getAdapterPosition());
-
-            });
 
         }
 
