@@ -192,4 +192,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
             }
         });
     }
+
+
+
 }
