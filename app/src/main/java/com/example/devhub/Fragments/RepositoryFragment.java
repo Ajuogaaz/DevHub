@@ -1,6 +1,7 @@
 package com.example.devhub.Fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ import com.example.devhub.Models.AccessToken;
 import com.example.devhub.Models.Post;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.Models.User;
+import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.network.ApiClient;
@@ -77,12 +79,8 @@ public class RepositoryFragment extends Fragment {
         reposLoader = view.findViewById(R.id.repos_loader);
 
         RepositoryAdapter.onClickListener  onClickListener = position -> {
-
-            Toast.makeText(getContext(), "clicked " + allRepos.get(position).getName(), Toast.LENGTH_SHORT).show();
-
+            openWebView(allRepos.get(position));
         };
-
-
 
         adapter = new RepositoryAdapter(getContext(), allRepos, onClickListener);
 
@@ -108,7 +106,7 @@ public class RepositoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 adapter.clear();
-                getUserInfo(currentUserToken);
+                getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
                 swipeContainer.setRefreshing(false);
             }
         });
@@ -119,12 +117,12 @@ public class RepositoryFragment extends Fragment {
                 android.R.color.holo_red_light);
 
 
-        getUserInfo(currentUserToken);
+        getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
     }
 
     public void loadNextDataFromBackend(int offset) {
 
-        getUserInfo(currentUserToken);
+        getUserRepositories(ParseUser.getCurrentUser().getString("gitHubUserName"));
     }
 
 
@@ -143,58 +141,10 @@ public class RepositoryFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_repository, container, false);
     }
 
-    private void getUserInfo(String currentUserToken) {
-        if (!currentUserToken.isEmpty()) {
-
-            OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-            okHttpClient.addInterceptor(chain -> {
-                Request request = chain.request();
-                Request.Builder newRequest = request.newBuilder().header(
-                        "Authorization",
-                        "token " + currentUserToken);
-                return chain.proceed(newRequest.build());
-            }).build();
-
-            Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(AUTH_URL)
-                    .client(okHttpClient.build())
-                    .addConverterFactory(GsonConverterFactory.create());
-
-            Retrofit retrofit = builder.build();
-            ApiClient apiClient = retrofit.create(ApiClient.class);
-            apiClient.getUserDetails().enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        User user = response.body();
-                        getUserRepositories(user.getUsername());
-                        if(getContext() != null){
-                            Toast.makeText(getContext(), "DataCollected", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else {
-                        if(getContext() != null) {
-                            Toast.makeText(
-                                    getContext(),
-                                    "Please try again",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    if(getContext() != null) {
-                        Toast.makeText(
-                                getContext(),
-                                "Check your connection",
-                                Toast.LENGTH_SHORT
-                        ).show();
-                    }
-                }
-            });
-        }
+    private void openWebView(Repositories repo) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(repo.getUrl()));
+        startActivity(intent);
     }
 
 
@@ -239,6 +189,7 @@ public class RepositoryFragment extends Fragment {
             allRepos.clear();
             allRepos.addAll(repositories);
             adapter.notifyDataSetChanged();
+
 
             if (repositories.size() != (ParseUser.getCurrentUser().getNumber("NumberOfRepos")).intValue()){
                 ParseUser user =  ParseUser.getCurrentUser();

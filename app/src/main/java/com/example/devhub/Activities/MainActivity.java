@@ -1,8 +1,6 @@
 package com.example.devhub.Activities;
 
 import android.os.Bundle;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -13,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.devhub.Fragments.ChatFragment;
-import com.example.devhub.Fragments.NotificationFragment;
+import com.example.devhub.Fragments.JobsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         //define your fragments here
         final Fragment ChatFragment = new ChatFragment();
-        final Fragment NotificationFragment = new NotificationFragment();
+        final Fragment NotificationFragment = new JobsFragment();
         final Fragment RepositoryFragment = new RepositoryFragment();
         final Fragment SearchFragment = new SearchFragment();
         final Fragment TimelineFragment = new TimelineFragment();

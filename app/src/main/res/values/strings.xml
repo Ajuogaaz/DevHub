@@ -68,4 +68,21 @@
     <string name="have_an_account">Have an account</string>
     <string name="login_here">login here</string>
     <string name="enter_password">Enter password</string>
+    <string name="location">Location</string>
+    <string name="eg_python">eg Python</string>
+    <string name="datesample">7/16/2020</string>
+    <string name="JobTitle">Job Title</string>
+    <string name="job_type">Job Type</string>
+    <string name="company_name">Company Name</string>
+    <string name="job_url_link">Job Url Link</string>
+
+    <string name="details">Details</string>
+    <string name="repository_name">Repository Name:</string>
+    <string name="repo_description">This is all about my repo</string>
+    <string name="url">This is the url</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="numberOfStars">0 stars</string>
+    <string name="spaceCovered">345kb size</string>
+    <string name="numberOfForks">15 forks</string>
+    <string name="senior_software_developer">senior software developer</string>
 </resources>
