@@ -53,7 +53,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private ImageView btnSearch;
     private ApiClient apiClient;
     private boolean initialLoad = true;
-    private UserRep userRep = new UserRep();
+    private UserRep userRep;
 
 
 
@@ -64,6 +64,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        userRep = new UserRep();
 
         apiClient = ApiService.getApiUserJobs();
 
@@ -163,11 +165,10 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
         String location = edLocation.getText().toString().toLowerCase().trim();
         String description = edDescription.getText().toString().toLowerCase().trim();
 
-        if (location.contains(" ")) {
-            location = location.replace(" ", "+");
-        }
-
         if (!location.isEmpty() || !description.isEmpty()) {
+            if (location.contains(" ")) {
+                location = location.replace(" ", "+");
+            }
             initialLoad = false;
             makeRequest(location, description);
         } else {
