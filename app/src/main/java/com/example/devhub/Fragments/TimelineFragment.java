@@ -36,6 +36,7 @@ import com.example.devhub.Activities.CommentActivity;
 import com.example.devhub.Activities.ComposeActivity;
 import com.example.devhub.Activities.DetailsActivity;
 import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.OtherProfileActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.Adapters.TimelineAdapter;
@@ -133,18 +134,10 @@ public class TimelineFragment extends Fragment {
 
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
-                Fragment fragment = new ChatFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("user", allPosts.get(position).getUser());
-                fragment.setArguments(bundle);
 
-                //Go from this fragment to profile fragment
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.flContainer, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
+                Intent intent = new Intent(requireContext(), OtherProfileActivity.class);
+                intent.putExtra("post", allPosts.get(position));
+                startActivity(intent);
 
             }
             if (replyCode == TimelineAdapter.LIKE_CODE){
