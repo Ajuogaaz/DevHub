@@ -1,5 +1,10 @@
 package com.example.devhub.AlgoModels;
 
+import android.os.Build;
+
+
+import androidx.annotation.RequiresApi;
+
 import com.example.devhub.Models.Repositories;
 
 import java.util.HashMap;
@@ -9,18 +14,26 @@ public class UserRep {
 
     HashMap<String, Integer> ProgrammingLanguage;
 
-    List<String> Experience;
+    String experience;
 
-    public UserRep(HashMap<String, Integer> programmingLanguage, List<String> experience) {
+    public UserRep(HashMap<String, Integer> programmingLanguage, String Experience) {
         ProgrammingLanguage = programmingLanguage;
-        Experience = experience;
+        experience = Experience;
     }
 
-    public static String innitializeDominantLanguage(List<Repositories> repos){
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String innitializeDominantLanguage(List<Repositories> repos){
 
         for(Repositories repo : repos){
             String language = repo.getLanguage();
 
+            if (language != null) {
+
+                if (ProgrammingLanguage.containsKey(language)) {
+                    int newValue = ProgrammingLanguage.get(language) + 1;
+                    ProgrammingLanguage.replace(language, newValue);
+                }
+            }
         }
 
     }
