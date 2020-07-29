@@ -6,6 +6,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.devhub.Models.Repositories;
+import com.parse.ParseUser;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,9 +18,9 @@ public class UserRep {
     String experience;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public UserRep(List<Repositories> repos, String Experience) {
+    public UserRep(List<Repositories> repos) {
         ProgrammingLanguage = new HashMap<String, Integer>();
-        experience = Experience;
+        experience = ParseUser.getCurrentUser().getString("Experience");
         innitializeDominantLanguage(repos);
     }
 
@@ -53,6 +54,10 @@ public class UserRep {
             }
         }
         return  language;
+    }
+
+    public String getExperience(){
+        return experience;
     }
 
 
