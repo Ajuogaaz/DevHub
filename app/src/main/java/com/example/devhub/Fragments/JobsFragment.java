@@ -35,7 +35,9 @@ import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -55,6 +57,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private ApiClient apiClient;
     private boolean initialLoad = true;
     private UserRep userRep;
+    public HashMap<String, Integer> ProgrammingLanguage = new HashMap<>();
 
 
 
@@ -66,15 +69,12 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        userRep = new UserRep();
 
         apiClient = ApiService.getApiUserJobs();
 
         initViews(view);
 
         mJobsAdapter = new JobsAdapter(requireContext(), this);
-
-        setUpRecycler();
 
         btnSearch.setOnClickListener(view2 -> performSearch());
 
@@ -204,7 +204,8 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
                     List<Repositories> repos = response.body();
 
-                    userRep = new UserRep(repos)
+                    userRep = new UserRep(repos, ProgrammingLanguage);
+                    setUpRecycler();
 
                 }
             }
