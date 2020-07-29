@@ -59,6 +59,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
     private boolean initialLoad = true;
     private UserRep userRep;
     public HashMap<String, Integer> ProgrammingLanguage = new HashMap<>();
+    String lang;
 
 
 
@@ -206,9 +207,9 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
                     List<Repositories> repos = response.body();
 
-                    userRep = new UserRep(repos, ProgrammingLanguage);
+                    userRep = new UserRep(repos, ProgrammingLanguage, ParseUser.getCurrentUser().getString("Experience"));
                     setUpRecycler();
-                    String Lang = userRep.getDominantLanguage();
+                    lang = userRep.getDominantLanguage();
 
 
                 }

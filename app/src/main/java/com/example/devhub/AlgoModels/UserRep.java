@@ -28,9 +28,9 @@ public class UserRep {
     List<Repositories> repos;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public UserRep(List<Repositories> repos, HashMap<String, Integer> programmingLanguage) {
+    public UserRep(List<Repositories> repos, HashMap<String, Integer> programmingLanguage, String Experience) {
         ProgrammingLanguage = programmingLanguage;
-        experience = ParseUser.getCurrentUser().getString("Experience");
+        experience = "Experience";
         innitializeDominantLanguage(repos);
     }
 
