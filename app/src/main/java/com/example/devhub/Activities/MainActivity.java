@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Timeline",
                                 Toast.LENGTH_SHORT).show();
                         //binding.toolbar.setVisibility(View.GONE);
-                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                        fragment = TimelineFragment;
                         break;
                     case R.id.action_search:
                         Toast.makeText(MainActivity.this, "Search",
@@ -99,8 +99,12 @@ public class MainActivity extends AppCompatActivity {
                         fragment = SearchFragment;
                         break;
                 }
-                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
-                return true;
+                if(fragment != null){
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                    return true;
+                }else{
+                    return true;
+                }
             }
         });
         binding.bottomNavigation.setSelectedItemId(R.id.action_timeline);
