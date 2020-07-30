@@ -159,6 +159,11 @@ public class OtherProfileActivity extends AppCompatActivity {
     }
 
     private void gotoRepositoryActivity() {
+        Intent intent = new Intent(OtherProfileActivity.this, OtherRepositoryActivity.class);
+
+        intent.putExtra("user", CurrentUser);
+        startActivity(intent);
+
     }
 
     private void queryposts(final int page) {
