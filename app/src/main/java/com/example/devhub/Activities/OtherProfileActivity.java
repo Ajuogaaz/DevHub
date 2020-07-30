@@ -121,6 +121,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
 
+
         binding.anchor.setOnTouchListener(new OnSwipeTouchListener(this) {
             @Override
             public void onSwipeDown() {
@@ -166,7 +167,8 @@ public class OtherProfileActivity extends AppCompatActivity {
             }
             posts.addAll(newposts);
             otherProfileAdapter.notifyDataSetChanged();
-            binding.NumberofActualPosts.setText(posts.size());
+            binding.NumberofActualPosts.setText((((Number)posts.size())).toString());
+
         });
     }
 
