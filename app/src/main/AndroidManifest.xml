@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.OtherProfileActivity"></activity>
+        <activity android:name=".Activities.OtherRepositoryActivity"></activity>
+        <activity android:name=".Activities.OtherProfileActivity" />
         <activity android:name=".Activities.EditProfile" />
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.DetailsActivity" />
@@ -44,7 +45,7 @@
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ProfileActivity" />
-        <activity android:name=".Activities.ValidateActivity"></activity>
+        <activity android:name=".Activities.ValidateActivity" />
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.LoginActivity">
             <intent-filter>
