@@ -7,7 +7,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.devhub.Adapters.OtherRepositoryAdapter;
@@ -16,6 +18,7 @@ import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
 import com.example.devhub.Utils.EndlessRecyclerViewScrollListener;
 import com.example.devhub.databinding.ActivityOtherProfileBinding;
+import com.example.devhub.databinding.ActivityOtherRepositoryBinding;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
 import com.parse.ParseUser;
@@ -35,23 +38,27 @@ public class OtherRepositoryActivity extends AppCompatActivity {
     protected List<Repositories> allRepos;
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
+    protected ParseUser specifiedUser;
+    private ProgressBar reposLoader;
+    private String currentUserToken;
+    private ActivityOtherRepositoryBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_repository);
 
-
         ParseUser.getCurrentUser().fetchInBackground();
 
-        CurrentUser = getIntent().getParcelableExtra("post");
+        specifiedUser = getIntent().getParcelableExtra("user");
 
-        posts = new ArrayList<>();
-
-        binding = ActivityOtherProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityOtherRepositoryBinding.inflate(getLayoutInflater());
 
         final View view = binding.getRoot();
         setContentView(view);
+
+
+        getUserRepositories(specifiedUser.getString("gitHubUserName"));
 
     }
 
@@ -59,6 +66,31 @@ public class OtherRepositoryActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(repo.getUrl()));
         startActivity(intent);
+
+    }
+    private void getUserRepositories(String username) {
+        reposLoader.setVisibility(View.VISIBLE);
+        ApiClient apiClient = ApiService.getApiUserRepos();
+        apiClient.getUserRepos(username).enqueue(new Callback<List<Repositories>>() {
+            @Override
+            public void onResponse(Call<List<Repositories>> call, Response<List<Repositories>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    reposLoader.setVisibility(View.GONE);
+                    List<Repositories> repositories = response.body();
+                    loadRepositories(repositories);
+                } else {
+                    reposLoader.setVisibility(View.GONE);
+                    }
+                }
+
+
+            @Override
+            public void onFailure(Call<List<Repositories>> call, Throwable t) {
+                reposLoader.setVisibility(View.GONE);
+            }
+        });
+    }
+
 
 
     private void loadRepositories(List<Repositories> repositories) {
@@ -72,17 +104,14 @@ public class OtherRepositoryActivity extends AppCompatActivity {
                 ParseUser user =  ParseUser.getCurrentUser();
                 user.put("NumberOfRepos", repositories.size());
                 user.saveInBackground(e -> {
-                    if(e == null){
-                        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    if(e != null){
+                        Log.e(TAG, "error " + e.getMessage());
                     }
                 });
             }
 
-        } else {
-            if(getContext() != null){
-                Toast.makeText(getContext(), "No repositories found", Toast.LENGTH_SHORT).show();
-            }
         }
+
     }
 
 }
