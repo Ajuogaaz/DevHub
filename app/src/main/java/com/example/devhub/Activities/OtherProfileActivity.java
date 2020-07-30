@@ -66,7 +66,7 @@ public class OtherProfileActivity extends AppCompatActivity {
         binding.gitHubUserName.setText(String.format("@%s", CurrentUser.getString("gitHubUserName")));
         binding.bio.setText(CurrentUser.getString("Bio"));
         binding.title.setText(CurrentUser.getString("Title"));
-        binding.NumberofActualPosts.setText((Objects.requireNonNull(CurrentUser.getNumber("NumberOfPost"))).toString());
+
         binding.NumberofActualRepos.setText((CurrentUser.getNumber("NumberOfRepos")).toString());
         binding.NumberofActualFollowers.setText((CurrentUser.getNumber("NumberOfFollowers")).toString());
         binding.NumberofActualfollowing.setText((Objects.requireNonNull(CurrentUser.getNumber("NumberOfFollowing"))).toString());
@@ -166,6 +166,7 @@ public class OtherProfileActivity extends AppCompatActivity {
             }
             posts.addAll(newposts);
             otherProfileAdapter.notifyDataSetChanged();
+            binding.NumberofActualPosts.setText(posts.size());
         });
     }
 
