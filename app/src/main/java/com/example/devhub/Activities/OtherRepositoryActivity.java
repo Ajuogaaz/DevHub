@@ -1,6 +1,7 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -40,7 +41,6 @@ public class OtherRepositoryActivity extends AppCompatActivity {
     private EndlessRecyclerViewScrollListener scrollListener;
     protected ParseUser specifiedUser;
     private ProgressBar reposLoader;
-    private String currentUserToken;
     private ActivityOtherRepositoryBinding binding;
 
     @Override
@@ -48,7 +48,6 @@ public class OtherRepositoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_repository);
 
-        ParseUser.getCurrentUser().fetchInBackground();
 
         specifiedUser = getIntent().getParcelableExtra("user");
 
@@ -58,8 +57,56 @@ public class OtherRepositoryActivity extends AppCompatActivity {
         setContentView(view);
 
 
-        getUserRepositories(specifiedUser.getString("gitHubUserName"));
+        rvRepos = view.findViewById(R.id.rvRepos);
+        allRepos = new ArrayList<>();
 
+        reposLoader = view.findViewById(R.id.repos_loader);
+
+        OtherRepositoryAdapter.onClickListener  onClickListener = position -> {
+            openWebView(allRepos.get(position));
+        };
+
+        adapter = new OtherRepositoryAdapter(this, allRepos, onClickListener);
+
+        rvRepos.setAdapter(adapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvRepos.setLayoutManager(linearLayoutManager);
+
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromBackend(page);
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvRepos.addOnScrollListener(scrollListener);
+
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.clear();
+                getUserRepositories(specifiedUser.getString("gitHubUserName"));
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        //configure refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
+
+        getUserRepositories(specifiedUser.getString("gitHubUserName"));
+    }
+
+    public void loadNextDataFromBackend(int offset) {
+
+        getUserRepositories(specifiedUser.getString("gitHubUserName"));
     }
 
     private void openWebView(Repositories repo) {
