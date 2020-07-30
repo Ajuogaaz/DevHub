@@ -108,6 +108,13 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         });
 
+        binding.NumberofActualRepos.setOnClickListener(view7 -> {
+            gotoRepositoryActivity();
+        });
+        binding.NumberOfRepos.setOnClickListener(view8 -> {
+            gotoRepositoryActivity();
+        });
+
 
 
         binding.rvPost.setAdapter(otherProfileAdapter);
@@ -149,6 +156,9 @@ public class OtherProfileActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void gotoRepositoryActivity() {
     }
 
     private void queryposts(final int page) {
