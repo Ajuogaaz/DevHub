@@ -135,7 +135,7 @@ public class TimelineFragment extends Fragment {
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
 
-                if(allPosts.get(position).getUser() == ParseUser.getCurrentUser()){
+                if(allPosts.get(position).getUser().getObjectId() == ParseUser.getCurrentUser().getObjectId()){
                     Intent intent = new Intent(getContext(), ProfileActivity.class);
                     startActivity(intent);
                 }else {
