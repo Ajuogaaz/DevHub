@@ -146,17 +146,6 @@ public class OtherRepositoryActivity extends AppCompatActivity {
             allRepos.addAll(repositories);
             adapter.notifyDataSetChanged();
 
-
-            if (repositories.size() != (ParseUser.getCurrentUser().getNumber("NumberOfRepos")).intValue()){
-                ParseUser user =  ParseUser.getCurrentUser();
-                user.put("NumberOfRepos", repositories.size());
-                user.saveInBackground(e -> {
-                    if(e != null){
-                        Log.e(TAG, "error " + e.getMessage());
-                    }
-                });
-            }
-
         }
 
     }
