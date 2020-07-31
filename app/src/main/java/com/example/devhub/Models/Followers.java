@@ -1,5 +1,7 @@
 package com.example.devhub.Models;
 
+import android.app.DownloadManager;
+
 import com.parse.FindCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
@@ -44,7 +46,7 @@ public class Followers extends ParseObject {
     }
 
     public static void queryFollowers(  ParseUser user, FindCallback callback) {
-        ParseQuery<Comments> query = ParseQuery.getQuery(Comments.class);
+        ParseQuery<Followers> query = ParseQuery.getQuery(Followers.class);
         query.include(Followers.KEY_USER);
         query.include(Followers.KEY_FOLLOWING_USER);
         if (user != null) {
@@ -55,7 +57,7 @@ public class Followers extends ParseObject {
 
     }
     public static void queryFollowing(  ParseUser user, FindCallback callback) {
-        ParseQuery<Comments> query = ParseQuery.getQuery(Comments.class);
+        ParseQuery<Followers> query = ParseQuery.getQuery(Followers.class);
         query.include(Followers.KEY_USER);
         query.include(Followers.KEY_FOLLOWING_USER);
         if (user != null) {
@@ -65,7 +67,5 @@ public class Followers extends ParseObject {
         query.findInBackground(callback);
 
     }
-    public static void
-
 
 }

@@ -55,11 +55,9 @@ public class OtherProfileActivity extends AppCompatActivity {
         CurrentUser = getIntent().getParcelableExtra("post");
 
         followers = new ArrayList<>();
-        getAllFollowers();
         following = new ArrayList<>();
-        getAllFollowing();
+        getAllFollowers();
 
-        getFollowStatus();
 
         posts = new ArrayList<>();
 
@@ -171,8 +169,15 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     private void getFollowStatus() {
 
-        if
+        for (Followers follower : followers){
+            if(follower.getFollowingUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                binding.Follow.setImageResource(R.drawable.ic_account_heart);
+            }
+        }
+
     }
+
+
 
     private void getAllFollowing() {
 
@@ -182,7 +187,18 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            getFollowingStatus();
+
         });
+    }
+
+    private void getFollowingStatus() {
+
+        for (Followers follower : following){
+            if(follower.getSubjectUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                binding.followStatus.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void getAllFollowers() {
@@ -193,6 +209,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             followers.addAll(newfollowers);
+            getAllFollowing();
+            getFollowStatus();
         });
 
     }
