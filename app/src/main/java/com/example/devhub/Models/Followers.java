@@ -54,6 +54,15 @@ public class Followers extends ParseObject {
         query.findInBackground(callback);
 
     }
+    public static void queryFollowing(  ParseUser user, FindCallback callback) {
+        ParseQuery<Comments> query = ParseQuery.getQuery(Comments.class);
+        query.include(Followers.KEY_USER);
+        query.include(Followers.KEY_FOLLOWING_USER);
+        if (user != null) {
+            query.whereEqualTo(Followers.KEY_FOLLOWING_USER, user);
+        }
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
 
 
 
