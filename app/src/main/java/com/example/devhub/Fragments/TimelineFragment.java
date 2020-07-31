@@ -36,6 +36,7 @@ import com.example.devhub.Activities.CommentActivity;
 import com.example.devhub.Activities.ComposeActivity;
 import com.example.devhub.Activities.DetailsActivity;
 import com.example.devhub.Activities.MainActivity;
+import com.example.devhub.Activities.OtherProfileActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.Adapters.TimelineAdapter;
@@ -133,26 +134,19 @@ public class TimelineFragment extends Fragment {
 
             }
             if (replyCode == TimelineAdapter.PROFILE_CODE){
-                Fragment fragment = new ChatFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("user", allPosts.get(position).getUser());
-                fragment.setArguments(bundle);
 
-                //Go from this fragment to profile fragment
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.flContainer, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                if(allPosts.get(position).getUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                    Intent intent = new Intent(getContext(), ProfileActivity.class);
+                    startActivity(intent);
+                }else {
 
+                    Intent intent = new Intent(requireContext(), OtherProfileActivity.class);
+                    intent.putExtra("post", allPosts.get(position).getUser());
+                    startActivity(intent);
+                }
 
             }
             if (replyCode == TimelineAdapter.LIKE_CODE){
-
-                //Number k = allPosts.get(position).getLikes().intValue() + 1;
-
-                //allPosts.get(position).setLikes(k);
-                Toast.makeText(getContext(), "Liked the post", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -194,13 +188,10 @@ public class TimelineFragment extends Fragment {
 
         swipeContainer = view.findViewById(R.id.swipeContainer);
 
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                adapter.clear();
-                queryPost(0);
-                swipeContainer.setRefreshing(false);
-            }
+        swipeContainer.setOnRefreshListener(() -> {
+            adapter.clear();
+            queryPost(0);
+            swipeContainer.setRefreshing(false);
         });
         //configure refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
