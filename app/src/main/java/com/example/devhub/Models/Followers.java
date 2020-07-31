@@ -64,8 +64,6 @@ public class Followers extends ParseObject {
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(callback);
 
-
-
-
+    }
 
 }
