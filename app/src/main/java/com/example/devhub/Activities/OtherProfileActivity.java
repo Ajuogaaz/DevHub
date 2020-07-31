@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.OtherProfileAdapter;
 import com.example.devhub.Adapters.ProfileAdapter;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
@@ -39,6 +40,9 @@ public class OtherProfileActivity extends AppCompatActivity {
     List<Post> posts;
     OtherProfileAdapter otherProfileAdapter;
     ParseUser CurrentUser;
+    List<Followers> followers;
+    List<Followers> following;
+
 
 
     @Override
@@ -49,6 +53,13 @@ public class OtherProfileActivity extends AppCompatActivity {
         ParseUser.getCurrentUser().fetchInBackground();
 
         CurrentUser = getIntent().getParcelableExtra("post");
+
+        followers = new ArrayList<>();
+        getAllFollowers();
+        following = new ArrayList<>();
+        getAllFollowing();
+
+        getFollowStatus();
 
         posts = new ArrayList<>();
 
@@ -158,6 +169,34 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     }
 
+    private void getFollowStatus() {
+
+        if
+    }
+
+    private void getAllFollowing() {
+
+        Followers.queryFollowing(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            following.addAll(newfollowers);
+        });
+    }
+
+    private void getAllFollowers() {
+
+        Followers.queryFollowers(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            followers.addAll(newfollowers);
+        });
+
+    }
+
     private void gotoRepositoryActivity() {
         Intent intent = new Intent(OtherProfileActivity.this, OtherRepositoryActivity.class);
 
@@ -186,6 +225,9 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         });
     }
+
+
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
