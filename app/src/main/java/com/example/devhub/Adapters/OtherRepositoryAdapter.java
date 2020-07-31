@@ -95,6 +95,9 @@ public class OtherRepositoryAdapter extends RecyclerView.Adapter<OtherRepository
                 repoLanguage.setText("");
             }
 
+            repoName.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition()));
+            repoDescription.setOnClickListener(view -> clickListener.onItemClicked(getAdapterPosition()));
+
             repoSize.setText(String.format("%dkb", repo.getSizeOfRepo()));
             repoForks.setText(String.format("%d forks", repo.getForks()));
             repoStars.setText(String.format("%d stars", repo.getStars()));

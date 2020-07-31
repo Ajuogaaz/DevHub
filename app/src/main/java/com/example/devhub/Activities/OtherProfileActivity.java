@@ -124,6 +124,8 @@ public class OtherProfileActivity extends AppCompatActivity {
             gotoRepositoryActivity();
         });
 
+        
+
 
 
         binding.rvPost.setAdapter(otherProfileAdapter);
