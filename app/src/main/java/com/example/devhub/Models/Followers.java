@@ -1,7 +1,9 @@
 package com.example.devhub.Models;
 
+import com.parse.FindCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +42,19 @@ public class Followers extends ParseObject {
         return currDate;
 
     }
+
+    public static void queryFollowers(  ParseUser user, FindCallback callback) {
+        ParseQuery<Comments> query = ParseQuery.getQuery(Comments.class);
+        query.include(Followers.KEY_USER);
+        query.include(Followers.KEY_FOLLOWING_USER);
+        if (user != null) {
+            query.whereEqualTo(Followers.KEY_USER, user);
+        }
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
+
+    }
+
 
 
 
