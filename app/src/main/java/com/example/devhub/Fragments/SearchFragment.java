@@ -1,6 +1,11 @@
-public class DiscoverFragment extends Fragment {
-    public static final String TAG = DiscoverFragment.class.getSimpleName();
-    private Toolbar toolbar;
+package com.example.devhub.Fragments;
+
+import androidx.fragment.app.Fragment;
+
+import com.example.devhub.Adapters.SearchAdapter;
+
+public class SearchFragment extends Fragment {
+    public static final String TAG = SearchFragment.class.getSimpleName();
     private SearchAdapter searchAdapter;
     private List<Object> objects;
     private RecyclerView rvSearch;
