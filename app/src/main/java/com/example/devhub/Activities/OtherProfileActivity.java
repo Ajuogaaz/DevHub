@@ -127,6 +127,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 IamFollowing = false;
                 mainFollow.deleteInBackground(e -> {
                     Toast.makeText(this, "unfollowed", Toast.LENGTH_SHORT).show();
+                    numberOfActualFollowers -= 1;
+                    binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
                 });
             }
             else{
@@ -138,6 +140,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 mainFollow.saveInBackground(e -> {
                     if(e == null){
                         Toast.makeText(this, "Followed", Toast.LENGTH_SHORT).show();
+                        numberOfActualFollowers += 1;
+                        binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
                     }else{
                         Toast.makeText(this, "Failed" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
