@@ -45,7 +45,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ParseUser user = users.get(position);
         holder.bind(user);
     }
@@ -70,23 +70,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.context = context;
             ivProfilePic = itemView.findViewById(R.id.ivProfileImage);
             tvUsername = itemView.findViewById(R.id.tvName);
             tvUsername = itemView.findViewById(R.id.gitHubUserName);
 
         }
 
-
-
-        @Override
-        public void onClick(View view) {
-            //when clicked go to the profile fragment
-            clickListener.onUserClick(getAdapterPosition());
-
-        }
-
-        public void bind(User user) {
+        public void bind(ParseUser user) {
             tvUsername.setText(user.getUsername());
             tvBio.setText(user.getBio());
 
