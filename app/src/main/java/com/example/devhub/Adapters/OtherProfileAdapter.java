@@ -92,7 +92,7 @@ public class OtherProfileAdapter extends RecyclerView.Adapter<OtherProfileAdapte
             Description.setText(post.getDescription());
             datel.setText(post.getTime());
             ParseFile image = post.getImage();
-
+            initLikesandComments(post);
             if (image != null){
                 postImage.setVisibility(View.VISIBLE);
                 Glide.with(context)
