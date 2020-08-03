@@ -1,5 +1,6 @@
 package com.example.devhub.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.devhub.Activities.OtherProfileActivity;
+import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
 import com.parse.FindCallback;
@@ -104,21 +107,17 @@ public class SearchFragment extends Fragment {
     SearchAdapter.onClickListener clickListener = position -> {
         //go to profile Fragment
         //get user of that specific post
-        User user = (User) objects.get(position);
+        ParseUser user =  users.get(position);
 
-        //pass this info to profile fragment
-        Fragment fragment = new ProfileFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("user", user.getParseUser());
-        fragment.setArguments(bundle);
-
-        //Go from this fragment to profile fragment
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flContainer, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-
+        //Create an intent and pass it either to the current user view or the third party view
+        if(user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+            Intent intent = new Intent(getContext(), ProfileActivity.class);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(requireContext(), OtherProfileActivity.class);
+            intent.putExtra("post", user);
+            startActivity(intent);
+        }
     };
 
 }
