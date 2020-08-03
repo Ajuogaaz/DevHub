@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import org.jetbrains.annotations.Nullable;
@@ -75,6 +76,7 @@ public class SearchFragment extends Fragment {
         if (characterText.length() != 0) {
             //get all users
             ParseQuery<ParseUser> queryUser = ParseUser.getQuery();
+
             final String finalCharacterText = characterText;
             queryUser.findInBackground(new FindCallback<ParseUser>() {
                 @Override
