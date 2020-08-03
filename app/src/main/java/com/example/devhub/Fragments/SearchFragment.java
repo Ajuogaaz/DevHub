@@ -40,8 +40,8 @@ public class SearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         users = new ArrayList<>();
-        rvSearch = view.findViewById(R.id.searchView);
-        searchAdapter = new SearchAdapter(getContext(), objects, clickListener);
+        rvSearch = view.findViewById(R.id.rvSearch);
+        searchAdapter = new SearchAdapter(getContext(), users, clickListener);
         rvSearch.setAdapter(searchAdapter);
 
         //set layout manager on recycler view
