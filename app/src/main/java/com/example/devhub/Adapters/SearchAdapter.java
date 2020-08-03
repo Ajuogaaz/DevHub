@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -67,6 +68,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         Context context;
         private ImageView ivProfilePic;
         private TextView tvUsername, gitHubUserName;
+        private CardView ParticularPost;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -74,7 +76,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             ivProfilePic = itemView.findViewById(R.id.ivProfileImage);
             tvUsername = itemView.findViewById(R.id.tvName);
             gitHubUserName = itemView.findViewById(R.id.gitHubUserName);
-
+            ParticularPost = itemView.findViewById(R.id.particularPost);
         }
 
         public void bind(ParseUser user) {
