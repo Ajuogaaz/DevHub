@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,9 @@ import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
 import com.parse.ParseUser;
 
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchFragment extends Fragment {
@@ -34,13 +38,8 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        toolbar =view.findViewById(R.id.toolbar_discover);
-        if(toolbar != null){
-            ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        }
-        toolbar.setTitle("Discover");
 
-        objects = new ArrayList<>();
+        users = new ArrayList<>();
         rvSearch = view.findViewById(R.id.rvSearch);
         //set adapter on rvSearch
         searchAdapter = new SearchAdapter(getContext(), objects, clickListener);
