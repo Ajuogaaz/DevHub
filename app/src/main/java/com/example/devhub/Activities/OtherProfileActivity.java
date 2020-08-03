@@ -137,6 +137,7 @@ public class OtherProfileActivity extends AppCompatActivity {
                 mainFollow = new Followers();
                 mainFollow.setSubjectUser(CurrentUser);
                 mainFollow.setFollowingUser(ParseUser.getCurrentUser());
+                binding.Follow.setImageResource(R.drawable.ic_account_heart);
                 mainFollow.saveInBackground(e -> {
                     if(e == null){
                         Toast.makeText(this, "Followed", Toast.LENGTH_SHORT).show();
