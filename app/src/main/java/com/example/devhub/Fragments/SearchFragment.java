@@ -39,10 +39,8 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         users = new ArrayList<>();
-        rvSearch = view.findViewById(R.id.rvSearch);
-        //set adapter on rvSearch
+        rvSearch = view.findViewById(R.id.searchView);
         searchAdapter = new SearchAdapter(getContext(), objects, clickListener);
         rvSearch.setAdapter(searchAdapter);
 
