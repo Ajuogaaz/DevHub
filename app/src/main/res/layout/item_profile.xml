@@ -10,7 +10,7 @@
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
     card_view:cardBackgroundColor="@color/colorWhite"
-    card_view:cardCornerRadius="50dp"
+    card_view:cardCornerRadius="20dp"
     card_view:cardElevation="8dp">
 
 
@@ -18,8 +18,8 @@
     <RelativeLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content">
 
 
