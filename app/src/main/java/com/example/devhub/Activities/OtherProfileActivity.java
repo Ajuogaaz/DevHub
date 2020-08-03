@@ -17,14 +17,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.OtherProfileAdapter;
 import com.example.devhub.Adapters.ProfileAdapter;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityOtherProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.DeleteCallback;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,6 +43,14 @@ public class OtherProfileActivity extends AppCompatActivity {
     List<Post> posts;
     OtherProfileAdapter otherProfileAdapter;
     ParseUser CurrentUser;
+    List<Followers> followers;
+    List<Followers> following;
+    private boolean ismyFollower = false;
+    private boolean IamFollowing = false;
+    Followers mainFollow;
+    private int numberOfActualFollowers;
+    private int numberOfActualFollowing;
+
 
 
     @Override
@@ -48,7 +60,13 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         ParseUser.getCurrentUser().fetchInBackground();
 
+        //Getting the current logged in user
         CurrentUser = getIntent().getParcelableExtra("post");
+
+        followers = new ArrayList<>();
+        following = new ArrayList<>();
+        getAllFollowers();
+
 
         posts = new ArrayList<>();
 
@@ -104,7 +122,32 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         binding.Follow.setOnClickListener(view6 -> {
 
-            Toast.makeText(this, "Follow clicked", Toast.LENGTH_SHORT).show();
+            if(IamFollowing){
+                binding.Follow.setImageResource(R.drawable.ic_account_heart_outline);
+                IamFollowing = false;
+                mainFollow.deleteInBackground(e -> {
+                    Toast.makeText(this, "unfollowed", Toast.LENGTH_SHORT).show();
+                    numberOfActualFollowers -= 1;
+                    binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
+                });
+            }
+            else{
+                Toast.makeText(this, "launched follow", Toast.LENGTH_SHORT).show();
+                IamFollowing = true;
+                mainFollow = new Followers();
+                mainFollow.setSubjectUser(CurrentUser);
+                mainFollow.setFollowingUser(ParseUser.getCurrentUser());
+                binding.Follow.setImageResource(R.drawable.ic_account_heart);
+                mainFollow.saveInBackground(e -> {
+                    if(e == null){
+                        Toast.makeText(this, "Followed", Toast.LENGTH_SHORT).show();
+                        numberOfActualFollowers += 1;
+                        binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
+                    }else{
+                        Toast.makeText(this, "Failed" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
 
         });
 
@@ -114,6 +157,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         binding.NumberOfRepos.setOnClickListener(view8 -> {
             gotoRepositoryActivity();
         });
+
+
 
 
 
@@ -158,6 +203,63 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     }
 
+    private void getFollowStatus() {
+
+        for (Followers follower : followers){
+            if(follower.getFollowingUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                binding.Follow.setImageResource(R.drawable.ic_account_heart);
+                IamFollowing = true;
+                mainFollow = follower;
+            }
+        }
+
+    }
+
+
+
+    private void getAllFollowing() {
+
+        //Get all the following
+        Followers.queryFollowing(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            following.addAll(newfollowers);
+            numberOfActualFollowing = following.size();
+            binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
+            getFollowingStatus();
+
+
+        });
+    }
+
+    private void getFollowingStatus() {
+
+        for (Followers follower : following){
+            if(follower.getSubjectUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                binding.followStatus.setVisibility(View.VISIBLE);
+                ismyFollower = true;
+            }
+        }
+    }
+
+    private void getAllFollowers() {
+        //Get all the followers
+        Followers.queryFollowers(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            followers.addAll(newfollowers);
+            numberOfActualFollowers = followers.size();
+            binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
+            getAllFollowing();
+            getFollowStatus();
+        });
+
+    }
+
     private void gotoRepositoryActivity() {
         Intent intent = new Intent(OtherProfileActivity.this, OtherRepositoryActivity.class);
 
@@ -186,6 +288,9 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         });
     }
+
+
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

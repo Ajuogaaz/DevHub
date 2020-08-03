@@ -17,6 +17,7 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.parse.ParseFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OtherProfileAdapter extends RecyclerView.Adapter<OtherProfileAdapter.ViewHolder>{
@@ -67,9 +68,10 @@ public class OtherProfileAdapter extends RecyclerView.Adapter<OtherProfileAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Title, Description, datel;
+        TextView Title, Description, datel, numberOfComments, tvNumberofLikes;
         ImageView postImage;
         CardView ParticularPost;
+        List likes;
 
 
         ViewHolder(@NonNull View itemView) {
@@ -80,15 +82,17 @@ public class OtherProfileAdapter extends RecyclerView.Adapter<OtherProfileAdapte
             Description = itemView.findViewById(R.id.tvDescription);
             datel = itemView.findViewById(R.id.tvCreatedAt);
             ParticularPost = itemView.findViewById(R.id.particularPost);
+            numberOfComments = itemView.findViewById(R.id.tvActualComments);
+            tvNumberofLikes = itemView.findViewById(R.id.tvActualLikes);
 
         }
 
         public void bind(Post post) {
             Title.setText(post.getTopic());
             Description.setText(post.getDescription());
-
+            datel.setText(post.getTime());
             ParseFile image = post.getImage();
-
+            initLikesandComments(post);
             if (image != null){
                 postImage.setVisibility(View.VISIBLE);
                 Glide.with(context)
@@ -123,6 +127,22 @@ public class OtherProfileAdapter extends RecyclerView.Adapter<OtherProfileAdapte
                 }
             });
 
+
+
+        }
+        private void initLikesandComments(Post post) {
+
+            numberOfComments.setText(String.format("%d comments", post.getNumberofComments()));
+
+            likes = new ArrayList<>();
+
+            if (post.getLikes() != null) {
+                likes.addAll(post.getLikes());
+
+
+                tvNumberofLikes.setText(String.format("%d upvotes", likes.size()));
+
+            }
 
 
         }
