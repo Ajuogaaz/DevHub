@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.parse.ParseUser;
 
@@ -65,41 +66,37 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     class ViewHolder extends  RecyclerView.ViewHolder{
         Context context;
         private ImageView ivProfilePic;
-        private TextView tvUsername;
+        private TextView tvUsername, gitHubUserName;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProfilePic = itemView.findViewById(R.id.ivProfileImage);
             tvUsername = itemView.findViewById(R.id.tvName);
-            tvUsername = itemView.findViewById(R.id.gitHubUserName);
+            gitHubUserName = itemView.findViewById(R.id.gitHubUserName);
 
         }
 
         public void bind(ParseUser user) {
-            tvUsername.setText(user.getUsername());
-            tvBio.setText(user.getBio());
+            gitHubUserName.setText(user.getString("gitHubUserName"));
+            tvUsername.setText(user.getString("PreferredName"));
 
-            //check if the user has a valid profilePic
-            ParseFile image = user.getImage();
-            if (image != null) {
-                Glide.with(context)
-                        .load(image.getUrl())
-                        .circleCrop()
-                        .into(ivProfilePic);
-            } else {
-                Glide.with(context)
-                        .load(context.getResources().getString(R.string.DEFAULT_PROFILE_PIC))
-                        .circleCrop()
-                        .into(ivProfilePic);
+            String ImageUrl = "";
+
+            if(user.getBoolean("HasUploadedPic")){
+                ImageUrl = user.getParseFile("ProfilePic").getUrl();
+            }else{
+                ImageUrl = user.getString("githubProfilePic");
             }
 
 
+            if(!ImageUrl.isEmpty()) {
+                Glide.with(context)
+                        .load(ImageUrl)
+                        .into(ivProfilePic);
+            }
+
         }
     }
-
-
-
-
 
 }
