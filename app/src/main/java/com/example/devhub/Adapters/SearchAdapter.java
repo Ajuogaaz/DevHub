@@ -66,15 +66,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         Context context;
         private ImageView ivProfilePic;
         private TextView tvUsername;
-        private TextView tvBio;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.context = context;
-            ivProfilePic = itemView.findViewById(R.id.ivProfilePic);
-            tvUsername = itemView.findViewById(R.id.tvUsername);
-            tvBio = itemView.findViewById(R.id.tvBio);
-            itemView.setOnClickListener(this);
+            ivProfilePic = itemView.findViewById(R.id.ivProfileImage);
+            tvUsername = itemView.findViewById(R.id.tvName);
+            tvUsername = itemView.findViewById(R.id.gitHubUserName);
+
         }
 
 
