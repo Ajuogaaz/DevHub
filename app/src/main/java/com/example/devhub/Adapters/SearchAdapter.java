@@ -98,6 +98,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                         .into(ivProfilePic);
             }
 
+            ParticularPost.setOnClickListener(view -> clickListener.onUserClick(getAdapterPosition()));
+
         }
     }
 
