@@ -48,6 +48,8 @@ public class OtherProfileActivity extends AppCompatActivity {
     private boolean ismyFollower = false;
     private boolean IamFollowing = false;
     Followers mainFollow;
+    private int numberOfActualFollowers;
+    private int getNumberOfActualFollowing;
 
 
 
