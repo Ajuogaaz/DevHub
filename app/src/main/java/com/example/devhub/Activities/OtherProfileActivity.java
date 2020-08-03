@@ -58,6 +58,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         ParseUser.getCurrentUser().fetchInBackground();
 
+        //Getting the current logged in user
         CurrentUser = getIntent().getParcelableExtra("post");
 
         followers = new ArrayList<>();
@@ -211,6 +212,7 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     private void getAllFollowing() {
 
+        //Get all the following
         Followers.queryFollowing(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
             if(e != null){
                 Log.e(TAG, "Issue with getting followers", e);
@@ -220,8 +222,6 @@ public class OtherProfileActivity extends AppCompatActivity {
             binding.NumberofActualfollowing.setText(((Number)following.size()).toString());
             getFollowingStatus();
 
-            CurrentUser.put("NumberOfFollowing", following.size());
-            CurrentUser.saveInBackground();
 
         });
     }
@@ -237,7 +237,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     }
 
     private void getAllFollowers() {
-
+        //Get all the followers
         Followers.queryFollowers(CurrentUser, (FindCallback<Followers>)(newfollowers, e) -> {
             if(e != null){
                 Log.e(TAG, "Issue with getting followers", e);
