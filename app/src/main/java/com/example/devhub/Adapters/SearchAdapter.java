@@ -1,6 +1,10 @@
 package com.example.devhub.Adapters;
 
+import android.content.Context;
+
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.BaseViewHolder>{
     public static final String TAG = SearchAdapter.class.getSimpleName();
