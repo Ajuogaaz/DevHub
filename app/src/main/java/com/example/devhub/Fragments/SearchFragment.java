@@ -6,9 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.widget.SearchView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +17,6 @@ import com.example.devhub.Activities.OtherProfileActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
-
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
