@@ -65,7 +65,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     class ViewHolder extends  RecyclerView.ViewHolder{
-        Context context;
         private ImageView ivProfilePic;
         private TextView tvUsername, gitHubUserName;
         private CardView ParticularPost;

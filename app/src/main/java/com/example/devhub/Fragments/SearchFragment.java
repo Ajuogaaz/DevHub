@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,8 +17,7 @@ import com.example.devhub.Activities.OtherProfileActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
-import com.parse.FindCallback;
-import com.parse.ParseException;
+
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -49,7 +48,7 @@ public class SearchFragment extends Fragment {
 
         users = new ArrayList<>();
         rvSearch = view.findViewById(R.id.rvSearch);
-        searchAdapter = new SearchAdapter(getContext(), users, clickListener);
+        searchAdapter = new SearchAdapter(requireContext(), users, clickListener);
         rvSearch.setAdapter(searchAdapter);
 
         //set layout manager on recycler view
