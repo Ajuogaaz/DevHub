@@ -1,6 +1,7 @@
 package com.example.devhub.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,7 +91,7 @@ public class SearchFragment extends Fragment {
 
                 for (ParseUser parseUser: allParseUsers) {
                     if (parseUser.getUsername().toLowerCase(Locale.getDefault()).contains(finalCharacterText)) {
-                        objects.add(new User(parseUser));
+                        users.add(parseUser);
                     }
                 }
                 searchAdapter.notifyDataSetChanged();
