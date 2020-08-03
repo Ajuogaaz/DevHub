@@ -23,9 +23,12 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityOtherProfileBinding;
 import com.example.devhub.databinding.ActivityProfileBinding;
+import com.parse.DeleteCallback;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,6 +45,9 @@ public class OtherProfileActivity extends AppCompatActivity {
     ParseUser CurrentUser;
     List<Followers> followers;
     List<Followers> following;
+    private boolean ismyFollower = false;
+    private boolean IamFollowing = false;
+    Followers mainFollow;
 
 
 
@@ -113,7 +119,27 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         binding.Follow.setOnClickListener(view6 -> {
 
-            Toast.makeText(this, "Follow clicked", Toast.LENGTH_SHORT).show();
+            if(IamFollowing){
+                binding.Follow.setImageResource(R.drawable.ic_account_heart_outline);
+                IamFollowing = false;
+                mainFollow.deleteInBackground(e -> {
+                    Toast.makeText(this, "unfollowed", Toast.LENGTH_SHORT).show();
+                });
+            }
+            else{
+                Toast.makeText(this, "launched follow", Toast.LENGTH_SHORT).show();
+                IamFollowing = true;
+                mainFollow = new Followers();
+                mainFollow.setSubjectUser(CurrentUser);
+                mainFollow.setFollowingUser(ParseUser.getCurrentUser());
+                mainFollow.saveInBackground(e -> {
+                    if(e == null){
+                        Toast.makeText(this, "Followed", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "Failed" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
 
         });
 
@@ -124,7 +150,7 @@ public class OtherProfileActivity extends AppCompatActivity {
             gotoRepositoryActivity();
         });
 
-        
+
 
 
 
@@ -174,6 +200,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         for (Followers follower : followers){
             if(follower.getFollowingUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
                 binding.Follow.setImageResource(R.drawable.ic_account_heart);
+                IamFollowing = true;
+                mainFollow = follower;
             }
         }
 
@@ -189,7 +217,11 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            binding.NumberofActualfollowing.setText(((Number)following.size()).toString());
             getFollowingStatus();
+
+            CurrentUser.put("NumberOfFollowing", following.size());
+            CurrentUser.saveInBackground();
 
         });
     }
@@ -199,6 +231,7 @@ public class OtherProfileActivity extends AppCompatActivity {
         for (Followers follower : following){
             if(follower.getSubjectUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
                 binding.followStatus.setVisibility(View.VISIBLE);
+                ismyFollower = true;
             }
         }
     }
@@ -211,6 +244,7 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             followers.addAll(newfollowers);
+            binding.NumberofActualFollowers.setText(((Number)followers.size()).toString());
             getAllFollowing();
             getFollowStatus();
         });
