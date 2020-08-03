@@ -1,17 +1,24 @@
 package com.example.devhub.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.devhub.R;
+import com.parse.ParseUser;
 
 import java.util.List;
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.BaseViewHolder>{
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder>{
     public static final String TAG = SearchAdapter.class.getSimpleName();
     public static final int TYPE_USER = 0;
     public static final int TYPE_EVENT = 1;
     public Context context;
-    public List<Object> objects;
+    public List<ParseUser> users;
     public SearchAdapter.onClickListener clickListener;
 
 
@@ -29,26 +36,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.BaseViewHo
     }
     @NonNull
     @Override
-    public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        switch (viewType) {
-            case TYPE_USER: {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_search, parent, false);
-                return new UserViewHolder(view, context);
-            }
-            case TYPE_EVENT: {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_event, parent, false);
-                return new EventViewHolder(view, context);
-            }
-            default:
-                throw new IllegalArgumentException("Invalid view type");
-        }
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.item_profile, parent, false);
+        return new ViewHolder(view, context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
-        Object object = objects.get(position);
-        holder.bind(object);
+        ParseUser user = users.get(position);
+        holder.bind(user);
     }
 
     @Override
