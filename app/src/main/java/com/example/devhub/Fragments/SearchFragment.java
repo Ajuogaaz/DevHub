@@ -19,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SearchFragment extends Fragment {
     public static final String TAG = SearchFragment.class.getSimpleName();
@@ -66,8 +67,9 @@ public class SearchFragment extends Fragment {
     }
 
     public void filter(String characterText) {
+        //This is the list of preview users
         final List<ParseUser> allParseUsers = new ArrayList<>();
-        final List<Event> allEvents = new ArrayList<>();
+
         characterText = characterText.toLowerCase(Locale.getDefault());
         searchAdapter.clear();
         if (characterText.length() != 0) {
