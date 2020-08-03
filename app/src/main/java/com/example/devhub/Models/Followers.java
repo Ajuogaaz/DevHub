@@ -1,7 +1,11 @@
 package com.example.devhub.Models;
 
+import android.app.DownloadManager;
+
+import com.parse.FindCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
@@ -41,7 +45,27 @@ public class Followers extends ParseObject {
 
     }
 
+    public static void queryFollowers(  ParseUser user, FindCallback callback) {
+        ParseQuery<Followers> query = ParseQuery.getQuery(Followers.class);
+        query.include(Followers.KEY_USER);
+        query.include(Followers.KEY_FOLLOWING_USER);
+        if (user != null) {
+            query.whereEqualTo(Followers.KEY_USER, user);
+        }
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
 
+    }
+    public static void queryFollowing(  ParseUser user, FindCallback callback) {
+        ParseQuery<Followers> query = ParseQuery.getQuery(Followers.class);
+        query.include(Followers.KEY_USER);
+        query.include(Followers.KEY_FOLLOWING_USER);
+        if (user != null) {
+            query.whereEqualTo(Followers.KEY_FOLLOWING_USER, user);
+        }
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
 
+    }
 
 }

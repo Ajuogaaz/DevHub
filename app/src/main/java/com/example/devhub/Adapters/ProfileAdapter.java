@@ -23,9 +23,10 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.parse.ParseFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder>{
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
     private List<Post> posts;
     private Context context;
@@ -66,16 +67,17 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         return posts.size();
     }
 
-    public void clear(){
+    public void clear() {
         posts.clear();
         notifyDataSetChanged();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Title, Description, datel;
+        TextView Title, Description, datel, numberOfComments, tvNumberofLikes;
         ImageView postImage;
         CardView ParticularPost;
+        List likes;
 
 
         ViewHolder(@NonNull View itemView) {
@@ -86,22 +88,26 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             Description = itemView.findViewById(R.id.tvDescription);
             datel = itemView.findViewById(R.id.tvCreatedAt);
             ParticularPost = itemView.findViewById(R.id.particularPost);
+            numberOfComments = itemView.findViewById(R.id.tvActualComments);
+            tvNumberofLikes = itemView.findViewById(R.id.tvActualLikes);
 
         }
 
         public void bind(Post post) {
             Title.setText(post.getTopic());
             Description.setText(post.getDescription());
+            initLikesandComments(post);
+            datel.setText(post.getTime());
 
             ParseFile image = post.getImage();
 
-            if (image != null){
+            if (image != null) {
                 postImage.setVisibility(View.VISIBLE);
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(postImage);
                 Description.setMaxLines(2);
-            }else{
+            } else {
                 postImage.setVisibility(View.GONE);
                 Description.setMaxLines(4);
             }
@@ -128,12 +134,23 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     clickListener.onItemClicked(getAdapterPosition());
                 }
             });
+        }
 
+        private void initLikesandComments(Post post) {
+
+            numberOfComments.setText(String.format("%d comments", post.getNumberofComments()));
+
+            likes = new ArrayList<>();
+
+            if (post.getLikes() != null) {
+                likes.addAll(post.getLikes());
+
+
+                tvNumberofLikes.setText(String.format("%d upvotes", likes.size()));
+
+            }
 
 
         }
-
     }
-
-
 }

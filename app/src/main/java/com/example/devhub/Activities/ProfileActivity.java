@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
@@ -39,6 +40,10 @@ public class ProfileActivity extends AppCompatActivity {
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     File photoFile;
     public String photoFileName = "photo.jpg";
+    private int numberOfActualFollowers;
+    private int numberOfActualFollowing;
+    List<Followers> followers;
+    List<Followers> following;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,11 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         ParseUser.getCurrentUser().fetchInBackground();
+
+        followers = new ArrayList<>();
+        following = new ArrayList<>();
+        getAllFollowers();
+
 
         posts = new ArrayList<>();
 
@@ -67,8 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
         binding.title.setText(ParseUser.getCurrentUser().getString("Title"));
         binding.NumberofActualPosts.setText((Objects.requireNonNull(ParseUser.getCurrentUser().getNumber("NumberOfPost"))).toString());
         binding.NumberofActualRepos.setText((ParseUser.getCurrentUser().getNumber("NumberOfRepos")).toString());
-        binding.NumberofActualFollowers.setText((ParseUser.getCurrentUser().getNumber("NumberOfFollowers")).toString());
-        binding.NumberofActualfollowing.setText((Objects.requireNonNull(ParseUser.getCurrentUser().getNumber("NumberOfFollowing"))).toString());
+
 
         String ImageUrl;
 
@@ -227,6 +236,38 @@ public class ProfileActivity extends AppCompatActivity {
             profileAdapter.notifyDataSetChanged();
         });
     }
+    private void getAllFollowing() {
+
+        //Get all the following
+        Followers.queryFollowing(ParseUser.getCurrentUser(), (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            following.addAll(newfollowers);
+            numberOfActualFollowing = following.size();
+            binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
+
+
+        });
+    }
+
+
+    private void getAllFollowers() {
+        //Get all the followers
+        Followers.queryFollowers(ParseUser.getCurrentUser(), (FindCallback<Followers>)(newfollowers, e) -> {
+            if(e != null){
+                Log.e(TAG, "Issue with getting followers", e);
+                return;
+            }
+            followers.addAll(newfollowers);
+            numberOfActualFollowers = followers.size();
+            binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
+            getAllFollowing();
+        });
+
+    }
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
