@@ -1,11 +1,16 @@
 package com.example.devhub.Fragments;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.SearchAdapter;
+import com.example.devhub.R;
 import com.parse.ParseUser;
 
 import java.util.List;
@@ -21,7 +26,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_discover, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         return view;
     }
 
