@@ -48,21 +48,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.bind(user);
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        Object object = objects.get(position);
-        if (object instanceof User) {
-            return TYPE_USER;
-        } else if (object instanceof Event) {
-            return TYPE_EVENT;
-        }
-
-        throw new IllegalArgumentException("Invalid position " + position);
-    }
 
     @Override
     public int getItemCount() {
-        return objects.size();
+        return users.size();
     }
 
     public static abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
