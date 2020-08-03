@@ -97,70 +97,28 @@ public class SearchFragment extends Fragment {
                 searchAdapter.notifyDataSetChanged();
             });
 
-
-            ParseQuery<Event> queryEvent = ParseQuery.getQuery("Event");
-            queryEvent.include("Host");
-            queryEvent.findInBackground(new FindCallback<Event>() {
-                @Override
-                public void done(List<Event> events, ParseException e) {
-                    if (e!= null){
-                        Log.e(TAG, "Issue with getting all events from Parse");
-                    }
-                    Log.i(TAG, "Got all events from parse Successfully");
-                    allEvents.addAll(events);
-
-                    for  (Event event: events){
-                        if (event.getName().toLowerCase(Locale.getDefault()).contains(finalCharacterText)) {
-                            objects.add(event);
-                        }
-                    }
-                    searchAdapter.notifyDataSetChanged();
-                }
-            });
         }
 
     }
 
-    SearchAdapter.onClickListener clickListener = new SearchAdapter.onClickListener() {
-        @Override
-        public void onEventClick(int position) {
-            //get event position
-            //get the post at that position
-            Event event = (Event) objects.get(position);
-            Log.i(TAG, "Event at Position " + position + "clicked.");
-            //if any post clicked, take to the Maps Fragment and bring up a bottom sheet.
-            //pass the event to maps for the bottom sheet
-            // Create new fragment and transaction
-            Fragment newFragment = new MapsFragment();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("event", event);
-            newFragment.setArguments(bundle);
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.flContainer, newFragment);
-            // Commit the transaction
-            transaction.commit();
-        }
+    SearchAdapter.onClickListener clickListener = position -> {
+        //go to profile Fragment
+        //get user of that specific post
+        User user = (User) objects.get(position);
 
-        @Override
-        public void onUserClick(int position) {
-            //go to profile Fragment
-            //get user of that specific post
-            User user = (User) objects.get(position);
+        //pass this info to profile fragment
+        Fragment fragment = new ProfileFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("user", user.getParseUser());
+        fragment.setArguments(bundle);
 
-            //pass this info to profile fragment
-            Fragment fragment = new ProfileFragment();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("user", user.getParseUser());
-            fragment.setArguments(bundle);
+        //Go from this fragment to profile fragment
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flContainer, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
-            //Go from this fragment to profile fragment
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.flContainer, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
-        }
     };
 
 }
