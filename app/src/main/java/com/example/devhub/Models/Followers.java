@@ -14,15 +14,15 @@ import java.util.Date;
 @ParseClassName("Followers")
 public class Followers extends ParseObject {
 
-    public static final String KEY_USER = "subjectUser";
+    public static final String KEY_USER = "SubjectUser";
     public static final String KEY_FOLLOWING_USER = "followingUser";
 
 
-    public ParseUser getSubjectUser(){
-        return getParseUser(KEY_USER);
+    public String getSubjectUser(){
+        return getString(KEY_USER);
     }
-    public void setSubjectUser(ParseUser user){
-        put (KEY_USER, user);
+    public void setSubjectUser(String ObjectId){
+        put (KEY_USER, ObjectId);
     }
 
     public ParseUser getFollowingUser(){
@@ -50,7 +50,7 @@ public class Followers extends ParseObject {
         query.include(Followers.KEY_USER);
         query.include(Followers.KEY_FOLLOWING_USER);
         if (user != null) {
-            query.whereEqualTo(Followers.KEY_USER, user);
+            query.whereEqualTo(Followers.KEY_USER, user.getObjectId());
         }
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(callback);
