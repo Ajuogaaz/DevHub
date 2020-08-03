@@ -97,6 +97,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             Title.setText(post.getTopic());
             Description.setText(post.getDescription());
             initLikesandComments(post);
+            datel.setText(post.getTime());
 
             ParseFile image = post.getImage();
 
