@@ -49,7 +49,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     private boolean IamFollowing = false;
     Followers mainFollow;
     private int numberOfActualFollowers;
-    private int getNumberOfActualFollowing;
+    private int numberOfActualFollowing;
 
 
 
@@ -221,7 +221,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
-            binding.NumberofActualfollowing.setText(((Number)following.size()).toString());
+            numberOfActualFollowing = following.size();
+            binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
             getFollowingStatus();
 
 
@@ -246,7 +247,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             followers.addAll(newfollowers);
-            binding.NumberofActualFollowers.setText(((Number)followers.size()).toString());
+            numberOfActualFollowers = followers.size();
+            binding.NumberofActualFollowers.setText(((Number)numberOfActualFollowers).toString());
             getAllFollowing();
             getFollowStatus();
         });
