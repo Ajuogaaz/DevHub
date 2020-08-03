@@ -1,6 +1,7 @@
 package com.example.devhub.Fragments;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.SearchAdapter;
 import com.parse.ParseUser;
