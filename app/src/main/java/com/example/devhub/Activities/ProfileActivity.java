@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
@@ -39,6 +40,10 @@ public class ProfileActivity extends AppCompatActivity {
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     File photoFile;
     public String photoFileName = "photo.jpg";
+    private int NumberOfActualFollowers;
+    private int NumberOfActualFollowing;
+    List<Followers> followers;
+    List<Followers> following;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         ParseUser.getCurrentUser().fetchInBackground();
+
 
         posts = new ArrayList<>();
 
