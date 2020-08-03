@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.R;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -78,22 +80,20 @@ public class SearchFragment extends Fragment {
             ParseQuery<ParseUser> queryUser = ParseUser.getQuery();
 
             final String finalCharacterText = characterText;
-            queryUser.findInBackground(new FindCallback<ParseUser>() {
-                @Override
-                public void done(List<ParseUser> allUsers, ParseException e) {
-                    if (e!= null){
-                        Log.e(TAG, "Issue with getting all users from Parse");
-                    }
-                    Log.i(TAG, "Got all users from parse Successfully");
-                    allParseUsers.addAll(allUsers);
 
-                    for (ParseUser parseUser: allParseUsers) {
-                        if (parseUser.getUsername().toLowerCase(Locale.getDefault()).contains(finalCharacterText)) {
-                            objects.add(new User(parseUser));
-                        }
-                    }
-                    searchAdapter.notifyDataSetChanged();
+            queryUser.findInBackground((allUsers, e) -> {
+                if (e!= null){
+                    Log.e(TAG, "Issue with getting all users from Parse");
                 }
+                Log.i(TAG, "Got all users from parse Successfully");
+                allParseUsers.addAll(allUsers);
+
+                for (ParseUser parseUser: allParseUsers) {
+                    if (parseUser.getUsername().toLowerCase(Locale.getDefault()).contains(finalCharacterText)) {
+                        objects.add(new User(parseUser));
+                    }
+                }
+                searchAdapter.notifyDataSetChanged();
             });
 
 
