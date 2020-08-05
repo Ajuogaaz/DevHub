@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.R;
 import com.parse.ParseUser;
 
@@ -21,7 +22,7 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.View
 
     public static final String TAG = FollowersAdapter.class.getSimpleName();
     public Context context;
-    public List<ParseUser> users;
+    public List<Followers> followers;
     public onClickListener clickListener;
 
 
@@ -30,9 +31,9 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.View
     }
 
     //constructor
-    public FollowersAdapter(Context context, List<ParseUser> users, onClickListener clickListener){
+    public FollowersAdapter(Context context, List<Followers> followers, onClickListener clickListener){
         this.context = context;
-        this.users = users;
+        this.followers = followers;
         this.clickListener = clickListener;
 
     }
@@ -46,19 +47,19 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ParseUser user = users.get(position);
+        ParseUser user = followers.get(position).getFollowingUser();
         holder.bind(user);
     }
 
 
     @Override
     public int getItemCount() {
-        return users.size();
+        return followers.size();
     }
 
 
     public void clear() {
-        users.clear();
+        followers.clear();
         notifyDataSetChanged();
     }
 
