@@ -3,16 +3,21 @@ package com.example.devhub.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.devhub.Adapters.FollowersAdapter;
+import com.example.devhub.Adapters.FollowingAdapter;
 import com.example.devhub.Models.Followers;
 import com.example.devhub.R;
 public class FollowersFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
+    public RecyclerView rvFollower;
+    public FollowersAdapter followersAdapter;
 
     public FollowersFragment() {
         // Required empty public constructor
