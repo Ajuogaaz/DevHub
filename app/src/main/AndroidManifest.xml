@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.FollowersActivity"></activity>
+        <activity android:name=".Activities.ChatActivity"></activity>
+        <activity android:name=".Activities.FollowersActivity" />
         <activity android:name=".Activities.OtherRepositoryActivity" />
         <activity android:name=".Activities.OtherProfileActivity" />
         <activity android:name=".Activities.EditProfile" />

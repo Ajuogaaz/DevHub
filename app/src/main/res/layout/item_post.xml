@@ -53,10 +53,10 @@
             android:layout_alignTop="@id/circularContainer"
             android:layout_toEndOf="@id/circularContainer"
             android:ems="10"
+            android:typeface="sans"
             android:textStyle="bold"
             android:textColor="@color/Black"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Linus"
             />
 
@@ -67,9 +67,9 @@
             android:layout_below="@id/tvName"
             android:layout_toEndOf="@id/circularContainer"
             android:ems="10"
-            android:textStyle="bold"
+            android:typeface="sans"
+            android:textStyle="normal"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="@string/Ajuogaaz"
             tools:text="@string/Ajuogaaz"
             />
@@ -99,8 +99,7 @@
             android:layout_below="@id/circularContainer"
             android:layout_height="wrap_content"
             android:text="@string/AjuogaazTitle"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
+
             />
         <TextView
             android:id="@+id/tvDescription"
@@ -108,6 +107,7 @@
             android:layout_below="@id/title"
             android:layout_marginTop="5dp"
             android:typeface="sans"
+            android:textColor="@color/Black"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
