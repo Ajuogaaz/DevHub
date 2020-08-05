@@ -14,9 +14,6 @@ public class FollowingFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
 
-    private int mPage;
-
-
     public FollowingFragment() {
         // Required empty public constructor
     }

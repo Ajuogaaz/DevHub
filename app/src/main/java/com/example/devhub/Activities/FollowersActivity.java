@@ -28,8 +28,9 @@ public class FollowersActivity extends AppCompatActivity {
 
         binding.viewpager.setAdapter(new FollowersActivityAdapter(getSupportFragmentManager(),
                 FollowersActivity.this));
-
         binding.slidingTabs.setupWithViewPager(binding.viewpager);
+
+
 
 
 
