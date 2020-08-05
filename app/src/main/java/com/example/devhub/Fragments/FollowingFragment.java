@@ -67,7 +67,7 @@ public class FollowingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvFollowing = view.findViewById(R.id.rvFollowing);
-        followingAdapter = new FollowingAdapter(requireContext(), FollowersActivity.followers, clickListener);
+        followingAdapter = new FollowingAdapter(requireContext(), FollowersActivity.following, clickListener);
         rvFollowing.setAdapter(followingAdapter);
 
         //set layout manager on recycler view
