@@ -67,26 +67,12 @@ public class FollowingFragment extends Fragment {
 
         rvFollowers = view.findViewById(R.id.rvFollowers);
         followersAdapter = new FollowersAdapter(requireContext(), FollowersActivity.followers, clickListener);
-        rvSearch.setAdapter(searchAdapter);
+        rvFollowers.setAdapter(followersAdapter);
 
         //set layout manager on recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rvSearch.setLayoutManager(linearLayoutManager);
+        rvFollowers.setLayoutManager(linearLayoutManager);
 
-        searchView = view.findViewById(R.id.searchView);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filter(newText);
-                return true;
-            }
-        });
 
     }
 
