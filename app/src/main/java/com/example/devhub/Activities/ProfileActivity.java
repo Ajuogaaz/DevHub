@@ -100,7 +100,10 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         };
 
-
+        binding.NumberofActualfollowing.setOnClickListener(view5 -> displayFollowers());
+        binding.NumberofActualFollowers.setOnClickListener(view6 -> displayFollowers());
+        binding.NumberOfFollowers.setOnClickListener(view7 -> displayFollowers());
+        binding.NumberOfFollowing.setOnClickListener(view8 -> displayFollowers());
 
 
         profileAdapter = new ProfileAdapter(this, posts, clickListener);
@@ -160,6 +163,11 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
+
+    private void displayFollowers() {
+        startActivity(new Intent(ProfileActivity.this, FollowersActivity.class));
+    }
+
     private void launchCamera() {
         //Create an intent to take pictures and return control to the app
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
