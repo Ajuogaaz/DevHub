@@ -6,10 +6,10 @@
     tools:context=".Fragments.FollowersFragment">
 
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFollowers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Followers" />
-
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp" />
 </FrameLayout>
