@@ -9,7 +9,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class FollowersActivityAdapter extends FragmentPagerAdapter {
 
-
+    final int PAGE_COUNT = 2;
+    private String tabTitles[] = new String[] { "Followers", "Following"};
     private final Context context;
 
     public FollowersActivityAdapter(@NonNull FragmentManager fm, int behavior, Context context) {
