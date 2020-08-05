@@ -31,6 +31,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,6 +51,7 @@ public class OtherProfileActivity extends AppCompatActivity {
     Followers mainFollow;
     private int numberOfActualFollowers;
     private int numberOfActualFollowing;
+    private Boolean Done = false;
 
 
 
@@ -109,6 +111,11 @@ public class OtherProfileActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         };
+
+        binding.NumberofActualfollowing.setOnClickListener(view9 -> displayFollowers());
+        binding.NumberofActualFollowers.setOnClickListener(view10 -> displayFollowers());
+        binding.NumberOfFollowers.setOnClickListener(view11 -> displayFollowers());
+        binding.NumberOfFollowing.setOnClickListener(view12 -> displayFollowers());
 
 
         otherProfileAdapter = new OtherProfileAdapter(this, posts, clickListener);
@@ -203,6 +210,15 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     }
 
+    private void displayFollowers() {
+        if(Done) {
+            Intent intent = new Intent(OtherProfileActivity.this, FollowersActivity.class);
+            intent.putExtra("followers", (Serializable) followers);
+            intent.putExtra("following", (Serializable) following);
+            startActivity(intent);
+        }
+    }
+
     private void getFollowStatus() {
 
         for (Followers follower : followers){
@@ -226,9 +242,11 @@ public class OtherProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            Done = true;
             numberOfActualFollowing = following.size();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
             getFollowingStatus();
+
 
 
         });
