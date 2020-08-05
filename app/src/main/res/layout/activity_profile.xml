@@ -55,8 +55,8 @@
                         android:id="@+id/coverPictureView"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        app:srcCompat="@color/Chartreuse"
-                        tools:srcCompat="@color/Blue" />
+                        app:srcCompat="@color/LawnGreen"
+                        tools:srcCompat="@color/GreenYellow" />
 
                     <ImageView
                         android:id="@+id/settingsPicture"
