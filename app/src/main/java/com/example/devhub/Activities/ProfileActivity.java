@@ -263,6 +263,7 @@ public class ProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            Done = true;
             numberOfActualFollowing = following.size();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
 
