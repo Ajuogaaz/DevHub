@@ -9,11 +9,12 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @ParseClassName("Followers")
-public class Followers extends ParseObject{
+public class Followers extends ParseObject implements Serializable {
 
     public static final String KEY_USER = "subjectUser";
     public static final String KEY_FOLLOWING_USER = "followingUser";

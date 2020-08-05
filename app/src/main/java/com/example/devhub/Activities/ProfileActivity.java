@@ -27,6 +27,7 @@ import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -167,10 +168,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void displayFollowers() {
+        Followers k = following.get(0);
+
         Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
-        intent.putExtra("user", ParseUser.getCurrentUser());
-        intent.putExtra("followers", (Parcelable) followers);
-        intent.putExtra("following", (Parcelable) following);
+        //intent.putExtra("followers", (Serializable) followers);
+        intent.putExtra("following", following)
         startActivity(intent);
     }
 
