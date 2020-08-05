@@ -168,7 +168,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void displayFollowers() {
-        Followers k = following.get(0);
 
         Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
         intent.putExtra("followers", (Serializable) followers);
