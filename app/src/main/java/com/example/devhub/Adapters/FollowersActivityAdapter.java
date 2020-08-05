@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.devhub.Activities.FollowersActivity;
 import com.example.devhub.Fragments.FollowersFragment;
 
 public class FollowersActivityAdapter extends FragmentPagerAdapter {

@@ -101,6 +101,8 @@ public class ProfileActivity extends AppCompatActivity {
         };
 
 
+
+
         profileAdapter = new ProfileAdapter(this, posts, clickListener);
 
         binding.ivProfileImage.setOnClickListener(view3 -> launchCamera());
