@@ -20,8 +20,6 @@ import java.util.List;
 public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.ViewHolder>{
 
     public static final String TAG = FollowersAdapter.class.getSimpleName();
-    public static final int TYPE_USER = 0;
-    public static final int TYPE_EVENT = 1;
     public Context context;
     public List<ParseUser> users;
     public onClickListener clickListener;
