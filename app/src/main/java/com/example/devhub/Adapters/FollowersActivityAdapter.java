@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.devhub.Fragments.FollowersFragment;
+
 public class FollowersActivityAdapter extends FragmentPagerAdapter {
 
     final int PAGE_COUNT = 2;
@@ -21,11 +23,17 @@ public class FollowersActivityAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return FollowersFragment.newInstance(position + 1);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return PAGE_COUNT;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
     }
 }
