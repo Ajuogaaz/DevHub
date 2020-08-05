@@ -41,6 +41,7 @@ public class FollowingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_following, container, false);
+
+        return inflater.inflate(R.layout.fragment_followers, container, false);
     }
 }
