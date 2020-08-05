@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Followers;
+import com.example.devhub.Models.Messages;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.example.devhub.Models.Post;
@@ -21,6 +22,7 @@ public class ParseApplication extends Application {
         ParseObject.registerSubclass(Post.class);
         ParseObject.registerSubclass(Comments.class);
         ParseObject.registerSubclass(Followers.class);
+        ParseObject.registerSubclass(Messages.class);
 
         // Use for monitoring Parse network traffic
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
