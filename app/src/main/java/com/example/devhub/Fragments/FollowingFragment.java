@@ -17,6 +17,7 @@ import com.example.devhub.Activities.FollowersActivity;
 import com.example.devhub.Activities.OtherProfileActivity;
 import com.example.devhub.Activities.ProfileActivity;
 import com.example.devhub.Adapters.FollowersAdapter;
+import com.example.devhub.Adapters.FollowingAdapter;
 import com.example.devhub.Adapters.SearchAdapter;
 import com.example.devhub.Models.Followers;
 import com.example.devhub.R;
@@ -30,7 +31,7 @@ public class FollowingFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
     public RecyclerView rvFollowers;
-    public FollowersAdapter followersAdapter;
+    public FollowingAdapter followingAdapter;
 
 
     public FollowingFragment() {
@@ -66,8 +67,8 @@ public class FollowingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvFollowers = view.findViewById(R.id.rvFollowers);
-        followersAdapter = new FollowersAdapter(requireContext(), FollowersActivity.followers, clickListener);
-        rvFollowers.setAdapter(followersAdapter);
+        followingAdapter = new FollowingAdapter(requireContext(), FollowersActivity.followers, clickListener);
+        rvFollowers.setAdapter(followingAdapter);
 
         //set layout manager on recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -76,10 +77,10 @@ public class FollowingFragment extends Fragment {
 
     }
 
-    FollowersAdapter.onClickListener clickListener = position -> {
+    FollowingAdapter.onClickListener clickListener = position -> {
         //go to profile Fragment
         //get user of that specific post
-        ParseUser user = FollowersActivity.followers.get(position).getFollowingUser();
+        ParseUser user = FollowersActivity.following.get(position).getSubjectUser();
 
         //Create an intent and pass it either to the current user view or the third party view
         if(user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
