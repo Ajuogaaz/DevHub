@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class FollowingFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
-    public RecyclerView rvFollowers;
+    public RecyclerView rvFollowing;
     public FollowingAdapter followingAdapter;
 
 
@@ -66,13 +66,13 @@ public class FollowingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        rvFollowers = view.findViewById(R.id.rvFollowers);
+        rvFollowing = view.findViewById(R.id.rvFollowing);
         followingAdapter = new FollowingAdapter(requireContext(), FollowersActivity.followers, clickListener);
-        rvFollowers.setAdapter(followingAdapter);
+        rvFollowing.setAdapter(followingAdapter);
 
         //set layout manager on recycler view
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rvFollowers.setLayoutManager(linearLayoutManager);
+        rvFollowing.setLayoutManager(linearLayoutManager);
 
 
     }
