@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.devhub.Fragments.FollowersFragment;
+import com.example.devhub.Fragments.FollowingFragment;
 
 public class FollowersActivityAdapter extends FragmentPagerAdapter {
 
@@ -25,7 +26,16 @@ public class FollowersActivityAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return FollowersFragment.newInstance(position + 1);
+        Fragment fragment = null;
+        switch (position){
+            case 0:
+                fragment = new FollowersFragment();
+                break;
+            case 1:
+                fragment = new FollowingFragment();
+                break;
+        }
+        return fragment;
     }
 
     @Override
