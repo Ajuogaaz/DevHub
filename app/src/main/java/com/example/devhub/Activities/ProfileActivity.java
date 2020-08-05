@@ -74,6 +74,10 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        binding.settinPicture.setOnClickListener(view15-> {
+            startActivity(new Intent(ProfileActivity.this, ChatActivity.class));
+        });
+
         binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
         binding.gitHubUserName.setText(String.format("@%s", ParseUser.getCurrentUser().getString("gitHubUserName")));
         binding.bio.setText(ParseUser.getCurrentUser().getString("Bio"));
