@@ -59,7 +59,7 @@
                         tools:srcCompat="@color/GreenYellow" />
 
                     <ImageView
-                        android:id="@+id/settingsPicture"
+                        android:id="@+id/settinPicture"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -99,27 +99,33 @@
                         android:textColor="@color/Black"
                         android:text="@string/edit_profile"
                         android:textStyle="normal"
+                        android:clickable="true"
                         android:textAllCaps="false"
                         android:layout_marginStart="10dp"
                         android:textSize="12sp"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         app:cornerRadius="20dp"
-                        app:strokeColor="@color/colorAccent"/>
+                        app:strokeColor="@color/colorAccent"
+                        android:focusable="true" />
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/settingsPicture"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/coverPictureView"
-                        android:layout_toEndOf="@id/circularContainer"
+                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
                         android:textColor="@color/Black"
-                        android:text="@string/edit_profile"
+                        android:text="@string/settings"
                         android:textStyle="normal"
                         android:textAllCaps="false"
                         android:layout_marginStart="10dp"
                         android:textSize="12sp"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         app:cornerRadius="20dp"
-                        app:strokeColor="@color/colorAccent"/>
+                        app:strokeColor="@color/colorAccent"
+                        android:focusable="true" />
 
                     <TextView
                         android:id="@+id/preferredName"
