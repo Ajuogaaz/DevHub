@@ -123,16 +123,6 @@
                         app:strokeColor="@color/colorAccent"
                         android:focusable="true" />
 
-                    <ImageView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/preferredName"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="40dp"
-                        app:srcCompat="@drawable/ic_account_heart_outline"
-                        tools:srcCompat="@drawable/ic_account_heart_outline" />
-
 
                     <TextView
                         android:id="@+id/gitHubUserName"
