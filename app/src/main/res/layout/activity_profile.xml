@@ -100,7 +100,7 @@
                         android:textStyle="normal"
                         android:textAllCaps="false"
                         android:textSize="12sp"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/MyButton"
                         app:cornerRadius="5dp"
                         app:strokeColor="@color/colorPrimary"/>
 
