@@ -168,11 +168,12 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void displayFollowers() {
-
-        Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
-        intent.putExtra("followers", (Serializable) followers);
-        intent.putExtra("following", (Serializable) following);
-        startActivity(intent);
+        if(Done) {
+            Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
+            intent.putExtra("followers", (Serializable) followers);
+            intent.putExtra("following", (Serializable) following);
+            startActivity(intent);
+        }
     }
 
     private void launchCamera() {
