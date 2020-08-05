@@ -28,10 +28,10 @@ public class Messages extends ParseObject implements Serializable {
     public void setSendingUser(ParseUser user){
         put (KEY_SENDING_USER, user);
     }
-    public String getBody(){
+    public String getChatBody(){
         return getString(KEY_BODY);
     }
-    public void setBody(String body){
+    public void setChatBody(String body){
         put (KEY_BODY, body);
     }
 
@@ -47,7 +47,6 @@ public class Messages extends ParseObject implements Serializable {
 
         return currDate;
     }
-
 
 
 
