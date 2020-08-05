@@ -12,15 +12,29 @@ import com.example.devhub.R;
 
 public class FollowingFragment extends Fragment {
 
+    public static final String ARG_PAGE = "ARG_PAGE";
+
+    private int mPage;
+
 
     public FollowingFragment() {
         // Required empty public constructor
+    }
+
+    public static FollowersFragment newInstance(int page) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_PAGE, page);
+        FollowersFragment fragment = new FollowersFragment();
+        fragment.setArguments(args);
+        return fragment;
+
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPage = getArguments().getInt(ARG_PAGE);
 
     }
 
