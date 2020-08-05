@@ -26,7 +26,6 @@ public class FollowersActivity extends AppCompatActivity {
     public static List<Followers> following;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +39,8 @@ public class FollowersActivity extends AppCompatActivity {
                 FollowersActivity.this));
         binding.slidingTabs.setupWithViewPager(binding.viewpager);
 
-        ParseUser
-
-
-
+        followers = getIntent().getParcelableArrayListExtra("followers");
+        following = getIntent().getParcelableArrayListExtra("following");
 
 
     }
