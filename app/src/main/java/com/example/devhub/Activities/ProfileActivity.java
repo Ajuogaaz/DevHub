@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
     private int numberOfActualFollowing;
     List<Followers> followers;
     List<Followers> following;
+    Boolean Done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +167,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void displayFollowers() {
-        startActivity(new Intent(ProfileActivity.this, FollowersActivity.class));
+        Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
+        intent.putExtra("user", ParseUser.getCurrentUser());
+        intent.putExtra("followers", (Parcelable) followers);
+        intent.putExtra("following", (Parcelable) following);
+        startActivity(intent);
     }
 
     private void launchCamera() {
