@@ -40,6 +40,7 @@ public class ParseApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("devh-ub") // should correspond to APP_ID env variable
                 .clientKey("key")  // set explicitly unless clientKey is explicitly configured on Parse server
+                .clientBuilder(builder)
                 .server("https://devh-ub.herokuapp.com/parse/").build());
 
     }
