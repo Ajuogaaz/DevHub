@@ -8,13 +8,23 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.devhub.Adapters.FollowersActivityAdapter;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityDetailsBinding;
 import com.example.devhub.databinding.ActivityFollowersBinding;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FollowersActivity extends AppCompatActivity {
 
     ActivityFollowersBinding binding;
+
+    ParseUser user;
+    public static List<Followers> followers;
+    public static List<Followers> following;
+
 
 
     @Override
@@ -29,6 +39,8 @@ public class FollowersActivity extends AppCompatActivity {
         binding.viewpager.setAdapter(new FollowersActivityAdapter(getSupportFragmentManager(),
                 FollowersActivity.this));
         binding.slidingTabs.setupWithViewPager(binding.viewpager);
+
+        ParseUser
 
 
 
