@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMaxWidth="0dp"
-        app:tabBackground="@color/colorAccent"
+        app:tabBackground="@color/colorPrimary"
         app:tabTextColor="@color/Black"
-        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorAccent"
         app:tabGravity="fill"
         app:tabMode="fixed" />
 
