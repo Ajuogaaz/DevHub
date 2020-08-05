@@ -12,19 +12,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.R;
 import com.parse.ParseUser;
 
 import java.util.List;
 
-public class FollowersAdapter {
+public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.ViewHolder>{
 
-    public static final String TAG = SearchAdapter.class.getSimpleName();
+    public static final String TAG = FollowersAdapter.class.getSimpleName();
     public static final int TYPE_USER = 0;
     public static final int TYPE_EVENT = 1;
     public Context context;
     public List<ParseUser> users;
-    public SearchAdapter.onClickListener clickListener;
+    public onClickListener clickListener;
 
 
     public interface onClickListener{
@@ -32,7 +33,7 @@ public class FollowersAdapter {
     }
 
     //constructor
-    public SearchAdapter(Context context, List<ParseUser> users, SearchAdapter.onClickListener clickListener){
+    public FollowersAdapter(Context context, List<ParseUser> users, onClickListener clickListener){
         this.context = context;
         this.users = users;
         this.clickListener = clickListener;
@@ -40,14 +41,14 @@ public class FollowersAdapter {
     }
     @NonNull
     @Override
-    public SearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.item_profile, parent, false);
-        return new SearchAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ParseUser user = users.get(position);
         holder.bind(user);
     }
