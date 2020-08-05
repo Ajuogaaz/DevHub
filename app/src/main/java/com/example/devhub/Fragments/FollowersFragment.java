@@ -9,12 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.devhub.R;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FollowersFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FollowersFragment extends Fragment {
 
     public FollowersFragment() {
