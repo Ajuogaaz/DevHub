@@ -10,8 +10,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class FollowersActivityAdapter extends FragmentPagerAdapter {
 
 
+    private final Context context;
+
     public FollowersActivityAdapter(@NonNull FragmentManager fm, int behavior, Context context) {
         super(fm, behavior);
+        this.context = context;
     }
 
     @NonNull
