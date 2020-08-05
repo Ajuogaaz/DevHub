@@ -93,7 +93,7 @@ public class FollowingFragment extends Fragment {
     FollowersAdapter.onClickListener clickListener = position -> {
         //go to profile Fragment
         //get user of that specific post
-        Followers follower = followers.get()
+        ParseUser user = FollowersActivity.followers.get(position).getFollowingUser();
 
         //Create an intent and pass it either to the current user view or the third party view
         if(user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
