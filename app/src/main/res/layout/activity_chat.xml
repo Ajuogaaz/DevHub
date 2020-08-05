@@ -32,7 +32,7 @@
                 android:theme="?attr/actionBarTheme"
                 android:minHeight="?attr/actionBarSize"
                 android:id="@+id/titleToolBar"
-                app:title="TEST"
+                app:title="CHATS"
                 />
 
         </RelativeLayout>
