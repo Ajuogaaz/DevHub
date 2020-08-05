@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.devhub.Activities.FollowersActivity;
 import com.example.devhub.Fragments.FollowersFragment;
 
 public class FollowersActivityAdapter extends FragmentPagerAdapter {
@@ -15,10 +16,12 @@ public class FollowersActivityAdapter extends FragmentPagerAdapter {
     private String tabTitles[] = new String[] { "Followers", "Following"};
     private final Context context;
 
-    public FollowersActivityAdapter(@NonNull FragmentManager fm, int behavior, Context context) {
-        super(fm, behavior);
+    public FollowersActivityAdapter(@NonNull FragmentManager fm, Context context) {
+        super(fm);
         this.context = context;
     }
+
+
 
     @NonNull
     @Override
