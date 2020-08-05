@@ -1,4 +1,14 @@
 package com.example.devhub.Activities;
 
-public class FollowersActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class FollowersActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_followers);
+    }
 }
