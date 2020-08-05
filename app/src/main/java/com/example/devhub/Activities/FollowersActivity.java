@@ -23,7 +23,7 @@ public class FollowersActivity extends AppCompatActivity {
 
     ParseUser user;
     public static List<Followers> followers;
-    public static Followers following;
+    public static List<Followers> following;
 
 
     @Override
@@ -39,8 +39,8 @@ public class FollowersActivity extends AppCompatActivity {
                 FollowersActivity.this));
         binding.slidingTabs.setupWithViewPager(binding.viewpager);
 
-        //followers = getIntent().getParcelableArrayListExtra("followers");
-        following = getIntent().getParcelableExtra("following");
+        followers = (List<Followers>) getIntent().getSerializableExtra("followers");
+        following = (List<Followers>) getIntent().getSerializableExtra("following");
 
 
     }
