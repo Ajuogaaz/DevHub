@@ -19,7 +19,7 @@ import java.util.List;
 
 public class FollowingAdapter extends RecyclerView.Adapter<FollowingAdapter.ViewHolder>{
 
-    public static final String TAG = FollowersAdapter.class.getSimpleName();
+    public static final String TAG = FollowingAdapter.class.getSimpleName();
     public Context context;
     public List<ParseUser> users;
     public onClickListener clickListener;
