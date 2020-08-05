@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     private int numberOfActualFollowing;
     List<Followers> followers;
     List<Followers> following;
+    Boolean Done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,11 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         };
+
+        binding.NumberofActualfollowing.setOnClickListener(view5 -> displayFollowers());
+        binding.NumberofActualFollowers.setOnClickListener(view6 -> displayFollowers());
+        binding.NumberOfFollowers.setOnClickListener(view7 -> displayFollowers());
+        binding.NumberOfFollowing.setOnClickListener(view8 -> displayFollowers());
 
 
         profileAdapter = new ProfileAdapter(this, posts, clickListener);
@@ -158,6 +166,16 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
+
+    private void displayFollowers() {
+        if(Done) {
+            Intent intent = new Intent(ProfileActivity.this, FollowersActivity.class);
+            intent.putExtra("followers", (Serializable) followers);
+            intent.putExtra("following", (Serializable) following);
+            startActivity(intent);
+        }
+    }
+
     private void launchCamera() {
         //Create an intent to take pictures and return control to the app
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -245,6 +263,7 @@ public class ProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            Done = true;
             numberOfActualFollowing = following.size();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
 

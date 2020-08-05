@@ -55,8 +55,8 @@
                         android:id="@+id/coverPictureView"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        app:srcCompat="@color/Chartreuse"
-                        tools:srcCompat="@color/Blue" />
+                        app:srcCompat="@color/LawnGreen"
+                        tools:srcCompat="@color/GreenYellow" />
 
                     <ImageView
                         android:id="@+id/settingsPicture"
@@ -262,7 +262,7 @@
                         android:id="@+id/NumberofActualFollowers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/share"
+                        android:text="@string/zero"
                         android:textSize="14sp"
                         android:layout_marginBottom="5dp"
                         android:textColor="@color/Black"
@@ -275,7 +275,7 @@
                         android:id="@+id/NumberofActualfollowing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/bookmark"
+                        android:text="@string/zero"
                         android:textSize="14sp"
                         android:layout_marginBottom="5dp"
                         android:textColor="@color/Black"
