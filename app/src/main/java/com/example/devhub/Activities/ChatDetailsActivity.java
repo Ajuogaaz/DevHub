@@ -2,6 +2,7 @@ package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -42,6 +43,16 @@ public class ChatDetailsActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
+        binding.titleToolBar.setTitle(recepient.getString("PreferredName"));
 
+        binding.Previous.setOnClickListener(view1 -> {
+           backtoChats();
+        });
+
+
+    }
+
+    private void backtoChats() {
+        startActivity(new Intent(ChatDetailsActivity.this, ChatActivity.class));
     }
 }
