@@ -25,8 +25,10 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.File;
 import java.io.Serializable;
@@ -277,6 +279,7 @@ public class ProfileActivity extends AppCompatActivity {
             runtest();
             Done = true;
             numberOfActualFollowing = following.size();
+            runtes();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
 
 
@@ -284,15 +287,16 @@ public class ProfileActivity extends AppCompatActivity {
     }
     private void runtest() {
 
-        user = ParseUser.getCurrentUser();
+        user = following.get(0).getSubjectUser();
 
-        MessageTop.queryTopMessages(user, (FindCallback<MessageTop>)(newfollowers, e) -> {
-            if (e != null) {
-                return;
-            }
-            follo.addAll(newfollowers);
-
+        MessageTop messageTop = new MessageTop();
+        messageTop.setUserOne(ParseUser.getCurrentUser());
+        messageTop.setUserTwo(user);
+        messageTop.updateTopMessage("This is the second test");
+        messageTop.saveInBackground(e -> {
+            Toast.makeText(this, "Message saved", Toast.LENGTH_SHORT).show();
         });
+
 
     }
 
