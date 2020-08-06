@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ChatDetailsAdapter;
@@ -17,7 +18,9 @@ import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +71,21 @@ public class ChatDetailsActivity extends AppCompatActivity {
         binding.etMessage.setOnEditorActionListener(new DoneOnEditorActionListener());
 
         binding.send.setOnClickListener(view12 -> {
+
+            String message = binding.etMessage.getText().toString();
+
+            Messages messages = new Messages();
+            messages.setSendingUser(ParseUser.getCurrentUser());
+            messages.setReceivingUser(recepient);
+            messages.setChatBody(message);
+
+            messages.saveInBackground(e -> {
+                if(e != null){
+                    Toast.makeText(this, "not sent", Toast.LENGTH_SHORT).show();
+                }
+                LoadAllMessages();
+            });
+
 
 
 
