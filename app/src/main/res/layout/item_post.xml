@@ -48,6 +48,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvName"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_alignTop="@id/circularContainer"
@@ -84,7 +85,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:textColor="@color/Black"
+            android:textColor="@color/colorAccent"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:autoLink="all"
