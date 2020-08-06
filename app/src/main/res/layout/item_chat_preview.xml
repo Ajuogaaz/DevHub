@@ -44,14 +44,14 @@
         android:layout_marginBottom="20dp"
         card_view:cardBackgroundColor="@color/colorWhite"
         card_view:cardCornerRadius="30dp"
-        card_view:cardElevation="2dp">
+        card_view:cardElevation="0.2dp">
 
 
         <!-- Main Content View -->
         <RelativeLayout
             android:id="@+id/main_container"
             android:layout_width="match_parent"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="15dp"
             android:layout_height="wrap_content">
 
 
@@ -61,10 +61,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:ems="10"
+                android:typeface="sans"
                 android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="Linus"
                 tools:text="Linus"
                 />
@@ -78,7 +78,8 @@
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/Black"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:typeface="sans"
+                android:textSize="8sp"
                 android:text="@string/TimeSpent"
                 tools:text="@string/TimeSpent"
                 />
@@ -90,6 +91,7 @@
                 android:layout_marginTop="5dp"
                 android:maxLines="1"
                 android:typeface="sans"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"

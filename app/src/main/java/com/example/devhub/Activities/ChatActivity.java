@@ -47,7 +47,6 @@ public class ChatActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
-
         binding.rvChats.setLayoutManager(linearLayoutManager);
     }
 
@@ -76,6 +75,7 @@ public class ChatActivity extends AppCompatActivity {
                 return;
             }
             TopMessages.addAll(newfollowers);
+            chatsAdapter.notifyDataSetChanged();
         });
 
 
