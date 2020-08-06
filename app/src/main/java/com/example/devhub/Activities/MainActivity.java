@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int TimelineFragmentRequest = 1234;
 
 
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

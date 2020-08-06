@@ -1,27 +1,20 @@
 package com.example.devhub.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,11 +26,11 @@ import com.example.devhub.Models.Repositories;
 import com.example.devhub.Models.jobs;
 import com.example.devhub.R;
 import com.example.devhub.Utils.DoneOnEditorActionListener;
+import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
 import com.parse.ParseUser;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,9 +75,7 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
         btnSearch.setOnClickListener(view2 -> performSearch(""));
 
-        edLocation.setOnEditorActionListener(new DoneOnEditorActionListener(){
-
-        });
+        edLocation.setOnEditorActionListener(new DoneOnEditorActionListener());
 
         edDescription.setOnEditorActionListener(new DoneOnEditorActionListener());
 
