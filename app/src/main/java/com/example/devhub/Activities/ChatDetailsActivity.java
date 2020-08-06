@@ -73,6 +73,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
         binding.send.setOnClickListener(view12 -> {
 
             String message = binding.etMessage.getText().toString();
+            binding.etMessage.setText("");
 
             Messages messages = new Messages();
             messages.setSendingUser(ParseUser.getCurrentUser());
