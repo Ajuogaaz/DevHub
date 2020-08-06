@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
@@ -14,12 +15,18 @@ public class ChatDetailsActivity extends AppCompatActivity {
 
     ActivityChatDetailsBinding binding;
 
+    ParseUser recepient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityChatDetailsBinding.inflate(getLayoutInflater());
         final View view = binding.getRoot();
         setContentView(view);
+
+        recepient = getIntent().getParcelableExtra("user");
+
+
 
 
 
