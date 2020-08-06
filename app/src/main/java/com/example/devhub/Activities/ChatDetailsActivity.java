@@ -21,5 +21,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
         final View view = binding.getRoot();
         setContentView(view);
 
+
+
     }
 }
