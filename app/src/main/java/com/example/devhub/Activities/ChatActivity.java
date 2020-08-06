@@ -39,6 +39,8 @@ public class ChatActivity extends AppCompatActivity {
 
         loadTopMessages();
 
+        chatsAdapter = new ChatsAdapter(this, TopMessages, onClickListener);
+
 
 
 
