@@ -10,8 +10,8 @@
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
     card_view:cardBackgroundColor="@color/colorWhite"
-    card_view:cardCornerRadius="50dp"
-    card_view:cardElevation="8dp">
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="1dp">
 
 
     <!-- Main Content View -->
