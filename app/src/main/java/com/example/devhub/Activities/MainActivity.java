@@ -3,6 +3,7 @@ package com.example.devhub.Activities;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -18,11 +19,14 @@ import com.example.devhub.Fragments.JobsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
+import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
 
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.FindCallback;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -39,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 

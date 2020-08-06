@@ -1,6 +1,7 @@
 package com.example.devhub.Models;
 
 import com.parse.FindCallback;
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -9,6 +10,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@ParseClassName("Messages")
 public class Messages extends ParseObject implements Serializable {
 
     public static final String KEY_BODY = "Body";

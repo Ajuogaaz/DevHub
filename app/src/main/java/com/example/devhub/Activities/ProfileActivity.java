@@ -47,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     List<Followers> followers;
     List<Followers> following;
     Boolean Done = false;
+    List<Followers> follower;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         followers = new ArrayList<>();
         following = new ArrayList<>();
+        follower = new ArrayList<>();
         getAllFollowers();
 
 
@@ -267,12 +269,27 @@ public class ProfileActivity extends AppCompatActivity {
                 return;
             }
             following.addAll(newfollowers);
+            runtest();
             Done = true;
             numberOfActualFollowing = following.size();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
 
 
         });
+    }
+
+    private void runtest() {
+
+        ParseUser user = following.get(0).getSubjectUser();
+
+        Followers.querytest(user, ParseUser.getCurrentUser(),  (FindCallback<Followers>)(newfollowers, e) -> {
+            if (e != null) {
+                return;
+            }
+            follower.addAll(newfollowers);
+
+        });
+
     }
 
 
