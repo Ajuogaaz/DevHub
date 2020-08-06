@@ -10,6 +10,7 @@ import android.widget.ScrollView;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ChatDetailsAdapter;
+import com.example.devhub.Models.MessageTop;
 import com.example.devhub.Models.Messages;
 import com.example.devhub.R;
 import com.example.devhub.Utils.DoneOnEditorActionListener;
@@ -31,6 +32,8 @@ public class ChatDetailsActivity extends AppCompatActivity {
 
     ChatDetailsAdapter chatDetailsAdapter;
 
+    MessageTop messageTop;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,9 @@ public class ChatDetailsActivity extends AppCompatActivity {
         setContentView(view);
 
         recepient = getIntent().getParcelableExtra("user");
+        messageTop = getIntent().getParcelableExtra("topMessage");
+
+
         AllChats = new ArrayList<>();
         LoadAllMessages();
 
@@ -60,6 +66,12 @@ public class ChatDetailsActivity extends AppCompatActivity {
 
 
         binding.etMessage.setOnEditorActionListener(new DoneOnEditorActionListener());
+
+        binding.send.setOnClickListener(view12 -> {
+
+
+
+        });
 
         binding.titleToolBar.setTitle(recepient.getString("PreferredName"));
 
