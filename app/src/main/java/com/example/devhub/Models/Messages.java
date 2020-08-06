@@ -58,6 +58,7 @@ public class Messages extends ParseObject implements Serializable {
         query.include(Messages.KEY_SENDING_USER);
 
         query.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
+        query.whereEqualTo(KEY_RECEIVING_USER, SendingUser).whereEqualTo(KEY_SENDING_USER, ReceivingUser);
 
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(callback);
