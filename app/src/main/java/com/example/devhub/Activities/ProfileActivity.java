@@ -287,16 +287,13 @@ public class ProfileActivity extends AppCompatActivity {
     }
     private void runtest() {
 
-        user = following.get(0).getSubjectUser();
+        MessageTop.queryTopMessages(ParseUser.getCurrentUser(), (FindCallback<MessageTop>)(newfollowers, e) -> {
+            if (e != null) {
+                return;
+            }
+            follo.addAll(newfollowers);
 
-        MessageTop messageTop = new MessageTop();
-        messageTop.setUserOne(ParseUser.getCurrentUser());
-        messageTop.setUserTwo(user);
-        messageTop.updateTopMessage("This is the second test");
-        messageTop.saveInBackground(e -> {
-            Toast.makeText(this, "Message saved", Toast.LENGTH_SHORT).show();
         });
-
 
     }
 

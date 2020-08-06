@@ -8,14 +8,16 @@ import com.parse.ParseUser;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @ParseClassName("MessageTop")
 public class MessageTop extends ParseObject implements Serializable {
 
     public static final String KEY_BODY = "TopMessage";
-    public static final String KEY_RECEIVING_USER = "UserOne";
+    public static final String KEY_RECEIVING_USER = "User0ne";
     public static final String KEY_CREATED_AT = "createdAt";
     public static final String KEY_SENDING_USER = "UserTwo";
 
@@ -51,14 +53,23 @@ public class MessageTop extends ParseObject implements Serializable {
     }
 
     public static void queryTopMessages( ParseUser currentUser, FindCallback callback) {
-        ParseQuery<MessageTop> query = ParseQuery.getQuery(MessageTop.class);
-        query.include(MessageTop.KEY_RECEIVING_USER);
-        query.include(MessageTop.KEY_SENDING_USER);
+        List<ParseQuery<MessageTop>> query = new ArrayList<>();
+        ParseQuery<MessageTop> query1 = ParseQuery.getQuery(MessageTop.class);
+        ParseQuery<MessageTop> query2 = ParseQuery.getQuery(MessageTop.class);
 
-        query.whereEqualTo(KEY_RECEIVING_USER, currentUser);
+        query1.whereEqualTo(KEY_RECEIVING_USER, currentUser);
+        query2.whereEqualTo(KEY_SENDING_USER, currentUser);
 
-        query.addDescendingOrder(MessageTop.KEY_CREATED_AT);
-        query.findInBackground(callback);
+        query.add(query1);
+        query.add(query2);
+
+        ParseQuery<MessageTop> mainquery = ParseQuery.or(query);
+
+        mainquery.include(MessageTop.KEY_RECEIVING_USER);
+        mainquery.include(MessageTop.KEY_SENDING_USER);
+
+        mainquery.addDescendingOrder(MessageTop.KEY_CREATED_AT);
+        mainquery.findInBackground(callback);
 
     }
 
