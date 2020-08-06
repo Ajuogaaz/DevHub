@@ -68,7 +68,7 @@ public class Post extends ParseObject {
 
         Date date = getCreatedAt();
 
-        SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("MM dd yyyy hh:mm");
 
         String currDate = format.format(date);
 

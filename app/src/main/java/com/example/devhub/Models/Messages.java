@@ -47,7 +47,7 @@ public class Messages extends ParseObject implements Serializable {
 
         Date date = getCreatedAt();
 
-        SimpleDateFormat format = new SimpleDateFormat("E MM dd yyyy hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("MM dd yyyy hh:mm");
 
         String currDate = format.format(date);
 
