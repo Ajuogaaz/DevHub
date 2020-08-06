@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ChatDetailsAdapter;
@@ -56,6 +57,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
                     .load(ImageUrl)
                     .into(binding.ivProfileImage);
         }
+
 
         binding.etMessage.setOnEditorActionListener(new DoneOnEditorActionListener());
 
