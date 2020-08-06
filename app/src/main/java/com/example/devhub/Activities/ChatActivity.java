@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -60,6 +61,7 @@ public class ChatActivity extends AppCompatActivity {
         public void onMessageClick(int position, ParseUser user) {
             Intent intent = new Intent(ChatActivity.this, ChatDetailsActivity.class);
             intent.putExtra("user", user);
+            intent.putExtra("topMessage", (Parcelable) TopMessages.get(position));
             startActivity(intent);
 
         }
