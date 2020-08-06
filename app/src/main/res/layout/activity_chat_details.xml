@@ -105,7 +105,7 @@
             android:textCursorDrawable="@null"
             android:imeOptions="actionDone"
             android:textColor="@color/Black"
-            android:inputType="textMultiLine"
+            android:inputType="textAutoComplete"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

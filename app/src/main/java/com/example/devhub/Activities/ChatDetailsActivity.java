@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ChatDetailsAdapter;
 import com.example.devhub.Models.Messages;
 import com.example.devhub.R;
+import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
 import com.parse.FindCallback;
@@ -55,6 +56,8 @@ public class ChatDetailsActivity extends AppCompatActivity {
                     .load(ImageUrl)
                     .into(binding.ivProfileImage);
         }
+
+        binding.etMessage.setOnEditorActionListener(new DoneOnEditorActionListener());
 
         binding.titleToolBar.setTitle(recepient.getString("PreferredName"));
 
