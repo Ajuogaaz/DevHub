@@ -51,8 +51,8 @@ public class ProfileActivity extends AppCompatActivity {
     List<Followers> followers;
     List<Followers> following;
     Boolean Done = false;
-    List<Messages> follower;
-    ParseUser user;
+
+
 
 
     @Override
@@ -64,7 +64,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         followers = new ArrayList<>();
         following = new ArrayList<>();
-        follower = new ArrayList<>();
         getAllFollowers();
 
 
@@ -277,7 +276,6 @@ public class ProfileActivity extends AppCompatActivity {
             following.addAll(newfollowers);
             Done = true;
             numberOfActualFollowing = following.size();
-            runtes();
             binding.NumberofActualfollowing.setText(((Number)numberOfActualFollowing).toString());
 
 
@@ -285,19 +283,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-    private void runtes() {
-
-        user = following.get(0).getSubjectUser();
-
-        Messages.queryMessages(user, ParseUser.getCurrentUser(), (FindCallback<Messages>)(newfollowers, e) -> {
-            if (e != null) {
-                return;
-            }
-            follower.addAll(newfollowers);
-
-        });
-
-    }
 
 
     private void getAllFollowers() {
