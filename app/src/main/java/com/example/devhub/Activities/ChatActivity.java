@@ -41,6 +41,10 @@ public class ChatActivity extends AppCompatActivity {
 
         loadTopMessages();
 
+        binding.Previous.setOnClickListener(view1 -> {
+            startActivity(new Intent(ChatActivity.this, ProfileActivity.class));
+        });
+
         chatsAdapter = new ChatsAdapter(this, TopMessages, onClickListener);
 
         binding.rvChats.setAdapter(chatsAdapter);
