@@ -28,6 +28,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
 
 
     public interface onClickListener{
+        void onMessageClick(int position);
         void onUserClick(int position);
     }
 
@@ -47,39 +48,49 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FollowersAdapter.ViewHolder holder, int position) {
-        ParseUser user = followers.get(position).getFollowingUser();
-        holder.bind(user);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        MessageTop messagesTop = TopMessages.get(position);
+        holder.bind(messagesTop);
     }
 
 
     @Override
     public int getItemCount() {
-        return followers.size();
+        return TopMessages.size();
     }
 
 
     public void clear() {
-        followers.clear();
+        TopMessages.clear();
         notifyDataSetChanged();
     }
 
     class ViewHolder extends  RecyclerView.ViewHolder{
         private ImageView ivProfilePic;
-        private TextView tvUsername, gitHubUserName;
+        private TextView tvUsername, textBody, dated;
         private CardView ParticularPost;
+
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProfilePic = itemView.findViewById(R.id.ivProfileImage);
             tvUsername = itemView.findViewById(R.id.tvName);
-            gitHubUserName = itemView.findViewById(R.id.gitHubUserName);
-            ParticularPost = itemView.findViewById(R.id.particularPost);
+            textBody = itemView.findViewById(R.id.tvDescription);
+            ParticularPost = itemView.findViewById(R.id.otherContainer);
+            dated = itemView.findViewById(R.id.tvCreatedAt);
         }
 
-        public void bind(ParseUser user) {
-            gitHubUserName.setText(user.getString("gitHubUserName"));
+        public void bind(MessageTop messageTop) {
+            textBody.setText(messageTop.getTopMessage());
+
+            ParseUser user;
+            if(messageTop.getUserOne().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                user = messageTop.getUserTwo();
+            }else{
+                user = messageTop.getUserOne();
+            }
+
             tvUsername.setText(user.getString("PreferredName"));
 
             String ImageUrl = "";
@@ -96,8 +107,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
                         .load(ImageUrl)
                         .into(ivProfilePic);
             }
-
-            ParticularPost.setOnClickListener(view -> clickListener.onUserClick(getAdapterPosition()));
+            ivProfilePic.setOnClickListener(view -> clickListener.onUserClick(getAdapterPosition()));
+            ParticularPost.setOnClickListener(view -> clickListener.onMessageClick(getAdapterPosition()));
 
         }
     }
