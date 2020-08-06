@@ -5,47 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="10dp"
     android:layout_height="wrap_content"
-
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/otherContainer"
-        android:layout_width="wrap_content"
-        android:layout_height='wrap_content'
-        android:layout_marginStart="5dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="0.7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/circularContainer"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/chatBody"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:text="@string/PostBody"
-            android:textSize="14sp" />
-
-        </RelativeLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/circularContainer"
         android:layout_width="20dp"
         android:layout_height="20dp"
         app:cardCornerRadius="20dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/otherContainer"
-        app:cardElevation="0.3dp"
+        app:cardElevation="0.5dp"
         >
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -59,6 +30,32 @@
             tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/otherContainer"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height='wrap_content'
+        android:layout_marginStart="10dp"
+        card_view:cardBackgroundColor="@color/colorWhite"
+        app:layout_constraintStart_toEndOf="@id/circularContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="0.5dp"
+        card_view:cardCornerRadius="20dp">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/chatBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="300dp"
+        android:textColor="@color/Black"
+        android:text="@string/PostBody"
+        android:textSize="14sp"
+         />
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
