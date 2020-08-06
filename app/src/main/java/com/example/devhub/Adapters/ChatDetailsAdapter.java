@@ -129,7 +129,4 @@ public class ChatDetailsAdapter extends RecyclerView.Adapter<ChatDetailsAdapter.
         }
     }
 
-
-
-
 }
