@@ -29,7 +29,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
 
     public interface onClickListener{
         void onMessageClick(int position);
-        void onUserClick(int position);
+        void onUserClick(int position, ParseUser user);
     }
 
     //constructor
@@ -107,7 +107,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
                         .load(ImageUrl)
                         .into(ivProfilePic);
             }
-            ivProfilePic.setOnClickListener(view -> clickListener.onUserClick(getAdapterPosition()));
+            ivProfilePic.setOnClickListener(view -> clickListener.onUserClick(getAdapterPosition(), user));
             ParticularPost.setOnClickListener(view -> clickListener.onMessageClick(getAdapterPosition()));
 
         }
