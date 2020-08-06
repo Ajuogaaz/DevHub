@@ -34,6 +34,8 @@ public class ChatActivity extends AppCompatActivity {
         loadTopMessages();
 
 
+
+
     }
 
     private void loadTopMessages() {
