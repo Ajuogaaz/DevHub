@@ -34,7 +34,7 @@
             card_view:cardElevation="10dp"
             android:layout_centerVertical="true">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivProfileImage"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -46,35 +46,30 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_alignTop="@id/circularContainer"
             android:layout_toEndOf="@id/circularContainer"
-            android:ems="10"
-            android:typeface="sans"
             android:textStyle="bold"
             android:textColor="@color/Black"
             android:layout_height="wrap_content"
             tools:text="Linus"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/gitHubUserName"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_below="@id/tvName"
             android:layout_toEndOf="@id/circularContainer"
-            android:ems="10"
-            android:typeface="sans"
-            android:textStyle="normal"
             android:layout_height="wrap_content"
             android:text="@string/Ajuogaaz"
             tools:text="@string/Ajuogaaz"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvCreatedAt"
             android:layout_width="wrap_content"
             android:layout_marginEnd="30dp"
@@ -82,41 +77,37 @@
             android:layout_alignParentEnd="true"
             android:textColor="@color/Black"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:text="@string/TimeSpent"
             tools:text="@string/TimeSpent"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:textColor="@color/Black"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:autoLink="all"
-            android:typeface="sans"
             android:layout_marginStart="5dp"
             android:layout_below="@id/circularContainer"
             android:layout_height="wrap_content"
             android:text="@string/AjuogaazTitle"
 
             />
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_below="@id/title"
             android:layout_marginTop="5dp"
-            android:typeface="sans"
             android:textColor="@color/Black"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
-            android:textSize="12sp"
             android:autoLink="all"
             android:text="@string/PostBody"
             />
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/PostImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -129,7 +120,7 @@
             />
 
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvActualLikes"
             android:layout_below="@id/PostImage"
             android:layout_marginStart="10dp"
@@ -142,7 +133,7 @@
             android:text="@string/NumberOfUpvotes"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvActualComments"
             android:layout_below="@id/PostImage"
             android:layout_marginEnd="10dp"
@@ -215,7 +206,7 @@
                 />
 
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivUpvoteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -225,7 +216,7 @@
                 app:layout_constraintStart_toStartOf="@id/ivUpvote"
                 app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivCommentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -235,7 +226,7 @@
                 app:layout_constraintStart_toStartOf="@id/ivComment"
                 app:layout_constraintEnd_toEndOf="@id/ivComment" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivShareText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -244,7 +235,7 @@
                 app:layout_constraintTop_toBottomOf="@id/ivShare"
                 app:layout_constraintStart_toStartOf="@id/ivShare"
                 app:layout_constraintEnd_toEndOf="@id/ivShare" />
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivBookmarkText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
