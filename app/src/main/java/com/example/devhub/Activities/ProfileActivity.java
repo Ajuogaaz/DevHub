@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.MessageTop;
+import com.example.devhub.Models.Messages;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
@@ -48,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
     List<Followers> followers;
     List<Followers> following;
     Boolean Done = false;
-    List<MessageTop> follower;
+    List<Messages> follower;
     ParseUser user;
 
     @Override
@@ -282,9 +283,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void runtest() {
 
-        user = ParseUser.getCurrentUser();
+        user = following.get(0).getSubjectUser();
 
-        MessageTop.queryTopMessages(user,  (FindCallback<MessageTop>)(newfollowers, e) -> {
+        Messages.queryMessages(user, ParseUser.getCurrentUser(), (FindCallback<Messages>)(newfollowers, e) -> {
             if (e != null) {
                 return;
             }

@@ -8,7 +8,9 @@ import com.parse.ParseUser;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @ParseClassName("Messages")
 public class Messages extends ParseObject implements Serializable {
@@ -53,15 +55,25 @@ public class Messages extends ParseObject implements Serializable {
     }
 
     public static void queryMessages(  ParseUser SendingUser, ParseUser ReceivingUser, FindCallback callback) {
-        ParseQuery<Messages> query = ParseQuery.getQuery(Messages.class);
-        query.include(Messages.KEY_RECEIVING_USER);
-        query.include(Messages.KEY_SENDING_USER);
+        List<ParseQuery<Messages>> query = new ArrayList<>();
+        ParseQuery<Messages> query1 = ParseQuery.getQuery(Messages.class);
+        ParseQuery<Messages> query2 = ParseQuery.getQuery(Messages.class);
 
-        query.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
-        query.whereEqualTo(KEY_RECEIVING_USER, SendingUser).whereEqualTo(KEY_SENDING_USER, ReceivingUser);
+        query1.include(Messages.KEY_RECEIVING_USER);
+        query1.include(Messages.KEY_SENDING_USER);
+        query2.include(Messages.KEY_RECEIVING_USER);
+        query2.include(Messages.KEY_SENDING_USER);
 
-        query.addDescendingOrder(Post.KEY_CREATED_AT);
-        query.findInBackground(callback);
+        query1.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
+        query2.whereEqualTo(KEY_RECEIVING_USER, SendingUser).whereEqualTo(KEY_SENDING_USER, ReceivingUser);
+
+        query.add(query1);
+        query.add(query2);
+
+        ParseQuery<Messages> mainquery = ParseQuery.or(query);
+
+        mainquery.addDescendingOrder(Post.KEY_CREATED_AT);
+        mainquery.findInBackground(callback);
 
     }
 
