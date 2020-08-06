@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/circularContainer"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:cardCornerRadius="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:cardElevation="10dp"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/otherContainer"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height='wrap_content'
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/circularContainer"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        card_view:cardBackgroundColor="@color/colorWhite"
+        card_view:cardCornerRadius="30dp"
+        card_view:cardElevation="2dp">
+
+
+        <!-- Main Content View -->
+        <RelativeLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="30dp"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="Linus"
+                tools:text="Linus"
+                />
+
+            <TextView
+                android:id="@+id/gitHubUserName"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_below="@id/tvName"
+                android:ems="10"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/Ajuogaaz"
+                tools:text="@string/Ajuogaaz"
+                />
+
+            <TextView
+                android:id="@+id/tvCreatedAt"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/Black"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="@string/TimeSpent"
+                tools:text="@string/TimeSpent"
+                />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_below="@id/gitHubUserName"
+                android:layout_marginTop="15dp"
+                android:typeface="sans"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:autoLink="all"
+                android:text="@string/PostBody"
+                />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/separatingLine"
+        android:layout_width="match_parent"
+        android:layout_below="@id/otherContainer"
+        android:layout_marginTop="10dp"
+        android:layout_height="0.3dp"
+        android:background="@color/Green"/>
+
+</RelativeLayout>
