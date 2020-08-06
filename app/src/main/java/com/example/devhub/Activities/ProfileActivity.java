@@ -262,6 +262,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profileAdapter.clear();
             }
             posts.addAll(newposts);
+            binding.NumberofActualPosts.setText(((Number)posts.size()).toString());
             profileAdapter.notifyDataSetChanged();
         });
     }
