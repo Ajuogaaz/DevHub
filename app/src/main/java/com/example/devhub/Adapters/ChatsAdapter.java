@@ -83,6 +83,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
 
         public void bind(MessageTop messageTop) {
             textBody.setText(messageTop.getTopMessage());
+            dated.setText(messageTop.getTime());
 
             ParseUser user;
             if(messageTop.getUserOne().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
