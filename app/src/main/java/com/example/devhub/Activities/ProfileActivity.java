@@ -281,9 +281,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void runtest() {
 
-        ParseUser user = following.get(0).getSubjectUser();
+        ParseUser user = ParseUser.getCurrentUser();
 
-        MessageTop.queryTopMessages(ParseUser.getCurrentUser(),  (FindCallback<MessageTop>)(newfollowers, e) -> {
+        MessageTop.queryTopMessages(user,  (FindCallback<MessageTop>)(newfollowers, e) -> {
             if (e != null) {
                 return;
             }

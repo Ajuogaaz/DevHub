@@ -51,9 +51,9 @@ public class MessageTop extends ParseObject implements Serializable {
     }
 
     public static void queryTopMessages(  ParseUser currentUser, FindCallback callback) {
-        ParseQuery<Messages> query = ParseQuery.getQuery(Messages.class);
-        query.include(Messages.KEY_RECEIVING_USER);
-        query.include(Messages.KEY_SENDING_USER);
+        ParseQuery<MessageTop> query = ParseQuery.getQuery(MessageTop.class);
+        query.include(KEY_RECEIVING_USER);
+        query.include(KEY_SENDING_USER);
 
         query.whereEqualTo(KEY_RECEIVING_USER, currentUser);
         query.whereEqualTo(KEY_SENDING_USER, currentUser);
