@@ -59,11 +59,6 @@ public class Messages extends ParseObject implements Serializable {
         ParseQuery<Messages> query1 = ParseQuery.getQuery(Messages.class);
         ParseQuery<Messages> query2 = ParseQuery.getQuery(Messages.class);
 
-        query1.include(Messages.KEY_RECEIVING_USER);
-        query1.include(Messages.KEY_SENDING_USER);
-        query2.include(Messages.KEY_RECEIVING_USER);
-        query2.include(Messages.KEY_SENDING_USER);
-
         query1.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
         query2.whereEqualTo(KEY_RECEIVING_USER, SendingUser).whereEqualTo(KEY_SENDING_USER, ReceivingUser);
 
@@ -72,7 +67,10 @@ public class Messages extends ParseObject implements Serializable {
 
         ParseQuery<Messages> mainquery = ParseQuery.or(query);
 
-        mainquery.addDescendingOrder(Post.KEY_CREATED_AT);
+        mainquery.include(Messages.KEY_RECEIVING_USER);
+        mainquery.include(Messages.KEY_SENDING_USER);
+
+        mainquery.addAscendingOrder(Post.KEY_CREATED_AT);
         mainquery.findInBackground(callback);
 
     }
