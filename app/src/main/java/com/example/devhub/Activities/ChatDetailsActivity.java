@@ -7,17 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Models.Messages;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChatDetailsActivity extends AppCompatActivity {
 
     ActivityChatDetailsBinding binding;
 
     ParseUser recepient;
+
+    List<Messages> AllChats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,9 @@ public class ChatDetailsActivity extends AppCompatActivity {
         setContentView(view);
 
         recepient = getIntent().getParcelableExtra("user");
+        AllChats = new ArrayList<>();
+        LoadAllMessages();
+
 
         String ImageUrl = "";
 
@@ -50,6 +57,9 @@ public class ChatDetailsActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void LoadAllMessages() {
     }
 
     private void backtoChats() {
