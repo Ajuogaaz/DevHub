@@ -128,6 +128,7 @@
                         android:layout_alignTop="@id/circularContainer"
                         android:layout_alignParentEnd="true"
                         android:textColor="@color/Black"
+                        android:textSize="12sp"
                         android:layout_height="wrap_content"
                         android:text="@string/TimeSpent"
                         tools:text="@string/TimeSpent"
