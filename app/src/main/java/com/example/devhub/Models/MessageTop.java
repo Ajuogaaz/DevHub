@@ -50,13 +50,13 @@ public class MessageTop extends ParseObject implements Serializable {
         return currDate;
     }
 
-    public static void queryTopMessages(  ParseUser SendingUser, ParseUser ReceivingUser, FindCallback callback) {
+    public static void queryTopMessages(  ParseUser currentUser, FindCallback callback) {
         ParseQuery<Messages> query = ParseQuery.getQuery(Messages.class);
         query.include(Messages.KEY_RECEIVING_USER);
         query.include(Messages.KEY_SENDING_USER);
 
-        query.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
-        query.whereEqualTo(KEY_RECEIVING_USER, SendingUser).whereEqualTo(KEY_SENDING_USER, ReceivingUser);
+        query.whereEqualTo(KEY_RECEIVING_USER, currentUser);
+        query.whereEqualTo(KEY_SENDING_USER, currentUser);
 
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(callback);
