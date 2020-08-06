@@ -51,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
     Boolean Done = false;
     List<Messages> follower;
     ParseUser user;
+    List<MessageTop> follo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
         followers = new ArrayList<>();
         following = new ArrayList<>();
         follower = new ArrayList<>();
+        follo = new ArrayList<>();
         getAllFollowers();
 
 
@@ -280,8 +282,21 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
     }
-
     private void runtest() {
+
+        user = ParseUser.getCurrentUser();
+
+        MessageTop.queryTopMessages(user, (FindCallback<MessageTop>)(newfollowers, e) -> {
+            if (e != null) {
+                return;
+            }
+            follo.addAll(newfollowers);
+
+        });
+
+    }
+
+    private void runtes() {
 
         user = following.get(0).getSubjectUser();
 
