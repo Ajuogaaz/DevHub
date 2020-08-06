@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     List<Followers> followers;
     List<Followers> following;
     Boolean Done = false;
-    List<Followers> follower;
+    List<MessageTop> follower;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,7 +283,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ParseUser user = following.get(0).getSubjectUser();
 
-        MessageTop.queryTopMessages(user, ParseUser.getCurrentUser(),  (FindCallback<Followers>)(newfollowers, e) -> {
+        MessageTop.queryTopMessages(ParseUser.getCurrentUser(),  (FindCallback<MessageTop>)(newfollowers, e) -> {
             if (e != null) {
                 return;
             }
