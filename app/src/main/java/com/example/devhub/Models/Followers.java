@@ -69,5 +69,16 @@ public class Followers extends ParseObject implements Serializable {
         query.findInBackground(callback);
 
     }
+    public static void querytest( ParseUser user, ParseUser another,  FindCallback callback) {
+        ParseQuery<Followers> query = ParseQuery.getQuery(Followers.class);
+        query.include(Followers.KEY_USER);
+        query.include(Followers.KEY_FOLLOWING_USER);
+        if (user != null) {
+            query.whereEqualTo(Followers.KEY_USER, user).whereEqualTo(Followers.KEY_FOLLOWING_USER, another);
+        }
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
+
+    }
 
 }

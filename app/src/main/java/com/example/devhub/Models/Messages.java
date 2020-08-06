@@ -1,6 +1,8 @@
 package com.example.devhub.Models;
 
+import com.parse.FindCallback;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.Serializable;
@@ -46,6 +48,18 @@ public class Messages extends ParseObject implements Serializable {
         String currDate = format.format(date);
 
         return currDate;
+    }
+
+    public static void queryMessages(  ParseUser SendingUser, ParseUser ReceivingUser, FindCallback callback) {
+        ParseQuery<Messages> query = ParseQuery.getQuery(Messages.class);
+        query.include(Messages.KEY_RECEIVING_USER);
+        query.include(Messages.KEY_SENDING_USER);
+
+        query.whereEqualTo(KEY_RECEIVING_USER, ReceivingUser).whereEqualTo(KEY_SENDING_USER, SendingUser);
+
+        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.findInBackground(callback);
+
     }
 
 
