@@ -59,6 +59,11 @@ public class ChatDetailsAdapter extends RecyclerView.Adapter<ChatDetailsAdapter.
         return messages.size();
     }
 
+    public void clear(){
+        messages.clear();
+        notifyDataSetChanged();
+    }
+
 
 
     @Override

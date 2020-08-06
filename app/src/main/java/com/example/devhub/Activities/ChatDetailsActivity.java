@@ -83,6 +83,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
                 if(e != null){
                     Toast.makeText(this, "not sent", Toast.LENGTH_SHORT).show();
                 }
+                chatDetailsAdapter.clear();
                 LoadAllMessages();
             });
             
