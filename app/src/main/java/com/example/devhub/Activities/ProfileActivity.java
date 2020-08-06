@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
     Boolean Done = false;
     List<Messages> follower;
     ParseUser user;
-    List<MessageTop> follo;
+    List<MessageTop> follo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
