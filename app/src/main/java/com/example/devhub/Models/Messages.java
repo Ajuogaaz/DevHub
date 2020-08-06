@@ -70,7 +70,7 @@ public class Messages extends ParseObject implements Serializable {
         mainquery.include(Messages.KEY_RECEIVING_USER);
         mainquery.include(Messages.KEY_SENDING_USER);
 
-        mainquery.addAscendingOrder(Post.KEY_CREATED_AT);
+        mainquery.addAscendingOrder(Messages.KEY_CREATED_AT);
         mainquery.findInBackground(callback);
 
     }

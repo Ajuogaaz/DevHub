@@ -57,7 +57,7 @@ public class MessageTop extends ParseObject implements Serializable {
 
         query.whereEqualTo(KEY_RECEIVING_USER, currentUser);
 
-        query.addDescendingOrder(Post.KEY_CREATED_AT);
+        query.addDescendingOrder(MessageTop.KEY_CREATED_AT);
         query.findInBackground(callback);
 
     }
