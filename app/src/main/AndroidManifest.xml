@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.ChatDetailsActivity"></activity>
+        <activity android:name=".Activities.ChatDetailsActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+        </activity>
         <activity android:name=".Activities.ChatActivity" />
         <activity android:name=".Activities.FollowersActivity" />
         <activity android:name=".Activities.OtherRepositoryActivity" />
