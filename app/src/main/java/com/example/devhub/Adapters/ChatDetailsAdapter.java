@@ -50,6 +50,8 @@ public class ChatDetailsAdapter extends RecyclerView.Adapter<ChatDetailsAdapter.
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
 
+        Messages message = messages.get(position);
+        holder.bindMessage(message);
     }
 
     @Override
