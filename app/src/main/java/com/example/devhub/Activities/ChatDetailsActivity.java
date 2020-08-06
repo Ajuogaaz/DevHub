@@ -79,6 +79,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
                 return;
             }
             AllChats.addAll(newfollowers);
+            chatDetailsAdapter.notifyDataSetChanged();
 
         });
 
