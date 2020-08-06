@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
 import com.parse.ParseUser;
@@ -26,8 +27,20 @@ public class ChatDetailsActivity extends AppCompatActivity {
 
         recepient = getIntent().getParcelableExtra("user");
 
+        String ImageUrl = "";
+
+        if(recepient.getBoolean("HasUploadedPic")){
+            ImageUrl = recepient.getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = recepient.getString("githubProfilePic");
+        }
 
 
+        if(!ImageUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(ImageUrl)
+                    .into(binding.ivProfileImage);
+        }
 
 
     }
