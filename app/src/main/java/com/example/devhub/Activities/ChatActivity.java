@@ -57,7 +57,7 @@ public class ChatActivity extends AppCompatActivity {
     ChatsAdapter.onClickListener onClickListener = new ChatsAdapter.onClickListener() {
         @Override
         public void onMessageClick(int position, ParseUser user) {
-            Intent intent = new Intent(ChatActivity.this, OtherProfileActivity.class);
+            Intent intent = new Intent(ChatActivity.this, ChatDetailsActivity.class);
             intent.putExtra("user", user);
             startActivity(intent);
 
