@@ -1,59 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="10dp"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <com.google.android.material.card.MaterialCardView
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/otherContainer"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_height='wrap_content'
-        android:layout_marginEnd="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        card_view:cardBackgroundColor="@color/colorWhite"
-        card_view:cardCornerRadius="15dp"
-        card_view:cardElevation="0.7dp">
+        android:layout_marginEnd="10dp"
+        card_view:cardBackgroundColor="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="0.5dp"
+        card_view:cardCornerRadius="20dp">
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/chatBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Post_body"
-            android:layout_marginStart="10dp"
+            android:maxWidth="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/PostBody"
+            android:textSize="14sp"
             />
 
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/circularContainer"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        app:cardCornerRadius="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:cardElevation="0.3dp"
-        android:layout_centerVertical="true">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivProfileImage"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="0dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
     </androidx.cardview.widget.CardView>
-
 
 
 </RelativeLayout>
