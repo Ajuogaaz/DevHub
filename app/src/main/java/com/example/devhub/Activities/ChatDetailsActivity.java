@@ -85,6 +85,11 @@ public class ChatDetailsActivity extends AppCompatActivity {
                 }
                 LoadAllMessages();
             });
+            
+            messageTop.updateTopMessage(message);
+            messageTop.saveInBackground(e -> {
+                Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
+            });
 
 
 
