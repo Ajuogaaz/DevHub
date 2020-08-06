@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Followers;
+import com.example.devhub.Models.MessageTop;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
 import com.example.devhub.Utils.OnSwipeTouchListener;
@@ -282,7 +283,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ParseUser user = following.get(0).getSubjectUser();
 
-        Followers.querytest(user, ParseUser.getCurrentUser(),  (FindCallback<Followers>)(newfollowers, e) -> {
+        MessageTop.queryTopMessages(user, ParseUser.getCurrentUser(),  (FindCallback<Followers>)(newfollowers, e) -> {
             if (e != null) {
                 return;
             }
