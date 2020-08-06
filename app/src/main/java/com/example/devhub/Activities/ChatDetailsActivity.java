@@ -1,12 +1,14 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.example.devhub.Adapters.ChatDetailsAdapter;
 import com.example.devhub.Models.Messages;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
@@ -23,6 +25,8 @@ public class ChatDetailsActivity extends AppCompatActivity {
     ParseUser recepient;
 
     List<Messages> AllChats;
+
+    ChatDetailsAdapter chatDetailsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,14 @@ public class ChatDetailsActivity extends AppCompatActivity {
         binding.Previous.setOnClickListener(view1 -> {
            backtoChats();
         });
+
+        chatDetailsAdapter = new ChatDetailsAdapter(this, AllChats);
+
+        binding.rvChats.setAdapter(chatDetailsAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        binding.rvChats.setLayoutManager(linearLayoutManager);
 
 
     }
