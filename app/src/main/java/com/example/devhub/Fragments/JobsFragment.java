@@ -82,7 +82,10 @@ public class JobsFragment extends Fragment implements JobsAdapter.JobInteraction
 
         btnSearch.setOnClickListener(view2 -> performSearch(""));
 
-        edLocation.setOnEditorActionListener(new DoneOnEditorActionListener());
+        edLocation.setOnEditorActionListener(new DoneOnEditorActionListener(){
+
+        });
+
         edDescription.setOnEditorActionListener(new DoneOnEditorActionListener());
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

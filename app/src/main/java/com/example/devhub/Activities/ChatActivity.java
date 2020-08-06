@@ -13,6 +13,7 @@ import com.example.devhub.Adapters.ChatsAdapter;
 import com.example.devhub.Adapters.FollowersAdapter;
 import com.example.devhub.Models.MessageTop;
 import com.example.devhub.R;
+import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityChatBinding;
 import com.example.devhub.databinding.ActivityComposeBinding;
 import com.parse.FindCallback;
@@ -93,26 +94,10 @@ public class ChatActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            hideSystemUI();
+            HideSystemWindow.hideSystemUI(getWindow());
         }
     }
 
-    private void hideSystemUI() {
-        // Enables regular immersive mode.
-        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        // Set the content to appear under the system bars so that the
-                        // content doesn't resize when the system bars hide and show.
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-
-                        // Hide the nav bar and status bar
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
-    }
 
     // Shows the system bars by removing all the flags
     // except for the ones that make the content appear under the system bars.
