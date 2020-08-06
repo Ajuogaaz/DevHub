@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.example.devhub.Models.Messages;
 import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityChatDetailsBinding;
+import com.parse.FindCallback;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -60,6 +61,15 @@ public class ChatDetailsActivity extends AppCompatActivity {
     }
 
     private void LoadAllMessages() {
+
+        Messages.queryMessages(recepient, ParseUser.getCurrentUser(), (FindCallback<Messages>)(newfollowers, e) -> {
+            if (e != null) {
+                return;
+            }
+            AllChats.addAll(newfollowers);
+
+        });
+
     }
 
     private void backtoChats() {
