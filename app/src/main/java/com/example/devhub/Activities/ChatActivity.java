@@ -1,10 +1,12 @@
 package com.example.devhub.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.devhub.Adapters.ChatsAdapter;
@@ -41,10 +43,12 @@ public class ChatActivity extends AppCompatActivity {
 
         chatsAdapter = new ChatsAdapter(this, TopMessages, onClickListener);
 
+        binding.rvChats.setAdapter(chatsAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
 
-
-
+        binding.rvChats.setLayoutManager(linearLayoutManager);
     }
 
     ChatsAdapter.onClickListener onClickListener = new ChatsAdapter.onClickListener() {
