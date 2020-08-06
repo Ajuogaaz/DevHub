@@ -1,4 +1,8 @@
 package com.example.devhub.Models;
 
-public class MessageTop {
+import com.parse.ParseObject;
+
+import java.io.Serializable;
+
+public class MessageTop extends ParseObject implements Serializable {
 }
