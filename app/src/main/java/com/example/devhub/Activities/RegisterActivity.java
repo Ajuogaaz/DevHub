@@ -51,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                 binding.btnLogin.setVisibility(View.VISIBLE);
                 binding.enterPassword.setVisibility(View.VISIBLE);
                 binding.enterUserName.setVisibility(View.VISIBLE);
+                binding.enterEmail.setVisibility(View.VISIBLE);
 
                 if (e == null) {
                     goToValidateActivity();
