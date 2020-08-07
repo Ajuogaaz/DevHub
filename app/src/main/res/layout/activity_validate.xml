@@ -7,34 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".Activities.ValidateActivity">
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/versionControl"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:src=""
+        android:textColor="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:text="@string/pick_your_current_service_provider"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/github_auth"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="18sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:text="@string/login_with_github"
-        android:textAllCaps="true"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/pic"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_undraw_version_control_9bpv"/>
+
+
 
 </RelativeLayout>

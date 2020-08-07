@@ -90,4 +90,5 @@
     <string name="follow">Follow</string>
     <string name="message">Message...</string>
     <string name="enter_email_address">Enter email address</string>
+    <string name="pick_your_current_service_provider">Integrate with your provider</string>
 </resources>
