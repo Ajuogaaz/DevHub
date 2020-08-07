@@ -37,12 +37,14 @@ public class RegisterActivity extends AppCompatActivity {
             binding.btnLogin.setVisibility(View.GONE);
             binding.enterPassword.setVisibility(View.GONE);
             binding.enterUserName.setVisibility(View.GONE);
+            binding.enterEmail.setVisibility(View.GONE);
             Log.i(TAG, "Onclick dignIn");
 
             ParseUser user =  new ParseUser();
 
             user.setUsername(binding.etUsername.getText().toString());
             user.setPassword(binding.etPassword.getText().toString());
+            user.setEmail(binding.etEmail.getText().toString());
 
             user.signUpInBackground(e -> {
                 binding.reposLoader.setVisibility(View.GONE);
