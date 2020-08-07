@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<!--?xml version="1.0" encoding="utf-8"?-->
+<linearlayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <textview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textsize="48sp"
+        android:layout_margintop="50dp"/>
+
+    <textview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textsize="24sp"
+        android:layout_margintop="20dp"
+        android:text="You seem to be a new user."/>
+
+</linearlayout>
