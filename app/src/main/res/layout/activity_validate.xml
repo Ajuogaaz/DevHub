@@ -10,15 +10,13 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/versionControl"
         android:layout_width="match_parent"
-        android:textColor="@color/colorAccent"
         android:layout_alignParentBottom="true"
         android:text="@string/pick_your_current_service_provider"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginStart="30dp"
-        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:textStyle="italic"
         android:layout_height="wrap_content"/>
-
-
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/pic"
