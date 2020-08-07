@@ -93,4 +93,5 @@
     <string name="pick_your_current_service_provider">Integrate with your provider</string>
     <string name="github">GITHUB</string>
     <string name="bitbucket">BITBUCKET</string>
+    <string name="gitlab">gitlab</string>
 </resources>
