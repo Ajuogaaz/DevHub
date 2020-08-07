@@ -8,13 +8,45 @@
     tools:context=".Activities.LoginActivity">
 
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterEmail"
+        android:layout_marginTop="190dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/enter_email_address"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/colorAccent"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textMultiLine"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/enterUserName"
-        android:layout_marginTop="250dp"
+        android:layout_below="@id/enterEmail"
         android:layout_width="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:hint="@string/usernameHint"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         app:hintTextColor="@color/colorAccent"
         app:boxCornerRadiusTopStart="15dp"
