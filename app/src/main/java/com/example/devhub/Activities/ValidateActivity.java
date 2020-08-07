@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.devhub.Models.User;
 import com.example.devhub.R;
 import com.example.devhub.Models.AccessToken;
+import com.example.devhub.databinding.ActivityValidateBinding;
 import com.example.devhub.network.ApiClient;
 import com.example.devhub.network.ApiService;
 import com.parse.ParseException;
@@ -39,6 +40,8 @@ public class ValidateActivity extends AppCompatActivity {
     private static final String TAG = "ValidateActivity";
     ParseUser user;
 
+    ActivityValidateBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +51,15 @@ public class ValidateActivity extends AppCompatActivity {
         //Check if the user is Null -- meaning logged out
         //If thats the case then go to login activity
         if(user == null){
-        //    toLoginActivity();
+            toLoginActivity();
         }
+        binding = ActivityValidateBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_validate);
 
-        //btn = findViewById(R.id.btn_Login);
         //btn.setOnClickListener(view -> initiateGithubLogin());
+        binding.gitHub.setOnClickListener(view1 -> initiateGithubLogin());
     }
 
     private void toLoginActivity() {
