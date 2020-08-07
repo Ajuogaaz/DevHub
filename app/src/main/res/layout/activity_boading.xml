@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.BoadingActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pager">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <linearlayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignparentbottom="true"
+        android:id="@+id/navigation">
+
+        <button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Skip"
+            android:id="@+id/skip"/>
+
+
+
+        <button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Next"
+            android:id="@+id/next"/>
+
+    </linearlayout>
+
+
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        app:stl_dividerThickness="1dp"
+        app:stl_indicatorColor="#1e88e5" />
+
+
+</RelativeLayout>
