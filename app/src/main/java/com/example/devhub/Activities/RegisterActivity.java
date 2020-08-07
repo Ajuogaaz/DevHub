@@ -32,9 +32,6 @@ public class RegisterActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        //if(ParseUser.getCurrentUser() != null) {
-        //  goToMainActivity();
-        //}
         binding.btnLogin.setOnClickListener(view1 -> {
             binding.reposLoader.setVisibility(View.VISIBLE);
             binding.btnLogin.setVisibility(View.GONE);
@@ -59,6 +56,11 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "User Already exists", Toast.LENGTH_SHORT).show();
                 }
             });
+
+        });
+
+        binding.signUp.setOnClickListener(view2 -> {
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 
         });
     }

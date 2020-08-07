@@ -63,9 +63,9 @@
     <string name="submit">SUBMIT</string>
     <string name="professional_identity">Professional Identity</string>
     <string name="bio">Bio</string>
-    <string name="dont_have_an_account">Dont have an account</string>
+    <string name="dont_have_an_account">Dont have an account?</string>
     <string name="signup_here">SignUp here</string>
-    <string name="have_an_account">Have an account</string>
+    <string name="have_an_account">Have an account?</string>
     <string name="login_here">login here</string>
     <string name="enter_password">Enter password</string>
     <string name="location">Location</string>
