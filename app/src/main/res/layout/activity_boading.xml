@@ -28,7 +28,7 @@
             android:layout_width="20dp"
             android:layout_height="45dp"
             android:layout_weight="3"
-            android:text="@string/skip"
+            android:text="skip"
             android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
         <Button
@@ -37,7 +37,7 @@
             android:layout_width="20dp"
             android:layout_height="45dp"
             android:layout_weight="3"
-            android:text="@string/next"
+            android:text="next"
             android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
 

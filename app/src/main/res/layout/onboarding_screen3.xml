@@ -1,5 +1,5 @@
-<!--?xml version="1.0" encoding="utf-8"?-->
-<linearlayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,18 +7,19 @@
     android:padding="16dp"
     android:gravity="center_horizontal">
 
-    <textview
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="screen 3"
-        android:textsize="48sp"
-        android:layout_margintop="50dp"/>
+        android:text="Welcome!"
+        android:textSize="48sp"
+        android:layout_marginTop="50dp"/>
 
-    <textview
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textsize="24sp"
-        android:layout_margintop="20dp"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
         android:text="You seem to be a new user."/>
 
-</linearlayout>
+
+</LinearLayout>
