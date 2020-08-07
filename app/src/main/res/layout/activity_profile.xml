@@ -39,10 +39,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
-                app:cardCornerRadius="40dp"
-                android:elevation="5dp"
+                app:cardCornerRadius="20dp"
+                android:elevation="1dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RelativeLayout
@@ -51,15 +53,15 @@
                     android:layout_marginBottom="20dp"
                     android:layout_height="wrap_content">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/coverPictureView"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         app:srcCompat="@color/LawnGreen"
                         tools:srcCompat="@color/GreenYellow" />
 
-                    <ImageView
-                        android:id="@+id/settingsPicture"
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/settinPicture"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -78,7 +80,7 @@
                         app:cardCornerRadius="125dp">
 
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivProfileImage"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -89,11 +91,49 @@
                             tools:srcCompat="@tools:sample/avatars" />
                     </androidx.cardview.widget.CardView>
 
-                    <TextView
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/editPicture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/coverPictureView"
+                        android:layout_toEndOf="@id/circularContainer"
+                        android:textColor="@color/Black"
+                        android:text="@string/edit_profile"
+                        android:textStyle="normal"
+                        android:clickable="true"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="10dp"
+                        android:textSize="12sp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        app:cornerRadius="20dp"
+                        app:strokeColor="@color/colorAccent"
+                        android:focusable="true" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/settingsPicture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/coverPictureView"
+                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:textColor="@color/Black"
+                        android:text="@string/settings"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="10dp"
+                        android:textSize="12sp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        app:cornerRadius="20dp"
+                        app:strokeColor="@color/colorAccent"
+                        android:focusable="true" />
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/preferredName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/circularContainer"
+                        android:layout_below="@id/circularContainer"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="20dp"
                         android:textColor="@color/Black"
@@ -101,48 +141,34 @@
                         android:textStyle="bold"
                         tools:text="@string/preferredName" />
 
-                    <ImageView
-                        android:id="@+id/editPicture"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/preferredName"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="40dp"
-                        app:srcCompat="@drawable/ic_account_edit_outline"
-                        tools:srcCompat="@drawable/ic_account_edit_outline" />
 
-
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/gitHubUserName"
-                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/preferredName"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="2dp"
-                        android:textSize="14sp"
                         android:textColor="@color/Black"
                         tools:text="@string/temp_username" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/gitHubUserName"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="2dp"
-                        android:textSize="14sp"
                         android:textColor="@color/Black"
                         tools:text="@string/titledescription" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/bio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
                         android:layout_below="@id/title"
                         android:layout_marginStart="20dp"
-                        android:textSize="14sp"
                         android:layout_marginBottom="5dp"
                         android:textColor="@color/Black"
                         android:layout_marginTop="2dp"
@@ -163,7 +189,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:elevation="10dp"
+                android:elevation="3dp"
                 app:layout_constraintTop_toBottomOf="@id/info_card"
                 app:cardCornerRadius="15dp"
                 >
@@ -175,14 +201,13 @@
 
                     >
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberOfPosts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/colorBack"
                         android:textSize="12sp"
-                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.1"
                         app:layout_constraintStart_toStartOf="parent"
@@ -190,26 +215,24 @@
                         android:text="@string/postsLabel" />
 
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberOfRepos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="12sp"
-                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.32"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/NumberOfPosts"
                         android:text="@string/repos" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberOfFollowers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="12sp"
-                        android:textStyle="bold"
                         android:text="@string/followers"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.59"
@@ -217,13 +240,12 @@
                         app:layout_constraintTop_toTopOf="@id/NumberOfPosts"
                         />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberOfFollowing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="12sp"
-                        android:textStyle="bold"
                         android:text="@string/following"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.9"
@@ -233,7 +255,7 @@
                         />
 
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberofActualPosts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -245,7 +267,7 @@
                         app:layout_constraintStart_toStartOf="@id/NumberOfPosts"
                         app:layout_constraintEnd_toEndOf="@id/NumberOfPosts" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberofActualRepos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -258,7 +280,7 @@
                         app:layout_constraintStart_toStartOf="@id/NumberOfRepos"
                         app:layout_constraintEnd_toEndOf="@id/NumberOfRepos" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberofActualFollowers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -271,7 +293,7 @@
                         app:layout_constraintStart_toStartOf="@id/NumberOfFollowers"
                         app:layout_constraintEnd_toEndOf="@id/NumberOfFollowers" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/NumberofActualfollowing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -314,7 +336,7 @@
         android:layout_gravity="top|left"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/Previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

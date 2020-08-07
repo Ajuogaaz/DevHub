@@ -1,23 +1,13 @@
 package com.example.devhub.AlgoModels;
 
 import android.os.Build;
-import android.view.View;
-import android.widget.Toast;
-
 
 import androidx.annotation.RequiresApi;
 
 import com.example.devhub.Models.Repositories;
-import com.example.devhub.network.ApiClient;
-import com.example.devhub.network.ApiService;
-import com.parse.ParseUser;
 
 import java.util.HashMap;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class UserRep {
 

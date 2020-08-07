@@ -18,13 +18,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.example.devhub.Adapters.ProfileAdapter;
 import com.example.devhub.Models.Followers;
+import com.example.devhub.Models.MessageTop;
+import com.example.devhub.Models.Messages;
 import com.example.devhub.Models.Post;
 import com.example.devhub.R;
+import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.Utils.OnSwipeTouchListener;
 import com.example.devhub.databinding.ActivityProfileBinding;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.File;
 import java.io.Serializable;
@@ -47,6 +52,9 @@ public class ProfileActivity extends AppCompatActivity {
     List<Followers> followers;
     List<Followers> following;
     Boolean Done = false;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +80,10 @@ public class ProfileActivity extends AppCompatActivity {
 
             Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
             startActivity(intent);
+        });
+
+        binding.settinPicture.setOnClickListener(view15-> {
+            startActivity(new Intent(ProfileActivity.this, ChatActivity.class));
         });
 
         binding.preferredName.setText(ParseUser.getCurrentUser().getString("PreferredName"));
@@ -251,6 +263,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profileAdapter.clear();
             }
             posts.addAll(newposts);
+            binding.NumberofActualPosts.setText(((Number)posts.size()).toString());
             profileAdapter.notifyDataSetChanged();
         });
     }
@@ -270,6 +283,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
     }
+
+
 
 
     private void getAllFollowers() {
@@ -292,37 +307,9 @@ public class ProfileActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            hideSystemUI();
+            HideSystemWindow.hideSystemUI(getWindow());
         }
     }
-
-    private void hideSystemUI() {
-        // Enables regular immersive mode.
-        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        // Set the content to appear under the system bars so that the
-                        // content doesn't resize when the system bars hide and show.
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-
-                        // Hide the nav bar and status bar
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
-    }
-
-    // Shows the system bars by removing all the flags
-    // except for the ones that make the content appear under the system bars.
-    private void showSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-
-    }
-
 
 }
 

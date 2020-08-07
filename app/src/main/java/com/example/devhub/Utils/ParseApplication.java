@@ -4,9 +4,14 @@ import android.app.Application;
 
 import com.example.devhub.Models.Comments;
 import com.example.devhub.Models.Followers;
+import com.example.devhub.Models.MessageTop;
+import com.example.devhub.Models.Messages;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.example.devhub.Models.Post;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 public class ParseApplication extends Application {
 
@@ -18,6 +23,18 @@ public class ParseApplication extends Application {
         ParseObject.registerSubclass(Post.class);
         ParseObject.registerSubclass(Comments.class);
         ParseObject.registerSubclass(Followers.class);
+        ParseObject.registerSubclass(Messages.class);
+        ParseObject.registerSubclass(MessageTop.class);
+
+        // Use for monitoring Parse network traffic
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        // Can be Level.BASIC, Level.HEADERS, or Level.BODY
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        // any network interceptors must be added with the Configuration Builder given this syntax
+        builder.networkInterceptors().add(httpLoggingInterceptor);
+
+
 
 
 
@@ -27,6 +44,7 @@ public class ParseApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("devh-ub") // should correspond to APP_ID env variable
                 .clientKey("key")  // set explicitly unless clientKey is explicitly configured on Parse server
+                .clientBuilder(builder)
                 .server("https://devh-ub.herokuapp.com/parse/").build());
 
     }

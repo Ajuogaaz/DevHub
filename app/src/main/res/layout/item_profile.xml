@@ -10,15 +10,15 @@
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
     card_view:cardBackgroundColor="@color/colorWhite"
-    card_view:cardCornerRadius="20dp"
-    card_view:cardElevation="8dp">
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="1dp">
 
 
     <!-- Main Content View -->
     <RelativeLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content">
 
@@ -32,10 +32,10 @@
             android:layout_marginStart="20dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            card_view:cardElevation="10dp"
+            card_view:cardElevation="5dp"
             android:layout_centerVertical="true">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivProfileImage"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -47,30 +47,26 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_alignTop="@id/circularContainer"
             android:layout_toEndOf="@id/circularContainer"
-            android:ems="10"
             android:textStyle="bold"
             android:textColor="@color/Black"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="18sp"
             tools:text="Linus"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/gitHubUserName"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_below="@id/tvName"
             android:layout_toEndOf="@id/circularContainer"
-            android:ems="10"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="@string/Ajuogaaz"
             tools:text="@string/Ajuogaaz"
             />

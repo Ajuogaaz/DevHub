@@ -130,7 +130,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         binding.Follow.setOnClickListener(view6 -> {
 
             if(IamFollowing){
-                binding.Follow.setImageResource(R.drawable.ic_account_heart_outline);
+                binding.Follow.setTextColor(getResources().getColor(R.color.colorBack));
+                binding.Follow.setText(getResources().getString(R.string.follow));
                 IamFollowing = false;
                 mainFollow.deleteInBackground(e -> {
                     Toast.makeText(this, "unfollowed", Toast.LENGTH_SHORT).show();
@@ -144,7 +145,8 @@ public class OtherProfileActivity extends AppCompatActivity {
                 mainFollow = new Followers();
                 mainFollow.setSubjectUser(CurrentUser);
                 mainFollow.setFollowingUser(ParseUser.getCurrentUser());
-                binding.Follow.setImageResource(R.drawable.ic_account_heart);
+                binding.Follow.setTextColor(getResources().getColor(R.color.colorAccent));
+                binding.Follow.setText(getResources().getString(R.string.Following));
                 mainFollow.saveInBackground(e -> {
                     if(e == null){
                         Toast.makeText(this, "Followed", Toast.LENGTH_SHORT).show();
@@ -223,7 +225,8 @@ public class OtherProfileActivity extends AppCompatActivity {
 
         for (Followers follower : followers){
             if(follower.getFollowingUser().getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
-                binding.Follow.setImageResource(R.drawable.ic_account_heart);
+                binding.Follow.setTextColor(getResources().getColor(R.color.colorAccent));
+                binding.Follow.setText(getResources().getString(R.string.Following));
                 IamFollowing = true;
                 mainFollow = follower;
             }

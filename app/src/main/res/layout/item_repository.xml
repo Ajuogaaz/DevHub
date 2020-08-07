@@ -11,7 +11,7 @@
     android:layout_marginTop="10dp"
     card_view:cardBackgroundColor="@color/colorWhite"
     card_view:cardCornerRadius="30dp"
-    card_view:cardElevation="8dp">
+    card_view:cardElevation="0.8dp">
 
 
     <RelativeLayout
@@ -113,7 +113,7 @@
             android:layout_below="@id/separatingLine"
             android:layout_marginTop="3dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivUpvote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                 card_view:srcCompat="@drawable/ic_upvote" />
 
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                 card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
                 card_view:srcCompat="@drawable/ic_comment" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 card_view:layout_constraintTop_toTopOf="@id/ivUpvote"
                 card_view:srcCompat="@drawable/ic_share_variant" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivBookmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                 />
 
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivUpvoteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                 app:layout_constraintStart_toStartOf="@id/ivUpvote"
                 app:layout_constraintEnd_toEndOf="@id/ivUpvote" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivCommentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                 app:layout_constraintStart_toStartOf="@id/ivComment"
                 app:layout_constraintEnd_toEndOf="@id/ivComment" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivShareText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                 app:layout_constraintTop_toBottomOf="@id/ivShare"
                 app:layout_constraintStart_toStartOf="@id/ivShare"
                 app:layout_constraintEnd_toEndOf="@id/ivShare" />
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ivBookmarkText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
