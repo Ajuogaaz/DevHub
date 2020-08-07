@@ -36,21 +36,19 @@ import static com.example.devhub.Utils.Constants.REDIRECT_URI;
 
 public class ValidateActivity extends AppCompatActivity {
 
-    Button btn;
-    private static final String TAG = "ValidateActivity";
     ParseUser user;
 
     ActivityValidateBinding binding;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Get the current user
+        super.onCreate(savedInstanceState);
+
         user = ParseUser.getCurrentUser();
 
         //Check if the user is Null -- meaning logged out
         //If thats the case then go to login activity
-        if(user == null){
+        if (user == null) {
             toLoginActivity();
         }
         binding = ActivityValidateBinding.inflate(getLayoutInflater());
@@ -58,8 +56,17 @@ public class ValidateActivity extends AppCompatActivity {
         setContentView(view);
 
 
-        //btn.setOnClickListener(view -> initiateGithubLogin());
         binding.gitHub.setOnClickListener(view1 -> initiateGithubLogin());
+        binding.gitLab.setOnClickListener(view2 -> initiateGitlabLogin());
+        binding.bitBucket.setOnClickListener(view3 -> initiateBitBucketLogin());
+    }
+
+    private void initiateBitBucketLogin() {
+        Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
+    }
+
+    private void initiateGitlabLogin() {
+        Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
     }
 
     private void toLoginActivity() {
