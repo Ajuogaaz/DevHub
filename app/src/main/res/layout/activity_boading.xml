@@ -16,26 +16,30 @@
     </androidx.viewpager.widget.ViewPager>
 
     <linearlayout
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignparentbottom="true"
-        android:id="@+id/navigation">
+        android:layout_alignParentBottom="true"
+        android:weightSum="6">
 
-        <button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Skip"
-            android:id="@+id/skip"/>
+        <Button
+            android:id="@+id/skip"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="20dp"
+            android:layout_height="45dp"
+            android:layout_weight="3"
+            android:text="@string/skip"
+            android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
+        <Button
+            android:id="@+id/next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="20dp"
+            android:layout_height="45dp"
+            android:layout_weight="3"
+            android:text="@string/next"
+            android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
-
-        <button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Next"
-            android:id="@+id/next"/>
 
     </linearlayout>
 
