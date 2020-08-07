@@ -18,7 +18,7 @@ public class MessageTop extends ParseObject implements Serializable {
 
     public static final String KEY_BODY = "TopMessage";
     public static final String KEY_RECEIVING_USER = "User0ne";
-    public static final String KEY_CREATED_AT = "createdAt";
+    public static final String KEY_CREATED_AT = "updatedAt";
     public static final String KEY_SENDING_USER = "UserTwo";
 
     public ParseUser getUserOne(){
@@ -43,9 +43,9 @@ public class MessageTop extends ParseObject implements Serializable {
 
     public String getTime(){
 
-        Date date = getCreatedAt();
+        Date date = getUpdatedAt();
 
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("hh:mm a");
 
         String currDate = format.format(date);
 
