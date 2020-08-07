@@ -54,8 +54,8 @@ public class ValidateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate);
 
-        btn = findViewById(R.id.btn_Login);
-        btn.setOnClickListener(view -> initiateGithubLogin());
+        //btn = findViewById(R.id.btn_Login);
+        //btn.setOnClickListener(view -> initiateGithubLogin());
     }
 
     private void toLoginActivity() {
