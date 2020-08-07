@@ -48,7 +48,7 @@ public class ValidateActivity extends AppCompatActivity {
         //Check if the user is Null -- meaning logged out
         //If thats the case then go to login activity
         if(user == null){
-            toLoginActivity();
+        //    toLoginActivity();
         }
 
         super.onCreate(savedInstanceState);

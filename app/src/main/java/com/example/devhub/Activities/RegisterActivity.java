@@ -1,20 +1,15 @@
 package com.example.devhub.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.devhub.R;
-import com.example.devhub.databinding.ActivityLoginBinding;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.devhub.databinding.ActivityRegisterBinding;
-import com.parse.LogInCallback;
-import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -66,6 +61,10 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 
         });
+
+        binding.btnTest.setOnClickListener(view3 -> {
+            goToValidateActivity();
+        });
     }
 
 
@@ -73,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Intent intent = new Intent(RegisterActivity.this, ValidateActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
 
