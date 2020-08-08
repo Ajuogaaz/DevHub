@@ -34,10 +34,8 @@ public class MapsFragment extends Fragment {
 
 
     List<ParseUser> users;
-    ParseUser clickedUser;
     private static String TAG = MapsFragment.class.getSimpleName();
 
-    private GoogleMap map;
 
     private OnMapReadyCallback callback = googleMap -> {
 
@@ -47,15 +45,9 @@ public class MapsFragment extends Fragment {
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(currentUser));
 
         PopulateAllUsers(googleMap);
-        loadMap(googleMap);
 
     };
 
-    private void loadMap(GoogleMap googleMap) {
-        if(googleMap != null){
-            map = googleMap;
-        }
-    }
 
 
     @Nullable
@@ -75,32 +67,6 @@ public class MapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
 
-        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                putUser(marker);
-                return  true;
-            }
-        });
-
-
-
-    }
-
-    private void putUser(Marker marker) {
-
-        ParseQuery<ParseUser> query = ParseUser.getQuery();
-
-        query.whereEqualTo("PreferredName", marker.getTitle());
-
-        query.findInBackground((userlist, e) -> {
-            if (e == null) {
-                clickedUser = userlist.get(0);
-
-            } else {
-                Log.e(TAG, "Error"+ e.getMessage());
-            }
-        });
 
     }
 
