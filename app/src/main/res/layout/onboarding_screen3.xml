@@ -14,12 +14,7 @@
         android:textSize="48sp"
         android:layout_marginTop="50dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"
-        android:text="You seem to be a new user."/>
+
 
 
 </LinearLayout>
