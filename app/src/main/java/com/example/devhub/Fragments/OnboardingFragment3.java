@@ -47,6 +47,10 @@ public class OnboardingFragment3 extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         String apiKey = getString(R.string.api_key);
 
+        if(requireActivity() == null){
+            Log.i(TAG, "Its null");
+        }
+
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), apiKey);
         }
@@ -57,7 +61,7 @@ public class OnboardingFragment3 extends Fragment{
 
 
         AutocompleteSupportFragment autocompleteSupportFragment =
-                (AutocompleteSupportFragment) requireActivity().getSupportFragmentManager()
+                (AutocompleteSupportFragment) getChildFragmentManager()
                         .findFragmentById(R.id.autocomplete_fragment);
 
         autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
