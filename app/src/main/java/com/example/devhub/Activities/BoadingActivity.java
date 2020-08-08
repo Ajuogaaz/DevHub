@@ -3,6 +3,7 @@ package com.example.devhub.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,20 +14,28 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.devhub.Fragments.OnboardingFragment1;
 import com.example.devhub.Fragments.OnboardingFragment2;
 import com.example.devhub.Fragments.OnboardingFragment3;
+import com.example.devhub.R;
 import com.example.devhub.databinding.ActivityBoadingBinding;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 public class BoadingActivity extends FragmentActivity {
 
-    ActivityBoadingBinding binding;
     FragmentStatePagerAdapter adapter;
+
+    private ViewPager pager;
+    private SmartTabLayout indicator;
+    private Button skip;
+    private Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityBoadingBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_boading);
 
+        pager = findViewById(R.id.pager);
+        indicator = findViewById(R.id.indicator);
+        skip = findViewById(R.id.skip);
+        next = findViewById(R.id.next);
 
         adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @NonNull
@@ -46,30 +55,30 @@ public class BoadingActivity extends FragmentActivity {
             }
         };
 
-        binding.pager.setAdapter(adapter);
-        binding.indicator.setViewPager(binding.pager);
+        pager.setAdapter(adapter);
+        indicator.setViewPager(pager);
 
-        binding.skip.setOnClickListener(view2 -> finishOnboarding());
-        binding.next.setOnClickListener(view1 -> {
-            if(binding.pager.getCurrentItem() == 2) { // The last screen
+        skip.setOnClickListener(view2 -> finishOnboarding());
+        next.setOnClickListener(view1 -> {
+            if(pager.getCurrentItem() == 2) { // The last screen
                 finishOnboarding();
             } else {
-                binding.pager.setCurrentItem(
-                        binding.pager.getCurrentItem() + 1,
+                pager.setCurrentItem(
+                        pager.getCurrentItem() + 1,
                         true
                 );
             }
         });
 
-        binding.indicator.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        indicator.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 if(position == 2){
-                    binding.skip.setVisibility(View.GONE);
-                    binding.next.setText("Done");
+                    skip.setVisibility(View.GONE);
+                    next.setText("Done");
                 } else {
-                    binding.skip.setVisibility(View.VISIBLE);
-                    binding.next.setText("Next");
+                    skip.setVisibility(View.VISIBLE);
+                    next.setText("Next");
                 }
             }
         });
