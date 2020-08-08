@@ -104,12 +104,14 @@ public class MapsFragment extends Fragment {
     private void inititiatePlotting(GoogleMap googleMap) {
 
 
-        BitmapDescriptor defaultMarker =
-                BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
+        BitmapDescriptor defaultMarker;
+
 
         for(ParseUser user : users){
 
             if(!user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())) {
+
+                defaultMarker = BitmapDescriptorFactory.fromBitmap(createCustomMarker(requireContext(), user));
 
                 // listingPosition is a LatLng
                 LatLng listingPosition = new LatLng(user.getNumber("Latitude").doubleValue()
@@ -125,7 +127,7 @@ public class MapsFragment extends Fragment {
 
     }
 
-    public static Bitmap createCustomMarker( Context context, ParseUser user,  String _name) {
+    public static Bitmap createCustomMarker( Context context, ParseUser user) {
 
         View marker = ((LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_map, null);
 
