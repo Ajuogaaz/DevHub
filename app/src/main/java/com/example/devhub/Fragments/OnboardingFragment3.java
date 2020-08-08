@@ -14,6 +14,7 @@ import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.R;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -42,6 +43,10 @@ public class OnboardingFragment3 extends Fragment{
 
         // Create a new Places client instance.
         PlacesClient placesClient = Places.createClient(requireContext());
+
+        AutocompleteSupportFragment autocompleteSupportFragment =
+                (AutocompleteSupportFragment) getActivity().getSupportFragmentManager()
+                        .findFragmentById(R.id.autocomplete_fragment);
 
 
     }
