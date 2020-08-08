@@ -23,14 +23,17 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import static com.parse.Parse.getApplicationContext;
 
 public class OnboardingFragment3 extends Fragment{
 
     public static final String TAG = OnboardingFragment3.class.getSimpleName();
-    private String apiKey = getString(R.string.api_key);
 
+    public OnboardingFragment3(){
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,16 +45,19 @@ public class OnboardingFragment3 extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        String apiKey = getString(R.string.api_key);
 
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), apiKey);
         }
 
+
         // Create a new Places client instance.
         PlacesClient placesClient = Places.createClient(requireContext());
 
+
         AutocompleteSupportFragment autocompleteSupportFragment =
-                (AutocompleteSupportFragment) getActivity().getSupportFragmentManager()
+                (AutocompleteSupportFragment) requireActivity().getSupportFragmentManager()
                         .findFragmentById(R.id.autocomplete_fragment);
 
         autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
