@@ -1,17 +1,19 @@
 package com.example.devhub.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.devhub.R;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import com.example.devhub.databinding.ActivityBoadingBinding;
 
 public class BoadingActivity extends FragmentActivity {
 
     ActivityBoadingBinding binding;
+    FragmentStatePagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +21,23 @@ public class BoadingActivity extends FragmentActivity {
         binding = ActivityBoadingBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
+        adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            @NonNull
+            @Override
+            public Fragment getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public int getCount() {
+                return 0;
+            }
+        }
+
+
+
+
     }
 }
