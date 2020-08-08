@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.devhub.Fragments.OnboardingFragment1;
+import com.example.devhub.Fragments.OnboardingFragment2;
+import com.example.devhub.Fragments.OnboardingFragment3;
 import com.example.devhub.databinding.ActivityBoadingBinding;
 
 public class BoadingActivity extends FragmentActivity {
@@ -27,14 +30,19 @@ public class BoadingActivity extends FragmentActivity {
             @NonNull
             @Override
             public Fragment getItem(int position) {
-                return null;
+                switch (position) {
+                    case 0 : return new OnboardingFragment1();
+                    case 1 : return new OnboardingFragment2();
+                    case 2 : return new OnboardingFragment3();
+                    default: return null;
+                }
             }
 
             @Override
             public int getCount() {
-                return 0;
+                return 3;
             }
-        }
+        };
 
 
 
