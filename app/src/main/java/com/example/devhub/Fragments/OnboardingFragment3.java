@@ -12,8 +12,12 @@ import androidx.fragment.app.Fragment;
 import com.example.devhub.Activities.BoadingActivity;
 import com.example.devhub.Activities.ValidateActivity;
 import com.example.devhub.R;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
 
 import org.jetbrains.annotations.Nullable;
+
+import static com.parse.Parse.getApplicationContext;
 
 public class OnboardingFragment3 extends Fragment{
 
@@ -32,7 +36,12 @@ public class OnboardingFragment3 extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        if (!Places.isInitialized()) {
+            Places.initialize(getApplicationContext(), apiKey);
+        }
 
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(requireContext());
 
 
     }
