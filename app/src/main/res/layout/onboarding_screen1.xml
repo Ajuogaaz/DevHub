@@ -7,12 +7,12 @@
     android:padding="16dp"
     android:gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome1!"
-        android:textSize="48sp"
-        android:layout_marginTop="50dp"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:src=""
+        />
 
     <TextView
         android:layout_width="wrap_content"
