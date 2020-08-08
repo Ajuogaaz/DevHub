@@ -1,9 +1,7 @@
 package com.example.devhub.Activities;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -14,12 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.devhub.Fragments.ChatFragment;
 import com.example.devhub.Fragments.JobsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
-import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
 
@@ -27,8 +23,6 @@ import com.example.devhub.R;
 import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.parse.FindCallback;
-import com.parse.ParseUser;
 
 import java.util.List;
 
