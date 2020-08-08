@@ -62,9 +62,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
 
-        binding.btnTest.setOnClickListener(view3 -> {
-            goToValidateActivity();
-        });
     }
 
 
@@ -72,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Intent intent = new Intent(RegisterActivity.this, BoadingActivity.class);
         startActivity(intent);
-        //finish();
+        finish();
     }
 
 
