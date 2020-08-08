@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class OnboardingFragment3 extends Fragment{
 
     public static final String TAG = OnboardingFragment3.class.getSimpleName();
+    private String apiKey = getString(R.string.api_key);
 
 
     @Override
@@ -30,6 +31,8 @@ public class OnboardingFragment3 extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
 
     }
