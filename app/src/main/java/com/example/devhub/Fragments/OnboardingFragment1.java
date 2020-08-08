@@ -42,6 +42,17 @@ public class OnboardingFragment1 extends Fragment{
 
            etUserName.setOnEditorActionListener(new DoneOnEditorActionListener());
 
+           save.setOnClickListener(view1 -> {
+
+               String profession = etUserName.getText().toString();
+
+               if(!profession.isEmpty()){
+                   ParseUser.getCurrentUser().put("Title", profession);
+                   ParseUser.getCurrentUser().saveInBackground();
+               }
+
+           });
+
 
 
 

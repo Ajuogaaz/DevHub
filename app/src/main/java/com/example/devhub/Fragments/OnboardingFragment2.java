@@ -4,17 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.devhub.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.jetbrains.annotations.Nullable;
 
 public class OnboardingFragment2 extends Fragment{
 
     public static final String TAG = OnboardingFragment2.class.getSimpleName();
+    private Button save;
+    private TextInputEditText etUserName;
 
 
     @Override
@@ -28,6 +32,8 @@ public class OnboardingFragment2 extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        etUserName = view.findViewById(R.id.etUsername);
+        save = view.findViewById(R.id.submit);
 
     }
 
