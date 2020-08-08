@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.devhub.R;
+import com.example.devhub.Utils.DoneOnEditorActionListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.parse.ParseUser;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -34,6 +36,19 @@ public class OnboardingFragment2 extends Fragment{
 
         etUserName = view.findViewById(R.id.etUsername);
         save = view.findViewById(R.id.submit);
+
+        etUserName.setOnEditorActionListener(new DoneOnEditorActionListener());
+
+        save.setOnClickListener(view1 -> {
+
+            String profession = etUserName.getText().toString();
+
+            if(!profession.isEmpty()){
+                ParseUser.getCurrentUser().put("Experience", profession);
+                ParseUser.getCurrentUser().saveInBackground();
+            }
+
+        });
 
     }
 
