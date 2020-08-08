@@ -15,7 +15,7 @@
 
     </androidx.viewpager.widget.ViewPager>
 
-    <linearlayout
+    <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
 
-    </linearlayout>
+    </LinearLayout>
 
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
