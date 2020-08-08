@@ -20,7 +20,9 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -32,6 +34,8 @@ public class OnboardingFragment3 extends Fragment{
 
     public static final String TAG = OnboardingFragment3.class.getSimpleName();
     private Button save;
+    Number Latitude;
+    Number Longitude;
 
     public OnboardingFragment3(){
 
@@ -73,7 +77,8 @@ public class OnboardingFragment3 extends Fragment{
             @Override
             public void onPlaceSelected(@NonNull Place place) {
                 Log.i(TAG, "Place : " + place.getName() + ", " + place.getId()+ "," + place.getLatLng());
-                ParseUser.getCurrentUser().put("Location", place.getLatLng());
+                Latitude = place.getLatLng().latitude;
+                Longitude = place.getLatLng().longitude;
 
 
             }
@@ -95,12 +100,12 @@ public class OnboardingFragment3 extends Fragment{
     private void finishOnboarding() {
 
         // Launch the main Activity, called MainActivity
-        ParseUser.getCurrentUser().saveInBackground();
-
-        Intent main = new Intent(requireContext(), ValidateActivity.class);
-        startActivity(main);
-
-        getActivity().finish();
+        ParseUser.getCurrentUser().put("Latitude", Latitude);
+        ParseUser.getCurrentUser().put("Longitude", Longitude);
+        ParseUser.getCurrentUser().saveInBackground(e -> {
+            Intent intent = new Intent(requireActivity(), ValidateActivity.class);
+            startActivity(intent);
+        });
     }
 
 
