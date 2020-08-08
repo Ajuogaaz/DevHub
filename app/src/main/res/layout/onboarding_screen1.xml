@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,16 +9,38 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:src=""
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/career"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterProfession"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/professionhint"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"
-        android:text="You seem to be a new user."/>
+        app:hintTextColor="@color/colorAccent"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textMultiLine"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

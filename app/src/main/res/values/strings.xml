@@ -94,4 +94,5 @@
     <string name="github">GITHUB</string>
     <string name="bitbucket">BITBUCKET</string>
     <string name="gitlab">gitlab</string>
+    <string name="professionhint">Profession eg Computer Scientist</string>
 </resources>
