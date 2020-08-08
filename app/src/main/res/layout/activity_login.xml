@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:background="@drawable/ic_undraw_mobile_login_ikmv"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -89,22 +90,24 @@
         android:fitsSystemWindows="true"
         android:layout_alignParentBottom="true">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
             android:textColor="@color/Black"
+            android:textSize="12sp"
             android:text="@string/dont_have_an_account"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
             android:textColor="@color/Blue"
+            android:textSize="12sp"
             android:layout_toEndOf="@id/intro"
             android:text="@string/signup_here"/>
 

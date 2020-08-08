@@ -7,14 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".Activities.LoginActivity">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_undraw_welcome"
+        />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterEmail"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/welcome"
+        android:hint="@string/enter_email_address"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/colorAccent"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeColor="@color/colorAccent"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/Black"
+            android:inputType="textEmailAddress"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/enterUserName"
-        android:layout_marginTop="250dp"
+        android:layout_below="@id/enterEmail"
         android:layout_width="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:hint="@string/usernameHint"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         app:hintTextColor="@color/colorAccent"
         app:boxCornerRadiusTopStart="15dp"
@@ -89,22 +130,24 @@
         android:fitsSystemWindows="true"
         android:layout_alignParentBottom="true">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
             android:textColor="@color/Black"
+            android:textSize="12sp"
             android:text="@string/have_an_account"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
             android:textColor="@color/Blue"
+            android:textSize="12sp"
             android:layout_toEndOf="@id/intro"
             android:text="@string/login_here"/>
 

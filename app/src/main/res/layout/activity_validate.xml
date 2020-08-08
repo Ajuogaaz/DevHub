@@ -1,34 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.ValidateActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/github_auth"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="18sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/versionControl"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:text="@string/pick_your_current_service_provider"
+        android:textSize="15sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="50dp"
+        android:textStyle="italic"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/pic"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_undraw_version_control_9bpv"/>
+
 
     <Button
-        android:id="@+id/btn_Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:text="@string/login_with_github"
+        android:id="@+id/gitHub"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/github"
+        app:strokeColor="@color/colorAccent"
         android:textAllCaps="true"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/Black"
+        android:textStyle="normal"
+        app:strokeWidth="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textSize="30sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_github_logo"
+        app:iconSize="50dp"
+        app:iconTint="@color/Black" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/bitBucket"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/gitHub"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/bitbucket"
+        android:textAllCaps="true"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        android:textStyle="normal"
+        app:strokeColor="@color/colorAccent"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/bitbucket"
+        app:iconSize="50dp"
+        app:iconTint="@color/bitbucket"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/gitLab"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/bitBucket"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        app:strokeColor="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/gitlab"
+        android:textAllCaps="true"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        android:textStyle="normal"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_icons8_gitlab"
+        app:iconSize="50dp"
+        app:iconTint="@color/gitlab"
+        app:strokeWidth="1dp" />
+
+
+</RelativeLayout>

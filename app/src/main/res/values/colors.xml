@@ -139,4 +139,6 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+    <color name="gitlab">#FC6D27</color>
+    <color name="bitbucket">#2684FF</color>
 </resources>
