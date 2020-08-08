@@ -48,6 +48,7 @@ public class OnboardingFragment3 extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String apiKey = getString(R.string.api_key);
+        save = view.findViewById(R.id.submit);
 
         if(requireActivity() == null){
             Log.i(TAG, "Its null");
@@ -82,6 +83,10 @@ public class OnboardingFragment3 extends Fragment{
                 Toast.makeText(getContext(), ""+status.toString(), Toast.LENGTH_SHORT).show();
 
             }
+        });
+
+        save.setOnClickListener(view1 -> {
+            finishOnboarding();
         });
 
 
