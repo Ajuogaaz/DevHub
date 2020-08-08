@@ -5,6 +5,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ public class OnboardingFragment1 extends Fragment{
         public static final String TAG = OnboardingFragment1.class.getSimpleName();
 
         private TextInputEditText etUserName;
+        private Button save;
 
 
         @Override
@@ -36,18 +38,11 @@ public class OnboardingFragment1 extends Fragment{
             super.onViewCreated(view, savedInstanceState);
 
             etUserName = view.findViewById(R.id.etUsername);
+            save = view.findViewById(R.id.submit);
 
-            etUserName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                    new DoneOnEditorActionListener();
-                    String Profession = etUserName.getText().toString();
+           etUserName.setOnEditorActionListener(new DoneOnEditorActionListener());
 
-                    ParseUser.getCurrentUser().put("Title", Profession);
-                    ParseUser.getCurrentUser().saveInBackground();
-                    return false;
-                }
-            });
+
 
 
 
