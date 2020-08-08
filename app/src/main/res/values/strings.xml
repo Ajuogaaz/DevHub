@@ -98,4 +98,5 @@
     <string name="professionhint">Profession eg Computer Scientist</string>
     <string name="whats_your_level_of_experience_eg_junior">Whats your level of experience eg Junior</string>
     <string name="submit">SUBMIT</string>
+    <string name="save_preference">Save preference</string>
 </resources>
