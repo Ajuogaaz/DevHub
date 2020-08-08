@@ -30,10 +30,27 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:layout_marginTop="100dp"
-        android:src="@drawable/career"
+        android:src="@drawable/mapic"
         />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/settingsPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:clickable="true"
+        android:textColor="@color/Black"
+        android:text="@string/submit"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="20dp"
+        app:strokeColor="@color/colorAccent"
+        android:focusable="true" />
 
 
 
