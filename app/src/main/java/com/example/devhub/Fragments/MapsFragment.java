@@ -5,15 +5,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.devhub.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -121,15 +125,28 @@ public class MapsFragment extends Fragment {
 
     }
 
-    public static Bitmap createCustomMarker( Context context, @DrawableRes int resource, String _name) {
+    public static Bitmap createCustomMarker( Context context, ParseUser user,  String _name) {
 
         View marker = ((LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_map, null);
 
-        CircleImageView markerImage = (CircleImageView) marker.findViewById(R.id.user_dp);
-        markerImage.setImageResource(resource);
+        CircleImageView markerImage = marker.findViewById(R.id.user_dp);
 
+        String ImageUrl = "";
+
+        if(user.getBoolean("HasUploadedPic")){
+            ImageUrl = user.getParseFile("ProfilePic").getUrl();
+        }else{
+            ImageUrl = user.getString("githubProfilePic");
+        }
+
+        if(!ImageUrl.isEmpty()) {
+            Glide.with(context)
+                    .load(ImageUrl)
+                    .into(markerImage);
+        }
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
+
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         marker.setLayoutParams(new ViewGroup.LayoutParams(52, ViewGroup.LayoutParams.WRAP_CONTENT));
         marker.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
