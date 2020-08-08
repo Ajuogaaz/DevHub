@@ -1,5 +1,7 @@
 package com.example.devhub.Activities;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -77,5 +79,12 @@ public class BoadingActivity extends FragmentActivity {
     }
 
     private void finishOnboarding() {
+
+        // Launch the main Activity, called MainActivity
+        Intent main = new Intent(BoadingActivity.this, ValidateActivity.class);
+        startActivity(main);
+
+        // Close the OnboardingActivity
+        finish();
     }
 }
