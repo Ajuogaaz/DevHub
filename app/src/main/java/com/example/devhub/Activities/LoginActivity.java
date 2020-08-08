@@ -248,12 +248,10 @@ public class LoginActivity extends AppCompatActivity {
             user.put("gitHubUserName", user.getUsername());
         }
 
-
         user.put("NumberOfRepos", replyUser.getRepos());
 
         user.put("NumberOfPost", 0);
 
-        user.put("Title", "");
 
         user.put("NumberOfFollowing", 0);
 
