@@ -20,10 +20,13 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 public class BoadingActivity extends FragmentActivity {
 
+
     FragmentStatePagerAdapter adapter;
 
     private ViewPager pager;
     private SmartTabLayout indicator;
+    private Button skip;
+    private Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class BoadingActivity extends FragmentActivity {
 
         pager = findViewById(R.id.pager);
         indicator = findViewById(R.id.indicator);
+        skip = findViewById(R.id.skip);
+        next = findViewById(R.id.next);
 
         adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @NonNull
@@ -54,7 +59,41 @@ public class BoadingActivity extends FragmentActivity {
         pager.setAdapter(adapter);
         indicator.setViewPager(pager);
 
+        skip.setOnClickListener(view2 -> finishOnboarding());
+        next.setOnClickListener(view1 -> {
+            if(pager.getCurrentItem() == 2) { // The last screen
+                finishOnboarding();
+            } else {
+                pager.setCurrentItem(
+                        pager.getCurrentItem() + 1,
+                        true
+                );
+            }
+        });
+
+        indicator.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                if(position == 2){
+                    skip.setVisibility(View.GONE);
+                    next.setText("Done");
+                } else {
+                    skip.setVisibility(View.VISIBLE);
+                    next.setText("Next");
+                }
+            }
+        });
+
 
     }
 
+    private void finishOnboarding() {
+
+        // Launch the main Activity, called MainActivity
+        Intent main = new Intent(BoadingActivity.this, ValidateActivity.class);
+        startActivity(main);
+
+        // Close the OnboardingActivity
+        finish();
+    }
 }

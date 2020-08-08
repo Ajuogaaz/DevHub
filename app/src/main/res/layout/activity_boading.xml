@@ -15,13 +15,40 @@
 
     </androidx.viewpager.widget.ViewPager>
 
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/skip"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="20dp"
+            android:layout_height="45dp"
+            android:layout_weight="3"
+            android:text="skip"
+            android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <Button
+            android:id="@+id/next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="20dp"
+            android:layout_height="45dp"
+            android:layout_weight="3"
+            android:text="next"
+            android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+
+    </LinearLayout>
 
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/pager"
+        android:layout_above="@+id/navigation"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         app:stl_dividerThickness="1dp"
