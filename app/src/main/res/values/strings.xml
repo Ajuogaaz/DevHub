@@ -50,6 +50,7 @@
     <string name="TimeSpent">2 hours</string>
     <string name="NumberOfUpvotes">upvotes</string>
     <string name="NumberOfComments">comments</string>
+    <string name="api_key">AIzaSyB3nBqUEwfz4NtunJgiRnYyIyHNBAnJO7I</string>
     <string name="post">Post</string>
     <string name="cancel">Cancel</string>
     <string name="create_post">Create Post</string>
