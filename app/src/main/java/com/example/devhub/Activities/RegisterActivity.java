@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void goToValidateActivity() {
 
-        Intent intent = new Intent(RegisterActivity.this, ValidateActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, BoadingActivity.class);
         startActivity(intent);
         //finish();
     }
