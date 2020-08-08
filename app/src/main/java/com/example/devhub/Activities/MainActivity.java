@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.devhub.Fragments.JobsFragment;
+import com.example.devhub.Fragments.MapsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
         //define your fragments here
-        final Fragment ChatFragment = new ChatFragment();
+        final Fragment MapFragment = new MapsFragment();
         final Fragment NotificationFragment = new JobsFragment();
         final Fragment RepositoryFragment = new RepositoryFragment();
         final Fragment SearchFragment = new SearchFragment();
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         //binding.toolbar.setVisibility(View.VISIBLE);
                         Toast.makeText(MainActivity.this, "Chat",
                                 Toast.LENGTH_SHORT).show();
-                        fragment = ChatFragment;
+                        fragment = MapFragment;
                         break;
 
                     case R.id.action_notifications:
