@@ -67,8 +67,8 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="40dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@drawable/ic_cog"
-                        tools:srcCompat="@drawable/ic_cog" />
+                        app:srcCompat="@drawable/ic_message_settings"
+                        tools:srcCompat="@drawable/ic_message_settings" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/circularContainer"
