@@ -79,7 +79,6 @@ public class ChatDetailsActivity extends AppCompatActivity {
             messages.setSendingUser(ParseUser.getCurrentUser());
             messages.setReceivingUser(recepient);
             messages.setChatBody(message);
-
             messages.saveInBackground(e -> {
                 if(e != null){
                     Toast.makeText(this, "not sent", Toast.LENGTH_SHORT).show();
@@ -90,7 +89,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
             
             messageTop.updateTopMessage(message);
             messageTop.saveInBackground(e -> {
-                Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
+
             });
 
 
