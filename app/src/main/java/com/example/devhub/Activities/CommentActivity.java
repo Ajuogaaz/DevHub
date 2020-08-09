@@ -22,7 +22,6 @@ public class CommentActivity extends AppCompatActivity {
     Post SubjectPost;
     ActivityCommentBinding binding;
 
-    private static final String TAG = "COMMENTACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

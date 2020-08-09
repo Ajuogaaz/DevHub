@@ -42,8 +42,7 @@ public class DetailsActivity extends AppCompatActivity{
     Post SubjectPost;
     private static final String TAG = "DETAILSACTIVITY";
     List<String> likes;
-    private static final String DEBUG_TAG = "Gestures";
-    private GestureDetectorCompat mDetector;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

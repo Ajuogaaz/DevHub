@@ -51,7 +51,7 @@ public class OnboardingFragment3 extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String apiKey = getString(R.string.api_key);
+        String apiKey = getString(R.string.google_maps_key);
         save = view.findViewById(R.id.submit);
 
         if(requireActivity() == null){

@@ -1,9 +1,7 @@
 package com.example.devhub.Activities;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -13,32 +11,21 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import com.example.devhub.Fragments.ChatFragment;
 import com.example.devhub.Fragments.JobsFragment;
+import com.example.devhub.Fragments.MapsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
-import com.example.devhub.Models.Followers;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
-
-
 import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.parse.FindCallback;
-import com.parse.ParseUser;
-
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
-    public static List<Repositories> Repos;
-
-    public static final int TimelineFragmentRequest = 1234;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -52,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
         //define your fragments here
-        final Fragment ChatFragment = new ChatFragment();
+        final Fragment MapFragment = new MapsFragment();
         final Fragment NotificationFragment = new JobsFragment();
         final Fragment RepositoryFragment = new RepositoryFragment();
         final Fragment SearchFragment = new SearchFragment();
@@ -74,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         //binding.toolbar.setVisibility(View.VISIBLE);
                         Toast.makeText(MainActivity.this, "Chat",
                                 Toast.LENGTH_SHORT).show();
-                        fragment = ChatFragment;
+                        fragment = MapFragment;
                         break;
 
                     case R.id.action_notifications:

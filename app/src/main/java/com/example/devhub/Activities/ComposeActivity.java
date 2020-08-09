@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class ComposeActivity extends AppCompatActivity {
 
-    private static final String TAG = "ComposeActivity";
+    private static final String TAG = ComposeActivity.class.getSimpleName();
     ActivityComposeBinding binding;
     String ImageUrl;
     File photoFile;
