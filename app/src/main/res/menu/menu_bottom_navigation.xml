@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/action_timeline"
-        android:icon="@android:drawable/ic_lock_lock"
-        android:title="@string/Timeline"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/action_notifications"
-        android:icon="@android:drawable/ic_popup_reminder"
-        android:title="@string/Notification"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/action_chat"
-        android:icon="@android:drawable/ic_menu_send"
-        android:title="@string/chat"
-        app:showAsAction="always" />
+        android:icon="@drawable/ic_home"
+        android:enabled="true"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
 
     <item
         android:id="@+id/action_repository"
-        android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="@string/repository"
-        app:showAsAction="always" />
+        android:icon="@drawable/ic_git"
+        android:enabled="true"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
+
+
+    <item
+        android:id="@+id/action_chat"
+        android:icon="@drawable/ic_map_marker"
+        android:enabled="true"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
+
 
     <item
         android:id="@+id/action_search"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/search"
-        app:showAsAction="always" />
+        android:enabled="true"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle"  />
+
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/ic_briefcase"
+        app:showAsAction="always"
+        android:enabled="true"
+        tools:ignore="MenuTitle"  />
+
 
 </menu>
