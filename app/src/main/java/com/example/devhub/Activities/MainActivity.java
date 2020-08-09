@@ -11,7 +11,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
 import com.example.devhub.Fragments.JobsFragment;
 import com.example.devhub.Fragments.MapsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
@@ -19,21 +18,14 @@ import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
 import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
-
-
 import com.example.devhub.Utils.HideSystemWindow;
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static ActivityMainBinding binding;
-    public static List<Repositories> Repos;
-
-    public static final int TimelineFragmentRequest = 1234;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
