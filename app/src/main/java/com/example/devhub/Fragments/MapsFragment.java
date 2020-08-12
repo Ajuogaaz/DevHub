@@ -9,7 +9,12 @@ import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -30,7 +35,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.FindCallback;
+import com.parse.GetDataCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -47,6 +54,10 @@ public class MapsFragment extends Fragment {
 
     List<ParseUser> users;
     private static String TAG = MapsFragment.class.getSimpleName();
+    private Bitmap bmp;
+    private Bitmap resizedBitmap;
+    BitmapDescriptor defaultMarker;
+
 
 
     private OnMapReadyCallback callback = googleMap -> {
@@ -104,14 +115,74 @@ public class MapsFragment extends Fragment {
     private void inititiatePlotting(GoogleMap googleMap) {
 
 
-        BitmapDescriptor defaultMarker;
 
 
         for(ParseUser user : users){
 
             if(!user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())) {
 
-                defaultMarker = BitmapDescriptorFactory.fromBitmap(createCustomMarker(requireContext(), user));
+                View marker = ((LayoutInflater) requireContext().getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_map, null);
+
+                CircleImageView markerImage = marker.findViewById(R.id.user_dp);
+
+                String ImageUrl = "";
+
+                if(user.getBoolean("HasUploadedPic")){
+
+
+                    ParseFile image = user.getParseFile("ProfilePic");
+                    image.getDataInBackground((data, e) -> {
+                        if (e == null) {
+                            // Decode the Byte[] into
+
+                            bmp = BitmapFactory
+                                    .decodeByteArray(
+                                            data, 0,
+                                            data.length);
+                            float aspectRatio = bmp.getWidth() / (float) bmp.getHeight();
+                            int newWidth = 120;
+                            int newHeight = Math.round(newWidth / aspectRatio);
+                            resizedBitmap = Bitmap.createScaledBitmap(bmp, newWidth, newHeight, false);
+                            resizedBitmap = getBitmapRoundedCorners(resizedBitmap);
+
+                        }
+                        defaultMarker = BitmapDescriptorFactory.fromBitmap(resizedBitmap);
+
+                        // listingPosition is a LatLng
+                        LatLng listingPosition = new LatLng(user.getNumber("Latitude").doubleValue()
+                                , user.getNumber("Longitude").doubleValue());
+                        // Create the marker on the fragment
+                        googleMap.addMarker(new MarkerOptions()
+                                .position(listingPosition)
+                                .title(user.getString("PreferredName"))
+                                .snippet(user.getString("Bio"))
+                                .icon(defaultMarker));
+                    });
+
+
+                }else{
+                    ImageUrl = user.getString("githubProfilePic");
+                }
+
+                if(!ImageUrl.isEmpty()) {
+                    Glide.with(requireContext())
+                            .load(ImageUrl)
+                            .into(markerImage);
+                }
+
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+
+                requireActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                marker.setLayoutParams(new ViewGroup.LayoutParams(52, ViewGroup.LayoutParams.WRAP_CONTENT));
+                marker.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
+                marker.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                marker.buildDrawingCache();
+                Bitmap bitmap = Bitmap.createBitmap(marker.getMeasuredWidth(), marker.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                marker.draw(canvas);
+
+
+                defaultMarker = BitmapDescriptorFactory.fromBitmap(bitmap);
 
                 // listingPosition is a LatLng
                 LatLng listingPosition = new LatLng(user.getNumber("Latitude").doubleValue()
@@ -120,14 +191,14 @@ public class MapsFragment extends Fragment {
                 googleMap.addMarker(new MarkerOptions()
                         .position(listingPosition)
                         .title(user.getString("PreferredName"))
-                        .snippet("Some description here")
+                        .snippet(user.getString("Bio"))
                         .icon(defaultMarker));
             }
         }
 
     }
 
-    public static Bitmap createCustomMarker( Context context, ParseUser user) {
+    public Bitmap createCustomMarker(Context context, ParseUser user) {
 
         View marker = ((LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_map, null);
 
@@ -136,7 +207,27 @@ public class MapsFragment extends Fragment {
         String ImageUrl = "";
 
         if(user.getBoolean("HasUploadedPic")){
-            ImageUrl = user.getParseFile("ProfilePic").getUrl();
+
+
+            ParseFile image = user.getParseFile("ProfilePic");
+            image.getDataInBackground((data, e) -> {
+                if (e == null) {
+                    // Decode the Byte[] into
+
+                    bmp = BitmapFactory
+                            .decodeByteArray(
+                                    data, 0,
+                                    data.length);
+                    float aspectRatio = bmp.getWidth() / (float) bmp.getHeight();
+                    int newWidth = 120;
+                    int newHeight = Math.round(newWidth / aspectRatio);
+                    resizedBitmap = Bitmap.createScaledBitmap(bmp, newWidth, newHeight, false);
+                    resizedBitmap = getBitmapRoundedCorners(resizedBitmap);
+
+                }
+            });
+
+
         }else{
             ImageUrl = user.getString("githubProfilePic");
         }
@@ -159,6 +250,27 @@ public class MapsFragment extends Fragment {
         marker.draw(canvas);
 
         return bitmap;
+    }
+
+    private Bitmap getBitmapRoundedCorners(Bitmap bitmap) {
+        Bitmap output = Bitmap.createBitmap(resizedBitmap.getWidth(),
+                resizedBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, resizedBitmap.getWidth(), bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2,
+                bitmap.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+
+        return output;
+
     }
 
 }

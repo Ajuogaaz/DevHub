@@ -4,24 +4,23 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 import com.example.devhub.Fragments.JobsFragment;
 import com.example.devhub.Fragments.MapsFragment;
 import com.example.devhub.Fragments.RepositoryFragment;
 import com.example.devhub.Fragments.SearchFragment;
 import com.example.devhub.Fragments.TimelineFragment;
-import com.example.devhub.Models.Repositories;
 import com.example.devhub.R;
 import com.example.devhub.Utils.HideSystemWindow;
+
 import com.example.devhub.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,34 +58,28 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_chat:
                         //binding.toolbar.setVisibility(View.VISIBLE);
-                        Toast.makeText(MainActivity.this, "Chat",
-                                Toast.LENGTH_SHORT).show();
                         fragment = MapFragment;
                         break;
 
                     case R.id.action_notifications:
-                        Toast.makeText(MainActivity.this, "notifications",
-                                Toast.LENGTH_SHORT).show();
+
                         //binding.toolbar.setVisibility(View.GONE);
                         fragment = NotificationFragment;
                         break;
 
                     case R.id.action_repository:
-                        Toast.makeText(MainActivity.this, "Repository",
-                                Toast.LENGTH_SHORT).show();
+
                         //binding.toolbar.setVisibility(View.GONE);
                         fragment = RepositoryFragment;
                         break;
                     case R.id.action_timeline:
                     default:
-                        Toast.makeText(MainActivity.this, "Timeline",
-                                Toast.LENGTH_SHORT).show();
+
                         //binding.toolbar.setVisibility(View.GONE);
                         fragment = TimelineFragment;
                         break;
                     case R.id.action_search:
-                        Toast.makeText(MainActivity.this, "Search",
-                                Toast.LENGTH_SHORT).show();
+
                         //binding.toolbar.setVisibility(View.GONE);
                         fragment = SearchFragment;
                         break;

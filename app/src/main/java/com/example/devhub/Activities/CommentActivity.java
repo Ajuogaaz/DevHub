@@ -62,10 +62,10 @@ public class CommentActivity extends AppCompatActivity {
 
         String ImageUrl = "";
 
-        if(SubjectPost.getUser().getBoolean("HasUploadedPic")){
-            ImageUrl = SubjectPost.getUser().getParseFile("ProfilePic").getUrl();
+        if(ParseUser.getCurrentUser().getBoolean("HasUploadedPic")){
+            ImageUrl = ParseUser.getCurrentUser().getParseFile("ProfilePic").getUrl();
         }else{
-            ImageUrl = SubjectPost.getUser().getString("githubProfilePic");
+            ImageUrl =  ParseUser.getCurrentUser().getString("githubProfilePic");
         }
 
         if (!ImageUrl.isEmpty()) {
@@ -74,8 +74,8 @@ public class CommentActivity extends AppCompatActivity {
                     .into(binding.ivProfileImage);
         }
 
-        binding.tvName.setText(SubjectPost.getUser().getString("PreferredName"));
-        binding.gitHubUserName.setText(String.format("@%s", SubjectPost.getUser().getString("gitHubUserName")));
+        binding.tvName.setText( ParseUser.getCurrentUser().getString("PreferredName"));
+        binding.gitHubUserName.setText(String.format("@%s",  ParseUser.getCurrentUser().getString("gitHubUserName")));
     }
 
     private void fireIntent() {
