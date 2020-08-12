@@ -274,6 +274,8 @@ public class DetailsActivity extends AppCompatActivity{
                 commentsAdapter.clear();
             }
             Allcomments.addAll(newcomments);
+            SubjectPost.setNumberOfComments(Allcomments.size());
+            SubjectPost.saveInBackground();
             commentsAdapter.notifyDataSetChanged();
             binding.tvActualComments.setText(String.format("%d comments",Allcomments.size()));
         });
