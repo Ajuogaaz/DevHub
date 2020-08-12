@@ -1,10 +1,9 @@
 Original App Design Project - README Template
 ===
+
 #Week 2 walk through.  
  -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/week2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-#Week 1 walk through.  
- -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 # DEVHUB
 
@@ -183,3 +182,11 @@ Or watch this short summary.
     * (Create/POST) Create a new comment on a post
 * Repo Activity
     * (Read/GET) Get a list of all repositories
+    
+    
+#Week 2 walk through.  
+ -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/week2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+#Week 1 walk through.  
+ -  <img src='https://github.com/Ajuogaaz/DevHub/blob/master/sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
